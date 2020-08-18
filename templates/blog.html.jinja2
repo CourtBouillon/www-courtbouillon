@@ -1,0 +1,16 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <h2>Blog</h2>
+
+    {% for article in articles.values() %}
+      <section>
+        {{ article.introduction }}
+        <nav>
+          <p><a href="{{ url_for('blog', article=article.filename) }}">Read more…</a></p>
+        </nav>
+      </section>
+    {% endfor %}
+  </article>
+{% endblock content %}

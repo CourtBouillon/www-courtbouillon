@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <title>CourtBouillon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
+  </head>
+  <body id="page-{{ request.args.page or request.endpoint }}">
+    <header>
+      <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
+      <p>Free Software</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('page', page='index') }}">Home</a></li>
+        <li><a href="{{ url_for('page', page='projects') }}">Projects</a></li>
+        <li><a href="{{ url_for('page', page='values') }}">Values</a></li>
+        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+        <li><a href="{{ url_for('page', page='support') }}">Support</a></li>
+      </ul>
+    </nav>
+
+    {% block content %}{% endblock content %}
+
+    <footer>
+      <section>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:contact@courtbouillon.org">contact@courtbouillon.org</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Follow Us</h2>
+        <ul>
+          <li><a href="https://twitter.com/BouillonCourt">Twitter</a></li>
+          <li><a href="https://github.com/CourtBouillon">GitHub</a></li>
+          <li><a href="{{ url_for('rss') }}">RSS</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>About Us</h2>
+        <ul>
+          <li><a href="{{ url_for('page', page='values') }}">Values</a></li>
+          <li><a href="{{ url_for('page', page='legal') }}">Legal Notice</a></li>
+        </ul>
+      </section>
+    </footer>
+  </body>
+</html>
