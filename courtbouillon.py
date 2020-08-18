@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 from email.utils import format_datetime
 from pathlib import Path
@@ -12,11 +11,11 @@ app = Flask(__name__, static_url_path='/static')
 
 def list_articles():
     articles = {}
-    with os.scandir(path='templates/articles') as articles_files:
-        for article in articles_files:
+    articles_path = Path('templates/articles')
+    if articles_path.is_dir():
+        for article in articles_path.iterdir():
             if article.is_file() and not article.name.startswith('_'):
-                content = (
-                    Path('templates/articles') / article.name).read_text()
+                content = (articles_path / article.name).read_text()
                 introduction = (
                     content.split('<header>')[1].split('</header>')[0])
                 title = introduction.split('<h2>')[1].split('</h2>')[0]
