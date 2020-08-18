@@ -8,6 +8,11 @@ jobs:
   deploy:
     name: deploy
     runs-on: ubuntu-latest
+    env:
+      PORT: ${{ secrets.PORT }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      TAKOYAKI: ${{ secrets.TAKOYAKI }}
+      USER: ${{ secrets.USER }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
