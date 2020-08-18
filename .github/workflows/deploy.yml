@@ -1,0 +1,27 @@
+name: www-courtbouillon deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+      - name: Install dependencies
+        run: sudo apt-get update -y && sudo apt-get install openssh-client make rsync -y
+      - name: Enable ssh
+        run: |
+          eval $(ssh-agent -s)
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          ssh-keyscan -p $PORT $TAKOYAKI >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+      - name: Make
+        run: make static
+      - name: Rsync
+        run: rsync -avz --delete -e "ssh -p $PORT" build/* $USER@$TAKOYAKI:/var/www/www-courtbouillon
