@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>CourtBouillon</title>
+    <description>Free Software</description>
+    <link>https://www.courtbouillon.org/</link>
+    {% if articles %}<lastBuildDate>{{ (articles.values()| list)[0].date }}</lastBuildDate>{% endif %}
+    <ttl>86400</ttl>
+
+    {% for article in articles.values() %}
+      <item>
+        <title>{{ article.title | e }}</title>
+        <description>{{ article.description | e }}</description>
+        <link>https://www.courtbouillon.org{{ url_for('blog', article=article.filename) }}</link>
+        <guid>https://www.courtbouillon.org{{ url_for('blog', article=article.filename) }}</guid>
+        <pubDate>{{ article.date }}</pubDate>
+      </item>
+    {% endfor %}
+
+  </channel>
+</rss>
