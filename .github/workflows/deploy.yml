@@ -18,7 +18,9 @@ jobs:
       - uses: actions/setup-python@v1
       - name: Install dependencies
         run: sudo apt-get update -y && sudo apt-get install openssh-client make rsync -y
-      - name: Enable ssh
+      - name: Make
+        run: make static
+      - name: Rsync
         run: |
           eval $(ssh-agent -s)
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
@@ -26,7 +28,4 @@ jobs:
           chmod 700 ~/.ssh
           ssh-keyscan -p $PORT $TAKOYAKI >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
-      - name: Make
-        run: make static
-      - name: Rsync
-        run: rsync -avz --delete -e "ssh -p $PORT" build/* $USER@$TAKOYAKI:/var/www/www-courtbouillon
+          rsync -avz --delete -e "ssh -p $PORT" build/* $USER@$TAKOYAKI:/var/www/www-courtbouillon
