@@ -33,18 +33,18 @@ def list_articles():
     return dict(sorted(articles.items(), reverse=True))
 
 
-@app.route('/')
-@app.route('/<page>.html')
-def page(page='index'):
-    return render_template(f'{page}.html.jinja2')
-
-
 @app.route('/blog.html')
 @app.route('/blog/<article>.html')
 def blog(article=None):
     if article is not None:
         return render_template(f'articles/{article}.html.jinja2')
     return render_template('blog.html.jinja2', articles=list_articles())
+
+
+@app.route('/')
+@app.route('/<path:page>.html')
+def page(page='index'):
+    return render_template(f'{page}.html.jinja2')
 
 
 @app.route('/blog.rss')

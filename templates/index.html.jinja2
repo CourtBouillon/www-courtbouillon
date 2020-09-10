@@ -1,18 +1,26 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
-  <article>
-    <h2>CourtBouillon</h2>
-    <p>
-      CourtBouillon is a group of authentic people growing authentic free and
-      open source code, with love and some programming skills.
-    </p>
-  </article>
+  <p>
+    CourtBouillon is a group of authentic people growing authentic free and
+    open source code, with love and some programming skills.
+  </p>
 
   <article>
     <h2>Projects</h2>
-    <ul>
-    </ul>
+    <dl>
+      <dt><a href="{{ url_for('page', page='projects/weasyprint') }}">WeasyPrint</a></dt>
+      <dd>the awesome document factory</dd>
+      <dt><a href="{{ url_for('page', page='projects/cairosvg') }}">CairoSVG</a></dt>
+      <dd>convert your vector images</dd>
+      <dt><a href="{{ url_for('page', page='projects/tinycss2') }}">tinycss2</a></dt>
+      <dd>a tiny CSS parser</dd>
+      <dt><a href="{{ url_for('page', page='projects/pydyf') }}">pydyf</a></dt>
+      <dd>a low-level PDF creator</dd>
+      <dt><a href="{{ url_for('page', page='projects/pyphen') }}">Pyphen</a></dt>
+      <dd>hy-phen-ation made easy</dd>
+      <dt><a href="{{ url_for('page', page='projects') }}">and many more</a></dt>
+    </dl>
   </article>
 
   <article>
@@ -32,7 +40,8 @@
       <p>
         Please send a mail to
         <a href="mailto:contact@courtbouillon.org">contact@courtbouillon.org</a>
-        to get an estimate of the needed work and related price.
+        to describe your needs and get an estimate of the work needed to solve
+        your problem.
       </p>
     </section>
 
@@ -42,9 +51,22 @@
         Our code is free and open source software, meaning that you can improve
         it for yourself and for the community of users. You can get the source
         on GitHub and open pull requests, we’ll be happy to review and merge
-        them! Even if you have no programming skills, you can report bugs and
+        them. Even if you have no programming skills, you can report bugs and
         improve the documentation.
       </p>
     </section>
+  </article>
+
+  <article>
+    <h2>Sponsor</h2>
+    <p>
+      With donations and sponsorship, you can participate in improving the
+      quality of projects. The donations allow the team to have more time
+      developing new features, fixing bugs and improving documentation.
+    </p>
+    <ul>
+      <li><a href="">Make a donation</a></li>
+      <li><a href="">Become a sponsor</a></li>
+    </ul>
   </article>
 {% endblock content %}

@@ -9,14 +9,13 @@
   <body id="page-{{ request.args.page or request.endpoint }}">
     <header>
       <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
-      <p>Authentic Code Growers</p>
     </header>
 
     <nav>
       <ul>
         <li><a href="{{ url_for('page', page='index') }}">Home</a></li>
         <li><a href="{{ url_for('page', page='projects') }}">Projects</a></li>
-        <li><a href="{{ url_for('page', page='values') }}">Values</a></li>
+        <li><a href="{{ url_for('page', page='team') }}">Team</a></li>
         <li><a href="{{ url_for('blog') }}">Blog</a></li>
         <li><a href="{{ url_for('page', page='support') }}">Support</a></li>
       </ul>
