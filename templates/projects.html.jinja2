@@ -4,44 +4,186 @@
   <article>
     <h2>Projects</h2>
 
-    <section>
+    <nav>
+      <ul>
+        <li><a href="#weasyprint">WeasyPrint</a></li>
+        <li><a href="#cairosvg">CairoSVG</a></li>
+        <li><a href="#tinycss2">tinycss2</a></li>
+        <li><a href="#Pyphen">Pyphen</a></li>
+        <li><a href="#pydyf">pydyf</a></li>
+        <li><a href="#flask-weasyprint">Flask-WeasyPrint</a></li>
+        <li><a href="#cssselect2">cssselect2</a></li>
+        <li><a href="#cairocffi">cairocffi</a></li>
+        <li><a href="#weasyperf">WeasyPerf</a></li>
+        <li><a href="#weasysuite">WeasySuite</a></li>
+      </ul>
+    </nav>
+
+    <section id="weasyprint">
       <h3>WeasyPrint</h3>
+      <p>
+        The awesome document factory.
+      <p>
+        WeasyPrint is a smart solution helping web developers to create PDF
+        documents. It turns simple HTML pages into gorgeous statistical
+        reports, invoices, tickets…
+      </p>
+      <p>
+        From a technical point of view, WeasyPrint is a visual rendering engine
+        for HTML and CSS that can export to PDF and PNG. It aims to support web
+        standards for printing. WeasyPrint is free software made available
+        under a BSD license.
+      </p>
+      <p>
+        It is based on various libraries but not on a full rendering engine
+        like WebKit or Gecko. The CSS layout engine is written in Python,
+        designed for pagination, and meant to be easy to hack on.
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/WeasyPrint">View code on GitHub</a></li>
+        <li><a href="{{ url_for('page', page='projects/weasyprint') }}">View web page</a></li>
+        <li><a href="https://weasyprint.readthedocs.io/">Read documentation</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/WeasyPrint">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="cairosvg">
       <h3>CairoSVG</h3>
+      <p>
+        Convert your vector images.
+      </p>
+      <p>
+        CairoSVG is a SVG converter based on Cairo. It can export SVG 1.1 files
+        to PDF, PostScript and PNG files.
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/CairoSVG">View code on GitHub</a></li>
+        <li><a href="{{ url_for('page', page='projects/cairosvg') }}">View web page</a></li>
+        <li><a href="https://cairosvg.org/documentation/">Read documentation</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/CairoSVG">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="tinycss2">
       <h3>tinycss2</h3>
+      <p>
+        A tiny CSS parser.
+      </p>
+      <p>
+        tinycss2 is a low-level CSS parser and generator written in Python: it
+        can parse strings, return objects representing tokens and blocks, and
+        generate CSS strings corresponding to these objects.
+      </p>
+      <p>
+        Based on the CSS Syntax Level 3 specification, tinycss2 knows the
+        grammar of CSS but doesn’t know specific rules, properties or values
+        supported in various CSS modules.
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/tinycss2">View code on GitHub</a></li>
+        <li><a href="{{ url_for('page', page='projects/tinycss2') }}">View web page</a></li>
+        <li><a href="https://tinycss2.readthedocs.io/">Read documentation</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/tinycss2">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="pyphen">
       <h3>Pyphen</h3>
+      <p>
+        Hy-phen-ation made easy.
+      </p>
+      <p>
+        Pyphen is a pure Python module to hyphenate text using existing
+        Hunspell hyphenation dictionaries.
+      </p>
+      <p>
+        Many dictionaries are included in Pyphen, they come from the
+        LibreOffice git repository and are distributed under GPL, LGPL and/or
+        MPL. See the dictionaries and the libreoffice’s repository for more
+        details.
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/Pyphen">View code on GitHub</a></li>
+        <li><a href="{{ url_for('page', page='projects/pyphen') }}">View web page</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/pyphen">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="pydyf">
       <h3>pydyf</h3>
+      <p>
+        A low-level PDF creator.
+      </p>
+      <ul>
+        <li><a href="https://github.com/CourtBouillon/pydyf">View code on GitHub</a></li>
+        <li><a href="{{ url_for('page', page='projects/pydyf') }}">View web page</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/pydyf">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="flask-weasyprint">
       <h3>Flask-WeasyPrint</h3>
+      <p>
+        Generate PDF documents with WeasyPrint in your Flask app.
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/Flask-WeasyPrint">View code on GitHub</a></li>
+        <li><a href="https://pythonhosted.org/Flask-WeasyPrint/">Read documentation</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/community">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="cssselect2">
       <h3>cssselect2</h3>
+      <p>
+        cssselect2 is a straightforward implementation of CSS3 Selectors for
+        markup documents (HTML, XML, etc.) that can be read by ElementTree-like
+        parsers (including cElementTree, lxml, html5lib, etc.)
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/cssselect2">View code on GitHub</a></li>
+        <li><a href="https://cssselect2.readthedocs.io/">Read documentation</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/community">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="cairocffi">
       <h3>cairocffi</h3>
+      <p>
+        cairocffi is a CFFI-based drop-in replacement for Pycairo, a set of
+        Python bindings and object-oriented API for cairo. Cairo is a 2D vector
+        graphics library with support for multiple backends including image
+        buffers, PNG, PostScript, PDF, and SVG file output.
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/cairocffi">View code on GitHub</a></li>
+        <li><a href="https://cairocffi.readthedocs.io/">Read documentation</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/community">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="weasyperf">
       <h3>WeasyPerf</h3>
+      <p>
+        Performance report for WeasyPrint.
+      </p>
+      <ul>
+        <li><a href="https://kozea.github.io/WeasyPerf/">View report</a></li>
+        <li><a href="https://github.com/Kozea/WeasyPerf">View code on GitHub</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/community">Chat on Gitter</a></li>
+      </ul>
     </section>
 
-    <section>
+    <section id="weasysuite">
       <h3>WeasySuite</h3>
+      <p>
+        Test WeasyPrint with the W3C test suites.
+      </p>
+      <ul>
+        <li><a href="http://test.weasyprint.org/">View results</a></li>
+        <li><a href="https://github.com/Kozea/WeasySuite">View code on GitHub</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/community">Chat on Gitter</a></li>
+      </ul>
     </section>
   </article>
 {% endblock content %}
