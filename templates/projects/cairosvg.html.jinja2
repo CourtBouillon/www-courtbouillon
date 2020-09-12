@@ -3,5 +3,36 @@
 {% block content %}
   <article>
     <h2>CairoSVG</h2>
+    <p>Convert your vector images</p>
+
+    <aside>
+      <ul>
+        <li><a href="https://github.com/Kozea/CairoSVG">View code on GitHub</a></li>
+        <li><a href="https://cairosvg.org/documentation/">Read documentation</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/CairoSVG">Chat on Gitter</a></li>
+      </ul>
+    </aside>
+
+    <section>
+      <h3>Presentation</h3>
+      <p>
+        CairoSVG is a SVG converter based on Cairo. It can export SVG 1.1 files
+        to PDF, PostScript and PNG files.
+      </p>
+    </section>
+
+    <section>
+      <h3>Features</h3>
+      <ul>
+        <li>Command-line interface</li>
+        <li>Python library</li>
+        <li>Works at least on Linux, macOS, and Windows</li>
+        <li>Based on the Cairo 2D graphics library</li>
+        <li>Tested using the W3C test suite</li>
+        <li>Licensed under LGPLv3</li>
+      </ul>
+    </section>
+
+    {% include '_support.jinja2' %}
   </article>
 {% endblock content %}

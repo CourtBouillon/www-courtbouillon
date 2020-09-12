@@ -3,5 +3,37 @@
 {% block content %}
   <article>
     <h2>tinycss2</h2>
+    <p>A tiny CSS parser</p>
+
+    <aside>
+      <li><a href="https://github.com/Kozea/tinycss2">View code on GitHub</a></li>
+      <li><a href="https://tinycss2.readthedocs.io/">Read documentation</a></li>
+      <li><a href="https://gitter.im/CourtBouillon/tinycss2">Chat on Gitter</a></li>
+    </aside>
+
+    <section>
+      <h3>Presentation</h3>
+      <p>
+        tinycss2 is a low-level CSS parser and generator written in Python: it
+        can parse strings, return objects representing tokens and blocks, and
+        generate CSS strings corresponding to these objects.
+      </p>
+      <p>
+        Based on the CSS Syntax Level 3 specification, tinycss2 knows the
+        grammar of CSS but doesn’t know specific rules, properties or values
+        supported in various CSS modules.
+      </p>
+    </section>
+
+    <section>
+      <h3>Features</h3>
+      <ul>
+        <li>Pure Python library</li>
+        <li>Designed to be simple and to follow the specifications</li>
+        <li>Licensed under BSD</li>
+      </ul>
+    </section>
+
+    {% include '_support.jinja2' %}
   </article>
 {% endblock content %}

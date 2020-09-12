@@ -3,5 +3,33 @@
 {% block content %}
   <article>
     <h2>WeasyPrint</h2>
+    <p>The awesome document factory</p>
+
+    <aside>
+      <li><a href="https://github.com/Kozea/WeasyPrint">View code on GitHub</a></li>
+      <li><a href="https://weasyprint.readthedocs.io/">Read documentation</a></li>
+      <li><a href="https://gitter.im/CourtBouillon/WeasyPrint">Chat on Gitter</a></li>
+    </aside>
+
+    <section>
+      <h3>Presentation</h3>
+      <p>
+        WeasyPrint is a smart solution helping web developers to create PDF
+        documents. It turns simple HTML pages into gorgeous statistical
+        reports, invoices, tickets…
+      </p>
+    </section>
+
+    <section>
+      <h3>Features</h3>
+      <ul>
+        <li>Custom page-based rendering engine for HTML and CSS</li>
+        <li>Aims to support web standards</li>
+        <li>Meant to be easy to understand and to hack on</li>
+        <li>Licensed under BSD</li>
+      </ul>
+    </section>
+
+    {% include '_support.jinja2' %}
   </article>
 {% endblock content %}
