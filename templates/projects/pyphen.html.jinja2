@@ -3,5 +3,70 @@
 {% block content %}
   <article>
     <h2>Pyphen</h2>
+    <p>Hy-phen-ation made easy</p>
+
+    <aside>
+      <ul>
+        <li><a href="https://github.com/Kozea/Pyphen">View code on GitHub</a></li>
+        <li><a href="{{ url_for('page', page='projects/pyphen') }}">View web page</a></li>
+        <li><a href="https://gitter.im/CourtBouillon/pyphen">Chat on Gitter</a></li>
+      </ul>
+    </aside>
+
+    <section>
+      <h3>Presentation</h3>
+      <p>
+        Pyphen is a pure Python module to hyphenate words using included or
+        external Hunspell hyphenation dictionaries. It includes by default the
+        dictionaries distributed by LibreOffice.
+      </p>
+    </section>
+
+    <section>
+      <h3>Features</h3>
+      <ul>
+        <li>100% pure Python with no dependencies</li>
+        <li>caches dict files and hyphenated words</li>
+        <li>supports nonstandard hyphenation patterns</li>
+        <li>a lot of included dictionaries:
+          <ul>
+            <li>Afrikaans</li>
+            <li>Bulgarian</li>
+            <li>Catalan</li>
+            <li>Croatian</li>
+            <li>Czech</li>
+            <li>Danish</li>
+            <li>Dutch</li>
+            <li>English (Great-Britain and United-States)</li>
+            <li>Estonian</li>
+            <li>French</li>
+            <li>Galician</li>
+            <li>German (Austria, Germany and Switzerland)</li>
+            <li>Greek</li>
+            <li>Hungarian</li>
+            <li>Icelandic</li>
+            <li>Indonesian</li>
+            <li>Italian</li>
+            <li>Lithuanian</li>
+            <li>Latvian</li>
+            <li>Norwegian (Bokmål and Nynorsk)</li>
+            <li>Polish</li>
+            <li>Portuguese (Brazil and Portugal)</li>
+            <li>Romanian</li>
+            <li>Russian</li>
+            <li>Serbian (cyrillic and latin)</li>
+            <li>Slovak</li>
+            <li>Slovenian</li>
+            <li>Spanish</li>
+            <li>Swedish</li>
+            <li>Telugu</li>
+            <li>Ukrainian</li>
+            <li>Zulu</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    {% include '_support.jinja2' %}
   </article>
 {% endblock content %}
