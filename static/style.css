@@ -1,10 +1,215 @@
+@font-face {
+  font-family: Metropolis;
+  font-weight: 400;
+  src: local("Metropolis Regular"), local("Metropolis-Regular"), url(/static/fonts/Metropolis-Regular.woff2);
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 700;
+  src: local("Metropolis Bold"), local("Metropolis-Bold"), url(/static/fonts/Metropolis-Bold.woff2);
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-style: italic;
+  font-weight: 400;
+  src: local("Metropolis RegularItalic"), local("Metropolis-RegularItalic"), url(/static/fonts/Metropolis-RegularItalic.woff2);
+}
+
+@font-face {
+  font-family: Inconsolata;
+  src: local("Inconsolata"), url(/static/fonts/Inconsolata-Regular.woff2);
+}
+
+
+
+:root {
+  --black: black;
+  --grey: #f2f2f1;
+  --red: #e8403a;
+  --white: white;
+}
+
+
+
 html {
-  background: white;
-  color: black;
-  font-family: sans-serif;
+  background: var(--white);
+  color: var(--black);
+  font-family: Metropolis, sans-serif;
   font-size: 14pt;
   line-height: 1.4;
 }
+
+body {
+  margin: 0;
+}
+
+a, a:visited {
+  color: var(--red);
+  text-decoration: inherit;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+code, pre {
+  font-family: Inconsolata;
+}
+
+h2, h3, h4 {
+  font-weight: 400;
+}
+
+
+
+
+header {
+  background: url(/static/images/logo-white.svg) center center / 50% 50% no-repeat var(--red);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header h1 {
+  display: none;
+}
+
+header p {
+  color: var(--white);
+  font-family: Inconsolata;
+  margin: auto 0 3em;
+  text-align: center;
+}
+
+header nav li:first-child {
+  left: 0;
+  margin: -3em 0 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: 100vh;
+  width: 100vw;
+}
+
+header nav li:first-child a {
+  display: flex;
+  font-size: 0;
+}
+
+header nav li:first-child a::before {
+  content: "˅";
+  display: block;
+  flex: 1;
+  font-size: 1rem;
+  line-height: 2em;
+  height: 2em;
+  vertical-align: middle;
+}
+
+header nav li:last-child {
+  margin-left: auto;
+}
+
+
+
+nav {
+  margin: 0.5em;
+  order: -1;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+nav li {
+  padding: 0.5em;
+}
+
+nav a, nav a:visited {
+  color: var(--white);
+  text-decoration: inherit;
+}
+
+
+
+main > * {
+  margin: 0 auto;
+  max-width: 50em;
+  padding: 1em;
+  position: relative;
+}
+
+main > *:nth-child(odd)::before {
+  background: var(--grey);
+  content: "";
+  height: 100%;
+  left: calc((100% - 100vw) / 2);
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+main h2 {
+  border-bottom: 2px solid var(--red);
+  font-weight: regular;
+  margin: 0.5em auto 1em;
+  width: fit-content;
+}
+
+main h3 {
+  font-size: 1em;
+  margin: 1.6em 0 0.4em;
+}
+
+main h3::before {
+  content: "o";
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 0 0.5em 0 0;
+}
+
+main nav ul {
+  justify-content: center;
+}
+
+main nav a, main nav a:visited {
+  color: var(--red);
+}
+
+
+
+footer {
+  background: url(/static/images/logo-red.svg) 1rem center / 8rem no-repeat;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 0.8em;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  max-width: 50rem;
+  min-height: 7rem;
+  padding: 2rem 0 2rem 10rem;
+}
+
+footer h2 {
+  font-size: 1em;
+  margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* pygments */
 .hll { background-color: #ffffcc }
