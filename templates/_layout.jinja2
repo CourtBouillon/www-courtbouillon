@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
   </head>
-  <body id="page-{{ request.args.page or request.endpoint }}">
+  <body id="page-{{ request.view_args.page or request.endpoint }}">
     <header>
       <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
       <p>Authentic Code Growers</p>
