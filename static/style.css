@@ -43,7 +43,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
+  min-height: 100vh;
 }
 
 a, a:visited {
@@ -67,21 +70,13 @@ h2, h3, h4 {
 
 
 header {
-  background: url(/static/images/logo-white.svg) center center / 50% 50% no-repeat var(--red);
+  background: var(--red);
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
-header h1 {
+header h1, header p {
   display: none;
-}
-
-header p {
-  color: var(--white);
-  font-family: Inconsolata;
-  margin: auto 0 3em;
-  text-align: center;
 }
 
 header nav li:first-child {
@@ -141,11 +136,20 @@ nav a, nav a:visited {
 
 
 
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 main > * {
+  box-sizing: border-box;
+  flex: 1;
   margin: 0 auto;
   max-width: 50em;
   padding: 1em;
   position: relative;
+  width: 100%;
 }
 
 main > *:nth-child(odd)::before {
@@ -198,6 +202,7 @@ footer {
   max-width: 50rem;
   min-height: 7rem;
   padding: 2rem 0 2rem 10rem;
+  width: 100%;
 }
 
 footer h2 {
@@ -218,6 +223,20 @@ footer ul {
     background: none;
     padding-left: 0;
   }
+}
+
+
+
+#page-index header {
+  background: url(/static/images/logo-white.svg) center center / 50% 50% no-repeat var(--red);
+  height: 100vh;
+}
+
+header p {
+  color: var(--white);
+  font-family: Inconsolata;
+  margin: auto 0 3em;
+  text-align: center;
 }
 
 
