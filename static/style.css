@@ -39,6 +39,7 @@ html {
   font-family: Metropolis, sans-serif;
   font-size: 14pt;
   line-height: 1.4;
+  overflow-x: hidden;
 }
 
 body {
@@ -115,8 +116,10 @@ header nav li:last-child {
 
 
 nav {
-  margin: 0.5em;
+  box-sizing: border-box;
   order: -1;
+  padding: 0.5em;
+  z-index: 1;
 }
 
 nav ul {
@@ -129,12 +132,10 @@ nav ul {
   text-transform: uppercase;
 }
 
-nav li {
-  padding: 0.5em;
-}
-
 nav a, nav a:visited {
   color: var(--white);
+  display: block;
+  padding: 0.5em;
   text-decoration: inherit;
 }
 
@@ -162,7 +163,7 @@ main h2 {
   border-bottom: 2px solid var(--red);
   font-weight: regular;
   margin: 0.5em auto 1em;
-  width: fit-content;
+  display: table;
 }
 
 main h3 {
@@ -208,6 +209,15 @@ footer ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+
+
+@media screen and (max-width: 920px) {
+  footer {
+    background: none;
+    padding-left: 0;
+  }
 }
 
 
