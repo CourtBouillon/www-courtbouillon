@@ -232,8 +232,9 @@ footer ul {
   height: 100vh;
 }
 
-header p {
+#page-index header p {
   color: var(--white);
+  display: block;
   font-family: Inconsolata;
   margin: auto 0 3em;
   text-align: center;
