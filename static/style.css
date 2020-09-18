@@ -152,7 +152,7 @@ main > * {
   width: 100%;
 }
 
-main > *:nth-child(odd)::before {
+main > *:nth-child(even)::before {
   background: var(--grey);
   content: "";
   height: 100%;
