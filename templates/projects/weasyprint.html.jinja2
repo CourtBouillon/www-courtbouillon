@@ -3,13 +3,16 @@
 {% block content %}
   <article>
     <h2>WeasyPrint</h2>
-    <p>The awesome document factory</p>
-
     <aside>
-      <li><a href="https://github.com/Kozea/WeasyPrint">View code on GitHub</a></li>
-      <li><a href="https://weasyprint.readthedocs.io/">Read documentation</a></li>
-      <li><a href="https://gitter.im/CourtBouillon/WeasyPrint">Chat on Gitter</a></li>
+      <ul class="icons">
+        <li class="github"><a href="https://github.com/Kozea/WeasyPrint">Code</a></li>
+        <li class="web"><a href="{{ url_for('page', page='projects/weasyprint') }}">Website</a></li>
+        <li class="doc"><a href="https://weasyprint.readthedocs.io/">Doc</a></li>
+        <li class="gitter"><a href="https://gitter.im/CourtBouillon/WeasyPrint">Chat</a></li>
+      </ul>
     </aside>
+
+    <p>The awesome document factory</p>
 
     <section>
       <h3>Presentation</h3>

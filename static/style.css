@@ -22,6 +22,11 @@
   src: local("Inconsolata"), url(/static/fonts/Inconsolata-Regular.woff2);
 }
 
+@font-face {
+  font-family: ForkAwesome;
+  src: local("ForkAwesome"), url(/static/fonts/forkawesome-webfont.woff2);
+}
+
 
 
 :root {
@@ -218,6 +223,60 @@ footer ul {
 
 
 
+#page-index header {
+  background: url(/static/images/logo-white.svg) center center / 50% 50% no-repeat var(--red);
+  height: 100vh;
+}
+
+#page-index header p {
+  color: var(--white);
+  display: block;
+  font-family: Inconsolata;
+  margin: auto 0 3em;
+  text-align: center;
+}
+
+
+
+.icons {
+  display: flex;
+  font-size: 0.85em;
+  justify-content: center;
+  list-style: none;
+  margin: 0 0 5em 0;
+  padding: 0.5em;
+}
+
+.icons li a {
+  padding: 0.5em;
+}
+
+.icons li a::before {
+  font-family: ForkAwesome;
+  margin-right: 0.5em;
+}
+
+.github a::before {
+  content: '\f09b';
+}
+
+.web a::before {
+  content: '\f0ac';
+}
+
+.doc a::before {
+  content: '\f02d';
+}
+
+.gitter a::before {
+  content: '\f086';
+}
+
+.report a::before {
+  content: '\f15c';
+}
+
+
 @media screen and (max-width: 920px) {
   footer {
     background: none;
@@ -296,22 +355,18 @@ footer ul {
   header nav li:first-child a::before {
     display: none;
   }
+
+  .icons {
+    flex-direction: column;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .icons li a {
+    padding-left: 0;
+  }
 }
 
-
-
-#page-index header {
-  background: url(/static/images/logo-white.svg) center center / 50% 50% no-repeat var(--red);
-  height: 100vh;
-}
-
-#page-index header p {
-  color: var(--white);
-  display: block;
-  font-family: Inconsolata;
-  margin: auto 0 3em;
-  text-align: center;
-}
 
 
 /* pygments */
