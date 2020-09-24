@@ -232,8 +232,9 @@ footer ul {
   color: var(--white);
   display: block;
   font-family: Inconsolata;
-  margin: auto 0 3em;
+  margin: auto 0 4em;
   text-align: center;
+  text-transform: lowercase;
 }
 
 
