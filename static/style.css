@@ -30,7 +30,7 @@
 
 
 :root {
-  --black: black;
+  --black: #333;
   --grey: #f2f2f1;
   --red: #e8403a;
   --white: white;
@@ -42,8 +42,8 @@ html {
   background: var(--white);
   color: var(--black);
   font-family: Metropolis, sans-serif;
-  font-size: 14pt;
-  line-height: 1.4;
+  font-size: 13pt;
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
@@ -106,6 +106,7 @@ header h1, header p {
 }
 
 header nav li:first-child {
+  display: none;
   left: 0;
   margin: -3em 0 0;
   padding: 0;
@@ -189,16 +190,20 @@ main > *:nth-child(even)::before {
   z-index: -1;
 }
 
+main article {
+  padding: 3em 0;
+}
+
 main h2 {
   border-bottom: 2px solid var(--red);
   font-weight: regular;
-  margin: 0.5em auto 1em;
+  margin: 0.25em auto 1.5em;
   display: table;
 }
 
 main h3 {
   font-size: 1em;
-  margin: 1.6em 0 0.4em;
+  margin: 2em 0 0.4em;
 }
 
 main h3::before {
@@ -253,9 +258,76 @@ footer ul {
   color: var(--white);
   display: block;
   font-family: Inconsolata;
-  margin: auto 0 4em;
+  font-size: 1.2em;
+  margin: auto 3em 3em;
   text-align: center;
   text-transform: lowercase;
+}
+
+#page-index header nav li:first-child {
+  display: block;
+}
+
+
+
+.presentation {
+  font-style: italic;
+  margin: 2em 5em;
+  text-align: center;
+}
+
+
+
+dl#projects dt {
+  font-family: Inconsolata;
+  font-size: 1.2em;
+  margin-top: 4em;
+  text-transform: lowercase;
+}
+
+dl#projects dd {
+  margin-bottom: 4em;
+}
+
+dl#projects dt::before {
+  background: center / cover url(https://weasyprint.org/css/img/documents/reports-thumbnail.png);
+  box-shadow: 0 0 5px 1px #0003;
+  display: block;
+  content: '';
+  filter: grayscale(1);
+  height: 5em;
+  opacity: 0.4;
+  position: absolute;
+  transform: translatey(-1em) skew(-5deg);
+  transition: 0.5s;
+  width: 40%;
+}
+
+dl#projects dt:hover::before {
+  filter: none;
+  opacity: 0.6;
+}
+
+dl#projects dt:nth-of-type(even)::before,
+dl#projects dt:nth-of-type(even)::after {
+  right: 52%;
+}
+
+dl#projects dt:nth-of-type(odd)::before,
+dl#projects dt:nth-of-type(odd)::after {
+  left: 52%;
+}
+
+dl#projects dt:nth-of-type(even),
+dl#projects dd:nth-of-type(even) {
+  margin-left: 51%;
+}
+
+dl#projects dt:nth-of-type(odd),
+dl#projects dd:nth-of-type(odd) {
+  margin-left: 0;
+  margin-right: 51%;
+  text-align: right;
 }
 
 

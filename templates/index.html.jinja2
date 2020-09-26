@@ -3,7 +3,11 @@
 {% block content %}
   <article>
     <h2>Projects</h2>
-    <dl>
+    <p class="presentation">
+      We provide high-quality apps and tools to help you give life to beautiful
+      documents, images, texts, and more.
+    </p>
+    <dl id="projects">
       <dt><a href="{{ url_for('page', page='projects/weasyprint') }}">WeasyPrint</a></dt>
       <dd>the awesome document factory</dd>
       <dt><a href="{{ url_for('page', page='projects/cairosvg') }}">CairoSVG</a></dt>
@@ -14,8 +18,8 @@
       <dd>a low-level PDF creator</dd>
       <dt><a href="{{ url_for('page', page='projects/pyphen') }}">Pyphen</a></dt>
       <dd>hy-phen-ation made easy</dd>
-      <dt><a href="{{ url_for('page', page='projects') }}">and many more</a></dt>
-      <dd>let’s discover all the other projects we take care of</dd>
+      <dt><a href="{{ url_for('page', page='projects') }}">and many more…</a></dt>
+      <dd>discover all the projects we take care of</dd>
     </dl>
   </article>
 
