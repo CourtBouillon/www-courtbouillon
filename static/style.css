@@ -290,7 +290,7 @@ dl#projects dd {
 }
 
 dl#projects dt::before {
-  background: center / cover url(https://weasyprint.org/css/img/documents/reports-thumbnail.png);
+  background: center 35% / cover;
   box-shadow: 0 0 5px 1px #0003;
   display: block;
   content: '';
@@ -301,6 +301,31 @@ dl#projects dt::before {
   transform: translatey(-1em) skew(-5deg);
   transition: 0.5s;
   width: 40%;
+}
+
+dl#projects dt[data-project="weasyprint"]::before {
+  background-image: url(https://weasyprint.org/css/img/documents/reports-thumbnail.png);
+}
+
+dl#projects dt[data-project="cairosvg"]::before {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg);
+}
+
+dl#projects dt[data-project="tinycss2"]::before {
+  background-image: url(https://blog.udemy.com/wp-content/uploads/2014/01/shutterstock_115297972-300x228.jpg);
+}
+
+dl#projects dt[data-project="pydyf"]::before {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Okular_kde4.png);
+}
+
+dl#projects dt[data-project="pyphen"]::before {
+  background-image: url(https://www.scoringnotes.com/wp-content/uploads/2010/06/hyphen.jpg);
+}
+
+dl#projects dt[data-project="others"]::before {
+  background-color: var(--red);
+  background-image: url(/static/images/logo-white.svg);
 }
 
 dl#projects dt:hover::before {
