@@ -196,6 +196,7 @@ main article {
 
 main h2 {
   border-bottom: 2px solid var(--red);
+  font-size: 1.8em;
   font-weight: regular;
   margin: 0.25em auto 1.5em;
   display: table;
@@ -266,6 +267,36 @@ footer ul {
 
 #page-index header nav li:first-child {
   display: block;
+}
+
+
+
+[id^="page-projects/"] main section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 18em;
+  padding: 0 1em 0 18em;
+}
+
+[id^="page-projects/"] main section::before {
+  color: var(--red);
+  content: attr(data-char);
+  display: block;
+  font-family: ForkAwesome;
+  font-size: 15em;
+  left: -0;
+  line-height: 1;
+  opacity: 0.5;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 0 0.01em var(--red);
+  transform: skew(-5deg);
+  z-index: -1;
+}
+
+[id^="page-projects"] main section h3 {
+  margin: 0;
 }
 
 
@@ -475,10 +506,20 @@ dl#projects dd:nth-of-type(odd) {
     display: none;
   }
 
+  [id^="page-projects/"] main section {
+    padding: 0 1em 0 3em;
+  }
+
+  [id^="page-projects/"] main section::before {
+    right: 0;
+    opacity: 0.1;
+  }
+
   .icons {
     flex-direction: column;
     font-size: 1rem;
     padding: 0;
+    text-align: center;
   }
 
   .icons li a {
