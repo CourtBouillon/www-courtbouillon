@@ -105,6 +105,16 @@ header h1, header p {
   display: none;
 }
 
+header nav {
+  box-sizing: border-box;
+  font-size: 1.25em;
+  margin: 0 auto;
+  max-width: 70rem;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+}
+
 header nav li:first-child {
   display: none;
   left: 0;
@@ -113,7 +123,7 @@ header nav li:first-child {
   position: absolute;
   text-align: center;
   top: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 header nav li:first-child a {
@@ -173,7 +183,7 @@ main > * {
   box-sizing: border-box;
   flex: 1;
   margin: 0 auto;
-  max-width: 50em;
+  max-width: 70em;
   padding: 1em;
   position: relative;
   width: 100%;
@@ -251,18 +261,32 @@ footer ul {
 
 
 #page-index header {
-  background: url(/static/images/logo-white.svg) center center / 50% 50% no-repeat var(--red);
-  height: 100vh;
+  background: var(--red);
+  height: 95vh;
+}
+
+#page-index header::before {
+  content: url(/static/images/logo-white.svg);
+  display: block;
+  max-width: 25rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-115%, -55%);
+  width: 40%;
 }
 
 #page-index header p {
   color: var(--white);
   display: block;
   font-family: Inconsolata;
-  font-size: 1.2em;
-  margin: auto 3em 3em;
-  text-align: center;
+  font-size: 3em;
+  line-height: 1.1;
+  margin: auto 0 auto 50%;
+  max-width: 30rem;
   text-transform: lowercase;
+  transform: translatey(-3.5rem);
+  width: 50%;
 }
 
 #page-index header nav li:first-child {
