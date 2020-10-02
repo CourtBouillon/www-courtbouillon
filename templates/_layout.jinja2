@@ -12,7 +12,6 @@
       <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
       <nav>
         <ul>
-          <li><a href="#content">Content</a></li>
           <li><a href="{{ url_for('page', page='index') }}">Home</a></li>
           <li><a href="{{ url_for('page', page='projects') }}">Projects</a></li>
           <li><a href="{{ url_for('page', page='team') }}">Team</a></li>
@@ -24,7 +23,7 @@
       <p>Authentic people growing open source code with taste</p>
     </header>
 
-    <main id="content">
+    <main>
       {% block content %}{% endblock content %}
     </main>
 

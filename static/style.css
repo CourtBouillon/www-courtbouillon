@@ -115,32 +115,6 @@ header nav {
   width: 100%;
 }
 
-header nav li:first-child {
-  display: none;
-  left: 0;
-  margin: -3em 0 0;
-  padding: 0;
-  position: absolute;
-  text-align: center;
-  top: 100vh;
-  width: 100%;
-}
-
-header nav li:first-child a {
-  display: flex;
-  font-size: 0;
-}
-
-header nav li:first-child a::before {
-  content: "˅";
-  display: block;
-  flex: 1;
-  font-size: 1rem;
-  line-height: 2em;
-  height: 2em;
-  vertical-align: middle;
-}
-
 header nav li:last-child {
   margin-left: auto;
 }
@@ -238,10 +212,9 @@ footer {
   background: url(/static/images/logo-red.svg) 1rem center / 8rem no-repeat;
   box-sizing: border-box;
   display: flex;
-  font-size: 0.8em;
   justify-content: space-evenly;
   margin: 0 auto;
-  max-width: 50rem;
+  max-width: 70rem;
   min-height: 7rem;
   padding: 2rem 0 2rem 10rem;
   width: 100%;
@@ -265,32 +238,28 @@ footer ul {
   height: 95vh;
 }
 
-#page-index header::before {
-  content: url(/static/images/logo-white.svg);
-  display: block;
-  max-width: 25rem;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-115%, -55%);
-  width: 40%;
-}
-
 #page-index header p {
   color: var(--white);
   display: block;
   font-family: Inconsolata;
-  font-size: 3em;
+  font-size: 3.5em;
   line-height: 1.1;
-  margin: auto 0 auto 50%;
-  max-width: 30rem;
+  margin: auto 0 auto 45%;
+  max-width: 35rem;
   text-transform: lowercase;
-  transform: translatey(-3.5rem);
-  width: 50%;
+  transform: translatey(-3rem);
+  width: 55%;
 }
 
-#page-index header nav li:first-child {
+#page-index::before {
+  content: url(/static/images/logo-white.svg);
   display: block;
+  max-width: 20rem;
+  left: 40%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-100%, -55%);
+  width: 80%;
 }
 
 
@@ -468,7 +437,7 @@ dl#projects dd:nth-of-type(odd) {
   header nav {
     display: block;
     height: 3em;
-    margin-left: auto;
+    margin-right: 0;
     overflow: hidden;
     transition-delay: 0.5s;
     transition-property: z-index;
@@ -489,16 +458,18 @@ dl#projects dd:nth-of-type(odd) {
 
   header::before {
     content: '⨯';
-    height: 3em;
+    height: 1rem;
+    padding: 1rem;
     position: absolute;
     right: 0;
     top: 0;
-    width: 3em;
+    width: 1rem;
     z-index: 2;
   }
 
   header nav::before {
     content: '☰';
+    margin-bottom: 1em;
   }
 
   header nav:hover {
@@ -513,14 +484,17 @@ dl#projects dd:nth-of-type(odd) {
   header nav:hover ul {
     align-items: center;
     background: var(--red);
-    max-height: 20em;
     flex: 1;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   header nav:hover li:last-child {
     margin-left: 0;
+  }
+
+  header nav:hover a {
+    padding: 1em;
   }
 
   header nav:hover ~ * {
@@ -534,8 +508,19 @@ dl#projects dd:nth-of-type(odd) {
     display: none;
   }
 
-  header nav li:first-child a::before {
-    display: none;
+  #page-index header p {
+    font-size: 2em;
+    margin: 60vh 10% 0 10%;
+    max-width: none;
+    text-align: center;
+    width: 80%;
+  }
+
+  #page-index::before {
+    left: 50%;
+    top: 20%;
+    transform: translatex(-50%);
+    height: 30%;
   }
 
   .icons {
