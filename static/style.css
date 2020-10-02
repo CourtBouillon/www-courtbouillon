@@ -78,6 +78,7 @@ button {
   color: var(--red);
   display: block;
   font: inherit;
+  margin: 1em;
   padding: 0.5em 1em;
   transition: 0.2s;
 }
@@ -109,7 +110,7 @@ header nav {
   box-sizing: border-box;
   font-size: 1.25em;
   margin: 0 auto;
-  max-width: 70rem;
+  max-width: 60rem;
   padding: 1rem;
   position: relative;
   width: 100%;
@@ -157,7 +158,7 @@ main > * {
   box-sizing: border-box;
   flex: 1;
   margin: 0 auto;
-  max-width: 70em;
+  max-width: 60em;
   padding: 1em;
   position: relative;
   width: 100%;
@@ -214,7 +215,7 @@ footer {
   display: flex;
   justify-content: space-evenly;
   margin: 0 auto;
-  max-width: 70rem;
+  max-width: 60rem;
   min-height: 7rem;
   padding: 2rem 0 2rem 10rem;
   width: 100%;
@@ -242,19 +243,19 @@ footer ul {
   color: var(--white);
   display: block;
   font-family: Inconsolata;
-  font-size: 3.5em;
+  font-size: 3em;
   line-height: 1.1;
   margin: auto 0 auto 45%;
-  max-width: 35rem;
+  max-width: 30rem;
   text-transform: lowercase;
-  transform: translatey(-3rem);
+  transform: translatey(-2.5rem);
   width: 55%;
 }
 
 #page-index::before {
   content: url(/static/images/logo-white.svg);
   display: block;
-  max-width: 20rem;
+  max-width: 15rem;
   left: 40%;
   position: absolute;
   top: 50%;
@@ -288,7 +289,6 @@ footer ul {
   display: block;
   height: 15em;
   object-fit: cover;
-  opacity: 0.6;
   position: absolute;
   transform: skewx(-5deg);
   width: 15em;
