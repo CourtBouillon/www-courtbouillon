@@ -314,17 +314,17 @@ footer ul {
 
 dl#projects dt {
   font-family: Inconsolata;
-  font-size: 3.5em;
+  font-size: 2.5em;
   margin-top: 1em;
   text-shadow: 1px 1px 5px var(--white), -1px -1px 5px var(--white);
   text-transform: lowercase;
 }
 
 dl#projects dd {
-  margin-bottom: 8em;
+  margin-bottom: 6em;
 }
 
-dl#projects dt::before {
+dl#projects dt a::before {
   background: center 35% / cover;
   box-shadow: 0 0 5px 1px #0003;
   display: block;
@@ -336,46 +336,44 @@ dl#projects dt::before {
   transform: translatey(-0.25em) skew(-5deg);
   transition: 0.5s;
   width: 40%;
-  z-index: -1;
 }
 
-dl#projects dt[data-project="weasyprint"]::before {
+dl#projects dt[data-project="weasyprint"] a::before {
   background-image: url(/static/images/weasyprint-thumbnail.jpg);
 }
 
-dl#projects dt[data-project="cairosvg"]::before {
+dl#projects dt[data-project="cairosvg"] a::before {
   background-image: url(/static/images/cairosvg-thumbnail.svg);
 }
 
-dl#projects dt[data-project="tinycss2"]::before {
+dl#projects dt[data-project="tinycss2"] a::before {
   background-image: url(/static/images/tinycss2-thumbnail.jpg);
 }
 
-dl#projects dt[data-project="pydyf"]::before {
+dl#projects dt[data-project="pydyf"] a::before {
   background-image: url(/static/images/pydyf-thumbnail.jpg);
 }
 
-dl#projects dt[data-project="pyphen"]::before {
+dl#projects dt[data-project="pyphen"] a::before {
   background-image: url(/static/images/pyphen-thumbnail.png);
   background-position: 32% center;
 }
 
-dl#projects dt[data-project="others"]::before {
+dl#projects dt[data-project="others"] a::before {
   background-image: url(/static/images/others-thumbnail.jpg);
 }
 
-dl#projects dt:hover::before {
+dl#projects dt a:hover::before,
+dl#projects dt a:focus::before {
   filter: none;
   opacity: 0.6;
 }
 
-dl#projects dt:nth-of-type(even)::before,
-dl#projects dt:nth-of-type(even)::after {
+dl#projects dt:nth-of-type(even) a::before {
   right: 52%;
 }
 
-dl#projects dt:nth-of-type(odd)::before,
-dl#projects dt:nth-of-type(odd)::after {
+dl#projects dt:nth-of-type(odd) a::before {
   left: 52%;
 }
 
