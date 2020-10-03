@@ -274,9 +274,11 @@ footer ul {
 
 [id^="page-projects/"] main section:nth-of-type(odd) {
   padding-left: 20em;
+  padding-right: 5em;
 }
 
 [id^="page-projects/"] main section:nth-of-type(even) {
+  padding-left: 5em;
   padding-right: 20em;
 }
 
