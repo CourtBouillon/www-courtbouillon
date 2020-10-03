@@ -87,6 +87,7 @@ button:hover,
 button:focus {
   background: var(--red);
   color: var(--white);
+  cursor: pointer;
 }
 
 h2, h3, h4 {
