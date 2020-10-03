@@ -1,13 +1,13 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
-  <article>
+  <article id="projects">
     <h2>Projects</h2>
     <p class="presentation">
       CourtBouillon conceives high-quality apps and tools to help you give life
       to elegant documents, wonderful images, lovely texts, and more.
     </p>
-    <dl id="projects">
+    <dl>
       <dt data-project="weasyprint"><a href="{{ url_for('page', page='projects/weasyprint') }}">WeasyPrint</a></dt>
       <dd>the awesome document factory</dd>
       <dt data-project="cairosvg"><a href="{{ url_for('page', page='projects/cairosvg') }}">CairoSVG</a></dt>

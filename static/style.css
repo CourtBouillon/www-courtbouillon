@@ -312,7 +312,11 @@ footer ul {
 
 
 
-dl#projects dt {
+#projects h2 {
+  display: none;
+}
+
+#projects dl dt {
   font-family: Inconsolata;
   font-size: 2.5em;
   margin-top: 1em;
@@ -320,11 +324,18 @@ dl#projects dt {
   text-transform: lowercase;
 }
 
-dl#projects dd {
+#projects dl dd {
+  margin-top: -4em;
   margin-bottom: 6em;
 }
 
-dl#projects dt a::before {
+#projects dl dt a {
+  display: block;
+  height: 3em;
+  position: relative;
+}
+
+#projects dl dt::before {
   background: center 35% / cover;
   box-shadow: 0 0 5px 1px #0003;
   display: block;
@@ -338,60 +349,59 @@ dl#projects dt a::before {
   width: 40%;
 }
 
-dl#projects dt[data-project="weasyprint"] a::before {
+#projects dl dt[data-project="weasyprint"]::before {
   background-image: url(/static/images/weasyprint-thumbnail.jpg);
 }
 
-dl#projects dt[data-project="cairosvg"] a::before {
+#projects dl dt[data-project="cairosvg"]::before {
   background-image: url(/static/images/cairosvg-thumbnail.svg);
 }
 
-dl#projects dt[data-project="tinycss2"] a::before {
+#projects dl dt[data-project="tinycss2"]::before {
   background-image: url(/static/images/tinycss2-thumbnail.jpg);
 }
 
-dl#projects dt[data-project="pydyf"] a::before {
+#projects dl dt[data-project="pydyf"]::before {
   background-image: url(/static/images/pydyf-thumbnail.jpg);
 }
 
-dl#projects dt[data-project="pyphen"] a::before {
+#projects dl dt[data-project="pyphen"]::before {
   background-image: url(/static/images/pyphen-thumbnail.png);
   background-position: 32% center;
 }
 
-dl#projects dt[data-project="others"] a::before {
+#projects dl dt[data-project="others"]::before {
   background-image: url(/static/images/others-thumbnail.jpg);
 }
 
-dl#projects dt a:hover::before,
-dl#projects dt a:focus::before {
+#projects dl dt:hover::before {
   filter: none;
   opacity: 0.6;
 }
 
-dl#projects dt:nth-of-type(even) a::before {
+#projects dl dt:nth-of-type(even)::before {
   right: 52%;
 }
 
-dl#projects dt:nth-of-type(odd) a::before {
+#projects dl dt:nth-of-type(odd)::before {
   left: 52%;
 }
 
-dl#projects dt:nth-of-type(even) {
-  margin-left: 40%;
+#projects dl dt:nth-of-type(even) a {
+  padding-left: 40%;
 }
 
-dl#projects dd:nth-of-type(even) {
+#projects dl dd:nth-of-type(even) {
   margin-left: 50%;
 }
 
-dl#projects dt:nth-of-type(odd) {
+#projects dl dt:nth-of-type(odd) a {
   margin-left: 0;
-  margin-right: 40%;
+  padding-right: 40%;
   text-align: right;
 }
 
-dl#projects dd:nth-of-type(odd) {
+#projects dl dd:nth-of-type(odd) {
   margin-left: 0;
   margin-right: 50%;
   text-align: right;
