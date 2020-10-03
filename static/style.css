@@ -314,13 +314,14 @@ footer ul {
 
 dl#projects dt {
   font-family: Inconsolata;
-  font-size: 1.2em;
-  margin-top: 4em;
+  font-size: 3.5em;
+  margin-top: 1em;
+  text-shadow: 1px 1px 5px var(--white), -1px -1px 5px var(--white);
   text-transform: lowercase;
 }
 
 dl#projects dd {
-  margin-bottom: 4em;
+  margin-bottom: 8em;
 }
 
 dl#projects dt::before {
@@ -329,12 +330,13 @@ dl#projects dt::before {
   display: block;
   content: '';
   filter: grayscale(1);
-  height: 5em;
+  height: 3em;
   opacity: 0.4;
   position: absolute;
-  transform: translatey(-1em) skew(-5deg);
+  transform: translatey(-0.25em) skew(-5deg);
   transition: 0.5s;
   width: 40%;
+  z-index: -1;
 }
 
 dl#projects dt[data-project="weasyprint"]::before {
@@ -377,15 +379,23 @@ dl#projects dt:nth-of-type(odd)::after {
   left: 52%;
 }
 
-dl#projects dt:nth-of-type(even),
-dl#projects dd:nth-of-type(even) {
-  margin-left: 51%;
+dl#projects dt:nth-of-type(even) {
+  margin-left: 40%;
 }
 
-dl#projects dt:nth-of-type(odd),
+dl#projects dd:nth-of-type(even) {
+  margin-left: 50%;
+}
+
+dl#projects dt:nth-of-type(odd) {
+  margin-left: 0;
+  margin-right: 40%;
+  text-align: right;
+}
+
 dl#projects dd:nth-of-type(odd) {
   margin-left: 0;
-  margin-right: 51%;
+  margin-right: 50%;
   text-align: right;
 }
 
