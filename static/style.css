@@ -189,15 +189,8 @@ main h2 {
 }
 
 main h3 {
-  font-size: 1em;
+  font-size: 1.8em;
   margin: 2em 0 0.4em;
-}
-
-main h3::before {
-  content: "o";
-  font-size: 1.25em;
-  font-weight: bold;
-  padding: 0 0.5em 0 0;
 }
 
 main nav ul {
