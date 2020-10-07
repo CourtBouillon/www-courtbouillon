@@ -12,31 +12,30 @@
       </ul>
     </aside>
 
-    <p>A tiny CSS parser</p>
+    <p class="presentation">
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>Manipulate your Stylesheets</h3>
+      <img src="{{ url_for('static', filename='images/cards.jpg') }}" />
       <p>
-        tinycss2 is a low-level CSS parser and generator written in Python: it
-        can parse strings, return objects representing tokens and blocks, and
-        generate CSS strings corresponding to these objects.
-      </p>
-      <p>
-        Based on the CSS Syntax Level 3 specification, tinycss2 knows the
-        grammar of CSS but doesn’t know specific rules, properties or values
-        supported in various CSS modules.
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>Pure Python library</li>
-        <li>Designed to be simple and to follow the specifications</li>
-        <li>Licensed under BSD</li>
-      </ul>
+      <h3>Based on Latest CSS Standards</h3>
+      <img src="{{ url_for('static', filename='images/mountain.jpg') }}" />
+      <p>
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>Fully Tested and Cross-Platform</h3>
+      <img src="{{ url_for('static', filename='images/beach.jpg') }}" />
+      <p>
+        Each version of tinycss2 is extensively and automatically tested on
+        major platforms (Windows, macOS and Linux).
+      </p>
+    </section>
   </article>
 {% endblock content %}

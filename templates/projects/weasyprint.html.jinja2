@@ -12,27 +12,41 @@
       </ul>
     </aside>
 
-    <p>The awesome document factory</p>
+    <p class="presentation">
+      WeasyPrint is a smart solution helping people to create PDF
+      documents. You can generate gorgeous statistical reports, invoices,
+      tickets…
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>Based on Universal Web Technologies</h3>
+      <img src="{{ url_for('static', filename='images/earth.jpg') }}" />
       <p>
-        WeasyPrint is a smart solution helping web developers to create PDF
-        documents. It turns simple HTML pages into gorgeous statistical
-        reports, invoices, tickets…
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>Custom page-based rendering engine for HTML and CSS</li>
-        <li>Aims to support web standards</li>
-        <li>Meant to be easy to understand and to hack on</li>
-        <li>Licensed under BSD</li>
-      </ul>
+      <h3>Powerful PDF Output</h3>
+      <img src="{{ url_for('static', filename='images/rocket.jpg') }}" />
+      <p>
+        Bookmarks, attachments, table of contents…
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>Beautiful Texts and Fonts</h3>
+      <img src="{{ url_for('static', filename='images/typo.jpg') }}" />
+      <p>
+      </p>
+    </section>
+
+    <section>
+      <h3>Fully Tested and Cross-Platform</h3>
+      <img src="{{ url_for('static', filename='images/zen.jpg') }}" />
+      <p>
+        Each version of WeasyPrint is extensively and automatically tested on
+        major platforms (Windows, macOS and Linux).
+      </p>
+    </section>
   </article>
 {% endblock content %}

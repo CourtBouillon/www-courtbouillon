@@ -12,28 +12,28 @@
       </ul>
     </aside>
 
-    <p>Convert your vector images</p>
+    <p class="presentation">
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>The Power of Vector Images</h3>
+      <img src="{{ url_for('static', filename='images/power.jpg') }}" />
       <p>
-        CairoSVG is a SVG converter based on Cairo. It can export SVG 1.1 files
-        to PDF, PostScript and PNG files.
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>Command-line interface</li>
-        <li>Python library</li>
-        <li>Works at least on Linux, macOS, and Windows</li>
-        <li>Based on the Cairo 2D graphics library</li>
-        <li>Tested using the W3C test suite</li>
-        <li>Licensed under LGPLv3</li>
-      </ul>
+      <h3>Based on Universal Standards</h3>
+      <img src="{{ url_for('static', filename='images/universal.jpg') }}" />
+      <p>
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>Convert into your Favourite Formats</h3>
+      <img src="{{ url_for('static', filename='images/colors.jpg') }}" />
+      <p>
+      </p>
+    </section>
   </article>
 {% endblock content %}

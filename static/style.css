@@ -276,30 +276,38 @@ footer ul {
   flex-direction: column;
   justify-content: center;
   min-height: 18em;
-  padding: 0 1em 0 18em;
 }
 
-[id^="page-projects/"] main section::before {
-  color: var(--red);
-  content: attr(data-char);
-  display: block;
-  font-family: ForkAwesome;
-  font-size: 15em;
-  left: -0;
-  line-height: 1;
-  opacity: 0.5;
-  position: absolute;
-  text-align: center;
-  text-shadow: 0 0 0.01em var(--red);
-  transform: skew(-5deg);
-  z-index: -1;
+[id^="page-projects/"] main section:nth-of-type(odd) {
+  padding-left: 20em;
 }
 
-[id^="page-projects"] main section h3 {
+[id^="page-projects/"] main section:nth-of-type(even) {
+  padding-right: 20em;
+}
+
+[id^="page-projects/"] main section h3 {
   margin: 0;
 }
 
+[id^="page-projects"] main section img {
+  box-shadow: 0 0 5px 1px #0003;
+  display: block;
+  height: 15em;
+  object-fit: cover;
+  opacity: 0.6;
+  position: absolute;
+  transform: skewx(-5deg);
+  width: 15em;
+}
 
+[id^="page-projects/"] main section:nth-of-type(odd) img {
+  left: 2em;
+}
+
+[id^="page-projects/"] main section:nth-of-type(even) img {
+  right: 2em;
+}
 
 .presentation {
   font-style: italic;
@@ -335,28 +343,28 @@ dl#projects dt::before {
 }
 
 dl#projects dt[data-project="weasyprint"]::before {
-  background-image: url(https://weasyprint.org/css/img/documents/reports-thumbnail.png);
+  background-image: url(/static/images/weasyprint-thumbnail.jpg);
 }
 
 dl#projects dt[data-project="cairosvg"]::before {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg);
+  background-image: url(/static/images/cairosvg-thumbnail.svg);
 }
 
 dl#projects dt[data-project="tinycss2"]::before {
-  background-image: url(https://blog.udemy.com/wp-content/uploads/2014/01/shutterstock_115297972-300x228.jpg);
+  background-image: url(/static/images/tinycss2-thumbnail.jpg);
 }
 
 dl#projects dt[data-project="pydyf"]::before {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5f/Okular_kde4.png);
+  background-image: url(/static/images/pydyf-thumbnail.jpg);
 }
 
 dl#projects dt[data-project="pyphen"]::before {
-  background-image: url(https://www.scoringnotes.com/wp-content/uploads/2010/06/hyphen.jpg);
+  background-image: url(/static/images/pyphen-thumbnail.png);
+  background-position: 32% center;
 }
 
 dl#projects dt[data-project="others"]::before {
-  background-color: var(--red);
-  background-image: url(/static/images/logo-white.svg);
+  background-image: url(/static/images/others-thumbnail.jpg);
 }
 
 dl#projects dt:hover::before {
@@ -504,15 +512,6 @@ dl#projects dd:nth-of-type(odd) {
 
   header nav li:first-child a::before {
     display: none;
-  }
-
-  [id^="page-projects/"] main section {
-    padding: 0 1em 0 3em;
-  }
-
-  [id^="page-projects/"] main section::before {
-    right: 0;
-    opacity: 0.1;
   }
 
   .icons {
