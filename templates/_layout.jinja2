@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
     <script>/* Stupid hack for iOS :hover */ document.addEventListener("touchstart", function(){}, true);</script>
   </head>
   <body id="page-{{ (request.view_args.page or 'index') if request.endpoint == 'page' else  request.endpoint }}">
