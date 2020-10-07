@@ -11,25 +11,44 @@
       </ul>
     </aside>
 
-    <p>A low-level PDF creator</p>
+    <p class="presentation">
+      PDF is a very powerful format providing a lot of features. Even if
+      graphical libraries often offer a PDF export function, they often miss
+      all the interesting possibilities that could be included in the
+      format. pydyf gives low-level functions to create the PDF of your
+      dreams.
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>Master your PDF Creation</h3>
+      <img src="{{ url_for('static', filename='images/pottery.jpg') }}" />
       <p>
-        pydyf is a low-level library providing explicit objects and functions
-        to create PDF documents from scratch.
+        Bookmarks, attachments, links, color spaces, text features… Creating
+        PDF files with advanced features and a high level of customization
+        requires low-level functions. pydyf aims at providing full access to
+        the generated PDF stream.
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>Pure Python library with no dependencies</li>
-        <li>Very low-level interface following the PDF specification</li>
-        <li>Licensed under BSD</li>
-      </ul>
+      <h3>Based on a Strong Standard</h3>
+      <img src="{{ url_for('static', filename='images/rock.jpg') }}" />
+      <p>
+        The PDF format is defined by an ISO standard. Used as a reference to
+        generate and share non-editable documents, widely implemented on all
+        platforms, PDF documents are used by almost every computer users all
+        around the world.
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>100% Pure Python</h3>
+      <img src="{{ url_for('static', filename='images/water.jpg') }}" />
+      <p>
+        Don’t spend your time dealing with extra dependencies and versions
+        mismatches… pydyf is a very small library, written pure Python. That’s
+        why it’s easy to install, easy to use, and easy to maintain.
+      </p>
+    </section>
   </article>
 {% endblock content %}

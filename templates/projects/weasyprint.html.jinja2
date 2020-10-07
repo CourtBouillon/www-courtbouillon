@@ -12,27 +12,52 @@
       </ul>
     </aside>
 
-    <p>The awesome document factory</p>
+    <p class="presentation">
+      WeasyPrint is a smart solution helping people to create PDF
+      documents. You can generate gorgeous statistical reports, invoices,
+      tickets, and anything you want as long as you have some webdesign skills!
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>Based on Universal Web Technologies</h3>
+      <img src="{{ url_for('static', filename='images/earth.jpg') }}" />
       <p>
-        WeasyPrint is a smart solution helping web developers to create PDF
-        documents. It turns simple HTML pages into gorgeous statistical
-        reports, invoices, tickets…
+        Design your documents just as you design your websites! WeasyPrint
+        follows the widely used HTML and CSS specifications from the W3C. You
+        can use your usual web tools, languages and frameworks… but for print.
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>Custom page-based rendering engine for HTML and CSS</li>
-        <li>Aims to support web standards</li>
-        <li>Meant to be easy to understand and to hack on</li>
-        <li>Licensed under BSD</li>
-      </ul>
+      <h3>Powerful PDF Output</h3>
+      <img src="{{ url_for('static', filename='images/rocket.jpg') }}" />
+      <p>
+        Creating high-quality digital documents requires features that you love
+        to use as readers: tables of contents, links, annotations, optimized
+        images, attachments… WeasyPrint provides many features out of the box,
+        and even gives you the possibility to add your own ways to customize
+        your PDF files.
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>Beautiful Texts and Fonts</h3>
+      <img src="{{ url_for('static', filename='images/typo.jpg') }}" />
+      <p>
+        Digital fonts are finely tuned pieces of artwork. To give to your
+        documents the subtle touch they deserve, carefully choose the options
+        you want: kerning, ligatures, old-style numbers, tabular figures,
+        ordinals…
+      </p>
+    </section>
+
+    <section>
+      <h3>Fully Tested and Cross-Platform</h3>
+      <img src="{{ url_for('static', filename='images/zen.jpg') }}" />
+      <p>
+        Each version of WeasyPrint is extensively and automatically tested on
+        major platforms (Windows, macOS and Linux).
+      </p>
+    </section>
   </article>
 {% endblock content %}

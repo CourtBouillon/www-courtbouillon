@@ -12,31 +12,40 @@
       </ul>
     </aside>
 
-    <p>A tiny CSS parser</p>
+    <p class="presentation">
+      All the web developers know the CSS format, but do they really know all
+      the subtleties of its syntax? tinycss2 provides a CSS parser that is able
+      to extract everything you want from stylesheets.
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>Manipulate your Stylesheets</h3>
+      <img src="{{ url_for('static', filename='images/cards.jpg') }}" />
       <p>
-        tinycss2 is a low-level CSS parser and generator written in Python: it
-        can parse strings, return objects representing tokens and blocks, and
-        generate CSS strings corresponding to these objects.
-      </p>
-      <p>
-        Based on the CSS Syntax Level 3 specification, tinycss2 knows the
-        grammar of CSS but doesn’t know specific rules, properties or values
-        supported in various CSS modules.
+        Blocks, units, selectors, comments… Parsing stylesheets gives you
+        access to high-level entities that you can manipulate and play
+        with. Thanks to the included CSS generator, parsed tokens can also be
+        transformed back into clean stylesheet.
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>Pure Python library</li>
-        <li>Designed to be simple and to follow the specifications</li>
-        <li>Licensed under BSD</li>
-      </ul>
+      <h3>Based on Latest CSS Standards</h3>
+      <img src="{{ url_for('static', filename='images/mountain.jpg') }}" />
+      <p>
+        CSS is changing fast, specifications constantly evolve without people
+        even noticing. Don’t worry: tinycss2 follows the latest syntax
+        modifications and gives you a complete state-of-the-art parser.
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>Fully Tested and Cross-Platform</h3>
+      <img src="{{ url_for('static', filename='images/beach.jpg') }}" />
+      <p>
+        Each version of tinycss2 is extensively and automatically tested on
+        major platforms (Windows, macOS and Linux).
+      </p>
+    </section>
   </article>
 {% endblock content %}

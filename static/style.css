@@ -1,3 +1,5 @@
+/* Fonts */
+
 @font-face {
   font-family: Metropolis;
   font-weight: 400;
@@ -28,22 +30,24 @@
 }
 
 
+/* Variables */
 
 :root {
-  --black: black;
+  --black: #333;
   --grey: #f2f2f1;
   --red: #e8403a;
-  --white: white;
+  --white: #fff;
 }
 
 
+/* Common tags */
 
 html {
   background: var(--white);
   color: var(--black);
   font-family: Metropolis, sans-serif;
-  font-size: 14pt;
-  line-height: 1.4;
+  font-size: 13pt;
+  line-height: 1.5;
   overflow-x: hidden;
 }
 
@@ -52,6 +56,10 @@ body {
   flex-direction: column;
   margin: 0;
   min-height: 100vh;
+}
+
+h2, h3, h4 {
+  font-weight: 400;
 }
 
 a, a:visited {
@@ -78,6 +86,7 @@ button {
   color: var(--red);
   display: block;
   font: inherit;
+  margin: 1em;
   padding: 0.5em 1em;
   transition: 0.2s;
 }
@@ -86,14 +95,11 @@ button:hover,
 button:focus {
   background: var(--red);
   color: var(--white);
-}
-
-h2, h3, h4 {
-  font-weight: 400;
+  cursor: pointer;
 }
 
 
-
+/* Header */
 
 header {
   background: var(--red);
@@ -105,36 +111,98 @@ header h1, header p {
   display: none;
 }
 
-header nav li:first-child {
-  left: 0;
-  margin: -3em 0 0;
-  padding: 0;
-  position: absolute;
-  text-align: center;
-  top: 100vh;
-  width: 100vw;
-}
-
-header nav li:first-child a {
-  display: flex;
-  font-size: 0;
-}
-
-header nav li:first-child a::before {
-  content: "˅";
-  display: block;
-  flex: 1;
-  font-size: 1rem;
-  line-height: 2em;
-  height: 2em;
-  vertical-align: middle;
+header nav {
+  box-sizing: border-box;
+  font-size: 1.25em;
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
 }
 
 header nav li:last-child {
   margin-left: auto;
 }
 
+@media (max-width: 920px) {
+  header nav {
+    display: block;
+    height: 3em;
+    margin-right: 0;
+    overflow: hidden;
+    transition-delay: 0.5s;
+    transition-property: z-index;
+    width: 3em;
+    z-index: 3;
+  }
 
+  header::before,
+  header nav::before {
+    align-items: center;
+    background: var(--red);
+    color: var(--white);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+  }
+
+  header::before {
+    content: "⨯";
+    height: 1rem;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1rem;
+    z-index: 2;
+  }
+
+  header nav::before {
+    content: "☰";
+    margin-bottom: 1em;
+  }
+
+  header nav:hover {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+    z-index: 1;
+  }
+
+  header nav:hover ul {
+    align-items: center;
+    background: var(--red);
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  header nav:hover li:last-child {
+    margin-left: 0;
+  }
+
+  header nav:hover a {
+    padding: 1em;
+  }
+
+  header nav:hover ~ * {
+    display: block !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+  }
+
+  header nav:hover::before {
+    display: none;
+  }
+}
+
+
+/* Nav */
 
 nav {
   box-sizing: border-box;
@@ -161,6 +229,7 @@ nav a, nav a:visited {
 }
 
 
+/* Main */
 
 main {
   display: flex;
@@ -172,8 +241,8 @@ main > * {
   box-sizing: border-box;
   flex: 1;
   margin: 0 auto;
-  max-width: 50em;
-  padding: 1em;
+  max-width: 60em;
+  padding: 1rem 2rem;
   position: relative;
   width: 100%;
 }
@@ -189,23 +258,21 @@ main > *:nth-child(even)::before {
   z-index: -1;
 }
 
+main article {
+  padding: 3rem 2rem;
+}
+
 main h2 {
   border-bottom: 2px solid var(--red);
+  font-size: 1.8em;
   font-weight: regular;
-  margin: 0.5em auto 1em;
+  margin: 0.25em auto 1.5em;
   display: table;
 }
 
 main h3 {
-  font-size: 1em;
-  margin: 1.6em 0 0.4em;
-}
-
-main h3::before {
-  content: "o";
-  font-size: 1.25em;
-  font-weight: bold;
-  padding: 0 0.5em 0 0;
+  font-size: 1.8em;
+  margin: 2em 0 0.4em;
 }
 
 main nav ul {
@@ -217,17 +284,16 @@ main nav a, main nav a:visited {
 }
 
 
+/* Footer */
 
 footer {
-  background: url(/static/images/logo-red.svg) 1rem center / 8rem no-repeat;
   box-sizing: border-box;
   display: flex;
-  font-size: 0.8em;
   justify-content: space-evenly;
   margin: 0 auto;
-  max-width: 50rem;
+  max-width: 60rem;
   min-height: 7rem;
-  padding: 2rem 0 2rem 10rem;
+  padding: 2rem 0;
   width: 100%;
 }
 
@@ -242,23 +308,236 @@ footer ul {
   padding: 0;
 }
 
+@media (min-width: 921px) {
+  footer {
+    background: url(/static/images/logo-red.svg) 2.5rem center / 8rem no-repeat;
+    padding-left: 12rem;
+  }
+}
 
+
+/* Index Page */
 
 #page-index header {
-  background: url(/static/images/logo-white.svg) center center / 50% 50% no-repeat var(--red);
-  height: 100vh;
+  background: var(--red);
+  height: 95vh;
 }
 
 #page-index header p {
   color: var(--white);
   display: block;
   font-family: Inconsolata;
-  margin: auto 0 4em;
-  text-align: center;
+  font-size: 3em;
+  line-height: 1.1;
+  margin: auto 0 auto 45%;
+  max-width: 30rem;
   text-transform: lowercase;
+  transform: translatey(-2.5rem);
+  width: 55%;
+}
+
+#page-index::before {
+  content: url(/static/images/logo-white.svg);
+  display: block;
+  max-width: 15rem;
+  left: 40%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-100%, -55%);
+  width: 80%;
+}
+
+@media (max-width: 920px) {
+  #page-index header p {
+    font-size: 2em;
+    margin: 60vh 10% 0 10%;
+    max-width: none;
+    text-align: center;
+    width: 80%;
+  }
+
+  #page-index::before {
+    height: 30%;
+    left: 50%;
+    top: 20%;
+    transform: translatex(-50%);
+  }
 }
 
 
+/* Projects Section */
+
+#projects dl dt {
+  font-family: Inconsolata;
+  font-size: 2.5em;
+  margin-top: 1em;
+  text-shadow: 1px 1px 5px var(--white), -1px -1px 5px var(--white);
+  text-transform: lowercase;
+}
+
+@media (max-width: 920px) {
+  dt, dd {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media (min-width: 921px) {
+  #projects h2 {
+    display: none;
+  }
+
+  #projects dl dd {
+    margin-top: -4em;
+    margin-bottom: 6em;
+  }
+
+  #projects dl dt a {
+    display: block;
+    height: 3em;
+    position: relative;
+  }
+
+  #projects dl dt::before {
+    background: center 35% / cover;
+    box-shadow: 0 0 5px 1px #0003;
+    display: block;
+    content: "";
+    filter: grayscale(1);
+    height: 3em;
+    opacity: 0.4;
+    position: absolute;
+    transform: translatey(-0.25em) skew(-5deg);
+    transition: 0.5s;
+    width: 40%;
+  }
+
+  #projects dl dt[data-project="weasyprint"]::before {
+    background-image: url(/static/images/weasyprint-thumbnail.jpg);
+  }
+
+  #projects dl dt[data-project="cairosvg"]::before {
+    background-image: url(/static/images/cairosvg-thumbnail.svg);
+  }
+
+  #projects dl dt[data-project="tinycss2"]::before {
+    background-image: url(/static/images/tinycss2-thumbnail.jpg);
+  }
+
+  #projects dl dt[data-project="pydyf"]::before {
+    background-image: url(/static/images/pydyf-thumbnail.jpg);
+  }
+
+  #projects dl dt[data-project="pyphen"]::before {
+    background-image: url(/static/images/pyphen-thumbnail.png);
+    background-position: 32% center;
+  }
+
+  #projects dl dt[data-project="others"]::before {
+    background-image: url(/static/images/others-thumbnail.jpg);
+  }
+
+  #projects dl dt:hover::before {
+    filter: none;
+    opacity: 0.6;
+  }
+
+  #projects dl dt:nth-of-type(even)::before {
+    right: 52%;
+  }
+
+  #projects dl dt:nth-of-type(odd)::before {
+    left: 52%;
+  }
+
+  #projects dl dt:nth-of-type(even) a {
+    padding-left: 40%;
+  }
+
+  #projects dl dd:nth-of-type(even) {
+    margin-left: 50%;
+  }
+
+  #projects dl dt:nth-of-type(odd) a {
+    margin-left: 0;
+    padding-right: 40%;
+    text-align: right;
+  }
+
+  #projects dl dd:nth-of-type(odd) {
+    margin-left: 0;
+    margin-right: 50%;
+    text-align: right;
+  }
+}
+
+
+/* Project Pages */
+
+[id^="page-projects"] main section img {
+  height: 5em;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (min-width: 921px) {
+  [id^="page-projects/"] main section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 18em;
+  }
+
+  [id^="page-projects/"] main section:nth-of-type(odd) {
+    padding-left: 20em;
+    padding-right: 5em;
+  }
+
+  [id^="page-projects/"] main section:nth-of-type(even) {
+    padding-left: 5em;
+    padding-right: 20em;
+  }
+
+  [id^="page-projects/"] main section h3 {
+    margin: 0;
+  }
+
+  [id^="page-projects"] main section img {
+    box-shadow: 0 0 5px 1px #0003;
+    display: block;
+    height: 15em;
+    object-fit: cover;
+    position: absolute;
+    transform: skewx(-5deg);
+    width: 15em;
+  }
+
+  [id^="page-projects/"] main section:nth-of-type(odd) img {
+    left: 2em;
+  }
+
+  [id^="page-projects/"] main section:nth-of-type(even) img {
+    right: 2em;
+  }
+}
+
+
+/* Presentation Paragraphs */
+
+.presentation {
+  font-style: italic;
+  margin: 2em;
+  text-align: center;
+}
+
+@media (min-width: 921px) {
+  .presentation {
+    margin: 2em 10em;
+  }
+}
+
+
+/* Icons Lists */
 
 .icons {
   display: flex;
@@ -279,109 +558,31 @@ footer ul {
 }
 
 .github a::before {
-  content: '\f09b';
+  content: "\f09b";
 }
 
 .web a::before {
-  content: '\f0ac';
+  content: "\f0ac";
 }
 
 .doc a::before {
-  content: '\f02d';
+  content: "\f02d";
 }
 
 .gitter a::before {
-  content: '\f086';
+  content: "\f086";
 }
 
 .report a::before {
-  content: '\f15c';
+  content: "\f15c";
 }
 
-
-@media screen and (max-width: 920px) {
-  footer {
-    background: none;
-    padding-left: 0;
-  }
-
-  header nav {
-    display: block;
-    height: 3em;
-    margin-left: auto;
-    overflow: hidden;
-    transition-delay: 0.5s;
-    transition-property: z-index;
-    width: 3em;
-    z-index: 3;
-  }
-
-  header::before,
-  header nav::before {
-    align-items: center;
-    background: var(--red);
-    color: var(--white);
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    width: 100%;
-  }
-
-  header::before {
-    content: '⨯';
-    height: 3em;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 3em;
-    z-index: 2;
-  }
-
-  header nav::before {
-    content: '☰';
-  }
-
-  header nav:hover {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    width: 100%;
-    z-index: 1;
-  }
-
-  header nav:hover ul {
-    align-items: center;
-    background: var(--red);
-    max-height: 20em;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  header nav:hover li:last-child {
-    margin-left: 0;
-  }
-
-  header nav:hover ~ * {
-    display: block !important;
-    height: 0 !important;
-    margin: 0 !important;
-    overflow: hidden;
-  }
-
-  header nav:hover::before {
-    display: none;
-  }
-
-  header nav li:first-child a::before {
-    display: none;
-  }
-
+@media (max-width: 920px) {
   .icons {
     flex-direction: column;
     font-size: 1rem;
     padding: 0;
+    text-align: center;
   }
 
   .icons li a {
@@ -390,8 +591,8 @@ footer ul {
 }
 
 
+/* Pygments */
 
-/* pygments */
 .hll { background-color: #ffffcc }
 .c { color: #408080 } /* Comment */
 .err { border: 1px solid #FF0000 } /* Error */

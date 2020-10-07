@@ -11,62 +11,55 @@
       </ul>
     </aside>
 
-    <p>Hy-phen-ation made easy</p>
+    <p class="presentation">
+      Did you ever wonder where to break words when they’re a bit too long at
+      the end of the line? Depending on the language, hyphenation principles
+      can be phonetic, etymological, or morphological. Quite complicated…
+      Hopefully, Pyphen is there to follow the rules that (almost) nobody wants
+      to learn.
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>Dictionaries Included</h3>
+      <img src="{{ url_for('static', filename='images/dictionary.jpg') }}" />
       <p>
-        Pyphen is a pure Python module to hyphenate words using included or
-        external Hunspell hyphenation dictionaries. It includes by default the
-        dictionaries distributed by LibreOffice.
+        By default, Pyphen includes
+        <a href="https://github.com/Kozea/Pyphen/tree/master/pyphen/dictionaries">the dictionaries distributed by LibreOffice</a>.
+        You don’t have to look for dictionaries elsewhere, and deal with
+        complicated extra installations. But if you don’t like our
+        dictionaries, don’t worry: Pyphen gives you the possibility to use your
+        own.
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>100% pure Python with no dependencies</li>
-        <li>caches dict files and hyphenated words</li>
-        <li>supports nonstandard hyphenation patterns</li>
-        <li>a lot of included dictionaries:
-          <ul>
-            <li>Afrikaans</li>
-            <li>Bulgarian</li>
-            <li>Catalan</li>
-            <li>Croatian</li>
-            <li>Czech</li>
-            <li>Danish</li>
-            <li>Dutch</li>
-            <li>English (Great-Britain and United-States)</li>
-            <li>Estonian</li>
-            <li>French</li>
-            <li>Galician</li>
-            <li>German (Austria, Germany and Switzerland)</li>
-            <li>Greek</li>
-            <li>Hungarian</li>
-            <li>Icelandic</li>
-            <li>Indonesian</li>
-            <li>Italian</li>
-            <li>Lithuanian</li>
-            <li>Latvian</li>
-            <li>Norwegian (Bokmål and Nynorsk)</li>
-            <li>Polish</li>
-            <li>Portuguese (Brazil and Portugal)</li>
-            <li>Romanian</li>
-            <li>Russian</li>
-            <li>Serbian (cyrillic and latin)</li>
-            <li>Slovak</li>
-            <li>Slovenian</li>
-            <li>Spanish</li>
-            <li>Swedish</li>
-            <li>Telugu</li>
-            <li>Ukrainian</li>
-            <li>Zulu</li>
-          </ul>
-        </li>
-      </ul>
+      <h3>Nonstandard Patterns</h3>
+      <img src="{{ url_for('static', filename='images/patterns.jpg') }}" />
+      <p>
+        Because hyphenation is definitely not that easy, because English words
+        are not enough to express the world’s diversity, Pyphen handles
+        nonstandard hyphenation patterns used in many languages.
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>Faster and Faster</h3>
+      <img src="{{ url_for('static', filename='images/speed.jpg') }}" />
+      <p>
+        When Pyphen is loaded, everything is done to be as fast as
+        possible. We’ll take care of remembering the dictionaries and words
+        you’ve already used, no need to spend the time twice!
+      </p>
+    </section>
+
+    <section>
+      <h3>100% Pure Python</h3>
+      <img src="{{ url_for('static', filename='images/python.jpg') }}" />
+      <p>
+        Don’t spend your time dealing with extra dependencies and versions
+        mismatches… Pyphen is a very small library, written pure Python. That’s
+        why it’s easy to install, easy to use, and easy to maintain.
+      </p>
+    </section>
   </article>
 {% endblock content %}

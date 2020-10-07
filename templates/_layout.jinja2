@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
     <script>/* Stupid hack for iOS :hover */ document.addEventListener("touchstart", function(){}, true);</script>
   </head>
   <body id="page-{{ (request.view_args.page or 'index') if request.endpoint == 'page' else  request.endpoint }}">
@@ -12,19 +13,17 @@
       <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
       <nav>
         <ul>
-          <li><a href="#content">Content</a></li>
           <li><a href="{{ url_for('page', page='index') }}">Home</a></li>
           <li><a href="{{ url_for('page', page='projects') }}">Projects</a></li>
           <li><a href="{{ url_for('page', page='team') }}">Team</a></li>
           <li><a href="{{ url_for('blog') }}">Blog</a></li>
-          <li><a href="{{ url_for('page', page='support') }}">Support</a></li>
-          <li style="visibility: hidden"><a href="">Donate</a></li>
+          <li><a href="https://opencollective.com/courtbouillon">Donate</a></li>
         </ul>
       </nav>
       <p>Authentic people growing open source code with taste</p>
     </header>
 
-    <main id="content">
+    <main>
       {% block content %}{% endblock content %}
     </main>
 
@@ -32,16 +31,16 @@
       <section>
         <h2>Contact</h2>
         <ul>
-          <li><a href="mailto:contact&#64;courtbouillon.org">Mail</a></li>
-          <li><a href="https://gitter.im/CourtBouillon">Chat</a></li>
+          <li><a title="contact&#64;courtbouillon.org" href="mailto:contact&#64;courtbouillon.org">Mail</a></li>
+          <li><a title="CourtBouillon" href="https://gitter.im/CourtBouillon">Chat</a></li>
         </ul>
       </section>
 
       <section>
         <h2>Follow Us</h2>
         <ul>
-          <li><a href="https://twitter.com/BouillonCourt">Twitter</a></li>
-          <li><a href="https://github.com/CourtBouillon">GitHub</a></li>
+          <li><a title="@BouillonCourt" href="https://twitter.com/BouillonCourt">Twitter</a></li>
+          <li><a title="CourtBouillon" href="https://github.com/CourtBouillon">GitHub</a></li>
           <li><a href="{{ url_for('rss') }}">RSS</a></li>
         </ul>
       </section>

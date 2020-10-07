@@ -12,28 +12,44 @@
       </ul>
     </aside>
 
-    <p>Convert your vector images</p>
+    <p class="presentation">
+      Rendering vector images is rendering abstract lines, shapes, texts and
+      gradients. That’s not an easy job! Hopefully, CairoSVG knows how to
+      transform SVG files into common image or document formats: PNG, PDF, PS,
+      and even SVG!
+    </p>
 
     <section>
-      <h3>Presentation</h3>
+      <h3>The Power of Vector Images</h3>
+      <img src="{{ url_for('static', filename='images/power.jpg') }}" />
       <p>
-        CairoSVG is a SVG converter based on Cairo. It can export SVG 1.1 files
-        to PDF, PostScript and PNG files.
+        Vector images are perfect to represent images thanks to primitive
+        shapes. They use a comprehensive, easily editable and incredibly
+        lightweight format. They also offer a perfect quality at all zoom
+        levels, no extra work needed!
       </p>
     </section>
 
     <section>
-      <h3>Features</h3>
-      <ul>
-        <li>Command-line interface</li>
-        <li>Python library</li>
-        <li>Works at least on Linux, macOS, and Windows</li>
-        <li>Based on the Cairo 2D graphics library</li>
-        <li>Tested using the W3C test suite</li>
-        <li>Licensed under LGPLv3</li>
-      </ul>
+      <h3>Based on Universal Standards</h3>
+      <img src="{{ url_for('static', filename='images/universal.jpg') }}" />
+      <p>
+        SVG is a very widely used format, with a large software support in
+        browsers and image viewers. Developed by the W3C (just like HTML and
+        CSS), it provides a large list of features that are extensively
+        described and documented.
+      </p>
     </section>
 
-    {% include '_support.jinja2' %}
+    <section>
+      <h3>Convert into your Favourite Formats</h3>
+      <img src="{{ url_for('static', filename='images/colors.jpg') }}" />
+      <p>
+        Because SVG is sometimes not enough, CairoSVG converts files to raster
+        (PNG) and vector formats (PDF, PostScript) thanks to command-line
+        executables. Low-level API is provided to to draw your graphics on any
+        Cairo surface.
+      </p>
+    </section>
   </article>
 {% endblock content %}
