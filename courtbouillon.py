@@ -33,7 +33,7 @@ def list_articles():
     return dict(sorted(articles.items(), reverse=True))
 
 
-@app.route('/blog')
+@app.route('/blog-articles')
 @app.route('/blog/<article>')
 def blog(article=None):
     if article is not None:
