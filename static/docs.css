@@ -1,0 +1,105 @@
+@font-face {
+  font-family: Metropolis;
+  font-weight: 400;
+  src: local("Metropolis Regular"), local("Metropolis-Regular"), url(/static/fonts/Metropolis-Regular.woff2);
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-weight: 700;
+  src: local("Metropolis Bold"), local("Metropolis-Bold"), url(/static/fonts/Metropolis-Bold.woff2);
+}
+
+@font-face {
+  font-family: Metropolis;
+  font-style: italic;
+  font-weight: 400;
+  src: local("Metropolis RegularItalic"), local("Metropolis-RegularItalic"), url(/static/fonts/Metropolis-RegularItalic.woff2);
+}
+
+@font-face {
+  font-family: Inconsolata;
+  src: local("Inconsolata"), url(/static/fonts/Inconsolata-Regular.woff2);
+}
+
+@font-face {
+  font-family: Inconsolata;
+  font-weight: 700;
+  src: local("Inconsolata"), url(/static/fonts/Inconsolata-Bold.woff2);
+}
+
+:root {
+  --black: #333;
+  --grey: #f2f2f1;
+  --red: #e8403a;
+  --white: #fff;
+}
+
+body {
+  color: var(--black);
+  font-family: Metropolis;
+}
+
+.rst-content .toctree-wrapper>p.caption, h1, h2, h3, h4, h5, h6, legend {
+  font-family: Inconsolata;
+}
+
+.rst-content .linenodiv pre, .rst-content div[class^=highlight] pre, .rst-content pre.literal-block {
+  font-family: Inconsolata;
+  font-size: 1em;
+}
+
+.rst-content code, .rst-content tt {
+  font-family: Inconsolata;
+  font-size: 1em;
+}
+
+.wy-side-nav-search {
+  background-color: var(--red);
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+  color: var(--red);
+}
+
+.wy-nav-content {
+  background: var(--white);
+}
+
+.wy-nav-content a, .wy-nav-content a:visited {
+  color: var(--red);
+}
+
+.wy-nav-content a:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.wy-side-nav-search input[type=text] {
+  border: 1px solid var(--grey);
+  border-radius: 0;
+}
+
+.wy-nav-side {
+  background: var(--grey);
+}
+
+.wy-menu-vertical a {
+  color: var(--black);
+}
+
+.wy-menu-vertical a:hover {
+  background: var(--white);
+}
+
+.wy-nav-content-wrap {
+  background: var(--grey);
+}
+
+.wy-side-nav-search>div.version {
+  color: var(--white);
+}
+
+.wy-nav-top {
+  background: var(--red);
+}
