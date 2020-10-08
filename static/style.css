@@ -81,22 +81,25 @@ form {
   justify-content: center;
 }
 
-button {
-  background: transparent;
+.button {
+  text-align: center;
+}
+
+.button a {
   border: 1px solid var(--red);
   color: var(--red);
-  display: block;
-  font: inherit;
+  display: inline-block;
   margin: 1em;
   padding: 0.5em 1em;
   transition: 0.2s;
 }
 
-button:hover,
-button:focus {
+.button a:hover,
+.button a:focus {
   background: var(--red);
   color: var(--white);
   cursor: pointer;
+  text-decoration: inherit;
 }
 
 
