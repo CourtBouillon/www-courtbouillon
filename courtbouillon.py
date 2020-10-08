@@ -2,7 +2,7 @@ from datetime import datetime
 from email.utils import format_datetime
 from pathlib import Path
 
-from flask import Flask, render_template
+from flask import Flask, Response, render_template
 from flask_frozen import Freezer
 from pygments import formatters, highlight, lexers
 
