@@ -1,14 +1,15 @@
 <html lang="en">
   <head>
-    <title>CourtBouillon</title>
+    <title>CourtBouillon{% if title %} − {{ title }}{% endif %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Authentic people growing open source code with taste">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
+    <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
     <script>/* Stupid hack for iOS :hover */ document.addEventListener("touchstart", function(){}, true);</script>
   </head>
-  <body id="page-{{ (request.view_args.page or 'index') if request.endpoint == 'page' else  request.endpoint }}">
+  <body id="page-{{ (request.view_args.page or 'index') if request.endpoint == 'page' else request.endpoint }}">
     <header>
       <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
       <nav>
