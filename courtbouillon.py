@@ -52,6 +52,11 @@ def rss():
     return render_template('blog.rss.jinja2', articles=list_articles())
 
 
+@app.route('/robots.txt')
+def robots():
+    return Response('User-agent: *\nDisallow:', mimetype='text/plain')
+
+
 @app.template_filter()
 def pygmentize(filename):
     content = (Path('templates/snippets') / filename).read_text()
