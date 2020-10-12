@@ -76,11 +76,6 @@ code, pre {
   font-family: Inconsolata;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-}
-
 .button {
   text-align: center;
 }
@@ -102,6 +97,9 @@ form {
   text-decoration: inherit;
 }
 
+ul {
+  list-style-type: circle;
+}
 
 /* Header */
 
@@ -541,6 +539,42 @@ footer ul {
   }
 }
 
+
+/* Blog */
+
+#page-article article header {
+  background: inherit;
+}
+
+#page-article article header p {
+  display: block;
+}
+
+#page-blog article nav, #page-blog article nav * {
+  padding: 0;
+}
+
+#page-article article aside {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+#page-article article h2 {
+  margin-bottom: 0.85em;
+}
+
+#page-article article h3 {
+  margin: 1.25em 0 0.5em;
+}
+
+#page-blog aside, #page-article aside {
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+#page-article ul {
+  padding-left: 0;
+}
 
 /* Icons Lists */
 
