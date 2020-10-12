@@ -74,6 +74,7 @@ a:hover, a:focus {
 
 code, pre {
   font-family: Inconsolata;
+  font-size: 1.08em;
 }
 
 .button {
@@ -555,16 +556,8 @@ footer ul {
 }
 
 #page-article article aside {
-  margin-bottom: 0.5em;
+  margin: -1em 0 0.5em;
   text-align: center;
-}
-
-#page-article article h2 {
-  margin-bottom: 0.85em;
-}
-
-#page-article article h3 {
-  margin: 1.25em 0 0.5em;
 }
 
 #page-blog aside, #page-article aside {
