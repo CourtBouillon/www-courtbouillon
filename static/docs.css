@@ -58,6 +58,10 @@ body {
   background-color: var(--red);
 }
 
+.wy-side-nav-search .version {
+  display: none;
+}
+
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
   color: var(--red);
 }
@@ -102,4 +106,30 @@ body {
 
 .wy-nav-top {
   background: var(--red);
+}
+
+#versions {
+  background: var(--red);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+}
+
+#versions li {
+  display: none;
+  line-height: 2;
+  text-align: center;
+}
+
+#versions:hover li, #versions li.current {
+  display: block;
+}
+
+#versions a {
+  color: white;
+}
+
+#versions:hover li.current a {
+  text-decoration: underline;
 }
