@@ -38,14 +38,16 @@ def list_articles():
 def blog(article=None):
     if article is not None:
         article_object = list_articles()[article.split('-')[0]]
-        return render_template(f'articles/{article}.html.jinja2', **article_object)
+        return render_template(
+            f'articles/{article}.html.jinja2', page='article',
+            **article_object)
     return render_template('blog.html.jinja2', articles=list_articles())
 
 
 @app.route('/')
 @app.route('/<path:page>')
 def page(page='index'):
-    return render_template(f'{page}.html.jinja2')
+    return render_template(f'{page}.html.jinja2', page=page)
 
 
 @app.route('/blog.rss')

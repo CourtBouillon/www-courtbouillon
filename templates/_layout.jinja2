@@ -9,7 +9,7 @@
     <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
     <script>/* Stupid hack for iOS :hover */ document.addEventListener("touchstart", function(){}, true);</script>
   </head>
-  <body id="page-{{ (request.view_args.page or 'index') if request.endpoint == 'page' else request.endpoint }}">
+  <body id="page-{{ page or request.endpoint }}">
     <header>
       <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
       <nav>
