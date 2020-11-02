@@ -350,6 +350,10 @@ footer ul {
   width: 80%;
 }
 
+#page-index h3 {
+  text-align: center;
+}
+
 @media (max-width: 920px) {
   #page-index header p {
     font-size: 2em;
@@ -538,6 +542,27 @@ footer ul {
   .presentation {
     margin: 2em 10em;
   }
+}
+
+
+/* Sponsors */
+
+.sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2em 0 1em;
+}
+
+.sponsors li {
+  display: block;
+  font-size: 0;
+  padding: 1rem;
+}
+
+.sponsors.bronze img {
+  max-height: 50px;
+  max-width: 150px;
 }
 
 
