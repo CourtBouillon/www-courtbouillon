@@ -4,52 +4,52 @@
 
   <article>
     <header>
-      <h2>On the road</h2>
+      <h2>On the Road</h2>
       <aside><time datetime="2020-11-05">November 5, 2020</time>, by grewn0uille</aside>
       <p>
-      You may noticed some releases last week. It’s time to share with you what
+      You may have noticed some releases last week. It’s time to share with you what
       is coming next!
       </p>
     </header>
 
     <section>
 
-      <h3>Releases last week</h3>
+      <h3>Releases Last Week</h3>
       <p>
-      Last week we made releases for many projects. If you didn’t know, you can
+      Last week, we made releases for many projects. If you didn’t know, you can
       have a look at the different changelogs:
       </p>
       <ul>
         <li>
-          <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v52">Weasyprint</a>;
+          <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v52">Weasyprint</a>,
         </li>
         <li>
-          <a href="https://github.com/Kozea/CairoSVG/releases/tag/2.5.0">CairoSVG</a>;
+          <a href="https://github.com/Kozea/CairoSVG/releases/tag/2.5.0">CairoSVG</a>,
         </li>
         <li>
-          <a href="https://github.com/Kozea/tinycss2/releases/tag/v1.1.0">tinycss2</a>;
+          <a href="https://github.com/Kozea/tinycss2/releases/tag/v1.1.0">tinycss2</a>,
         </li>
         <li>
-          <a href="https://github.com/Kozea/cssselect2/releases/tag/0.4.0">cssselect2</a>;
+          <a href="https://github.com/Kozea/cssselect2/releases/tag/0.4.0">cssselect2</a>,
         </li>
         <li>
-          <a href="https://github.com/Kozea/cairocffi/releases/tag/v1.2.0">cairocffi</a>;
+          <a href="https://github.com/Kozea/cairocffi/releases/tag/v1.2.0">cairocffi</a>,
         </li>
         <li>
-          and <a href="https://github.com/Kozea/Pyphen/releases/tag/0.10.0">Pyphen</a>.
+          <a href="https://github.com/Kozea/Pyphen/releases/tag/0.10.0">Pyphen</a>.
         </li>
       </ul>
       <p>
-      These releases include a lot of bug fixes and new features. And for
-      tinycss2 and cssselect2, there is also a new documentation structure and
-      packaging system.
+      These releases include a lot of bug fixes and new features. For
+      tinycss2 and cssselect2, you’ll also find a new documentation structure
+      and packaging system.
       </p>
       <p>
-      Don’t hesitate to tell us your impressions and open tickets if you
+      Don’t hesitate to tell us your impressions, and to open tickets if you
       encounter any bugs! 😄
       </p>
 
-      <h3>What’s coming after that?</h3>
+      <h3>What’s Coming After That?</h3>
       <p>
       For the next releases, our main goal is to get rid of Cairo for
       WeasyPrint 🎉.
@@ -64,50 +64,47 @@
       </p>
       <p>
       For now, almost everything that WeasyPrint actually does is implemented
-      with pydyf. Mainly it miss SVG support, which means we have to rewrite
-      CairoSVG but for pydyf!
+      with pydyf. It mainly misses SVG support, which means that we have to rewrite
+      CairoSVG, but for pydyf!
       </p>
       <p>
-      Removing Cairo will allow us to have a better control on pdf genaration
+      Removing Cairo will allow us to have a better control on PDF genaration
       and to resolve a lot of issues related to:
       </p>
       <ul>
         <li>
-          <a href="https://github.com/Kozea/WeasyPrint/issues/1237">WOFF support</a>;
+          <a href="https://github.com/Kozea/WeasyPrint/issues/1237">WOFF support</a>,
         </li>
         <li>
-          <a href="https://github.com/Kozea/WeasyPrint/issues/504">Linear gradient</a>;
+          <a href="https://github.com/Kozea/WeasyPrint/issues/504">linear gradients</a>,
         </li>
         <li>
-          <a href="https://github.com/Kozea/WeasyPrint/issues/1199">Kerning</a>;
+          <a href="https://github.com/Kozea/WeasyPrint/issues/790">repeated gradients</a>,
         </li>
         <li>
-          <a href="https://github.com/Kozea/WeasyPrint/issues/1237">Text hinting</a>;
-        </li>
-        <li>
-          <a href="https://github.com/Kozea/WeasyPrint/issues/790">Repeated grandient</a>;
+          <a href="https://github.com/Kozea/WeasyPrint/issues/1199">kerning</a>,
         </li>
         <li>and more.</li>
       </ul>
 
-      <h3>And after that?</h3>
+      <h3>And After That?</h3>
       <p>
       After Cairo removal, there are a lot of features and improvements we want
-      to work on like:
+      to work on, like:
       </p>
       <ul>
         <li>
-          Advanced PDF formats and features: 
+          advanced PDF formats and features: 
           <a href="https://github.com/Kozea/WeasyPrint/issues/640">X/3</a>, 
           <a href="https://github.com/Kozea/WeasyPrint/issues/630">PDF/A</a>, 
           <a href="https://github.com/Kozea/WeasyPrint/issues/1088">accessibility</a>,
           <a href="https://github.com/Kozea/WeasyPrint/issues/752">digital signature</a>…;
         </li>
         <li>
-          Documentation structure: new structure like tinycss2 and cssselect2;
+          documentation structure: new structure like tinycss2 and cssselect2;
         </li>
         <li>
-          Package creation: flit packaging;
+          package creation: flit packaging;
         </li>
         <li>
           CMYK support: 
@@ -120,7 +117,7 @@
           <a href="https://github.com/Kozea/WeasyPrint/issues/106">rtl support</a>;
         </li>
         <li>
-          Paged layout features: 
+          paged layout features: 
           <a href="https://github.com/Kozea/WeasyPrint/issues/259">page floats</a>, 
           <a href="https://github.com/Kozea/WeasyPrint/issues/298">footnote</a>, 
           <a href="https://github.com/Kozea/WeasyPrint/issues/895">page groups</a>, 
@@ -128,12 +125,12 @@
           <a href="https://github.com/Kozea/WeasyPrint/issues/36">page breaks</a>;
         </li>
         <li>
-          Modern layout: 
+          modern layout: 
           <a href="https://github.com/Kozea/WeasyPrint/issues/543">grid</a>, 
           a better flex and columns support;
         </li>
         <li>
-          Performance: 
+          performance: 
           <a href="https://github.com/Kozea/WeasyPrint/issues/578">long documents</a>, 
           <a href="https://github.com/Kozea/WeasyPrint/issues/1104">long tables</a>, 
           <a href="https://github.com/Kozea/WeasyPrint/issues/1123">memory leak</a>…;
@@ -151,14 +148,14 @@
       </ul>
 
       <p>
-      We don’t know yet in which order it will be done. We’ll ask your opinion
-      at the appropriate time 📆.
+      We don’t know yet in which order it will be done. Don’t worry: we’ll ask
+      for your opinion at the appropriate time 📆.
       </p>
 
       <p>
       As you can imagine, all of this will require a lot of work and we won’t 
-      pick a date for the main goal (or the others after) as we don’t
-      work full-time on it. But you can make things go faster by supporting us
+      fix a date for the main goal (or the other ones after), as we don’t
+      work full-time (yet!) on it. But you can make things go faster by supporting us
       on <a href="https://opencollective.com/courtbouillon">OpenCollective</a> 😉.
       </p>
 
