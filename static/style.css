@@ -555,7 +555,8 @@ footer ul {
 }
 
 .sponsors li {
-  display: block;
+  align-items: center;
+  display: flex;
   font-size: 0;
   padding: 1rem;
 }
