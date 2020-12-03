@@ -1,0 +1,71 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>WeasyPrint: from Cairo to pydyf</h2>
+      <aside><time datetime="2020-12-03">December 3, 2020</time>, by grewn0uille</aside>
+      <p>
+      We speak a lot about the pydyf branch, but concretely, when will pydyf
+      branch be the master one?
+      </p>
+    </header>
+
+    <section>
+      <h3>What do we wait to use pydyf on master?</h3>
+      <p>
+      We said we will get rid of Cairo for WeasyPrint and use pydyf instead. 
+      And we will.
+      </p>
+      <p>
+      Actually the pydyf branch is working quite well and the tests that don’t
+      succeed are mainly those about svg. At the time this article is written,
+      only 5 tests fail (over more than 1450).
+      </p>
+      <p>
+      But to use pydyf on master, we have to look on what’s going on pydyf side.
+      </p>
+    </section>
+
+    <section>
+      <h3>What is going on pydyf side?</h3>
+      <p>
+      Our main goal to use pydyf on the master branch of WeasyPrint is… to
+      release pydyf (what a surprise).
+      </p>
+      <p>
+      For that we want to have some documentation, tests (we are serious people)
+      and a nice packaging.
+      </p>
+      <p>
+      Last week, we published <a href="https://doc.courtbouillon.org/pydyf">the
+        documentation</a>, you can have a look if not already done 😉.
+      </p>
+      <p>
+      We are currently working on the test part. You can follow the progress on
+      the <a href="https://github.com/CourtBouillon/pydyf/actions">pydyf
+        repository</a>.
+      </p>
+    </section>
+
+    <section>
+      <h3>When will pydyf be released and used on WeasyPrint?</h3>
+      <p>
+      We are trying to release pydyf this week-end or next week 📆.
+      </p>
+      <p>
+      After this release, a last release of WeasyPrint with Cairo will be done
+      and the current master branch will be archived.
+      </p>
+      <p>
+      We will publish an article to present the differencies and what is 
+      missing to make a release with pydyf at this moment.
+      </p>
+      <p>
+      And… pydyf branch will be the master one 🎉!
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
