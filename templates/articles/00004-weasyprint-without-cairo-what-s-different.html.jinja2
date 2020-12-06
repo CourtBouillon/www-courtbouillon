@@ -1,0 +1,149 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>WeasyPrint Without Cairo, What’s Different?</h2>
+      <aside><time datetime="2020-12-06">December 6, 2020</time>, by liZe</aside>
+      <p>
+        The next major version of WeasyPrint will work without Cairo. What does
+        it change for you?
+      </p>
+    </header>
+
+    <section>
+      <h3>Why?</h3>
+      <p>
+        During these years, Cairo has been very helpful to draw things in
+        output files. But, let’s face it: (1) Cairo isn’t in good shape
+        currently, and (2) it’s actually not fully adapted to what we want to
+        do: generate documents.
+      </p>
+      <p>
+        The first part is sad, but actually true: Cairo, a library used by
+        millions of people without ever noticing, doesn’t get the love it
+        needs. It’s been slowly abandoned by important software (including
+        browsers) and lacks an active team of developers with enough time to
+        regularly release versions.
+      </p>
+      <p>
+        The second part has become more and more evident with years. As explained in
+        <a href="{{ url_for('blog', article='00002-on-the-road') }}">a previous article</a>,
+        a lot of features can only be added by finely mastering the PDF output:
+        forms, signatures, accessibility, color profiles, advanced metadata…
+        Cairo is able to generate PDF and PNG, but also a lot of other things,
+        including accelerated renderings on screens, abstract surfaces, and
+        even OpenGL. This myriad of output formats somehow prevents the API
+        from being specific enough for the advanced PDF files we need.
+      </p>
+      <p>
+        That’s why we developed pyduf, our own low-level PDF generator to
+        replace Cairo.
+      </p>
+    </section>
+
+    <section>
+      <h3>What We’ll Lose</h3>
+      <p>
+        The main (and only real) thing we’ll lose in WeasyPrint is the PNG
+        output.
+      </p>
+      <p>
+        Generating PNG files has been useful for a lot of cases (including
+        tests), but it’s always been a little bit awkward: pagination is the
+        main goal of WeasyPrint, but it’s not possible with images. It was a
+        cheap feature thanks to Cairo, that’s why it’s been added and
+        maintained, and even found users.
+      </p>
+      <p>
+        Without Cairo, the task is much more difficult. You think that
+        generating PDF files manually is complex? We think that rasterizing
+        vector drawings is even more complex. We don’t want to develop the
+        feature ourselves.
+      </p>
+      <p>
+        So… No more PNG output. That’s it.
+      </p>
+      <p>
+        If you rely on this feature, don’t be afraid: there’s a solution for
+        you. Third-party software is perfectly able to transform PDF documents
+        into PNG images, including the well-known
+        <a href="https://www.ghostscript.com/">Ghostscript</a> and
+        <a href="https://poppler.freedesktop.org/">Poppler</a> libraries. It
+        works so well that we now use Ghostscript for our tests, and managed to
+        get them pass with minor adjustment.
+      </p>
+      <p>
+        If it’s included for tests, then why isn’t it included in WeasyPrint?
+        The reason is not technical, it’s legal: Ghostscript is released under
+        AGPL, and Poppler under GPL. If we want to use them, we have to change
+        WeasyPrint’s license.
+      </p>
+      <p>
+        That’s why we now use the AGPL license for our tests. Of course,
+        WeasyPrint is still released under BSD.
+      </p>
+      <p>
+        If the feature is really useful for you, please
+        <a href="mailto:contact&#64;courtbouillon.org">contact us</a>, we’ll be
+        happy to discuss this topic with you.
+      </p>
+      <p>
+        One last thing. Our two toys based on PNG output have also been
+        removed:
+        <a href="https://weasyprint.readthedocs.io/en/v52.1/tutorial.html?highlight=navigator#weasyprint-tools">navigator and renderer</a>.
+        We’ve had a lot of fun playing with them and they’ll be missed, but
+        that shouldn’t be that bad for you 😉.
+      </p>
+    </section>
+
+    <section>
+      <h3>What We’ll Get Back</h3>
+      <p>
+        The current <code>pydyf</code> branch has 5 failing tests.
+      </p>
+      <p>
+        The first one is <a href="http://acid2.acidtests.org/">Acid2</a>. It
+        fails because of the way Ghostscript rasterizes the PDF file, but the
+        rendering is OK. We may just remove this test, or find a solution to
+        make it pass, but it doesn’t mean that anything is actually broken.
+      </p>
+      <p>
+        The 4 other tests fail because… there’s no SVG support yet. To render
+        SVG images, we used to rely on CairoSVG, that obviously relies on
+        Cairo. So, just the same way we replaced Cairo by pydyf in WeasyPrint,
+        we have to replace it in CairoSVG.
+      </p>
+      <p>
+        We don’t know yet if the new code will be put in a separate package, or
+        if we’ll be a new release of CairoSVG, or if we’ll include the SVG
+        rendering feature in WeasyPrint. But we know that we’ll be able to get
+        the SVG support back soon, at least before the new version of
+        WeasyPrint is released.
+      </p>
+    </section>
+
+    <section>
+      <h3>What We’ll Find</h3>
+      <p>
+        Even if we’ve tried hard to get the generated documents as close as
+        possible to what they were with Cairo, there’s one thing sure in life:
+        there will be bugs.
+      </p>
+      <p>
+        Don’t worry. We’ll not release WeasyPrint 53 tomorrow, you have time to
+        test it before it hits your production stack. But if you want to test
+        it right now, you can! Please report the bugs you may find, or send us
+        a nice mail in case everything works perfectly for you 😁.
+      </p>
+      <p>
+        And after that? Next steps will be described in the roadmap as soon as
+        we define them. The first release of pydyf will happen soon, and we’ll
+        take some time to fix the SVG support. We’ll be back when we think that
+        WeasyPrint 53 is ready to be widely tested!
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
