@@ -26,7 +26,7 @@
 @font-face {
   font-family: Inconsolata;
   font-weight: 700;
-  src: local("Inconsolata"), url(/static/fonts/Inconsolata-Bold.woff2);
+  src: local("Inconsolata Bold"), url(/static/fonts/Inconsolata-Bold.woff2);
 }
 
 :root {
