@@ -19,6 +19,7 @@
 
 @font-face {
   font-family: Inconsolata;
+  font-weight: 400;
   src: local("Inconsolata"), url(/static/fonts/Inconsolata-Regular.woff2);
 }
 
