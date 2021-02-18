@@ -55,8 +55,14 @@ body {
 }
 
 .rst-content code, .rst-content tt {
+  border: none;
   font-family: Inconsolata;
   font-size: 1em;
+  padding: 0;
+}
+
+.rst-content code.literal, .rst-content tt.literal {
+  color: inherit;
 }
 
 .wy-side-nav-search {
