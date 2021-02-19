@@ -30,7 +30,9 @@
 }
 
 :root {
+  --darker-black: #222;
   --black: #333;
+  --lighter-black: #444;
   --grey: #f2f2f1;
   --red: #e8403a;
   --white: #fff;
@@ -41,7 +43,7 @@ body {
   font-family: Metropolis;
 }
 
-.rst-content .toctree-wrapper>p.caption, h1, h2, h3, h4, h5, h6, legend {
+.rst-content .toctree-wrapper > p.caption, h1, h2, h3, h4, h5, h6, legend {
   font-family: Inconsolata;
 }
 
@@ -62,6 +64,7 @@ body {
 }
 
 .rst-content code.literal, .rst-content tt.literal {
+  background: transparent;
   color: inherit;
 }
 
@@ -100,7 +103,7 @@ body {
 }
 
 .wy-menu-vertical a {
-  color: var(--black);
+  color: inherit;
 }
 
 .wy-menu-vertical a:hover {
@@ -111,7 +114,7 @@ body {
   background: var(--grey);
 }
 
-.wy-side-nav-search>div.version {
+.wy-side-nav-search > div.version {
   color: var(--white);
 }
 
@@ -138,9 +141,60 @@ body {
 }
 
 #versions a {
-  color: white;
+  color: var(--white);
 }
 
 #versions:hover li.current a {
   text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--white);
+  }
+
+  .wy-nav-content {
+    background: var(--black);
+  }
+
+  .wy-nav-content-wrap {
+    background: var(--darker-black);
+  }
+
+  .wy-nav-side {
+    background: var(--darker-black);
+  }
+
+  .wy-menu-vertical a:hover {
+    background: var(--black);
+  }
+
+  .wy-menu-vertical li.current {
+    background: var(--black);
+  }
+
+  .wy-menu-vertical li.toctree-l2 a {
+    border-color: var(--lighter-black);
+    color: var(--white);
+  }
+
+  .wy-menu-vertical li[class^=toctree].current > a,
+  .wy-menu-vertical li[class^=toctree].current li[class^=toctree].current > a {
+    background: var(--darker-black);
+    border-color: var(--lighter-black);
+    color: var(--white);
+  }
+
+  .wy-menu-vertical li[class^=toctree].current li[class^=toctree]:not(.current) > a {
+    background: transparent;
+  }
+
+  .wy-menu-vertical li[class^=toctree] > a:hover,
+  .wy-menu-vertical li[class^=toctree].current li[class^=toctree] > a:hover {
+    background: var(--lighter-black);
+  }
+
+  .wy-menu-vertical li.current > a span.toctree-expand {
+    color: inherit;
+  }
 }
