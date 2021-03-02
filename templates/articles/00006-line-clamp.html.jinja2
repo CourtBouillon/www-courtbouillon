@@ -1,0 +1,148 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>New Feature: line-clamp</h2>
+      <aside><time datetime="2021-03-02">March 02, 2021</time>, by liZe</aside>
+      <p>
+        A new feature, <code>line-clamp</code>, has been added in WeasyPrint.
+      </p>
+    </header>
+
+    <section>
+      <p>
+        <em>
+          <code>line-clamp</code> has been added thanks to the financial
+          support of <a href="https://www.expert.de/">Expert Germany</a>. It has been
+          a real pleasure to develop this feature with them.
+        </em>
+      </p>
+      <p>
+        <em>
+          You would love to get a new feature, a bug fix, or some support on
+          WeasyPrint? Don’t hesitate to
+          <a href="{{ url_for('page', _anchor="support") }}">get in touch with us</a>! Or if you
+          simply want to see the project grow beautifully, you can donate on
+          <a href="https://opencollective.com/courtbouillon">OpenCollective</a> 😉.
+        </em>
+      </p>
+    </section>
+
+    <section>
+      <h3>Why <code>line-clamp</code>?</h3>
+      <p>
+        <code>line-clamp</code> is a shorthand property that is very useful to
+        limit the height of blocks, and avoid strange layouts when the content
+        is longer than what we expected.
+      </p>
+      <p>
+        For example: let’s say you want to render a poster to present a
+        company.
+      </p>
+      <img alt="Good example of a poster describing CourtBouillon 😁" src="{{ url_for('static', filename='images/00006-line-clamp-1.png') }}" />
+      <p>
+        If the description of the company comes from an external source, it may
+        not fit in the poster. And the result can be awful…
+      </p>
+      <img alt="Bad example of a poster describing CourtBouillon 😒, first page" src="{{ url_for('static', filename='images/00006-line-clamp-2-1.png') }}" />
+      <img alt="Bad example of a poster describing CourtBouillon 😒, second page" src="{{ url_for('static', filename='images/00006-line-clamp-2-2.png') }}" />
+      <p>
+        Of course, you can’t have a second page for this poster, so you have to
+        find a better solution.
+      </p>
+      <p>
+        The best solution was to use <code>overflow: hidden</code>, to cut the
+        block when the text is too long.
+      </p>
+      <img alt="A poster describing CourtBouillon, with overflow property set to hidden" src="{{ url_for('static', filename='images/00006-line-clamp-3.png') }}" />
+      <p>
+        The result is not perfect. It is possible to set the line height and
+        have a block height set accordingly. But this is not really reliable,
+        and it should be possible to find something better. That’s where
+        <code>line-clamp</code> can be useful.
+      </p>
+    </section>
+
+    <section>
+      <h3>How to use <code>line-clamp</code>?</h3>
+      <p>
+        <code>line-clamp</code> is actually a shortand property for 3 different properties:
+        <code>max-lines</code>, <code>block-ellipsis</code>, <code>continue</code>.
+      </p>
+      <p>
+        <code>continue</code> defines what happens when a block is fragmented.
+        What’s a fragmented block? It’s a block that’s split into multiple
+        smaller blocks: that’s what happens when the beginning of a block is at
+        the end of a page, and the end of the block is at the beginning of the
+        next page.
+      </p>
+      <p>
+        The default value of <code>continue</code> is <code>auto</code>, and it makes
+        the end of the block to be displayed on the next page. The new value that’s now
+        supported is <code>discard</code>, and it prevents the end of the block
+        to be displayed at all. That’s very useful when you want your content
+        to fit in a page, and it doesn’t cut the lines in the middle as it’s
+        done with overflow.
+      </p>
+      <img alt="A poster describing CourtBouillon, with continue property set to discard" src="{{ url_for('static', filename='images/00006-line-clamp-4.png') }}" />
+      <p>
+        The problem with this that the content is cut with no visual
+        indication. What if there was a way to add an ellipsis at the end of
+        the last line?
+      </p>
+      <p>
+        Good news: <code>block-ellipsis</code> is the property we want! We can set the
+        <code>auto</code> value to get the default ellipsis character, or a
+        random string if you prefer something else.
+      </p>
+      <img alt="A poster describing CourtBouillon, with ellipsis" src="{{ url_for('static', filename='images/00006-line-clamp-5.png') }}" />
+      <p>
+        The last property handled by <code>line-clamp</code> is <code>max-lines</code>. This property
+        lets you define how many lines are allowed in a block before it’s
+        split, even if the block didn’t reach the end of the page.
+      </p>
+      <p>
+        <code>max-lines</code> is particularly useful when used with <code>continue: discard</code>: it gives
+        a simple way to truncate a block after a given number of lines, even if
+        you don’t have the height of each line. And of course, <code>block-ellipsis</code> also works
+        in this case!
+      </p>
+      <img alt="A poster describing CourtBouillon, with max-lines and block-ellipsis set" src="{{ url_for('static', filename='images/00006-line-clamp-6.png') }}" />
+    </section>
+
+    <section>
+      <h3>Shorthand, limitations, testing</h3>
+      <p>
+        <code>line-clamp</code> gives a short way to set a maximum number of
+        lines and optionally give a string used as ellipsis. It also unconditionally sets
+        <code>continue</code> to <code>discard</code>.
+      </p>
+      <p>
+        The three properties and the <code>line-clamp</code> shorthand are now
+        supported by WeasyPrint. It works pretty well for many use cases, but
+        the current implementation also has some limitations:
+      </p>
+      <ul>
+        <li>
+          Setting <code>max-lines</code> always sets <code>continue</code> to <code>discard</code> too.
+        </li>
+        <li>
+          <code>block-ellipsis</code> only works if the last text of the block
+          is cut. For example, if a list is split between two list items, no ellipsis is displayed.
+        </li>
+        <li>
+          <code>max-lines</code> doesn’t work yet with nested blocks.
+        </li>
+      </ul>
+      <p>
+        The feature can be tested on the current <code>master</code> branch. You
+        didn’t try the next version of WeasyPrint yet? That’s a good reason to
+        give a look right now! It has also been backported to the Cairo version
+        (52.3), enjoy this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v52.3">new release</a>.
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
