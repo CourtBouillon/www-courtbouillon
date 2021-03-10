@@ -1,0 +1,79 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>New Feature: leader()</h2>
+      <aside><time datetime="2021-03-11">March 11, 2021</time>, by grewn0uille</aside>
+      <p>
+        A new feature, <code>leader()</code>, has been added in WeasyPrint 🎉.
+      </p>
+    </header>
+
+    <section>
+      <p>
+        <em>
+          <code>leader()</code> has been added thanks to the financial
+          support of <a href="https://www.simonsoft.se/">Simonsoft</a>. It has been
+          a real pleasure to develop this feature with them.
+        </em>
+      </p>
+      <p>
+        <em>
+          You would love to get a new feature, a bug fix, or some support on
+          WeasyPrint? Don’t hesitate to
+          <a href="{{ url_for('page', _anchor="support") }}">get in touch with us</a>! Or if you
+          simply want to see the project grow beautifully, you can donate on
+          <a href="https://opencollective.com/courtbouillon">OpenCollective</a> 😉.
+        </em>
+      </p>
+    </section>
+
+    <section>
+      <h3>What is <code>leader()</code> and how to use it?</h3>
+      <p>
+      A leader is a repeating pattern used to visually connect content across
+      horizontal spaces, like in tables of contents for example.
+      </p>
+      <img alt="Example of leaders in a table of contents" src="{{ url_for('static', filename='images/00007-leaders-1.png') }}" />
+      <p>
+      The function <code>leader()</code> is a possible value of the
+      <code>content</code> property and creates leaders. You can have "."
+      leaders, "_" leaders, " " leaders or any string you want as
+      leader!
+      </p>
+      <p>
+      Using this function replaces the <a href="https://github.com/Kozea/WeasyPrint/issues/247#issuecomment-617292724">hack</a>
+      which consists in adding dots manually in the content property.
+      </p>
+    </section>
+
+    <section>
+      <h3>Limitations and testing</h3>
+      <p>
+      There are currently some limitation. Indeed, the behaviour of
+      <code>leader()</code> may be undefined when the width
+      is not defined, or the leader string is larger than the box or if there
+      are several leaders for the same line.
+      </p>
+      <p>
+      As long as the containing box width is defined, <code>leader()</code>
+      works, even with RTL text:
+      </p>
+      <img alt="Example of leaders in a table of contents with RTL" src="{{ url_for('static', filename='images/00007-leaders-4.png') }}" />
+      <p>
+      or with floating elements around:
+      </p>
+      <img alt="Example of leaders in a table of contents with float element on left side" src="{{ url_for('static', filename='images/00007-leaders-2.png') }}" />
+      <img alt="Example of leaders in a table of contents with float element on right side" src="{{ url_for('static', filename='images/00007-leaders-3.png') }}" />
+      <p>
+      The <code>leader()</code> feature has been developed exclusively for the
+      pydyf version and won’t be backported to the Cairo version. That’s a
+      good reason to give a try to the <a href="https://github.com/Kozea/WeasyPrint/tree/master">master branch</a>
+      if not already done 😉.
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
