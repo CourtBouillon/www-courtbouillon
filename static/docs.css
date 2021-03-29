@@ -51,6 +51,14 @@ body {
   margin-top: 1.75em;
 }
 
+.rst-content h3 {
+  font-size: 1.25em;
+}
+
+.rst-content h4 {
+  font-size: 1em;
+}
+
 .rst-content .linenodiv pre, .rst-content div[class^=highlight] pre, .rst-content pre.literal-block {
   font-family: Inconsolata;
   font-size: 1em;
