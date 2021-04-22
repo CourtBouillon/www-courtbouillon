@@ -1,0 +1,140 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>WeasyPrint Without Cairo: Beta Time</h2>
+      <aside><time datetime="2021-04-22">April 22, 2021</time>, by grewn0uille</aside>
+      <p>
+        After many months of hard work, we have never been so close to a WeasyPrint
+        release without Cairo and now it is the moment for you to try a beta 🎉!
+      </p>
+    </header>
+
+    <section>
+      <h3>What Is New?</h3>
+
+      <p>
+      The main new thing, of course, with this WeasyPrint beta version is that it
+      doesn’t depend on Cairo anymore. One less non-Python dependency!
+      </p>
+      <p>
+      Cairo is a high-level PDF (among other things) generator. In order to remove it,
+      we had to use another PDF generator. So we created our own low-level PDF
+      generator called <a href="https://github.com/CourtBouillon/pydyf">pydyf</a>,
+      fully written in Python 🐍.
+      </p>
+
+      <p>
+      This beta also includes new features and bug fixes like:
+      </p>
+      <ul>
+        <li>
+          <a href="{{ url_for('blog', article='00007-leader') }}">leader support</a>;
+        </li>
+        <li>
+          WOFF fonts support;
+        </li>
+        <li>
+          more ISO and JIS paper sizes;
+        </li>
+        <li>
+          nicer kerning.
+        </li>
+      </ul>
+
+      <p>
+      Also, we worked on a <a href="https://doc.courtbouillon.org/weasyprint/latest/">
+      new documentation architecture</a>, clearer and
+      easier to dive in 📖. Don’t hesitate to tell us what you think about it or
+      if you find a mistake.
+      </p>
+    </section>
+
+    <section>
+      <h3>What about SVG Support?</h3>
+
+      <p>
+      If you already follow our adventure, you know it. With the removal of Cairo,
+      we had to find a solution to support SVG as we used CairoSVG before (that,
+      as you may guess with the name of the project, depends on Cairo).
+      </p>
+      <p>
+      First, we thought about creating a new library to handle SVG with pydyf.
+      But after a short developing time, we realized that it would make the library
+      too much dependent on WeasyPrint and that it won’t be usable for other project.
+      So we directly included SVG support into WeasyPrint.
+      </p>
+      <p>
+      As you may suspect, supporting SVG is a bit complex. Most of the tags should
+      work like a charm, but the following features may be broken or not supported
+      yet (compared to CairoSVG):
+      </p>
+      <ul>
+        <li>
+          clipping;
+        </li>
+        <li>
+          gradients;
+        </li>
+        <li>
+          filling text with sources;
+        </li>
+        <li>
+          text on path.
+        </li>
+      </ul>
+      <p>
+      Also, by spending time working on SVG, we took the opportunity to have a
+      basic inline SVG support!
+      </p>
+    </section>
+
+    <section>
+      <h3>Are Some Features Lost?</h3>
+
+      <p>
+      With this kind of big changes, you may be wondering whether some WeasyPrint features
+      have been lost. And that is a good question.
+      </p>
+      <p>
+      Because of the complexity, we don’t support color emojis anymore (you
+      are still able to use black and white ones). It’s not a feature that is going
+      to be lost forever but it’s not our top priority for now.
+      </p>
+      <p>
+      If you have time (and patience) to dive into this, contributions are always welcome 😉.
+      </p>
+      <p>
+      Cairo was also used to provide PNG export. As we removed Cairo, PNG export
+      won’t be supported anymore by WeasyPrint. If you use this feature, we
+      recommend you to look at <a href="https://ghostscript.com/">Ghostscript</a>
+      or <a href="https://poppler.freedesktop.org/">Poppler</a> which are two
+      open source tools that provide powerful PDF to PNG conversion.
+      </p>
+    </section>
+
+    <section>
+      <h3>What Are the Next Steps?</h3>
+
+      <p>
+      The next big step is a real release of this version of WeasyPrint.
+      </p>
+      <p>
+      But before that, we need you to try this beta and report bugs 🐛!
+      </p>
+      <p>
+      On our side, we are going to continue working on SVG support and we will
+      (try to) fix all the bugs you will find.
+      </p>
+      <p>
+      After that, it will be time for a real release 🎇.
+      </p>
+      <p>
+      Have fun with this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v53.0b1">beta</a> 💜.
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
