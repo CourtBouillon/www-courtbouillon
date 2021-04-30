@@ -561,6 +561,16 @@ footer ul {
   padding: 1rem;
 }
 
+.sponsors.gold img {
+  max-height: 150px;
+  max-width: 450px;
+}
+
+.sponsors.silver img {
+  max-height: 100px;
+  max-width: 300px;
+}
+
 .sponsors.bronze img {
   max-height: 50px;
   max-width: 150px;
