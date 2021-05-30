@@ -5,7 +5,7 @@
   <article>
     <header>
       <h2>WeasyPrint 53: What’s New</h2>
-      <aside><time datetime="2021-05-21">May 21, 2021</time>, by liZe</aside>
+      <aside><time datetime="2021-05-30">May 30, 2021</time>, by liZe</aside>
       <p>
         The second (and probably last) beta version of WeasyPrint 53 is now
         out. What’s new in the next version? Here is a technical changelog.
@@ -119,7 +119,6 @@
         and removing Cairo changed a lot of things in the way letters are now
         rendered.
       </p>
-
       <p>
         First of all:
         <strong>text layout shouldn’t change in this version.</strong>
@@ -127,13 +126,11 @@
         previous versions, in most of the cases. We use Pango for this work,
         almost the same way as we always did.
       </p>
-
       <p>
         What actually changed is the way fonts and letters are stored in the
         PDF. These parts were done by Cairo, and they are now done by
         WeasyPrint and pydyf.
       </p>
-
       <p>
         Fonts are included in PDF documents as TTF and OTF files. Unused
         letters are removed from them by default, but can be kept if you prefer
@@ -142,7 +139,6 @@
         they are automatically converted to TTF or OTF fonts (note that it may
         take some time, prefer TTF or OTF if performance is important for you).
       </p>
-
       <p>
         Working with fonts is provided by
         <a href="https://github.com/fonttools/fonttools">fontTools</a>, an
@@ -150,7 +146,6 @@
         to the developers for their hard work on this library, we may benefit
         from additional features in the future.
       </p>
-
       <p>
         For example, fontTools could help us to get one feature back:
         <strong>colored emojis are not supported anymore.</strong> With Cairo,
@@ -159,13 +154,11 @@
         possibility is not included anymore, even if emojis rendered as "normal
         black characters" are correctly handled.
       </p>
-
       <p>
         <strong>Kerning should be better with this new version of Pango.</strong>
         Requiring version 1.44 of Pango gives us the possibility not to round
         glyph positions, and thus finely handle kerning with small font sizes.
       </p>
-
       <p>
         One last change: text-related modules have been reorganized. For users,
         the most important consequence of these modifications is that
@@ -193,6 +186,13 @@
         reason. As explained in the documentation,
         <a href="https://doc.courtbouillon.org/weasyprint/v53.0b1/going_further.html#why-python">code simplicity, maintainability and flexibility are the most important goals for this library</a>,
         and that’s true for PDF generation too.
+      </p>
+      <p>
+        Without Cairo, the way fonts and images are included also changed.
+        Depending on the formats and properties of your document, you may get
+        very different results regarding speed and memory consumption. As
+        usual, testing various formats is the best way to get a setup adapted
+        for your use.
       </p>
       <p>
         But in 53.0b2 we implemented an old idea: lazy CSS loading. That was
