@@ -1,0 +1,249 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>WeasyPrint 53: What’s New</h2>
+      <aside><time datetime="2021-05-30">May 30, 2021</time>, by liZe</aside>
+      <p>
+        The second (and probably last) beta version of WeasyPrint 53 is now
+        out. What’s new in the next version? Here is a technical changelog.
+      </p>
+    </header>
+
+    <section>
+      <h3>Big Changes</h3>
+
+      <p>
+        As explained in the
+        <a href="{{ url_for('blog', article='00008-weasyprint-53-beta') }}">previous article</a>,
+        <strong>a lot of things are about to change</strong> in the next
+        version of WeasyPrint. The second beta is probably the last one, here
+        is a nice reminder:
+        <strong>it’s time to test this new version!</strong>
+      </p>
+      <p>
+        Here is a summary of what you should know:
+      </p>
+      <ul>
+        <li>
+          <a href="#no-png">no more built-in PNG export</a>, even if PDF files
+          can easily be converted into images using third-party tools;
+        </li>
+        <li>
+          <a href="#svg-rendering">changes in SVG rendering</a> with simple
+          inline SVG support, bug fixes, new bugs and unsupported features;
+        </li>
+        <li>
+          <a href="#text-rendering">modified text rendering</a> with better
+          kerning, missing colored emojis, and more;
+        </li>
+        <li>
+          <a href="#performance">differences in performance</a> with generally
+          smaller PDF size and various results for memory and time consumption.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 id="no-png">PNG Export</h3>
+
+      <p>
+        PNG export was one of the "free" features included in Cairo. Now that
+        <a href="https://github.com/Kozea/WeasyPrint/issues/342">Cairo has been removed</a>
+        and replaced by <a href="https://github.com/CourtBouillon/pydyf">pydyf</a>,
+        <strong>PNG export is not available anymore.</strong>
+      </p>
+      <p>
+        The <code>--format</code> and <code>--resolution</code> options have
+        thus been deprecated.
+      </p>
+      <p>
+        It doesn’t mean that getting images is not possible anymore:
+        third-party tools are able to transform PDF files into raster images,
+        with many useful features that were not available in WeasyPrint. In the
+        Free Software world, <a href="https://www.ghostscript.com/">Ghostscript</a> and
+        <a href="https://poppler.freedesktop.org/">Poppler</a> are the usual
+        suspects when dealing with PDF files, and they indeed offer nice
+        possibilities to get your generated images back. You’ll also get all
+        the nice features they provide, and that were not possible before with
+        WeasyPrint.
+      </p>
+      <p>
+        Please note that Ghostscript and Poppler are released under AGPL and
+        GPL licenses respectively. WeasyPrint is explicitly allowed to use
+        Ghostscript for tests, but using these tools in other circumstances may
+        raise licensing questions.
+      </p>
+    </section>
+
+    <section>
+      <h3 id="svg-rendering">SVG Rendering</h3>
+
+      <p>
+        SVG rendering is another collateral victim of Cairo’s removal.
+        WeasyPrint was using CairoSVG to render SVG, and as the library’s name
+        suggests, it’s not possible anymore to use it.
+      </p>
+      <p>
+        We had to find another solution.
+        <strong>
+          So we actually built our own SVG renderer and included it in
+          WeasyPrint.
+        </strong>
+        The new renderer is of course highly inspired by CairoSVG, that’s also
+        a CourtBouillon library. Nevertheless, it is really different because
+        it uses pydyf.
+      </p>
+      <p>
+        This change means that you can expect differences in SVG rendering.
+        Some features are known to be missing (clipping, for example), but some
+        bugs have been fixed too (including many gradients). We even have
+        <strong>basic support for inline SVG,</strong> a long-awaited feature.
+      </p>
+      <p>
+        Now, you know.
+        <strong>
+          Testing your real world SVG documents and reporting bugs is a good
+          idea!
+        </strong>
+      </p>
+    </section>
+
+    <section>
+      <h3 id="text-rendering">Text Rendering</h3>
+
+      <p>
+        Text layout and rendering is one of the major features of WeasyPrint,
+        and removing Cairo changed a lot of things in the way letters are now
+        rendered.
+      </p>
+      <p>
+        First of all:
+        <strong>text layout shouldn’t change in this version.</strong>
+        It means that text should be put at the same position as it was in
+        previous versions, in most of the cases. We use Pango for this work,
+        almost the same way as we always did.
+      </p>
+      <p>
+        What actually changed is the way fonts and letters are stored in the
+        PDF. These parts were done by Cairo, and they are now done by
+        WeasyPrint and pydyf.
+      </p>
+      <p>
+        Fonts are included in PDF documents as TTF and OTF files. Unused
+        letters are removed from them by default, but can be kept if you prefer
+        to generate big files faster.
+        <strong>WOFF and WOFF2 fonts are now supported,</strong>
+        they are automatically converted to TTF or OTF fonts (note that it may
+        take some time, prefer TTF or OTF if performance is important for you).
+      </p>
+      <p>
+        Working with fonts is provided by
+        <a href="https://github.com/fonttools/fonttools">fontTools</a>, an
+        incredible Python library with a lot of useful features. Thanks a lot
+        to the developers for their hard work on this library, we may benefit
+        from additional features in the future.
+      </p>
+      <p>
+        For example, fontTools could help us to get one feature back:
+        <strong>colored emojis are not supported anymore.</strong> With Cairo,
+        WeasyPrint was able to include images for emojis, with a pretty bad
+        quality due to a low resolution used for image resizing. This
+        possibility is not included anymore, even if emojis rendered as "normal
+        black characters" are correctly handled.
+      </p>
+      <p>
+        <strong>Kerning should be better with this new version of Pango.</strong>
+        Requiring version 1.44 of Pango gives us the possibility not to round
+        glyph positions, and thus finely handle kerning with small font sizes.
+      </p>
+      <p>
+        One last change: text-related modules have been reorganized. For users,
+        the most important consequence of these modifications is that
+        <code>FontConfiguration</code> is now part of
+        <code>weasyprint.text.fonts</code>. Don’t forget to change your imports
+        if you use this class!
+      </p>
+    </section>
+
+    <section>
+      <h3 id="performance">Performance</h3>
+
+      <p>
+        Now that we generate our own PDF files, we have good news:
+        <strong>your generated PDF documents will probably be smaller.</strong>
+        As many rules, this one is not always, always true… But you can be
+        pretty optimistic: for our reference tests, PDF size is between 50% and
+        100% of the same document generated by WeasyPrint 52.
+      </p>
+      <p>
+        Speed is another question. Dropping Cairo and replacing it by manual
+        PDF generation made WeasyPrint globally slower. Why? The obvious answer
+        is: Cairo is written in C, pydyf is written in Python. It’s obvious,
+        but it’s also wrong! Of course, C is faster but that’s not the main
+        reason. As explained in the documentation,
+        <a href="https://doc.courtbouillon.org/weasyprint/v53.0b1/going_further.html#why-python">code simplicity, maintainability and flexibility are the most important goals for this library</a>,
+        and that’s true for PDF generation too.
+      </p>
+      <p>
+        Without Cairo, the way fonts and images are included also changed.
+        Depending on the formats and properties of your document, you may get
+        very different results regarding speed and memory consumption. As
+        usual, testing various formats is the best way to get a setup adapted
+        for your use.
+      </p>
+      <p>
+        But in 53.0b2 we implemented an old idea: lazy CSS loading. That was
+        Simon’s idea, and that was a good idea.
+      </p>
+      <p>
+        CSS values used to be calculated for each HTML node after all the
+        stylesheets are found. But among all the CSS properties, many are
+        actually useless and do not need to be calculated at all. Why
+        calculating the value of <code>color</code> when we already have
+        <code>display: none</code>?
+      </p>
+      <p>
+        This idea appeared almost as soon as cascading was handled by
+        WeasyPrint, but it was seen as pretty complicated. Actually, it wasn’t:
+        less than one hour was necessary to get a proof of concept. Who said
+        that developers are bad at time estimation?
+      </p>
+      <p>
+        <strong>
+          Lazy CSS loading greatly improved WeasyPrint’s speed, at least for
+          documents with both a lot of CSS and HTML.
+        </strong>
+        It also improved memory consumption, as we don’t have to store all the
+        CSS values anymore.
+      </p>
+    </section>
+
+    <section>
+      <h3>It’s Time to Test</h3>
+
+      <p>
+        All in all, here is our advice: <strong>you should test 53.0b2</strong>.
+      </p>
+      <p>
+        WeasyPrint 53 will be a major release, and we really hope that it will
+        improve your workflow. Please report any problem we could get with the
+        current beta, we’ll do our best to provide a high-quality release that
+        fits your needs.
+      </p>
+      <p>
+        Don’t hesitate to tell us what you want
+        <a href="https://app.evalandgo.com/s/index.php?id=JTk4cCU5NG8lOUQlQUQ%3D&a=JTk3biU5M2glOUMlQUI%3D">in this short survey</a>.
+        Generating PDF documents with our own library gives us the possibility
+        to add features more easily in the future, and to fix many bugs. Test,
+        don’t hesitate to
+        <a href="https://github.com/Kozea/WeasyPrint/issues">report issues</a>,
+        and you’ll safely benefit from the new version’s improvements as soon
+        as it is released.
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
