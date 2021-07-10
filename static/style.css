@@ -104,17 +104,17 @@ ul {
 
 /* Header */
 
-header {
+body > header {
   background: var(--red);
   display: flex;
   flex-direction: column;
 }
 
-header h1, header p {
+body > header h1, body > header p {
   display: none;
 }
 
-header nav {
+body > header nav {
   box-sizing: border-box;
   font-size: 1.25em;
   margin: 0 auto;
@@ -124,12 +124,12 @@ header nav {
   width: 100%;
 }
 
-header nav li:last-child {
+body > header nav li:last-child {
   margin-left: auto;
 }
 
 @media (max-width: 920px) {
-  header nav {
+  body > header nav {
     display: block;
     height: 3em;
     margin-right: 0;
@@ -140,8 +140,8 @@ header nav li:last-child {
     z-index: 3;
   }
 
-  header::before,
-  header nav::before {
+  body > header::before,
+  body > header nav::before {
     align-items: center;
     background: var(--red);
     color: var(--white);
@@ -151,7 +151,7 @@ header nav li:last-child {
     width: 100%;
   }
 
-  header::before {
+  body > header::before {
     content: "⨯";
     height: 1rem;
     padding: 1rem;
@@ -162,12 +162,12 @@ header nav li:last-child {
     z-index: 2;
   }
 
-  header nav::before {
+  body > header nav::before {
     content: "☰";
     margin-bottom: 1em;
   }
 
-  header nav:hover {
+  body > header nav:hover {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -176,7 +176,7 @@ header nav li:last-child {
     z-index: 1;
   }
 
-  header nav:hover ul {
+  body > header nav:hover ul {
     align-items: center;
     background: var(--red);
     flex: 1;
@@ -184,22 +184,22 @@ header nav li:last-child {
     justify-content: center;
   }
 
-  header nav:hover li:last-child {
+  body > header nav:hover li:last-child {
     margin-left: 0;
   }
 
-  header nav:hover a {
+  body > header nav:hover a {
     padding: 1em;
   }
 
-  header nav:hover ~ * {
+  body > header nav:hover ~ * {
     display: block !important;
     height: 0 !important;
     margin: 0 !important;
     overflow: hidden;
   }
 
-  header nav:hover::before {
+  body > header nav:hover::before {
     display: none;
   }
 }
@@ -275,6 +275,11 @@ main h2 {
 
 main h3 {
   font-size: 1.8em;
+  margin: 2em 0 0.4em;
+}
+
+main h4 {
+  font-size: 1.3em;
   margin: 2em 0 0.4em;
 }
 
