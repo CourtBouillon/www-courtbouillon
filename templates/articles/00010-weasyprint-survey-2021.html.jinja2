@@ -1,0 +1,214 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint Survey 2021</h2>
+      <aside><time datetime="2021-07-12">July 12, 2021</time>, by CourtBouillon</aside>
+      <p>
+        Our first survey about WeasyPrint’s users needs is over! Now is the
+        time to discover the answers that will influence the future of the
+        library.
+      </p>
+    </header>
+
+    <section>
+      <h3>Why a survey?</h3>
+
+      <p>
+        As for many open-source tools, knowing the needs of our users has
+        always been complicated. Of course, we can rely on GitHub’s issues, we
+        can discuss while solving problems for our customers, we can spend some
+        time on <a href="https://gitter.im/CourtBouillon">our chat</a>, to
+        learn what would be useful for the majority of users. But in these
+        cases, we only get a small part of the overview.
+      </p>
+      <p>
+        First of all, we would like to thank
+        <a href="{{ url_for('page', page='index', _anchor='sponsors') }}">our sponsors</a>
+        for their support. They give us the time to improve WeasyPrint, for
+        their needs and for everybody. We would also like to thank everybody
+        who took the time to answer this survey: your answers are precious to
+        provide a tool fully adapted to your use cases.
+      </p>
+    </section>
+
+    <section>
+      <h3>Results</h3>
+
+      <h4>How long have you been using WeasyPrint?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q1.svg') }}" />
+      <p>
+        WeasyPrint has got a lot of new followers since CourtBouillon’s birth,
+        so it’s not a surprise to see that most of our users have been using
+        WeasyPrint for less than 2 years.
+      </p>
+
+      <h4>In which context do you use WeasyPrint?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q2.svg') }}" />
+      <p>
+        Even if WeasyPrint has been created to solve problems in a professional
+        context, it’s interesting to see that more than 40% use it for personal
+        projects.
+      </p>
+
+      <h4>Where do you use WeasyPrint?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q3.svg') }}" />
+      <p>
+        European countries are well represented in this map, with Germany (17),
+        France (10), the Netherlands (4) and the United Kingdom (4) trusting 4
+        of the 5 first places. The United States (7) is at the 3<sup>rd</sup> place.
+      </p>
+
+      <h4>What kind of documents do you generate?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q4.svg') }}" />
+      <p>
+        Among the other results, we got resumes, legal and technical documents,
+        educational material, books, and much more.
+      </p>
+
+      <h4>On which platform do you use WeasyPrint?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q5.svg') }}" />
+      <p>
+        If Linux is the main platform, we can see that more than 25% use
+        Windows, and more than 20% use macOS. WSL has also been mentioned.
+      </p>
+      <p>
+        Various cloud-based solutions have been given in comments too: AWS,
+        Lambda, Google Cloud Platform. Containers (mainly Docker) are also
+        largely used.
+      </p>
+
+      <h4>What are the main difficulties you have with WeasyPrint?</h4>
+      <p>
+        Reported difficulties are very diversified, but some problems have been
+        mentioned more than once:
+      </p>
+      <ul>
+        <li>missing modern CSS features,</li>
+        <li>performance and memory problems,</li>
+        <li>no easy debugging solutions,</li>
+        <li>installation and dependencies management,</li>
+        <li>SVG support,</li>
+        <li>right-to-left and vertical text…</li>
+      </ul>
+
+      <h4>Which features would you like to have in WeasyPrint?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q7.svg') }}" />
+      <p>
+        The first two places are taken by two long-awaited features: grid
+        layout and footnotes support. No surprise about that, a lot of users
+        had already upvoted the corresponding issues!
+      </p>
+      <p>
+        Performance is also very important for our users: faster generation and
+        smaller PDFs take the third and fourth places of this epic battle.
+      </p>
+      <p>
+        Geospatial PDF and iframes aren’t really popular and close the pack 🚲,
+        just behind right-to-left support (with a surprising low mark).
+      </p>
+
+      <h4>Do you know our OpenCollective campaign?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q8.svg') }}" />
+      <p>
+        Almost 75% of our users are already supporting us, or are willing to.
+        That’s heartwarming 💖!
+      </p>
+      <p>
+        All this support gives us a lot of courage to give WeasyPrint all the
+        love it deserves. Having financial support gives us more and more time
+        to improve the tool and its dependencies, and to make it closer to your
+        dreams 🪄.
+      </p>
+      <p>
+        Don’t hesitate to support us on
+        <a href="https://opencollective.com/courtbouillon">OpenCollective</a> 😉.
+      </p>
+
+      <h4>How do you follow WeasyPrint news?</h4>
+      <embed src="{{ url_for('static', filename='graphs/q9.svg') }}" />
+      <p>
+        A lot of our users follow us, mainly on GitHub. Don’t hesitate to
+        follow us on <a href="https://twitter.com/BouillonCourt">Twitter</a> and
+        to subscribe to
+        <a href="https://www.courtbouillon.org/blog.rss">CourtBouillon’s RSS feed</a>,
+        so that you can’t miss anything when we have good news about our
+        projects!
+      </p>
+
+      <h4>Do you have any comments?</h4>
+      <p>
+        A lot of comments are very supportive, we are really grateful for all
+        your nice words…
+      </p>
+      <p>
+        Among the various remarks, adding or improving the support of some
+        features (grid, flexbox, multicolumn, SVG…) seems to be the most
+        important topic.
+      </p>
+      <p>
+        Finally, for the people interested in some advice to convince their
+        company to support WeasyPrint: having a lot of companies giving a small
+        amount of money is the best way to ensure that the project will be
+        correctly maintained. Other tools exist, but they’re often more
+        expensive. Having an open source library gives you the freedom to
+        change it if needed, and not to be locked in with a specific vendor.
+        And, of course, helping nice developers with a great community is a
+        good way to make the world a better place 🌍 😻.
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Next</h3>
+
+      <p>
+        As you can imagine, the next features will be the support of Grid and
+        footnotes. If everything goes well (it always does), this feature
+        should be included with nice improvements of overall layout, including
+        improved Flexbox support and
+        <a href="https://github.com/Kozea/WeasyPrint/issues/36">long-awaited parallel flows</a>.
+      </p>
+      <p>
+        Thanks a lot to our sponsors, who help us to improve WeasyPrint. We
+        spend more and more time developing new features and fixing bugs, and
+        we hope that we’ll be able to increase this time in the future.
+      </p>
+      <p>
+        Thanks a lot too to the people who support us, and to those who intend
+        to do so. Don’t hesitate to contribute to our
+        <a href="https://opencollective.com/courtbouillon">OpenCollective campaign</a>,
+        to get support and sponsoring logos.
+      </p>
+      <p>
+        Version 53 will be released before the end of the month, with a lot of
+        new features. Try the
+        <a href="https://pypi.org/project/weasyprint/53.0b2/">latest beta version</a>
+        to be sure that everything will be fine for you!
+      </p>
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 70%;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    h4 {
+      clear: left;
+    }
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+
+{% endblock content %}
