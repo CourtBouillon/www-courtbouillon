@@ -1,0 +1,25 @@
+#versions {
+  background: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+}
+
+#versions li {
+  display: none;
+  line-height: 2;
+  text-align: center;
+}
+
+#versions:hover li, #versions li.current {
+  display: block;
+}
+
+#versions a {
+  color: var(--white);
+}
+
+#versions:hover li.current a {
+  text-decoration: underline;
+}
