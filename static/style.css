@@ -610,6 +610,19 @@ footer ul {
   padding-left: 0;
 }
 
+#page-article figure {
+  font-size: 0.8em;
+  margin: 2em;
+  text-align: center;
+}
+#page-article figure img {
+  max-width: 60%;
+}
+#page-article figcaption {
+  padding: 0.5em;
+}
+
+
 /* Icons Lists */
 
 .icons {
