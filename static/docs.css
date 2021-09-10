@@ -1,20 +1,20 @@
 @font-face {
-  font-family: Metropolis;
+  font-family: ClarityCity;
   font-weight: 400;
-  src: local("Metropolis Regular"), local("Metropolis-Regular"), url(/static/fonts/Metropolis-Regular.woff2);
+  src: local("ClarityCity Regular"), local("ClarityCity-Regular"), url(/static/fonts/ClarityCity-Regular.woff2);
 }
 
 @font-face {
-  font-family: Metropolis;
+  font-family: ClarityCity;
   font-weight: 700;
-  src: local("Metropolis Bold"), local("Metropolis-Bold"), url(/static/fonts/Metropolis-Bold.woff2);
+  src: local("ClarityCity Bold"), local("ClarityCity-Bold"), url(/static/fonts/ClarityCity-Bold.woff2);
 }
 
 @font-face {
-  font-family: Metropolis;
+  font-family: ClarityCity;
   font-style: italic;
   font-weight: 400;
-  src: local("Metropolis RegularItalic"), local("Metropolis-RegularItalic"), url(/static/fonts/Metropolis-RegularItalic.woff2);
+  src: local("ClarityCity RegularItalic"), local("ClarityCity-RegularItalic"), url(/static/fonts/ClarityCity-RegularItalic.woff2);
 }
 
 @font-face {
@@ -40,7 +40,7 @@
 
 body {
   color: var(--black);
-  font-family: Metropolis;
+  font-family: ClarityCity;
 }
 
 .rst-content .toctree-wrapper > p.caption, h1, h2, h3, h4, h5, h6, legend {
