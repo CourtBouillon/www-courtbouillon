@@ -102,6 +102,16 @@ ul {
   list-style-type: circle;
 }
 
+blockquote::before {
+  content: '”';
+  font-size: 12em;
+  line-height: 1;
+  margin: -0.1em 0 0 -0.45em;
+  opacity: 0.2;
+  position: absolute;
+  z-index: -1;
+}
+
 /* Header */
 
 body > header {
@@ -606,7 +616,7 @@ footer ul {
   font-weight: 400;
 }
 
-#page-article ul {
+#page-article ul, #page-article ol {
   padding-left: 0;
 }
 
