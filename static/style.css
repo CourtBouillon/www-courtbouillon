@@ -106,7 +106,7 @@ blockquote::before {
   content: '”';
   font-size: 12em;
   line-height: 1;
-  margin: -0.1em 0 0 -0.45em;
+  margin: -0.1em 0 0 -0.5em;
   opacity: 0.2;
   position: absolute;
   z-index: -1;
