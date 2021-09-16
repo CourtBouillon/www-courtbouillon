@@ -1,4 +1,4 @@
-{% set title = 'Blog - The Python packaging hell: the can of worms' %}
+{% set title = 'Blog - The Python Packaging Hell: The Can of Worms' %}
 {% set description = 'Managing Python packaging can sometimes be a nightmare. You don’t know what we are talking about? We show you a couple of things and we talk again after…' %}
 
 {% extends '_layout.jinja2' %}
@@ -7,12 +7,12 @@
 
   <article>
     <header>
-      <h2>The Python packaging hell: the can of worms (1 / 7)</h2>
-      <aside><time datetime="2021-09-16">September 16, 2021</time>, par CourtBouillon</aside>
+      <h2>The Python Packaging Hell: The Can of Worms (1 / 7)</h2>
+      <aside><time datetime="2021-09-16">September 16, 2021</time>, by CourtBouillon</aside>
       <p>
         Managing Python packaging can sometimes be a nightmare. You don’t know
-        what we’re talking about? Let’s you a couple of things and we talk
-        again after…
+        what we’re talking about? Let’s present you a couple of things and we’ll
+        talk again after that…
       </p>
     </header>
 
@@ -21,9 +21,9 @@
     <section>
       <h3>What’s the Problem?</h3>
       <p>
-        If you are here, we assume that you’ve already written some lines of
-        Python. You already have installed a Python project, with dependencies.
-        And to do that, you may have had to do some stuff. A lot of stuff. Way
+        If you are here, we can assume that you’ve already written some lines of
+        Python. You’ve already installed a Python project, with dependencies.
+        And for that, you may have had to do some stuff. A lot of stuff. Way
         too much stuff. Not so much? We bet that you’ve already encountered
         things called
         <code>pip</code>, <code>pipenv</code>, <code>poetry</code>,
@@ -46,8 +46,8 @@
       <p>
         A sentence from
         <a href="https://www.python.org/dev/peps/pep-0020/">The Zen of Python</a>
-        says "There should be one− and preferably only one
-        −obvious way to do it". You see the problem now, right?
+        says "There should be one—and preferably only one—obvious way to do
+        it". You see the problem now, right?
       </p>
     </section>
 
@@ -58,15 +58,15 @@
         Yes, it’s true.
       </p>
       <p>
-        Try to explain to someone being at ease behind a keyboard (but who
-        doesn’t know Python) how to install a Python program. In his place, as
+        Try to explain to someone at ease behind a keyboard (but who
+        doesn’t know Python) how to install a Python program. In his or her place, as
         an average neophyte of the XXI<sup>e</sup> century, we would expect
         something like:
       </p>
       <ol>
         <li>
           Install Python by following the super short tutorial from the super
-          documentation or with the command
+          documentation, or with the command
           <code>download-python-and-install-it</code>.
         </li>
         <li>
@@ -75,10 +75,10 @@
         </li>
       </ol>
       <p>
-        Sorry to crush your dreams: it’s not like that. Not at all. The "super
+        Sorry to crush your dreams: reality is not like that. Not at all. The "super
         short tutorial from the super documentation" to install Python doesn’t
-        exist. And way too many <code>python-install</code>
-        programs exist, all incompatible with each other, not included in
+        exist. And too many <code>python-install</code>
+        programs exist, all incompatible with each other, and not included in
         Python. That’s why installing a program is unpleasant.
       </p>
       <p>
@@ -122,7 +122,7 @@
         in Chocolatey (that’s
         <a href="https://docs.python-guide.org/starting/install3/win/">what the Hitchhiker’s Guide says in English</a>,
         but
-        <a href="https://python-guide-fr.readthedocs.io/fr/latest/starting/install/win.html">not in all languages</a>),
+        <a href="https://python-guide-fr.readthedocs.io/fr/latest/starting/install/win.html">not in French</a>),
         on <code>python.org</code> (that’s
         <a href="https://www.python.org/downloads/windows/">what <code>python.org</code> says</a>,
         but <a href="https://docs.python.org/3/tutorial/interpreter.html">not its documentation</a>).
@@ -135,7 +135,7 @@
       <h4>Wow, Such Installer</h4>
       <p>
         OK, the first point was kind of a disaster. But… Maybe we can do better
-        on the second one? Installing a package after installing Python should
+        for the second one? Installing a package after installing Python should
         be a child’s play. We do <code>pip install my-package</code>, don’t we?
       </p>
       <p>
@@ -163,13 +163,12 @@
       <p>
         If you don’t want to complicate things, you can follow
         <a href="https://docs.python-guide.org/dev/virtualenvs/#installing-pipenv">what the Hitchhiker’s Guide says</a>
-        and use Pipenv (we let you guess who create this wonderful tool). Of
-        course you have to disregard the fact that Pipenv has been deserted by
+        and use Pipenv (we let you guess who created this wonderful tool). Of
+        course you have to disregard the fact that Pipenv has been deserted during
         a year and a half in 2019 with a broken version and no update. Of
         course, you have to turn a blind eye to the fact that the project is
-        sprawling, includes about forty duplicated (and sometimes modified)
-        projects, and the fact that contains more than 200.000 lines of code
-        😱…
+        sprawling, includes about forty (40!) duplicated (and sometimes modified)
+        projects, and contains more than 200.000 lines of code 😱…
       </p>
       <p>
         Hahahahahahaha. Haha. No.
@@ -193,16 +192,16 @@
         <a href="https://packaging.python.org/guides/distributing-packages-using-setuptools/">a guide</a>
         exist to learn how to create packages. These documents are rather well
         written and should quickly help you to share your library. In theory,
-        we’re taken by hand. In theory.
+        we’re taken by the hand. In theory.
       </p>
       <p>
         In reality, things are way more chaotic. If we look at only three
-        projects like
-        <a href="https://github.com/pallets/flask">Flask</a>,
+        projects
+        (<a href="https://github.com/pallets/flask">Flask</a>,
         <a href="https://github.com/psf/requests">Requests</a> and
-        <a href="https://github.com/numpy/numpy">NumPy</a>, we have a long list
+        <a href="https://github.com/numpy/numpy">NumPy</a>), we have a long list
         of files more or less related to package managment, without counting
-        the classic <code>README</code>, <code>LICENSE</code>, and other:
+        the classic <code>README</code>, <code>LICENSE</code>, and so on:
       </p>
       <ul>
         <li><code>setup.py</code>,</li>
@@ -217,7 +216,7 @@
         <li><code>pyproject.toml</code>…</li>
       </ul>
       <p>
-        The bad news is: Python doesn’t provide tools to create a new project
+        Bad news: Python doesn’t provide tools to create a new project
         ready to be shared. You’re going to be lost in third-party projects
         that create packages their own way (we’re still looking askance at you,
         Pipenv), or you’re going to learn the hard way what these weird files
@@ -228,7 +227,7 @@
         <code>requirements.txt</code> and <code>pyproject.toml</code> allow,
         among others, to list the dependencies of a project. They use 4
         different file formats, and one of them is not even managed by the
-        Python standard library.)
+        Python standard library. True story.)
       </p>
       <p>
         The different tutorials and online forums will only give you fragmented
@@ -238,7 +237,7 @@
         thinking about you,
         <code>setuptools</code>). Everybody suggests ideas, new tools regularly
         appear, everything quickly looks like a fashion moment that becomes
-        outmoded after a few years (even few months if you’re unlucky)…
+        outmoded after a few years (even a few months if you’re unlucky)…
       </p>
       <p>
         We ear you defending your beloved language: "Yes, but this stuff isn’t
@@ -265,7 +264,7 @@
     <section>
       <h3>And After That?</h3>
       <p>
-        With Python, you’re going to learrn things at random from your online
+        With Python, you’re going to learrn things randomly from your online
         reading, on doubtful blogs like this one. You’re going to find
         absolutely outdated solutions on StackOverflow, unspecified tricks
         using implementation details which will change next week. Do we include
