@@ -102,6 +102,16 @@ ul {
   list-style-type: circle;
 }
 
+blockquote::before {
+  content: '”';
+  font-size: 12em;
+  line-height: 1;
+  margin: -0.1em 0 0 -0.5em;
+  opacity: 0.2;
+  position: absolute;
+  z-index: -1;
+}
+
 /* Header */
 
 body > header {
@@ -606,9 +616,22 @@ footer ul {
   font-weight: 400;
 }
 
-#page-article ul {
+#page-article ul, #page-article ol {
   padding-left: 0;
 }
+
+#page-article figure {
+  font-size: 0.8em;
+  margin: 2em;
+  text-align: center;
+}
+#page-article figure img {
+  max-width: 60%;
+}
+#page-article figcaption {
+  padding: 0.5em;
+}
+
 
 /* Icons Lists */
 

@@ -1,0 +1,291 @@
+{% set title = 'Blog - The Python Packaging Hell: The Can of Worms' %}
+{% set description = 'Managing Python packaging can sometimes be a nightmare. You don’t know what we are talking about? We show you a couple of things and we talk again after…' %}
+
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>The Python Packaging Hell: The Can of Worms (1 / 7)</h2>
+      <aside><time datetime="2021-09-16">September 16, 2021</time>, by CourtBouillon</aside>
+      <p>
+        Managing Python packaging can sometimes be a nightmare. You don’t know
+        what we’re talking about? Let’s present you a couple of things and we’ll
+        talk again after that…
+      </p>
+    </header>
+
+    {% include 'articles/_python_contents.jinja2' %}
+
+    <section>
+      <h3>What’s the Problem?</h3>
+      <p>
+        If you are here, we can assume that you’ve already written some lines of
+        Python. You’ve already installed a Python project, with dependencies.
+        And for that, you may have had to do some stuff. A lot of stuff. Way
+        too much stuff. Not so much? We bet that you’ve already encountered
+        things called
+        <code>pip</code>, <code>pipenv</code>, <code>poetry</code>,
+        <code>setuptools</code>, <code>distutils</code>,
+        <code>requirements.txt</code>, <code>setup.py</code>,
+        <code>Pipfile</code>, <code>setup.cfg</code>,
+        <code>pyproject.toml</code>, <code>venv</code>,
+        <code>virtualenv</code>, <code>wheel</code>… We can stop here, but you
+        know many more, without even realizing.
+      </p>
+      <p>
+        That’s too much, and that’s not normal.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00011-xkcd.png') }}" alt="Mandatory Related XKCD™" title="The Python environmental protection agency wants to seal it in a cement chamber, with pictorial messages to future civilizations warning them about the danger of using sudo to install random Python packages." />
+        <figcaption>
+          Mandatory related <a href="https://xkcd.com/1987/">XKCD</a>
+        </figcaption>
+      </figure>
+      <p>
+        A sentence from
+        <a href="https://www.python.org/dev/peps/pep-0020/">The Zen of Python</a>
+        says "There should be one—and preferably only one—obvious way to do
+        it". You see the problem now, right?
+      </p>
+    </section>
+
+    <section>
+      <h3>The Horror of the Beginnings</h3>
+      <p>
+        You may not remember, but at some point you didn’t know about Python.
+        Yes, it’s true.
+      </p>
+      <p>
+        Try to explain to someone at ease behind a keyboard (but who
+        doesn’t know Python) how to install a Python program. In his or her place, as
+        an average neophyte of the XXI<sup>e</sup> century, we would expect
+        something like:
+      </p>
+      <ol>
+        <li>
+          Install Python by following the super short tutorial from the super
+          documentation, or with the command
+          <code>download-python-and-install-it</code>.
+        </li>
+        <li>
+          Install the program by clicking here, or with the command
+          <code>python-install my-program</code>.
+        </li>
+      </ol>
+      <p>
+        Sorry to crush your dreams: reality is not like that. Not at all. The "super
+        short tutorial from the super documentation" to install Python doesn’t
+        exist. And too many <code>python-install</code>
+        programs exist, all incompatible with each other, and not included in
+        Python. That’s why installing a program is unpleasant.
+      </p>
+      <p>
+        Yeah: 🤦. We agree.
+      </p>
+
+      <h4>Wow, Such Tutorial</h4>
+      <p>
+        Speaking about tutorials, one of the best sources is, indubitably,
+        <a href="https://python-guide-fr.readthedocs.io/fr/latest/starting/installation.html">The Hitchhiker’s Guide to Python</a>.
+        A lot of things can always be said about documentation, but let’s bring
+        a touch of optimism: the guide is translated in several languages, and
+        some parts are really well written in a rather didactic way.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00011-old-guy.jpg') }}" alt="Hide the Pain Harold" title="I’ve been trying to install this package for 4 days." />
+        <figcaption>
+          "So, you see, you can’t use f-strings in your virtualenv because it’s
+          using Python 2"
+        </figcaption>
+      </figure>
+      <p>
+        We won’t talk about the fact that it’s not the official documentation.
+        We won’t talk about the fact that the whole guide is a
+        not-so-well-hidden advertisement for the glory of the projects of its
+        arguable author. No, don’t insist, we won’t do that.
+      </p>
+      <p>
+        Problem: this tutorial is not short, and not simple. You’re using
+        macOS? Here is the first paragraph:
+      </p>
+      <blockquote>
+        Before installing Python, you’ll need to install GCC. GCC can be
+        obtained by downloading Xcode, the smaller Command Line Tools (must
+        have an Apple account) or the even smaller OSX-GCC-Installer package.
+      </blockquote>
+      <p>
+        We save you from the hell 🔥 of the installation on Windows, where more
+        or less wobbly solutions are listed. Python is in the Store (that’s
+        <a href="https://www.microsoft.com/fr-fr/search?q=python">what Microsoft says</a>),
+        in Chocolatey (that’s
+        <a href="https://docs.python-guide.org/starting/install3/win/">what the Hitchhiker’s Guide says in English</a>,
+        but
+        <a href="https://python-guide-fr.readthedocs.io/fr/latest/starting/install/win.html">not in French</a>),
+        on <code>python.org</code> (that’s
+        <a href="https://www.python.org/downloads/windows/">what <code>python.org</code> says</a>,
+        but <a href="https://docs.python.org/3/tutorial/interpreter.html">not its documentation</a>).
+      </p>
+      <p>
+        What’s the best solution? We don’t know. In fact there’s none. And
+        that’s very bad.
+      </p>
+
+      <h4>Wow, Such Installer</h4>
+      <p>
+        OK, the first point was kind of a disaster. But… Maybe we can do better
+        for the second one? Installing a package after installing Python should
+        be a child’s play. We do <code>pip install my-package</code>, don’t we?
+      </p>
+      <p>
+        We don’t.
+      </p>
+      <p>
+        Maybe <code>sudo pip install my-package</code>?
+      </p>
+      <p>
+        No. No. No. No. No. No. No. No.
+      </p>
+      <p>
+        To install a package, you need to create a virtualenv, but, well, not
+        always. To create a virtualenv, you’re going to use a module
+        <a href="https://docs.python.org/3/tutorial/venv.html">integrated in Python</a>,
+        but
+        <a href="https://packages.ubuntu.com/search?keywords=python3-venv">not always</a>.
+        And after that, we’re going to use a program
+        <a href="https://docs.python.org/3/tutorial/venv.html?highlight=pip#managing-packages-with-pip">integrated in Python</a>,
+        but
+        <a href="https://packages.ubuntu.com/search?keywords=python3-pip">not always</a>.
+        And after that, the package can be installed, but
+        <a href="https://github.com/pypa/pip/issues">not always</a>.
+      </p>
+      <p>
+        If you don’t want to complicate things, you can follow
+        <a href="https://docs.python-guide.org/dev/virtualenvs/#installing-pipenv">what the Hitchhiker’s Guide says</a>
+        and use Pipenv (we let you guess who created this wonderful tool). Of
+        course you have to disregard the fact that Pipenv has been deserted during
+        a year and a half in 2019 with a broken version and no update. Of
+        course, you have to turn a blind eye to the fact that the project is
+        sprawling, includes about forty (40!) duplicated (and sometimes modified)
+        projects, and contains more than 200.000 lines of code 😱…
+      </p>
+      <p>
+        Hahahahahahaha. Haha. No.
+      </p>
+    </section>
+
+    <section>
+      <h3>The Loneliness of Package Creation</h3>
+      <p>
+        And we’ve just <em>installed</em> a package. If you want to create and
+        share a package, summon up your patience, expect other surprises.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00011-jack.jpg') }}" alt="Jack in the box" title="It is scary." />
+        <figcaption>Every time you think you’ve closed the bad news box, it’s open again without any warning</figcaption>
+      </figure>
+      <p>
+        Let’s be honest:
+        <a href="https://packaging.python.org/tutorials/packaging-projects/">a tutorial</a>
+        and
+        <a href="https://packaging.python.org/guides/distributing-packages-using-setuptools/">a guide</a>
+        exist to learn how to create packages. These documents are rather well
+        written and should quickly help you to share your library. In theory,
+        we’re taken by the hand. In theory.
+      </p>
+      <p>
+        In reality, things are way more chaotic. If we look at only three
+        projects
+        (<a href="https://github.com/pallets/flask">Flask</a>,
+        <a href="https://github.com/psf/requests">Requests</a> and
+        <a href="https://github.com/numpy/numpy">NumPy</a>), we have a long list
+        of files more or less related to package managment, without counting
+        the classic <code>README</code>, <code>LICENSE</code>, and so on:
+      </p>
+      <ul>
+        <li><code>setup.py</code>,</li>
+        <li><code>setup.cfg</code>,</li>
+        <li><code>MANIFEST.in</code>,</li>
+        <li><code>Pipfile</code>,</li>
+        <li><code>Pipfile.lock</code>,</li>
+        <li><code>tox.ini</code>,</li>
+        <li><code>pytest.ini</code>,</li>
+        <li><code>.coveragerc</code>,</li>
+        <li><code>requirements.txt</code>,</li>
+        <li><code>pyproject.toml</code>…</li>
+      </ul>
+      <p>
+        Bad news: Python doesn’t provide tools to create a new project
+        ready to be shared. You’re going to be lost in third-party projects
+        that create packages their own way (we’re still looking askance at you,
+        Pipenv), or you’re going to learn the hard way what these weird files
+        are used for.
+      </p>
+      <p>
+        (Small funny note: <code>setup.py</code>, <code>setup.cfg</code>,
+        <code>requirements.txt</code> and <code>pyproject.toml</code> allow,
+        among others, to list the dependencies of a project. They use 4
+        different file formats, and one of them is not even managed by the
+        Python standard library. True story.)
+      </p>
+      <p>
+        The different tutorials and online forums will only give you fragmented
+        (and often obsolete) information. And there’s a reason: good practice
+        is always changing. These tools have often been developed with no
+        specifications, with documentation at best incomplete (we are really
+        thinking about you,
+        <code>setuptools</code>). Everybody suggests ideas, new tools regularly
+        appear, everything quickly looks like a fashion moment that becomes
+        outmoded after a few years (even a few months if you’re unlucky)…
+      </p>
+      <p>
+        We ear you defending your beloved language: "Yes, but this stuff isn’t
+        that complicated, blah blah blah blah…". Do you want to cry? Go on
+        <a href="https://doc.rust-lang.org/cargo/">the Cargo documentation</a>,
+        Rust’s package manager.
+        <a href="https://doc.rust-lang.org/cargo/getting-started/installation.html">The first page</a>
+        is the installation page, it contains 136 words (according to <code>wc</code>),
+        including commands. It allows you to install Rust, with Cargo. 136
+        words, it’s one less than the Zen of Python. For real.
+      </p>
+      <p>
+        <a href="https://doc.rust-lang.org/cargo/getting-started/first-steps.html">The second page</a>
+        gives you everything needed to create a simple package, with a tool
+        that creates all the files. It contains the source code, the metadata
+        file, the commands used and their results, a tree of files and folders
+        in ASCII-art. Everything in 183 words.
+      </p>
+      <p>
+        There we are. It is possible. You know that, now.
+      </p>
+    </section>
+
+    <section>
+      <h3>And After That?</h3>
+      <p>
+        With Python, you’re going to learrn things randomly from your online
+        reading, on doubtful blogs like this one. You’re going to find
+        absolutely outdated solutions on StackOverflow, unspecified tricks
+        using implementation details which will change next week. Do we include
+        tests in packages, or not? Do we put them in the module, or not? Do we
+        supply a source package, or not? Do we indicate exact versions of the
+        dependencies, or not? Do we put the documentation in a folder aside, or
+        not? So many questions, and many more, for which you’re in the deep
+        loneliness of packages creation.
+      </p>
+      <p>
+        You probably think that everything is lost, that the people who
+        developed everything are incompetent, that Python is in fact a language
+        rotten beyond repair… Actually, no. We’ll try in the next episodes to
+        understand how we got there, and how things changed during all those
+        years, often for the best. Will we, one day, succeed in creating a nice
+        package? Of course, we will.
+      </p>
+      <p>
+        To be continued…
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
