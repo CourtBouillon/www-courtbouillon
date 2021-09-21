@@ -1,6 +1,6 @@
-{% set title = 'Blog - The Python packaging hell: the roots of evil' %}
+{% set title = 'Blog - The Python Packaging Hell: the Roots of Evil' %}
 {% set description = 'Managing Python packaging can sometimes be a nightmare.
-        Because of the stupidity of Python maintainers? And if it was more complicated?' %}
+        Because of the stupidity of Python maintainers? What if it was more complicated?' %}
 
 {% extends '_layout.jinja2' %}
 
@@ -8,79 +8,80 @@
 
   <article>
     <header>
-      <h2>The Python packaging hell: the roots of evil (2 / 7)</h2>
+      <h2>The Python Packaging Hell: the Roots of Evil (2 / 7)</h2>
       <aside><time datetime="2021-09-23">September 23, 2021</time>, by CourtBouillon</aside>
       <p>
         Managing Python packaging can sometimes be a nightmare.
-        Because of the stupidity of Python maintainers? And if it was more complicated?
+        Because of the stupidity of Python maintainers? What if it was more complicated?
       </p>
     </header>
 
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>Maybe it’s not the right technology</h3>
+      <h3>It’s Not the Right Technology</h3>
       <p>
         <a href="{{ url_for('blog', article='00011-the-python-packaging-hell-the-can-of-worms') }}">Last time</a>,
-        we saw that it’s possible to manage package creation and sharing nicely,
-        we just need to look at what Rust’s people do, and it doesn’t seem so complicated.
+        we saw that it’s possible to manage package creation and distribution
+        nicely. We just need to look at what Rust developers do, and it doesn’t
+        seem to be so complicated.
       </p>
       <p>
-        That’s not totally wrong, but let’s be honnest, that’s not totally true either.
-        First of all, Rust has indisputable technical assets compared with Python,
-        for example, the possibility to share libraries and compiled run-times.
-        Python being interpreted, we have to think about the installation of its
-        interpretor, and with that come other questions (which interpretor, which version…).
-        Some tools like <a href="http://nuitka.net/">Nuitka</a> bring solution’s
-        embryo, but are sentenced to live outside the standard library, and so
-        they won’t be massivly used.
+        That’s not totally wrong, but let’s be honest, that’s not totally true
+        either. First of all, Rust has indisputable technical assets compared
+        with Python; for example, the possibility to share compiled libraries
+        and executable files. Python being interpreted, we have to think about
+        the interpreter installation and other related questions (which
+        interpreter, which version…). Tools like <a href="http://nuitka.net/">Nuitka</a> bring emerging
+        solutions, but are sentenced to live outside the standard library without being
+        massively used.
       </p>
       <p>
-        Among the technical aspect, the main asset of Rust is its age. Created
-        in 2010, it’s a young kid compared to the antique Python borned 20 years
-        before. Between 1990 and 2010, CVS, Subversion and Git appeared ; Netscape,
-        Internet Explorer, Firefox and Chrome too ; not forgetting HTML, CSS and
-        JavaScript. It’s increadible, but it’s true, and it puts in perspective
-        the relative situation of Python and Rust.
+        Beyond technical aspects, the main advantage of Rust is its age. Created
+        in 2010, it’s a young kid compared to the antique Python born 20 years
+        earlier. Between 1990 and 2010, CVS, Subversion and Git appeared; Netscape,
+        Internet Explorer, Firefox and Chrome too; and so did HTML, CSS and
+        JavaScript. It’s unbelievable, but it’s true, and it puts in perspective
+        the relative situations of Python and Rust.
       </p>
     </section>
 
     <section>
-      <h3>It’s not the right moment</h3>
+      <h3>It’s Not the Right Moment</h3>
       <p>
         It’s hard to remember or to imagine how was IT when Python started to
-        germinate in the end of the 80’s, but we can easily understand why
-        packaging creation and sharing weren’t the top 1 issue to deal with.
+        germinate in the end of the 80s, but we can easily understand why
+        package creation and distribution weren’t the top issue to deal with.
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00012-netscape.png')}}" alt="Starting screen of Netscape 6" title="Only 20 seconds to start…" />
         <figcaption>
-          The cute starting screen of Netscape 6, launched in 2000, the same
+          The cute splash screen of Netscape 6, launched in 2000, the same
           year as <code>distutils</code>.
         </figcaption>
       </figure>
       <p>
-        Of course, Python didn’t include tools to share code at its beginnings.
-        The Python Package Authority (PyPA) maintains
-        <a href="https://www.pypa.io/en/latest/history/">an history</a> very
-        instructive of the evolution of packages, where we learn among other that:
+        Of course, Python didn’t include tools to distribute code when it’s been
+        first released. The Python Package Authority (PyPA) maintains a very
+        instructive <a href="https://www.pypa.io/en/latest/history/">history</a>
+        of the evolution of packages, where we learn among other things that:
       </p>
       <ul>
         <li>
-          distutils was integrated in the standard library in 2000, for
-          Python 1.6 ;
+          distutils was integrated in the standard library in 2000, in
+          Python 1.6;
         </li>
         <li>
-          PyPI has been first online in 2003 ;
+          PyPI has been first deployed online in 2003;
         </li>
         <li>
           the PyPA has been created in 2011 to manage <code>pip</code> (born in 2008)
-          and <code>virtualenv</code> (born in 2007) ;
+          and <code>virtualenv</code> (born in 2007);
         </li>
         <li>
           Python 3.3 has almost integrated the successor of <code>distutils</code> and
           <code>setuptools</code>, but the project has been abandoned because of
-          a lack of investment ;
+          a lack of investment;
         </li>
         <li>
           a huge number of PEPs about the evolution of those tools have been
@@ -88,50 +89,48 @@
         </li>
       </ul>
       <p>
-        The most shocking is maybe the impression of amateurishness, in particular
-        at the birth of the first tools. Whoever who has used <code>easy_install</code>
-        knows that the situation back then was extremly painful, and that the
-        installation of a package required a lot of perseverance, knowlage, and
-        of course, luck. The accumulation of names, tools, internal and
-        external libraries shows that everyone went blindly ahead in partial,
-        risky, even shaky solutions.
+        You’re right: it’s a mess. Whoever has used <code>easy_install</code>
+        knows that the situation back then was extremely painful, and that
+        installing a package required a lot of perseverance, knowledge,
+        and of course luck. The accumulation of names, tools, internal and
+        external libraries shows that everyone blindly created partial, risky,
+        even shaky solutions.
       </p>
       <p>
         As we can hear in
         <a href="https://www.pythonpodcast.com/pip-resolver-dependency-management-episode-264/">this excellent episode of Podcast.__init__</a>,
-        the writing of tools has been, for long, done before subjecting to
-        discussion and acceptance of a formal specification.
-        Because of lack of time, and also lack of means: there is no company
-        behind PyPI or PyPA, as there is one for example behind
-        <a href="https://en.wikipedia.org/wiki/Npm_(software)#The_company"><code>npm</code></a>.
-        Most of the developments are done by volunteers, which woudn’t say no to
-        an helping help ✋ (yes, that’s a veiled appeal).
+        these tools have for a long time been created without any specification.
+        The main reason is a lack of time, but also a lack of means: there’s no company
+        behind PyPI or PyPA, contrary to
+        <a href="https://en.wikipedia.org/wiki/Npm_(software)#The_company"><code>npm</code></a>
+        for example. Development is mostly done by volunteers, who
+        wouldn’t say no to a helping hand ✋.
       </p>
       <p>
         Indeed, this inventory doesn’t explain everything. Other big changes have
-        been integrated in the language with way more tact, like recently
-        <a href="https://www.python.org/dev/peps/pep-0492/">the coroutines</a>.
-        This functionnality has needed a long and stormy discussion before
-        having a, rather appreciated, integration. Before etching those syntax’s
-        changes in the language,
-        <a href="https://docs.python.org/3/library/asyncio-task.html?highlight=coroutine#generator-based-coroutines">proposals less intrusive</a>
-        have been tested, making the final solution more acceptable.
+        been integrated in the language with way more tact, like
+        <a href="https://www.python.org/dev/peps/pep-0492/">coroutines</a> recently.
+        This functionality required a long and stormy discussion before getting
+        a rather appreciated integration. Before etching these syntax changes
+        in the language,
+        <a href="https://docs.python.org/3/library/asyncio-task.html?highlight=coroutine#generator-based-coroutines">less intrusive proposals</a>
+        have been tested, improving the final solution approval.
       </p>
       <p>
         It’s easy to point finger at people who created those tools. It’s easy
         to scoff at the lack of view of the Python team who has integrated in the
-        rush some doubtful solutions and left some in from of the doors of the
+        rush some doubtful solutions and left some of them outside the
         standard library. But if we think that <code>distutils</code> has been
-        integrated at the same moment where the top 1 browser was called Internet
+        integrated at the same moment when the top browser was called Internet
         Explorer 5.5…
       </p>
       <p>
-        And moreover, it’s not too late to change everything. No?
+        And moreover, it’s not too late to change everything, is it?
       </p>
     </section>
 
     <section>
-      <h3>It’s not the right standard</h3>
+      <h3>It’s Not the Right Standard</h3>
       <p>
         In a way, unfortunately, yes, it’s too late.
       </p>
@@ -142,15 +141,16 @@
         </figcaption>
       </figure>
       <p>
-        The issue is that, since the beginning of the 2000’s, there
-        are packages in the wild, on PyPI, in public and private repositories.
-        Those packages are used by a lot of people, and sometimes by obsolete
-        systems (we’re still looking askance at you, Python 2). And Python, which
-        has painfully sudden rought and incompatible (we’re really thinking about
-        you, Python 3) won’t make this loads of packages instable.
+        The issue is that, since the beginning of the 2000s, packages have been
+        released in the wild, on PyPI, in public and private repositories.
+        These packages are used by a lot of people, and sometimes by obsolete
+        systems (we’re still looking askance at you, Python 2). And Python,
+        which has painfully suffered from rough and incompatible changes (we’re
+        really thinking about you, Python 3) won’t make this loads of packages
+        uninstallable.
       </p>
       <p>
-        Else, pitchforks and guillotines are going to be out and about.
+        Otherwise, pitchforks and guillotines will be out and about.
       </p>
       <p>
         All those proposals, about files
@@ -159,15 +159,15 @@
         <code>pyproject.toml</code>…) or about tools
         (<code>easy_install</code>, <code>pip</code>, <code>pipenv</code>,
         <code>poetry</code>, <code>setuptools</code>, <code>distutils</code>…)
-        can just add one after the other, with no perfect replacement, without
+        have just been added one after the other, with no perfect replacement, without
         shelving the faults of their ancestors.
       </p>
       <p>
-        So, of course, not everything is lost. The most important changes are
-        globally pointing to a systematic specification, rationalization and
-        simplification. A lot of the PEPs are suggested to discribe and discuss
-        before coding, so all the details of implementation don’t lay down the
-        law to the detriment of ideas born of consensus.
+        But of course, everything is not lost. The most important changes are
+        globally pointing to systematic specification, rationalization and
+        simplification. A lot of PEPs are proposed to describe and discuss
+        before coding, so that implementation details don’t prevail over ideas
+        born out of consensuses.
       </p>
       <p>
         But the path is long.
@@ -175,50 +175,48 @@
     </section>
 
     <section>
-      <h3>It’s not the right solution</h3>
+      <h3>It’s Not the Right Solution</h3>
       <p>
-        If you think that the dependencies management is an issue solved for
-        a long time and that the people behind <code>pip</code> are seriously
-        lacking of skills, don’t forget that the name of a Python package is
-        often given in the <code>setup.py</code> file, and so in theory, it can
-        depend of different informations like the OS, the presence of external
-        libraries or even the hour. Knowing the libraries of which depends a
-        package requires sometimes to launch an interpretor, and so the
-        dependencies tree is different for each person installing a package.
+        If you think that dependency management has been solved for
+        a long time, and that the people behind <code>pip</code> seriously lack
+        important skills, don’t forget that the name of a Python package is
+        often given in the <code>setup.py</code> file, and can thus
+        theoretically depend of various information like the OS, the presence
+        of external libraries, or even the current time. Listing libraries
+        needed by a package sometimes requires to launch an interpreter, and so
+        the dependencies tree is different for each installation.
       </p>
       <p>
-        In practice, solutions have been found to make up for this flexibility
-        which is sometimes becoming a real nightmare. Fortunately, it’s not
-        mandatory to download and launch all the different versions of packages
-        to determinate which one are required for the install. But everything
-        is done with new formats and new metadatas that are, by definition, not
-        part of the previous packages.
+        In practice, solutions have been found to make up for this flexibility,
+        which is sometimes a real nightmare. Fortunately, downloading and
+        launching all the different versions of a package is not mandatory to
+        determinate which ones are required for the installation. But
+        everything is done with new formats and new metadata that are, by
+        definition, not part of the previous packages.
       </p>
       <p>
-        In concrete terms, it means that for installation tools, the
-        management of obsolete solutions will keep going for some long and
-        painfull years. The wild rythm of new versions of
+        In concrete terms, managing obsolete installation tools will be
+        required for a long and painful time. The wild rythm of new versions of
         <a href="https://pypi.org/project/setuptools/#history"><code>setuptools</code></a>
         and
         <a href="https://pypi.org/project/pip/#history"><code>pip</code></a>
-        gives an idea of constant improvements which are brewing without us
-        realizing ; but we’re not ready to escape from the fiendish historic we
+        gives an idea of constant improvements brewing without us
+        realizing; but we’re not ready to discard the fiendish history we’ll
         have to cart around for a long time.
       </p>
       <p>
-        However, for people creating packages, the solution is getting better.
-        The topic isn’t really hype and it’s hard to find a documentation of
-        reference (even from PyPA, and especially from PyPA). It’s a pity,
-        because it would become almost easy and neat lately to create Python
-        packages.
+        However, for packagers, the situation is getting better. The topic
+        isn’t really appealing and it’s hard to find a reference documentation
+        (even from PyPA, especially from PyPA). It’s a pity, because it’s
+        becoming almost easy and neat to create Python packages.
       </p>
       <p>
-        Without <code>setup.py</code>, for example.
+        With no <code>setup.py</code>, for example.
       </p>
       <p>
-        You’d like to know more? There are five articles left to have a look
-        round of the existing tools, better define what we want to do, before
-        finally create our own beautiful package.
+        You’d like to learn more? There are five articles left to take a look
+        at existing tools, to finely define what we want to do, before finally
+        creating our own beautiful package.
       </p>
       <p>
         To be continued…
