@@ -26,7 +26,7 @@
       <p>
         If you’re here, you may have already installed a Python package in your
         life. You may have used a virtual environment, used <code>pip</code> or
-        installed a module proposed by your distrib. Be that as it may, you
+        installed a module proposed by your distribution. Be that as it may, you
         probably succeeded, in a way or an other, to put Python libraries somewhere
         on your computer.
       </p>
@@ -46,24 +46,24 @@
         exist (<a href="https://docs.python.org/3/distutils/builtdist.html">a
         small insight to satisfy your curiosity</a>). We’ll also use some shortcuts
         that will take some liberties with the truth, just to give a chance to
-        the article to be a minimun readable and easily digestible.)
+        the article to be a minimum readable and easily digestible.)
       </p>
 
       <h4>Sources</h4>
       <p>
-        The easiest way to share code, it’s to transform it in a archive and send
+        The easiest way to distribute code, it’s to transform it in a archive and send
         it as it is. That’s more or less what happens when we choose to create
         a source package for a Python module.
       </p>
       <p>
         As simple it is, this method requires a bit of configuration. We have to
-        determinate which files are included in the archive, including metadatas
+        determinate which files are included in the archive, including metadata
         and third-party tools (Tox, Coverage, Pytest…) configuration files.
       </p>
       <p>
         So this archive is quite simple to create, but it brings kind of big
         problem: there is no particular structuring, no organization for the
-        metadatas. It gives the files and allow to the installer to install them
+        metadata. It gives the files and allow to the installer to install them
         like it would do it with a folder containing the sources on your hard drive.
       </p>
       <p>
@@ -72,7 +72,7 @@
       </p>
       <p>
         First thing, it’s the dependencies management. Packages depend of other
-        packages, as you may know. And without any other metadatas, the installer
+        packages, as you may know. And without any other metadata, the installer
         is obliged to read, for example, the file <code>setup.py</code>. And now,
         you have an insight of the problem: if we need to execute a Python file
         to know the dependencies of a package (and recursively its dependencies!)
@@ -93,14 +93,14 @@
       <p>
         Despite its limitations, this format will probably stay necessary for a
         long time. For a lot of reasons, we may want to get the source in the
-        simpliest format. Disastrous consequence: the tools for Python packages
+        simplest format. Disastrous consequence: the tools for Python packages
         installation will have to deal with this format, and all the complex
         mechanism driving by it, for very long years.
       </p>
 
       <h4>Egg</h4>
       <p>
-        To make up for thoses failings, a package format has been created in 2004:
+        To make up for those failings, a package format has been created in 2004:
         the eggs.
       </p>
       <p>
@@ -108,19 +108,19 @@
         <a href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)#Menu">classic reference to Monty Python</a>,
         the idea comes from a
         <a href="http://peak.telecommunity.com/DevCenter/PythonEggs#overview">good
-        intention</a>: building additonnal informations which allow to the
+        intention</a>: building additional information which allow to the
         dependencies of a project to be checked and satisfied at the execution.
         At the time, this format allows above all to use <code>easy_install</code>
         to easily install a module and its dependencies. It allows to include
         plug and play modules, with C extensions already compiled. It also allows,
-        by a system of namespaces, to share plugins. And, above all, it can
+        by a system of namespaces, to distribute plugins. And, above all, it can
         directly put itself in a place accessible for Python, without needed
         additional installation.
       </p>
       <p>
         Build above <code>setuptools</code>, it brings a lot of evolutions that
         seems obvious today: dependencies with fixed versions, precomputed
-        metadatas, mecanism to access related metadatas and files from the
+        metadata, mechanism to access related metadata and files from the
         code of the module…
       </p>
       <p>
@@ -128,10 +128,10 @@
       </p>
       <p>
         Yet, eggs are quickly outmoded by their architecture as innovative (it’s
-        a joke, it’s totally copied from Java’s jars) as tottaly rickety (that,
+        a joke, it’s totally copied from Java’s jars) as totally rickety (that,
         however, it’s not a joke). Use an archive format where we needn’t to
         extract the code make errors management very complex, with traces
-        leading to unfindable files. Bytecode inclusion makes eggs potentially
+        leading to untraceable files. Bytecode inclusion makes eggs potentially
         depend of a Python version, like the inclusion of compiled files make
         them deeply linked to an architecture.
       </p>
@@ -139,9 +139,9 @@
         And especially… The format isn’t specified, giving to the implementation
         an immoderate importance. The successive adds to <code>setuptools</code>,
         sometimes badly or not at all documented, make it a big Russian roulette
-        game where retrocompatibility, reproductibility and simplicity are
+        game where retro-compatibility, reproducibility and simplicity are
         constantly, blithely, mercilessly neglected. The ways to make eggs
-        usable by the interpretor have been expended to deal with cases more and
+        usable by the interpreter have been expended to deal with cases more and
         more complex, until becoming to big pile of solutions based on symbolic
         links, files containing absolute paths, archives temporarily extracted
         and other abominations that we’ll wisely leave in their Pandora’s box.
@@ -164,29 +164,29 @@
       </p>
       <p>
         The amazing idea (without really exaggerate) of wheels is to include in
-        the filename some informations, considerably simplifying dependencies
+        the filename some information, considerably simplifying dependencies
         management. Is the code to include different depending of the Python
         version? Are the extensions compiled differently depending the operating
-        system? So we share different wheels for the same version of a module,
+        system? So we distribute different wheels for the same version of a module,
         and the installer will deal with that to find the version corresponding
         to the user.
       </p>
       <p>
-        The wheels have also the good idea to embed metadatas with a specified
+        The wheels have also the good idea to embed metadata with a specified
         format (by the <a href="https://www.python.org/dev/peps/pep-0345/">PEP 345</a>).
         This format allows to describe in a complex way the conditional
         dependencies, the external dependencies, the Python versions supported,
-        and more globally all we need to correctly manage code sharing, the
+        and more globally all we need to correctly manage code distribution, the
         easy installation and the possibility to build a static dependencies
         tree.
       </p>
       <p>
-        Nowadays, everyone should use wheels to share and install packages. If
+        Nowadays, everyone should use wheels to distribute and install packages. If
         not everything is perfect in Python packages management, wheels are today
-        the most significant example of what works very weel. They allow a
+        the most significant example of what works very well. They allow a
         smooth transition to have a situation where eggs have widely disappeared,
         and where source packages are less and less used… thanks to a software
-        ecosystem created around this new format and a clever retrocompatibility.
+        ecosystem created around this new format and a clever retro-compatibility.
       </p>
       <p>
         Yes, wheels are amazing, but all of that wouldn’t be possible without
