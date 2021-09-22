@@ -29,12 +29,12 @@
       <p>
         That’s not totally wrong, but let’s be honest, that’s not totally true
         either. First of all, Rust has indisputable technical assets compared
-        with Python; for example, the possibility to share compiled libraries
+        with Python: for example, the possibility to share compiled libraries
         and executable files. Python being interpreted, we have to think about
         the interpreter installation and other related questions (which
-        interpreter, which version…). Tools like <a href="http://nuitka.net/">Nuitka</a> bring emerging
-        solutions, but are sentenced to live outside the standard library without being
-        massively used.
+        interpreter, which version…). Tools like <a href="http://nuitka.net/">Nuitka</a> bring
+        emerging solutions, but they are doomed to live outside the standard
+        library without being massively used.
       </p>
       <p>
         Beyond technical aspects, the main advantage of Rust is its age. Created
@@ -49,9 +49,9 @@
     <section>
       <h3>It’s Not the Right Moment</h3>
       <p>
-        It’s hard to remember or to imagine how was IT when Python started to
+        It’s hard to remember or to imagine how IT was when Python started to
         germinate in the end of the 80s, but we can easily understand why
-        package creation and distribution weren’t the top issue to deal with.
+        package creation and distribution weren’t the top issues to deal with.
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00012-netscape.png')}}" alt="Starting screen of Netscape 6" title="Only 20 seconds to start…" />
@@ -64,15 +64,15 @@
         Of course, Python didn’t include tools to distribute code when it’s been
         first released. The Python Package Authority (PyPA) maintains a very
         instructive <a href="https://www.pypa.io/en/latest/history/">history</a>
-        of the evolution of packages, where we learn among other things that:
+        of the evolution of packaging, where we learn among other things that:
       </p>
       <ul>
         <li>
-          distutils was integrated in the standard library in 2000, in
-          Python 1.6;
+          <code>distutils</code> was integrated in the standard library in
+          2000, in Python 1.6;
         </li>
         <li>
-          PyPI has been first deployed online in 2003;
+          the PyPI has been first deployed online in 2003;
         </li>
         <li>
           the PyPA has been created in 2011 to manage <code>pip</code> (born in 2008)
@@ -92,8 +92,8 @@
         You’re right: it’s a mess. Whoever has used <code>easy_install</code>
         knows that the situation back then was extremely painful, and that
         installing a package required a lot of perseverance, knowledge,
-        and of course luck. The accumulation of names, tools, internal and
-        external libraries shows that everyone blindly created partial, risky,
+        and luck of course. The accumulation of names, tools, internal and
+        external libraries, shows that everyone blindly created partial, risky,
         even shaky solutions.
       </p>
       <p>
@@ -104,7 +104,7 @@
         behind PyPI or PyPA, contrary to
         <a href="https://en.wikipedia.org/wiki/Npm_(software)#The_company"><code>npm</code></a>
         for example. Development is mostly done by volunteers, who
-        wouldn’t say no to a helping hand ✋.
+        wouldn’t say "no" to a helping hand ✋.
       </p>
       <p>
         Indeed, this inventory doesn’t explain everything. Other big changes have
@@ -118,8 +118,8 @@
       </p>
       <p>
         It’s easy to point finger at people who created those tools. It’s easy
-        to scoff at the lack of view of the Python team who has integrated in the
-        rush some doubtful solutions and left some of them outside the
+        to scoff at the lack of view of the Python team who integrated some
+        doubtful solutions in the rush, and left some of them outside the
         standard library. But if we think that <code>distutils</code> has been
         integrated at the same moment when the top browser was called Internet
         Explorer 5.5…
