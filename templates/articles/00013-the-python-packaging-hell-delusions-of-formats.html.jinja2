@@ -31,7 +31,7 @@
         on your computer.
       </p>
       <figure>
-        <img src="{{ url_for('static', filename='images/00007-pypi.svg')}}" alt="PyPI’s logo" title="What a nice packages" />
+        <img src="{{ url_for('static', filename='images/00013-pypi.svg')}}" alt="PyPI’s logo" title="What a nice packages" />
         <figcaption>
           It’s tempting, a nice Python package. But in real life…
         </figcaption>
@@ -42,10 +42,10 @@
       </p>
       <p>
         (Caution: we haven’t a vocation to do an exhaustive presentation, and so
-        we’re not going to have a look to all the things that existed and still
+        we’re not going to have a look at all the things that existed and still
         exist (<a href="https://docs.python.org/3/distutils/builtdist.html">a
-        small insight to satisfy your curiosity</a>). We’ll also use some shortcuts
-        that will take some liberties with the truth, just to give a chance to
+        small insight to satisfy your curiosity</a>). We’ll also use some shortcuts,
+        taking some liberties with the truth, just to give a chance to
         the article to be a minimum readable and easily digestible.)
       </p>
 
@@ -73,7 +73,7 @@
       <p>
         First thing, it’s the dependencies management. Packages depend of other
         packages, as you may know. And without any other metadata, the installer
-        is obliged to read, for example, the file <code>setup.py</code>. And now,
+        is obliged to read, for example, the <code>setup.py</code> file. And now,
         you have an insight of the problem: if we need to execute a Python file
         to know the dependencies of a package (and recursively its dependencies!)
         you’re going to spend a lot of time downloading packages, executing code,
