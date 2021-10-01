@@ -1,9 +1,3 @@
-{% set title = 'Blog - The Python Packaging Hell: Delusions of Formats' %}
-{% set description = 'Managing Python packaging can sometimes be a nightmare. But
-        by the way, what is a package? Obviously, as nothing is simple, as nothing
-        will be spare, the non-answer to this question is: it depends…' %}
-{% set image = url_for('static', filename='images/00007-image.jpg') %}
-
 {% extends '_layout.jinja2' %}
 
 {% block content %}
@@ -11,11 +5,11 @@
   <article>
     <header>
       <h2>The Python Packaging Hell: Delusions of Formats (3 / 7)</h2>
-      <aside><time datetime="2021-09-30">September 30, 2021</time>, by CourtBouillon</aside>
+      <aside><time datetime="2021-10-04">October 4, 2021</time>, by CourtBouillon</aside>
       <p>
-        Managing Python packaging can sometimes be a nightmare. But
-        by the way, what is a package? Obviously, as nothing is simple, as nothing
-        will be spare, the non-answer to this question is: it depends…
+        Python packaging can sometimes be a nightmare. But, by the way, what is
+        a package? Obviously, as nothing is simple, as nothing will be spared,
+        the non-answer to this question is: it depends…
       </p>
     </header>
 
@@ -26,173 +20,177 @@
       <p>
         If you’re here, you may have already installed a Python package in your
         life. You may have used a virtual environment, used <code>pip</code> or
-        installed a module proposed by your distribution. Be that as it may, you
-        probably succeeded, in a way or an other, to put Python libraries somewhere
-        on your computer.
+        installed a module proposed by your distribution. You have probably
+        succeeded, in a way or another, to put Python libraries somewhere on
+        your computer.
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00013-pypi.svg')}}" alt="PyPI’s logo" title="What a nice packages" />
         <figcaption>
-          It’s tempting, a nice Python package. But in real life…
+          Nice Python packages are appealing, but in real life…
         </figcaption>
       </figure>
       <p>
-        First, when we talk about Python package, we should be clear. And it’s
-        not easy, because it doesn’t exist only one format, but a swarm of them.
+        First, when we talk about Python packages, we have to be clear. And
+        it’s not easy, because it doesn’t exist only one format, but a swarm of
+        them.
       </p>
       <p>
-        (Caution: we haven’t a vocation to do an exhaustive presentation, and so
-        we’re not going to have a look at all the things that existed and still
-        exist (<a href="https://docs.python.org/3/distutils/builtdist.html">a
-        small insight to satisfy your curiosity</a>). We’ll also use some shortcuts,
-        taking some liberties with the truth, just to give a chance to
-        the article to be a minimum readable and easily digestible.)
+        (Caution: this presentation is not meant to be exhaustive, and we’re
+        not going to have a look at all the things that existed and still exist
+        (<a href="https://docs.python.org/3/distutils/builtdist.html">here’s a
+        small insight to satisfy your curiosity</a>). We’ll also take
+        shortcuts, take liberties with the truth, just to give a chance to this
+        article to be a minimum readable and easily digestible.)
       </p>
 
       <h4>Sources</h4>
       <p>
-        The easiest way to distribute code, it’s to transform it in a archive and send
-        it as it is. That’s more or less what happens when we choose to create
-        a source package for a Python module.
+        The easiest way to distribute Python code is to transform it into an
+        archive, and to send this archive as is. That’s more or less what happens when
+        we choose to create a source package for a Python module.
       </p>
       <p>
-        As simple it is, this method requires a bit of configuration. We have to
-        determinate which files are included in the archive, including metadata
-        and third-party tools (Tox, Coverage, Pytest…) configuration files.
+        As simple it may be, this method requires some configuration. We have
+        to determinate which files are included in the archive, including
+        metadata and configuration files for third-party tools (Tox, Coverage,
+        Pytest…).
       </p>
       <p>
-        So this archive is quite simple to create, but it brings kind of big
-        problem: there is no particular structuring, no organization for the
-        metadata. It gives the files and allow to the installer to install them
-        like it would do it with a folder containing the sources on your hard drive.
+        So, this archive is quite simple to create, but it comes with a big
+        problem: there’s no particular structure, no defined template for
+        metadata. It provides the files and allows the installer to install
+        them, just like it would do with a folder containing the source code on
+        your hard drive.
       </p>
       <p>
-        And so, you’d say? Well, without seeming, this limitation is absolutely
-        terrible, in many respects.
+        So what? Well, when you really think about it, this limitation is
+        absolutely terrible, in many aspects.
       </p>
       <p>
-        First thing, it’s the dependencies management. Packages depend of other
-        packages, as you may know. And without any other metadata, the installer
-        is obliged to read, for example, the <code>setup.py</code> file. And now,
-        you have an insight of the problem: if we need to execute a Python file
-        to know the dependencies of a package (and recursively its dependencies!)
-        you’re going to spend a lot of time downloading packages, executing code,
-        solving dependencies, downloading, executing, solving, downloading…
-        In short: dependencies solving can’t be solved from a simple static tree,
-        all the nodes are dynamics. And if you’re wondering: yes, this is hell.
+        The first aspect is the management of dependencies. Packages depend on
+        other packages, as you may know. And without any other metadata, the
+        installer is obliged to read, for example, the <code>setup.py</code> file.
+        Now, you have an insight of the problem: if we need to execute a Python
+        file to know the dependencies of a package (and, recursively, its own
+        dependencies!), you’re going to spend a lot of time downloading
+        packages, executing code, solving dependencies, downloading, executing,
+        solving, downloading… In short: dependencies can’t be solved from a
+        simple static tree, all the nodes are dynamic. And if you’re wondering:
+        yes, this is hell.
       </p>
       <p>
-        It doesn’t stop here. The installation, also, requires code execution,
-        as it depends of the <code>setup.py</code> file. For simple Python in
-        simple packages, it’s not that annoying, but it’s an other story as we
-        need to compile C for example. The user is forced to install the
-        required tools for the installation of all the things specific to the
-        operating system or the Python version. That’s complex for the users,
-        and it’s a non-ending spring of bugs.
+        It doesn’t stop here. Installation too requires code execution, as
+        it depends on the <code>setup.py</code> file. For simple Python in
+        simple packages, it’s not that annoying, but it’s another story when we
+        need to compile C, for example. Users need to install the tools
+        required to install everything that’s specific to the operating system
+        or the Python version. That’s complex for users, and that’s a
+        never-ending source of bugs.
       </p>
       <p>
-        Despite its limitations, this format will probably stay necessary for a
-        long time. For a lot of reasons, we may want to get the source in the
-        simplest format. Disastrous consequence: the tools for Python packages
-        installation will have to deal with this format, and all the complex
-        mechanism driving by it, for very long years.
+        Despite its limitations, this format will probably be necessary for a
+        long time. For a lot of reasons, we may want to get the source code in
+        the simplest format. Disastrous consequence: the tools required to
+        install Python packages will have to deal with this format, and all its
+        complex mechanisms, for very long years.
       </p>
 
-      <h4>Egg</h4>
+      <h4>Eggs</h4>
       <p>
-        To make up for those failings, a package format has been created in 2004:
-        the eggs.
+        To make up for these failures, a package format has been created in
+        2004: eggs.
       </p>
       <p>
         Besides the
-        <a href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)#Menu">classic reference to Monty Python</a>,
-        the idea comes from a
-        <a href="http://peak.telecommunity.com/DevCenter/PythonEggs#overview">good
-        intention</a>: building additional information which allow to the
-        dependencies of a project to be checked and satisfied at the execution.
-        At the time, this format allows above all to use <code>easy_install</code>
-        to easily install a module and its dependencies. It allows to include
-        plug and play modules, with C extensions already compiled. It also allows,
-        by a system of namespaces, to distribute plugins. And, above all, it can
-        directly put itself in a place accessible for Python, without needed
-        additional installation.
+        <a href="https://en.wikipedia.org/wiki/Spam_(Monty_Python)#Menu">classic reference to the Monty Python</a>,
+        this idea comes with
+        <a href="http://peak.telecommunity.com/DevCenter/PythonEggs#overview">good intentions</a>:
+        building additional information allowing the project dependencies to be
+        checked and satisfied at runtime. At the time, this format allowed
+        above all to use <code>easy_install</code> to easily install (!) a
+        module and its dependencies. It allowed to include ready-to-use
+        modules, with C extensions already compiled. It also allowed, thanks to
+        namespaces, to distribute plugins. And, above all, it could directly be
+        put in a place accessible for Python, without any additional
+        installation.
       </p>
       <p>
-        Build above <code>setuptools</code>, it brings a lot of evolutions that
-        seems obvious today: dependencies with fixed versions, precomputed
-        metadata, mechanism to access related metadata and files from the
-        code of the module…
+        Built on top of <code>setuptools</code>, it brought a lot of changes that
+        seem obvious today: dependencies with fixed versions, precomputed
+        metadata, possibility to reach metadata and files from the module code…
       </p>
       <p>
         Awesome 🎆👏🐈😍.
       </p>
       <p>
-        Yet, eggs are quickly outmoded by their architecture as innovative (it’s
-        a joke, it’s totally copied from Java’s jars) as totally rickety (that,
-        however, it’s not a joke). Use an archive format where we needn’t to
-        extract the code make errors management very complex, with traces
-        leading to untraceable files. Bytecode inclusion makes eggs potentially
-        depend of a Python version, like the inclusion of compiled files make
-        them deeply linked to an architecture.
+        However, eggs have been quickly outmoded because of their really
+        innovative (it’s a joke, it’s totally copied from Java’s jars) and
+        totally flawed (it’s not a joke) architecture. Using an archive format
+        that doesn’t require the code to be extracted makes error management
+        very complex, with traces leading to untraceable files. Including
+        bytecode makes eggs potentially depend on a Python version, and
+        including compiled files makes them deeply linked to an architecture.
       </p>
       <p>
-        And especially… The format isn’t specified, giving to the implementation
-        an immoderate importance. The successive adds to <code>setuptools</code>,
-        sometimes badly or not at all documented, make it a big Russian roulette
-        game where retro-compatibility, reproducibility and simplicity are
-        constantly, blithely, mercilessly neglected. The ways to make eggs
-        usable by the interpreter have been expended to deal with cases more and
-        more complex, until becoming to big pile of solutions based on symbolic
-        links, files containing absolute paths, archives temporarily extracted
-        and other abominations that we’ll wisely leave in their Pandora’s box.
+        And above all … the format isn’t specified, giving to the "official"
+        implementation an immoderate importance. The successive additions to
+        <code>setuptools</code>, sometimes loosely or not at all documented,
+        transformed the format into a crazy Russian roulette game where
+        retro-compatibility, reproducibility and simplicity are constantly,
+        blithely, mercilessly neglected. The ways to make eggs usable by the
+        interpreter have been expended to deal with more and more complex
+        cases, until it became a big pile of solutions based on symbolic links,
+        files containing absolute paths, archives temporarily extracted, and
+        other abominations that we’ll wisely leave in their Pandora’s box.
       </p>
 
-      <h4>Wheel</h4>
+      <h4>Wheels</h4>
       <p>
-        After this little youthful indiscretion, that all in all make losing mind
-        to every person equipped with a normal brain, a PEP appeared to make
-        everyone come to an agreement: the
-        <a href="https://www.python.org/dev/peps/pep-0427/">PEP 427</a>
-        bringing in wheels.
+        After this little youthful error, that can actually break the mind of
+        any person equipped with a normal brain, a PEP appeared to make
+        everyone come to an agreement:
+        <a href="https://www.python.org/dev/peps/pep-0427/">PEP 427</a>,
+        introducing wheels.
       </p>
       <p>
-        Wheels are, at the beginning in 2012, a wholesome evolution of eggs to
-        the effect that they take back the good ideas without keeping the
-        abominations. Finally, we have a nice specification, which will got a lot
-        of improvements also specified, and which will allow to many tools to
-        work together without depending of implementation details.
+        Wheels were, at the beginning in 2012, a wholesome evolution of eggs,
+        including good ideas without keeping abominations. Finally, we got a
+        nice specification with a lot of nice specified improvements, allowing
+        many tools to work together without depending on implementation
+        details.
       </p>
       <p>
-        The amazing idea (without really exaggerate) of wheels is to include in
-        the filename some information, considerably simplifying dependencies
-        management. Is the code to include different depending of the Python
-        version? Are the extensions compiled differently depending the operating
-        system? So we distribute different wheels for the same version of a module,
-        and the installer will deal with that to find the version corresponding
-        to the user.
+        The amazing idea (amazing, yes, I mean it) of wheels is to include some
+        information in the filename, considerably simplifying dependencies
+        management. Is the code to include different, depending on the Python
+        version? Are the extensions compiled differently, depending the
+        operating system? Then we can distribute different wheels for the same
+        version of a module, and the installer will deal with that to find the
+        appropriate version.
       </p>
       <p>
-        The wheels have also the good idea to embed metadata with a specified
-        format (by the <a href="https://www.python.org/dev/peps/pep-0345/">PEP 345</a>).
-        This format allows to describe in a complex way the conditional
-        dependencies, the external dependencies, the Python versions supported,
-        and more globally all we need to correctly manage code distribution, the
-        easy installation and the possibility to build a static dependencies
-        tree.
+        Wheels also embed metadata with a specified format (see
+        <a href="https://www.python.org/dev/peps/pep-0345/">PEP 345</a>). This
+        format allows to describe, in a complex way, conditional dependencies,
+        external dependencies, and supported Python versions. Globally, we have
+        all we need to correctly manage code distribution, easy installation,
+        and build a static tree of dependencies.
       </p>
       <p>
-        Nowadays, everyone should use wheels to distribute and install packages. If
-        not everything is perfect in Python packages management, wheels are today
-        the most significant example of what works very well. They allow a
-        smooth transition to have a situation where eggs have widely disappeared,
-        and where source packages are less and less used… thanks to a software
-        ecosystem created around this new format and a clever retro-compatibility.
+        Nowadays, everyone should use wheels to distribute and install
+        packages. If everything’s not perfect to manage Python packages, wheels
+        are today the most significant example of what works very well. They
+        allow a smooth transition to have a situation where eggs have widely
+        disappeared, and where source packages are less and less used … thanks
+        to a software ecosystem created around this new format and a clever
+        retro-compatibility system.
       </p>
       <p>
         Yes, wheels are amazing, but all of that wouldn’t be possible without
-        the preliminary arrival of <code>pip</code>, in 2008, meant for replace
-        <code>easy_install</code>. But don’t go too fast! We’ll have time to
-        come back to this a little later, in our next articles…
+        the preliminary arrival of <code>pip</code>, in 2008, designed to
+        replace <code>easy_install</code>. But don’t go too fast! We’ll have
+        the time to come back to this later, in our next articles…
       </p>
       <p>
         To be continued…
