@@ -1,0 +1,174 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>One Year of CourtBouillon</h2>
+      <aside><time datetime="2021-10-12">October 12, 2021</time>, by CourtBouillon</aside>
+      <p>
+        Do you know what day we are? We’re October the 12th, which means it’s
+        CourtBouillon one year anniversary 🎂! So it’s time for rewind and see
+        what happened during this year.
+      </p>
+    </header>
+
+    <section>
+      <h3>CourtBouillon Birth</h3>
+
+      <p>
+        Last year, on the same day as today, we announced the creation of
+        CourtBouillon and our goals.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00014-twitter.png')}}" alt="Announcement tweet" title="Hello there!" />
+        <figcaption>
+          Announcement tweet
+        </figcaption>
+      </figure>
+      <p>
+        For the record, or if you discover us with this article, CourtBouillon is
+        composed of Guillaume, aka <code>liZe</code>, and Lucie, aka
+        <code>grewn0uille</code>; and we maintain and develop the following
+        open source software:
+      </p>
+      <ul>
+        <li>WeasyPrint,</li>
+        <li>tinycss2,</li>
+        <li>cssselect2,</li>
+        <li>pydyf,</li>
+        <li>Pyphen,</li>
+        <li>CairoSVG,</li>
+        <li>cairocffi,</li>
+        <li>Flask-WeasyPrint.</li>
+      </ul>
+      <p>
+        If you want to know more about the story behind the creation of CourtBouillon,
+        you can read <a href="{{ url_for('blog', article='00001-have-you-met-courtbouillon') }}">
+        our first article</a> on this website, and if you want to know
+        more about the different software, the <a href="{{ url_for('page', page='projects') }}">
+        projects page</a> is all yours ☺️.
+      </p>
+    </section>
+
+    <section>
+      <h3>Software Progress</h3>
+
+      <p>
+        So what did happened on the different projects during the past year? Were
+        there some releases? Some bug fixes? Some new features? Or nothing at all?
+        Let’s have a look 🧐!
+      </p>
+
+      <h4>Issues</h4>
+      <embed src="{{ url_for('static', filename='graphs/one_year_issues.svg') }}" />
+      <p>
+        301 issues were closed, of which 243 were on WeasyPrint.
+      </p>
+
+      <h4>Pull Requests</h4>
+      <embed src="{{ url_for('static', filename='graphs/one_year_pr.svg') }}" />
+      <p>
+        37 pull requests have been merged, of which 15 were on WeasyPrint.
+      </p>
+
+      <h4>Releases</h4>
+      <embed src="{{ url_for('static', filename='graphs/one_year_releases.svg') }}" />
+      <p>
+        26 releases have been made, of which 12 for WeasyPrint.
+      </p>
+
+      <p>
+        Thanks to all people who opened issues and submited pull requests 💜.
+      </p>
+
+      <h4>Features</h4>
+      <p>
+        During the year, WeasyPrint had a big change. We stoped using Cairo to
+        generate PDF and we replaced it by our own PDF generator, <a href="https://github.com/CourtBouillon/pydyf">
+        pydyf</a>. So now, WeasyPrint requires one less non-Python dependency,
+        which means the installation is a bit easier and bugs caused by Cairo are
+        now in the past.
+      </p>
+      <p>
+        Also, WeasyPrint got new interesting features like:
+      </p>
+      <ul>
+        <li>support basic inline SVG,</li>
+        <li>include full sets of fonts in PDF,</li>
+        <li>leaders support,</li>
+        <li>line-clamp support,</li>
+        <li>optimization of embedded images size…</li>
+      </ul>
+
+      <p>
+        It has been a pretty big year for the different projects, specially for
+        WeasyPrint 🎉!
+      </p>
+    </section>
+
+    <section>
+      <h3>Sponsoring Campaign and Sponsors</h3>
+
+      <p>
+        All of this work wouldn’t have been possible without all people who has
+        participated and still participate at <a href="https://opencollective.com/courtbouillon">
+        our OpenCollective campaign</a>.
+      </p>
+      <p>
+        In one year, the OpenCollective campaign yield 5 207€, which allow us to
+        secure half a day per week exclusively to improve software!
+      </p>
+      <p>
+        That’s not the only source of income.
+      </p>
+      <p>
+        Indeed, there are companies who sponsored the development of some features.
+        Thanks to them, we have been able to dedicate more time on the software
+        and brang to everyone <a href="https://github.com/Kozea/WeasyPrint/issues?q=label%3Asponsored+is%3Aclosed">
+        new cool features</a> 🤩.
+      </p>
+
+      <p>
+        We’re very pleased to have people and companies sponsoring us and happy
+        with our first year as CourtBouillon 💜.
+      </p>
+
+      <p>
+        For the moment, we can’t work full-time on meliorate the different
+        projects, but we’re counting on you to <a href="https://opencollective.com/courtbouillon">
+        support us</a> to reach this goal!
+      </p>
+    </section>
+
+    <section>
+      <h3>And For Next Year?</h3>
+
+      <p>
+        So that was kind of the assessment for the past year.
+      </p>
+      <p>
+        We hope you’re at least as happy as us of what happened on the software
+        and that our work is useful for you 😊.
+      </p>
+      <p>
+        For the next year, we’re going to continue improving the different projects,
+        focusing on the most wanted features. If you’re curious, you can have an
+        idea of what is coming on the next releases for WeasyPrint on <a href="https://github.com/Kozea/WeasyPrint/milestones">
+        this GitHub page</a>.
+      </p>
+      <p>
+        Also, we would like to create some content to talk about Python, open
+        source, CSS or other topics; like with the new serie of articles about
+        packaging.
+      </p>
+      <p>
+        That’s it for this one year rewind of CourtBouillon!
+      </p>
+      <p>
+        Thank you to all of our sponsors, users and contributors 💜.
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
