@@ -1,0 +1,196 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>One Year of CourtBouillon</h2>
+      <aside><time datetime="2021-10-12">October 12, 2021</time>, by CourtBouillon</aside>
+      <p>
+        Do you know what is the day today? We’re October 12, which means that
+        it’s CourtBouillon’s one-year anniversary 🎂! So it’s time to rewind
+        and see what happened during this year.
+      </p>
+    </header>
+
+    <section>
+      <h3>CourtBouillon’s Birth</h3>
+
+      <p>
+        Last year, on the same day as today, <a href="https://twitter.com/BouillonCourt/status/1315588318042693632">we announced the creation of
+        CourtBouillon</a>.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00014-twitter.png')}}" alt="Announcement tweet" title="Hello there!" />
+        <figcaption>
+          Announcement tweet
+        </figcaption>
+      </figure>
+      <p>
+        For the record, or if you’re discovering us with this article,
+        CourtBouillon is composed of Guillaume, aka <code>liZe</code>, and Lucie, aka
+        <code>grewn0uille</code>. We maintain and develop the following open
+        source software:
+      </p>
+      <ul>
+        <li>WeasyPrint,</li>
+        <li>tinycss2,</li>
+        <li>cssselect2,</li>
+        <li>pydyf,</li>
+        <li>Pyphen,</li>
+        <li>CairoSVG,</li>
+        <li>cairocffi,</li>
+        <li>Flask-WeasyPrint.</li>
+      </ul>
+      <p>
+        If you want to know more about the story behind the creation of CourtBouillon,
+        you can read <a href="{{ url_for('blog', article='00001-have-you-met-courtbouillon') }}">
+        our first article</a> on this website, and if you want to know
+        more about the different projects, the <a href="{{ url_for('page', page='projects') }}">
+        projects page</a> is all yours ☺️.
+      </p>
+    </section>
+
+    <section>
+      <h3>Software Progress</h3>
+
+      <p>
+        So, what did happen on the different projects during the past year?
+        Were there some releases? Some bug fixes? Some new features? Or nothing
+        at all? Let’s have a look 🧐!
+      </p>
+
+      <h4>Closed Issues</h4>
+      <embed src="{{ url_for('static', filename='graphs/one_year_issues.svg') }}" />
+      <p>
+        301 issues were closed, of which 243 were on WeasyPrint.
+      </p>
+
+      <h4>Merged Pull Requests</h4>
+      <embed src="{{ url_for('static', filename='graphs/one_year_pr.svg') }}" />
+      <p>
+        37 pull requests have been merged, of which 15 were on WeasyPrint.
+      </p>
+
+      <h4>Releases</h4>
+      <embed src="{{ url_for('static', filename='graphs/one_year_releases.svg') }}" />
+      <p>
+        26 releases have been made, of which 12 for WeasyPrint.
+      </p>
+
+      <p>
+        Thanks to all the people who opened issues and submitted pull requests
+        💜.
+      </p>
+
+      <h4>Features</h4>
+      <p>
+        During the year, WeasyPrint had a big change: we stopped using Cairo to
+        generate PDF, and replaced it by our own PDF generator: <a href="https://github.com/CourtBouillon/pydyf">
+        pydyf</a>. Now, WeasyPrint requires one less non-Python dependency,
+        which means that the installation is a bit easier and that bugs caused
+        by Cairo are now in the past.
+      </p>
+      <p>
+        WeasyPrint also got new interesting features like:
+      </p>
+      <ul>
+        <li>basic inline SVG support,</li>
+        <li>full fonts inclusion,</li>
+        <li>leaders support,</li>
+        <li>line-clamp support,</li>
+        <li>embedded images size optimization,</li>
+        <li>and more…</li>
+      </ul>
+
+      <p>
+        It has been a pretty big year for the different projects, especially for
+        WeasyPrint 🎉!
+      </p>
+    </section>
+
+    <section>
+      <h3>Sponsoring Campaign and Sponsors</h3>
+
+      <p>
+        All this work wouldn’t have been possible without the people who have
+        participated and still participate to <a href="https://opencollective.com/courtbouillon">
+        our OpenCollective campaign</a>.
+      </p>
+      <p>
+        In one year, the OpenCollective campaign yielded 5 307€, allowing us to
+        secure half a day per week exclusively working for CourtBouillon!
+      </p>
+      <p>
+        That’s not our only source of income.
+      </p>
+      <p>
+        Indeed, companies sponsored the development of some features. Thanks to
+        them, we have been able to dedicate more time on the software and
+        brought <a href="https://github.com/Kozea/WeasyPrint/issues?q=label%3Asponsored+is%3Aclosed">
+        new cool features</a> to everyone 🤩.
+      </p>
+
+      <p>
+        We’re very proud and pleased to have people and companies sponsoring us, and happy
+        with our first year as CourtBouillon 💜.
+      </p>
+
+      <p>
+        For the moment, we can’t work full-time yet on improving the different
+        projects, but we count on you to <a href="https://opencollective.com/courtbouillon">
+        support us</a> to reach this goal!
+      </p>
+    </section>
+
+    <section>
+      <h3>And For the Next Year?</h3>
+
+      <p>
+        We hope that you’re as happy as we are about the progress this year,
+        and that our work is useful for you 😊.
+      </p>
+      <p>
+        For the next year, we’re going to continue improving the different projects,
+        focusing on <a href="{{ url_for('blog', article='00010-weasyprint-survey-2021') }}">the most wanted features</a>. If you’re curious, you can have an
+        idea of what is coming for the next releases of WeasyPrint on <a href="https://github.com/Kozea/WeasyPrint/milestones">
+        this GitHub page</a> (please note that the content of the milestones isn’t
+        fixed and might change).
+      </p>
+      <p>
+        Moreover, we would like to create some content to talk about Python, open
+        source, CSS and other topics. You can for example discover <a href="{{ url_for('blog', article='00011-the-python-packaging-hell-the-can-of-worms') }}">
+        the new serie of articles about packaging</a>.
+      </p>
+      <p>
+        So… That’s it for this one year rewind of CourtBouillon!
+      </p>
+      <p>
+        To all of our sponsors, users and contributors: thank you 💜.
+      </p>
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 70%;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    embed + p + * {
+      clear: left;
+    }
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+
+{% endblock content %}
