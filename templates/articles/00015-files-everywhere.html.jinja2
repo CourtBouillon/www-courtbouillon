@@ -249,7 +249,7 @@
       </p>
       <p>
         But well, let’s just go ahead and say it: it has nothing to do with
-        packages creation.
+        package creation.
       </p>
       <p>
         <code>requirements.txt</code>, is a simple list of packages to install,
@@ -267,7 +267,7 @@
         different format than a package. At random: everything but libraries.
         A little unpretentious script? A <code>requirements.txt</code> file.
         A web application? A <code>requirements.txt</code> file.
-        A<a href="https://github.com/numpy/numpy">library</a>? Well, OK, let’s
+        A <a href="https://github.com/numpy/numpy">library</a>? Well, OK, let’s
         write some <code>requirements.txt</code> files for the documentation and the
         tests.
       </p>
@@ -276,10 +276,10 @@
         a <code>requirements.txt</code> file in the same project. With all their
         friends <code>MANIFEST.in</code>, <code>tox.ini</code>,
         <code>pyproject.toml</code>, <code>pytest.ini</code>, and so on. Each
-        package manager packages its own way, the best they can, blithely
-        copying things that seem to work from their friends. We’ll always find
-        a specific case that’s handled only by one of these files, and
-        simplicity will be sacrificed on the altar of the sacrosanct features.
+        package manager packages its own way, blithely copying things that seem
+        to work from friends’ packages. We’ll always find a specific case that’s
+        only handled by one of these files, and simplicity will be sacrificed
+        on the altar of the sacrosanct features.
       </p>
 
       <h4><code>MANIFEST.in</code></h4>
@@ -290,8 +290,8 @@
       <p>
         Distributing binary packages is usually done so that users can easily
         use the code. Packages like wheels are ready-to-use archives, and their
-        installation needs nothing more than an archive decompression in the right
-        folder. These packages are able to contain only the minimum: the code.
+        installation needs nothing more than decompressing an archive in the right
+        folder. These packages are able to contain only the minimum: code.
         Everything else (documentation, tests, super-cute-little-nice-files
         describing changes…) has nothing to do in them.
       </p>
@@ -309,8 +309,8 @@
         we use <code>MANIFEST.in</code>. This umpteenth file comes, properly,
         <a href="https://packaging.python.org/guides/using-manifest-in/">with its own syntax and its own commands</a>.
         And don’t worry: it allows you to do, at the same time, things that are
-        already possible with other files, and things that are not possible
-        with other files.
+        already possible with the other files, and things that are not possible
+        with the other files.
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00015-venn.svg') }}" alt="Five-set Venn Diagram" title="Having something so complicated, it’s no luck…" />
@@ -345,7 +345,7 @@
         dependencies of a package, including the dependencies used to build the
         package. How can we know the dependencies without executing the file?
         And how to execute the file without knowing its dependencies? This
-        egg-and-chicken issue is problematic for <code>setuptools</code>, but as
+        chicken and egg issue is problematic for <code>setuptools</code>, but as
         everyone is using it to create packages, and as it’s a dependency of
         <code>pip</code>, there’s a good chance to have it installed with
         Python. However, if we want to use another tool, like a
@@ -357,36 +357,36 @@
         needed to build a package. Think about this carefully. A little more.
       </p>
       <p>
-        Well, you understand. We’ll be able to get rid of <code>setuptools</code>
+        Well, you understand now. We’ll be able to get rid of <code>setuptools</code>
         and <code>distutils</code>, at least to build packages. For real.
       </p>
       <p>
-        Of course, in simple case, we can still use them. <code>pyproject.toml</code>
+        Of course, in simple cases, we can still use them. <code>pyproject.toml</code>
         allows to store all the metadata we used to store before. It also
         allows to store more complex information, like dependencies and
         supported Python versions, a bit like in <code>setup.cfg</code>, a bit like before.
       </p>
       <p>
-        But nothing prevents to use another tool, that can define its own
-        configuration options, independent of <code>setuptools</code>. Better:
-        as the file is specified and well organized, it gives the possibility
-        to other tools (<code>black</code>, <code>pylint</code>,
-        <code>coverage</code>…) to use this file too, ending the atrocious set
-        of confetti of configuration files.
+        But nothing prevents packagers from using another tool, that can define
+        their own configuration options, independent of <code>setuptools</code>.
+        Even better: as the file is specified and well organized, it gives
+        other tools (<code>black</code>, <code>pylint</code>,
+        <code>coverage</code>…) the possibility to use this file too, ending
+        the atrocious set of confetti of configuration files.
       </p>
       <p>
-        One last thing has to be fixed: define the entry point of the tool
+        One last thing has to be fixed: defining the entry point of the tool
         we’re going to use to create the package. That’s the job of
         <a href="https://www.python.org/dev/peps/pep-0517/">PEP 517</a> that
-        allows us to get free from <code>setuptools</code>,
+        allows us to definitely get free from <code>setuptools</code>,
         <code>setup.py</code> and all their friends.
       </p>
       <p>
         But… Does it work for real?
       </p>
       <p>
-        Yes. We just have to see what tools to use. And it’ll be for the next
-        article…
+        Yes. We just have to choose the tools we can use. And we’ll choose them
+        in the next article…
       </p>
     </section>
   </article>
