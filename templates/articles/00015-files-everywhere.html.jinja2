@@ -1,0 +1,394 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>The Python Packaging Hell: Files Everywhere (4 / 7)</h2>
+      <aside><time datetime="2021-10-28">October 28, 2021</time>, by CourtBouillon</aside>
+      <p>
+        Python packaging can sometimes be a nightmare. To convince yourself about
+        that, you just need a few minutes of drowning into the myriad of usable
+        (and used!) files to build or install a packages.
+      </p>
+    </header>
+
+    {% include 'articles/_python_contents.jinja2' %}
+
+    <section>
+      <h3>But Why?</h3>
+      <p>
+        We can’t say that there is no manual to create Python packages. The
+        issue isn’t the lack, but the abundance. You’ll find manuals everywhere,
+        more or less old, more or less practical, more or less useful…
+        The hardest part isn’t to find one, it’s to read all of them and to
+        come across information in each one, until you’ve made your own conviction.
+      </p>
+      <p>
+        Maybe you thought that you’d find in the lines of this article a good
+        summary of what exists, but here is the sad truth: what we have here is
+        only an additional source you can refer to if you ever find something
+        interesting.
+      </p>
+      <p>
+        That being said, it’s not that bad…
+      </p>
+      <p>
+        What is the connection between this introduction and files? Well, it’s
+        quite simple. We can’t say there is no configuration file to create
+        Python packages. The issue isn’t the lack, but the abundance. You’ll find
+        files everywhere, more or less old, more or less practical, more or less
+        useful… The hardest part isn’t to find one, it’s to read all of them and
+        to come across information in each one, until you’ve made your own
+        conviction.
+      </p>
+      <p>
+        (It’s OK, you got the connection, right?)
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00015-files-everywhere.jpg')}}" alt='Meme Toy Story "files everywhere"' title="Files everywhere, justice nowhere" />
+        <figcaption>
+          You want files? You’ll see a lot of them!
+        </figcaption>
+      </figure>
+
+      <p>
+        We won’t say again the good old "you have to understand the people creating
+        Python, because Python is old, you can’t change everything suddenly".
+        It’s a bit true for this hell of files, but also a bit false.
+        <a href="https://github.com/pypa/sampleproject">The official example</a>
+        proposed today by the PyPA contains 4 files used to create packages
+        (<code>setup.py</code>, <code>setup.cfg</code>,
+        <code>MANIFEST.in</code> and <code>pyproject.toml</code>).
+        If we can understand the  to cover a maximum of possible solutions,
+        we can also condemn the impression of full chaos given to someone who’d
+        like to learn.
+      </p>
+      <p>
+        (Reminder: a minimal Rust project contains a <code>Cargo.toml</code> file
+        to store metadata and a <code>src/main.rs</code> file to store code.
+        Moreover, these two files are automatically created for you with the
+        <code>cargo new</code> command.)
+      </p>
+      <p>
+        For sure, it’s hard to think about all the needs of a configuration
+        file at the beginning. But on the other hand, it’s questionable to say
+        we have to live with this sad legacy. Unlike other subjects, nothing
+        would prevent us from defining a new standard of configuration file.
+        And nothing would prevent this standard from being able to generate
+        packages identical to existing ones. We’d be able to leave the past
+        behind us, with its old files and its old tools, to only use one file
+        in any case. The package creator would have to learn how to use these
+        new rules, of course, but nothing would change for the final user, nor
+        for the tools they’d use.
+      </p>
+      <p>
+        That would be nice, don’t you think? It’s time for the good news: it’s
+        already happening right now. No joke.
+      </p>
+      <p>
+        Now that you really want to know the solution (yes, it’s totally sneaky
+        and totally assumed), we’ll be able to inflict you the full thought
+        process leading to the current situation. The path matters more than
+        the destination, doesn’t it?
+      </p>
+    </section>
+
+    <section>
+      <h3>A Rather Short List</h3>
+
+      <p>
+        There is no need to grumble: as usual, we won’t talk about everything
+        that has ever existed to create or install packages. Don’t expect an
+        exhaustive list, just a few emblematic files allowing us to understand
+        where we come from.
+      </p>
+
+      <h4><code>setup.py</code></h4>
+      <p>
+        This file is the first one introduced to handle package creation, it’s
+        also the most famous and the most used today, despite its advanced age
+        (at least 20 years, this doesn’t make us feel any younger).
+      </p>
+      <p>
+        The idea behind <code>setup.py</code> is quite simple: to set up the
+        whole configuration needed to create and install packages, we use a
+        Python script defining a set of metadata (the name of the package, the
+        list of files to include, etc.) and various commands (create a source
+        package, create a binary package, install, etc.). To do that, Python
+        offers a module called
+        <code><a href="https://docs.python.org/3/distutils/index.html#distutils-index">distutils</a></code>,
+        containing everything needed to describe these metadata and commands.
+        It’s enough to import it in <code>setup.py</code>, to call the right
+        functions, and voilà.
+      </p>
+      <p>
+        But, and it’s not the first time we meet this problem with tools managing Python
+        packages, <code>distutils</code> is rather limited and its features
+        aren’t defined strictly. Hurtfully, the code became the reference of
+        what we can do, and the (legitimate) fear of breaking everything
+        quickly prevented developers from adding features, or from fixing bugs
+        that some users would have confused with features.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00015-xkcd.png') }}" alt="Mandatory Related XKCD™" title="There are probably children out there holding down spacebar to stay warm in the winter! YOUR UPDATE MURDERS CHILDREN." />
+        <figcaption>
+          The mandatory <a href="https://xkcd.com/1172/">XKCD</a>
+        </figcaption>
+      </figure>
+      <p>
+        Limited by <code>distutils</code>, <code>setup.py</code> may have been
+        replaced by another solution. But we found a quick fix instead:
+        <code>setuptools</code>.
+      </p>
+      <p>
+        <code>setuptools</code> is a module using <code>distutils</code> internally,
+        but offering additional features, including a more advanced management
+        of included files, the possibility to create Windows programs, and most
+        of all… the possibility to define dependencies.
+      </p>
+      <p>
+        We’ll see libraries and tools in detail in the next article, but it’s
+        important to understand that <code>setuptools</code> is going to open,
+        without realizing, a can of worms.
+        As the module is external to Python, it’s much less cluttered by the
+        tweezers of its predecessor.
+        The new features are added in response to the needs of users, in a
+        happy disorganization that at least had the merit of allowing a chaotic
+        but large packages distribution.
+        The library comes with an executable script, <code>easy_install</code>, that
+        allows to install a package and its dependencies. It also comes with
+        the "egg" package format that we discussed about last time.
+      </p>
+      <p>
+        From the anarchic development of <code>setuptools</code>, it has been
+        impossible to correctly specify options and best practices of package
+        creation. <code>setup.py</code> has the cons of its pros: being written
+        in Python, it allows to use the full power of the language for
+        something that was initially supposed to be a few lines of metadata and
+        installation scripts. Everything that could simply be descriptive
+        potentially becomes dynamic when executed. Extensions are proposed,
+        dependent on <code>setuptools</code> or not, offering a galaxy of
+        possibilities. Scripts are getting bigger, are copied from project to
+        project without being understood. Random parts of code fixing
+        dysfunctions for different versions of Python, <code>distutils</code>
+        or <code>setuptools</code>, are included in all the <code>setup.py</code>
+        of the Earth.
+      </p>
+      <p>
+        And at the end,
+        <a href="https://github.com/pandas-dev/pandas/blob/master/setup.py">we get that</a>.
+        Of course, this project needs a lot of configuration and it would be
+        difficult to do these things with less code. Of course, it’s quite easy
+        to understand the whole file, furthermore nicely written, with some
+        time and some hard work.
+      </p>
+      <p>
+        The issue of <code>setup.py</code> isn’t its potential complexity, that
+        can be useful in some cases. The real issue is that, for a long time,
+        there has been no simple alternative to create simple, pure Python
+        packages. The only way was to write code, for thing that could have
+        been totally declarative. And who didn’t try to write code, a lot of
+        horrible code, even to do simple things? With this stack of horrible
+        code in many projects, <code>setuptools</code> has had to include workarounds
+        allowing to bypass workarounds set up to bypass issues fixed since.
+        <code>setuptools</code> has had to copy and include different functions
+        of different Python versions (including their own bugs, of course) to be
+        perfectly backward compatible.
+        TL;DR: <code>setuptools</code> has become a hellish monster which has
+        infected the <code>setup.py</code> of a significant majority of projects.
+      </p>
+
+      <h4><code>setup.cfg</code></h4>
+      <p>
+        Obviously, the idea to set up a declarative format for packages creation
+        has finally arrived, and a solution has been integrated into setuptools:
+        <code>setup.cfg</code>.
+      </p>
+      <p>
+        This INI file is nothing more than a different presentation of most of
+        the options proposed in Python by <code>setuptools</code>. So we’ll find
+        the same disadvantages: same bugs, same poorly documented options, same
+        inconsistencies.
+      </p>
+      <p>
+        Moreover, this file isn’t a replacement of <code>setup.py</code>, but
+        an extension. We have to keep the script, even when it’s almost empty!
+        If some data are present twice, those from <code>setup.cfg</code> are kept.
+      </p>
+      <p>
+        Why do we need to keep the <code>setup.py</code> file? Just because
+        <code>setuptools</code> doesn’t provide an external command to execute
+        commands integrated in the script. To generate a source package, we use
+        <code>python setup.py sdist</code>, directly executing the script.
+      </p>
+      <p>
+        It looks like a detail, but it actually is a major issue. Who would
+        want to use a static format, while we can make a big pile of spaghetti
+        code in a script that you still have to keep anyway? How can we explain
+        to the people discovering Python that they have to write a Python
+        file and an INI file, while we technically can do without the INI file?
+        Yes, you got it: we can’t fight the call of the code.
+      </p>
+      <p>
+        That explains why <code>setup.cfg</code> isn’t really used today.
+        Attached to the two huge ubiquitous burdens that are <code>setuptools</code>
+        and <code>setup.py</code>, it just brings a small dose of simplicity by
+        its declarative side. As long as it’ll be carrying around a heavy and
+        sclerosing history, it’ll stay a second choice, a clumsy attempt to fix
+        a real issue.
+      </p>
+
+      <h4><code>requirements.txt</code></h4>
+      <p>
+        Here is a file you certainly have already met and used. Praised without
+        finesse by second zone tutorials, acclaimed for its simplicity and
+        its power, used by a lot of famous projects, <code>requirements.txt</code>
+        is the star of the dependencies installation.
+      </p>
+      <p>
+        But well, let’s just go ahead and say it: it has nothing to do with
+        package creation.
+      </p>
+      <p>
+        <code>requirements.txt</code>, is a simple list of packages to install,
+        with the possibility to fix versions, sources, branches and
+        installation options.
+      </p>
+      <p>
+        It’s often used with <code>pip</code>, just for the installation. We
+        can see it as a convenient way to list dependencies, in a format that
+        we could directly write in the command line, but that our laziness and
+        our taste for line breaks push us to confine in a file.
+      </p>
+      <p>
+        That’s convenient, in particular for everything we’d like to share in a
+        different format than a package. At random: everything but libraries.
+        A little unpretentious script? A <code>requirements.txt</code> file.
+        A web application? A <code>requirements.txt</code> file.
+        A <a href="https://github.com/numpy/numpy">library</a>? Well, OK, let’s
+        write some <code>requirements.txt</code> files for the documentation and the
+        tests.
+      </p>
+      <p>
+        Yes, we can have a <code>setup.py</code> file, a <code>setup.cfg</code> file and
+        a <code>requirements.txt</code> file in the same project. With all their
+        friends <code>MANIFEST.in</code>, <code>tox.ini</code>,
+        <code>pyproject.toml</code>, <code>pytest.ini</code>, and so on. Each
+        package manager packages its own way, blithely copying things that seem
+        to work from friends’ packages. We’ll always find a specific case that’s
+        only handled by one of these files, and simplicity will be sacrificed
+        on the altar of the sacrosanct features.
+      </p>
+
+      <h4><code>MANIFEST.in</code></h4>
+      <p>
+        Do you want a very special feature? Including assets in a source package
+        is a good example of what a painful puzzle is.
+      </p>
+      <p>
+        Distributing binary packages is usually done so that users can easily
+        use the code. Packages like wheels are ready-to-use archives, and their
+        installation needs nothing more than decompressing an archive in the right
+        folder. These packages are able to contain only the minimum: code.
+        Everything else (documentation, tests, super-cute-little-nice-files
+        describing changes…) has nothing to do in them.
+      </p>
+      <p>
+        Source packages are different. These packages are useful for the ones
+        who want to look the code, create packages for Linux distributions,
+        test patches, install libraries, launch tests… We thus try to include
+        everything we can in the package, almost everything from the
+        repository, except files needed for continuous integration, versioning,
+        and other small stuff polluting our so cute project.
+      </p>
+      <p>
+        To include these files in the source package, in particular when files
+        are at the root of the project and not in the same folder as the code,
+        we use <code>MANIFEST.in</code>. This umpteenth file comes, properly,
+        <a href="https://packaging.python.org/guides/using-manifest-in/">with its own syntax and its own commands</a>.
+        And don’t worry: it allows you to do, at the same time, things that are
+        already possible with the other files, and things that are not possible
+        with the other files.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00015-venn.svg') }}" alt="Five-set Venn Diagram" title="Having something so complicated, it’s no luck…" />
+        <figcaption>
+          Let’s see… Which files do I need to identify an optional dynamic
+          dependency that will only be installed with Python 3.7.x on a 32-bit
+          Windows?
+        </figcaption>
+      </figure>
+
+      <h4><code>pyproject.toml</code></h4>
+      <p>
+        Here we are.
+      </p>
+      <p>
+        At first sight, <code>pyproject.toml</code> seems to be a direct clone
+        of <code>setup.cfg</code>, with a slightly different format and a
+        debatable name. Another file again, another format again, but what a
+        crazy idea?
+      </p>
+      <p>
+        In reality, things are a little bit more complex.
+        <a href="https://www.python.org/dev/peps/pep-0518/">PEP 518</a>, that
+        has introduced this file, is called "Specifying minimum build system
+        requirements for Python projects". It’s not called "And here’s one more
+        stupid format to define package metadata", and there are surprisingly
+        good reasons for that.
+      </p>
+      <p>
+        In the list of issues caused by <code>setuptools</code>, there is one
+        we didn’t talk about yet: <code>setup.py</code> contains the
+        dependencies of a package, including the dependencies used to build the
+        package. How can we know the dependencies without executing the file?
+        And how to execute the file without knowing its dependencies? This
+        chicken and egg issue is problematic for <code>setuptools</code>, but as
+        everyone is using it to create packages, and as it’s a dependency of
+        <code>pip</code>, there’s a good chance to have it installed with
+        Python. However, if we want to use another tool, like a
+        <code>setuptools</code> extension, things immediately become less easy.
+      </p>
+      <p>
+        The idea of <code>pyproject.toml</code> isn’t to propose a new metadata
+        format. The idea is to include, in a simple text file, the dependencies
+        needed to build a package. Think about this carefully. A little more.
+      </p>
+      <p>
+        Well, you understand now. We’ll be able to get rid of <code>setuptools</code>
+        and <code>distutils</code>, at least to build packages. For real.
+      </p>
+      <p>
+        Of course, in simple cases, we can still use them. <code>pyproject.toml</code>
+        allows to store all the metadata we used to store before. It also
+        allows to store more complex information, like dependencies and
+        supported Python versions, a bit like in <code>setup.cfg</code>, a bit like before.
+      </p>
+      <p>
+        But nothing prevents packagers from using another tool, that can define
+        their own configuration options, independent of <code>setuptools</code>.
+        Even better: as the file is specified and well organized, it gives
+        other tools (<code>black</code>, <code>pylint</code>,
+        <code>coverage</code>…) the possibility to use this file too, ending
+        the atrocious set of confetti of configuration files.
+      </p>
+      <p>
+        One last thing has to be fixed: defining the entry point of the tool
+        we’re going to use to create the package. That’s the job of
+        <a href="https://www.python.org/dev/peps/pep-0517/">PEP 517</a> that
+        allows us to definitely get free from <code>setuptools</code>,
+        <code>setup.py</code> and all their friends.
+      </p>
+      <p>
+        But… Does it work for real?
+      </p>
+      <p>
+        Yes. We just have to choose the tools we can use. And we’ll choose them
+        in the next article…
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}

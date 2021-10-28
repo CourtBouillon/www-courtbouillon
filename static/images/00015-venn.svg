@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-1790 -1900 3648 3648">
+ <title>Symmetrical 5-set Venn diagram</title>
+ <desc>Radially symmetrical five-set Venn diagram originally devised by Branko Gruenbaum and optimised for maximum area of the smallest regions and rendered by CMG Lee.</desc>
+ <defs>
+  <ellipse id="set" cx="120" cy="-275" rx="1000" ry="1587"/>
+  <g id="sets">
+   <use xlink:href="#set" fill="#6600ff"/>
+   <use xlink:href="#set" fill="#0099ff" transform="rotate( 72)"/>
+   <use xlink:href="#set" fill="#00cc00" transform="rotate(144)"/>
+   <use xlink:href="#set" fill="#cc9900" transform="rotate(216)"/>
+   <use xlink:href="#set" fill="#ff0000" transform="rotate(288)"/>
+  </g>
+ </defs>
+ <circle cx="0" cy="0" r="99999" fill="#ffffff"/>
+ <g font-family="Helvetica,Arial,sans-serif" text-anchor="middle" stroke="none">
+  <use xlink:href="#sets" fill-opacity="0.3"/>
+  <use xlink:href="#sets" fill-opacity="0" opacity="0.5" stroke="#000000" stroke-width="6"/>
+  <g font-size="240">
+   <text transform="translate(    0,    0) scale(0.9,1)" x="0" y="0.7ex">ABCDE</text>
+   <text transform="translate(  120,-1590) scale(0.9,1)" x="0" y="0.7ex">A</text>
+   <text transform="translate( 1500, -360) scale(0.9,1)" x="0" y="0.7ex">B</text>
+   <text transform="translate(  780, 1320) scale(0.9,1)" x="0" y="0.7ex">C</text>
+   <text transform="translate(-1080, 1140) scale(0.9,1)" x="0" y="0.7ex">D</text>
+   <text transform="translate(-1440, -600) scale(0.9,1)" x="0" y="0.7ex">E</text>
+  </g>
+  <g font-size="120" font-weight="bold">
+   <text transform="translate(  980, -840) scale(0.9,1)" x="0" y="0.7ex">AB</text>
+   <text transform="translate(  330, 1170) scale(0.9,1)" x="0" y="0.7ex">AC</text>
+   <text transform="translate(  420,-1140) scale(0.9,1)" x="0" y="0.7ex">AD</text>
+   <text transform="translate( -480,-1190) scale(0.9,1)" x="0" y="0.7ex">AE</text>
+   <text transform="translate( 1120,  660) scale(0.9,1)" x="0" y="0.7ex">BC</text>
+   <text transform="translate(-1010,  660) scale(0.9,1)" x="0" y="0.7ex">BD</text>
+   <text transform="translate( 1210,   30) scale(0.9,1)" x="0" y="0.7ex">BE</text>
+   <text transform="translate( -330, 1230) scale(0.9,1)" x="0" y="0.7ex">CD</text>
+   <text transform="translate( -970, -720) scale(0.9,1)" x="0" y="0.7ex">CE</text>
+   <text transform="translate(-1300,  150) scale(0.9,1)" x="0" y="0.7ex">DE</text>
+   <text transform="translate(  600,  900) scale(0.9,1)" x="0" y="0.7ex">ABC</text>
+   <text transform="translate(  690, -960) scale(0.9,1)" x="0" y="0.7ex">ABD</text>
+   <text transform="translate( 1040, -210) scale(0.7,1)" x="0" y="0.7ex">ABE</text>
+   <text transform="translate(  -60, 1180) scale(0.9,1)" x="0" y="0.7ex">ACD</text>
+   <text transform="translate( -660,-1010) scale(0.8,1)" x="0" y="0.7ex">ACE</text>
+   <text transform="translate(   60,-1080) scale(0.9,1)" x="0" y="0.7ex">ADE</text>
+   <text transform="translate( -730,  750) scale(0.7,1)" x="0" y="0.7ex">BCD</text>
+   <text transform="translate( 1120,  400) scale(0.8,1)" x="0" y="0.7ex">BCE</text>
+   <text transform="translate(-1140,  350) scale(0.8,1)" x="0" y="0.7ex">BDE</text>
+   <text transform="translate( -960, -440) scale(0.7,1)" x="0" y="0.7ex">CDE</text>
+   <text transform="translate(  -60,  960) scale(0.9,1)" x="0" y="0.7ex">ABCD</text>
+   <text transform="translate(  822,  540) scale(0.8,1)" x="0" y="0.7ex">ABCE</text>
+   <text transform="translate(  740, -660) scale(0.9,1)" x="0" y="0.7ex">ABDE</text>
+   <text transform="translate( -510, -840) scale(0.9,1)" x="0" y="0.7ex">ACDE</text>
+   <text transform="translate(-1000,  -30) scale(0.8,1)" x="0" y="0.7ex">BCDE</text>
+  </g>
+ </g>
+</svg>
