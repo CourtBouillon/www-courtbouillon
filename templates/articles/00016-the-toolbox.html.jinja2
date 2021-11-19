@@ -7,9 +7,9 @@
       <h2>The Python Packaging Hell: The Toolbox(5 / 7)</h2>
       <aside><time datetime="2021-11-18">November 18, 2021</time>, by CourtBouillon</aside>
       <p>
-        Python packaging can sometimes be a nightmare. To create, share, install
-        packages, there are a lot of tools, sometimes doing the same thing, but
-        not the same way.
+        Python packaging can sometimes be a nightmare. To create, share and
+        install packages, there are a lot of tools, sometimes doing the same
+        thing, but not the same way.
       </p>
     </header>
 
@@ -18,39 +18,39 @@
     <section>
       <h3>Tools To Do Everything</h3>
       <p>
-        Libraries, scripts, executable… Even as a simple user, we have to know
-        and try a lot of tools before using a Python program. You’ll have to
-        create a virtual environment to install packages. With time, you’ll have
-        your own pet ways, which will change according to evolutions and good
-        practices.
+        Libraries, scripts, executable scripts… Even as a simple user, we have
+        to know and try a lot of tools before using a Python program. You’ll
+        have to create a virtual environment to install packages. With time,
+        you’ll have your own habits, which will change according to evolution
+        and good practices.
       </p>
       <p>
-        We won’t really talk about that. But still a little.
+        We won’t really talk about that. Or just a little bit.
       </p>
       <p>
-        If we focus on packages management, there are three distinct steps:
-        installing, creating, sending on a packages repository. Each step can be
-        split in smaller step, and it’d be interesting to understand in
-        detail how it works.
+        If we focus on package management, there are three distinct steps:
+        installing, creating, publishing to a package repository. Each step can
+        be split into smaller steps, and it would be interesting to understand
+        in detail how it works.
       </p>
       <p>
         We won’t really talk about that in detail neither.
       </p>
       <p>
-        What we’re trying to make: drawing a partial, superficial, rough and
-        non-exhaustive picture of what we can use to do these three basic steps.
-        It doesn’t sell dreams, but it’s already something complex although it
-        doesn’t seem like it.
+        What we’re trying to make is: drawing a partial, superficial, rough and
+        non-exhaustive picture of what we can use to do these three basic
+        steps. It doesn’t sell dreams but it’s already complex, although it
+        doesn’t seem to be.
       </p>
       <p>
-        We’ll have to have a look in the details of these steps, we’ll have to
-        have a look in virtual environment. But we’ll keep in mind to not get
-        lost these details, else, it’d be very long. And you’ve got better
-        things to do.
+        We’ll have to look at some details of these steps, we’ll have to look
+        at virtual environments. But we’ll try hard not to get lost in these
+        details, otherwise it would be very long. And you’ve got better things
+        to do.
       </p>
       <p>
-        Let’s start with two tables. The first lists libraries usable by other
-        tools.
+        Let’s start with two tables. The first one lists libraries usable by
+        other tools.
       </p>
       <table>
         <thead>
@@ -58,7 +58,7 @@
             <th>Library</th>
             <th>Installation</th>
             <th>Creation</th>
-            <th>Sending</th>
+            <th>Publishing</th>
           </tr>
         </thead>
         <tbody>
@@ -77,7 +77,7 @@
         </tbody>
       </table>
       <p>
-        The second table lists tools offering executable.
+        The second one lists tools offering commands.
       </p>
       <table>
         <thead>
@@ -85,7 +85,7 @@
             <th>Tool</th>
             <th>Installation</th>
             <th>Creation</th>
-            <th>Sending</th>
+            <th>Publishing</th>
           </tr>
         </thead>
         <tbody>
@@ -142,82 +142,82 @@
       <p>
         These two tables only list the functionalities we’re interest in, but
         some of these tools do a lot of other things. It’s not useful to
-        stupidly compare how many boxes they tick, all the more since other
-        parameters have to been taken in consideration, like quality and
+        stupidly compare how many boxes they tick, moreover since other
+        parameters must be taken in consideration, like quality and
         maintainability of code.
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00016-xkcd.png')}}" alt="Mandatory Related XKCD™" title="I just came from The Martian, and I just have to say: Forget BB-8; I want a pet Sojourner! It's always been the cutest of our Mars rovers." />
         <figcaption>
           The mandatory <a href="https://xkcd.com/1585/">XKCD</a>. Taking only
-          a few points of comparison has never been enough. Do not duplicate
+          a few points of comparison has never been enough. Don’t try this
           at home.
         </figcaption>
       </figure>
       <p>
-        Moreover, we’re going to really compare these tools; we’re mostly going
+        Moreover, we’re not really going to compare these tools; we’re mostly going
         to introduce these three functionalities and describe the libraries and
-        tools which can manage them. No need to sulk, it’ll be easier, promised.
+        tools that can manage them. No need to sulk, it’ll be easier, we promise.
       </p>
 
       <h4>Installing packages</h4>
       <p>
-        At the beginning, when the concept of packages has been introduced in
+        In the beginning, when the concept of packages has been introduced in
         Python in 2000, <code>distutils</code> has been in charge to create
-        and install packages. As we already said it in the previous articles,
-        but we’ll repeat it: it has been done without dependencies management
-        and without packages repository.
+        and install packages. As we already said it in the previous articles
+        (but we’ll repeat it): it has been done with no dependency management
+        and no package repository.
       </p>
       <p>
-        <code>distutils</code> is a library which mainly allows to write
-        <code>setup.py</code> files, which have been for a long times the alpha
-        and the omega of Python packages. Thanks to <code>distutils</code> they’re
-        importing, these files are executable and offer two commands:
+        <code>distutils</code> is a library that mainly allows to write
+        <code>setup.py</code> files, and that has been for a long time the
+        cornerstone of Python packages. By importing <code>distutils</code>
+        these files are executable and offer two commands:
         <code>install</code> to install, <code>sdist</code> to create a package.
         So we can share archives containing all the code, and install them
         after we decompress them. In other words: these archives are packages.
       </p>
       <p>
-        The idea to have a place to store and share these packages comes quickly.
-        PyPI has been put online three years after the born of <code>distutils</code>;
+        The idea to have a place to store and share these packages came quickly.
+        PyPI has been put online three years after the birth of <code>distutils</code>;
         it allows to distribute and find, in a public central place, a lot of
         Python packages.
       </p>
       <p>
         The <code>setuptools</code> library comes in 2004 to bring new
-        functionalities, in particular the dependencies management. At the
-        level of packages installation, it’s a revolution: <code>easy_install</code>
+        functionalities, in particular the dependencies management. For Python
+        packaging, it’s a revolution: <code>easy_install</code>
         is included in the library and allows to install packages from PyPI
-        directly with their name.
+        using their names.
       </p>
       <p>
-        However, <code>setuptools</code> and <code>easy_install</code> are going
-        to show their limits. Created without real specification, based on a
-        flawed packages format (eggs), they’re going to stirring up a desire
-        for replacement.
+        However, <code>setuptools</code> and <code>easy_install</code> are
+        going to show their limits. Created with no real specification, based
+        on a flawed packages format (eggs), they’re going to quickly ask for a
+        replacement.
       </p>
       <p>
-        It’ll be the case for <code>easy_install</code>, replaced 4 years later
-        by <code>pip</code>. <code>pip</code> has for objective to install
-        Python packages while correctly managing their metadata, which allows,
-        for example, to list and uninstall installed packages.
+        It will be the case for <code>easy_install</code>, replaced 4 years later
+        by <code>pip</code>. <code>pip</code>’s goal is to install Python
+        packages while correctly managing their metadata, allowing for example
+        to list and uninstall installed packages.
       </p>
       <p>
         <code>pip</code> has evolved a lot, and today it’s the reference
         application for packages installation. The tool has been able to adapt
-        to the various evolutions and is now capable of handle source packages
-        and wheels. Its thoughtful architecture and its wide use allowed it to
-        integrate evolutions step by step, and to still alive after more than
-        10 years.
+        to the numerous changes and is now able to handle source packages and
+        wheels. Its thoughtful architecture and its wide use allowed it to
+        integrate features step by step, and to stay alive after more than 10
+        years.
       </p>
       <p>
-        This tool is used or included in all recent tools for packages installation.
+        This tool is used or included in all recent tools for package installation.
         If we look at tools widely used like <code>Pipenv</code>, <code>Poetry</code>
         and <code>pipx</code>, all of them use <code>pip</code> to install
         packages.
       </p>
       <p>
-        Then, why to use other tools than <code>pip</code>?
+        Then, why would we use other tools than <code>pip</code>?
         <code>Pipenv</code>, <code>Poetry</code>, <code>pipx</code> and others
         allow, each in their own way, to partition installations. By default,
         <code>pip</code> installs packages in a central folder, which can be
@@ -226,21 +226,21 @@
       </p>
       <p>
         <code>Pipenv</code> and <code>Poetry</code> allow roughly the same
-        mechanic for the installation: they create a virtual environment by
-        project in which they install the dependencies. For this purpose, they
-        act like a simple capsule around <code>pip</code> and <code>venv</code>,
+        mechanic for the installation: they create a virtual environment for
+        each project in which they install the dependencies. For this purpose,
+        they act like a simple capsule around <code>pip</code> and <code>venv</code>,
         with commands allowing to manage simple cases.
       </p>
       <p>
         <code>pipx</code> has a different goal: it offers the same interface as
-        <code>pip</code> but to install executable. It manages to automatically
-        create a virtual environment for each executable, and to make this
-        executable available for the user. So it’s more tailored for final users
-        than developers, preferential targets of <code>Pipenv</code> et <code>Poetry</code>.
+        <code>pip</code> but to install executable files. It manages to
+        automatically create a virtual environment for each command, and to
+        make this command available for the user. So, it’s more tailored for
+        final users than developers, who are preferential targets of <code>Pipenv</code> and <code>Poetry</code>.
       </p>
       <p>
         One last surprising thing about <code>pip</code>: it now creates
-        packages, to better install them. Why? You’ll have to read more…
+        packages in order to install them. Why? You’ll have to read more…
       </p>
 
       <h4>Creating packages</h4>
@@ -252,121 +252,126 @@
         </figcaption>
       </figure>
       <p>
-        Yes, you well read: now <code>pip</code> creates packages.
+        Yes, you read correctly: <code>pip</code> creates packages now.
         With the underlying will to
         <a href="{{ url_for('blog', article='00015-files-everywhere') }}">get rid of <code>setuptools</code></a>
-        and other packages formats, <code>pip</code> is slowing becoming a
-        simple wheel installer. When there is a source package, it now tries to
-        transform this source package in a wheel before installing it, rather
+        and other package formats, <code>pip</code> is slowly becoming a simple
+        wheel installer. When there is a source package, it now tries to
+        transform this source package into a wheel before installing it, rather
         than using the installer of <code>setuptools</code>.
       </p>
       <p>
-        This system has a lot of pros. First of all, it means that with time,
-        <code>pip</code> could just be a wheels installer (which is a simpler
-        format to install) paired with source packages to wheels transformer.
+        This system has a lot of pros. First of all, it means that, with time,
+        <code>pip</code> could just be an installer of wheels (which are much
+        simpler to install), paired with a source-to-wheel transformer.
         This kind of mechanism would simplify a lot the source code of
-        <code>pip</code>, which today does many other thing, like installing
+        <code>pip</code>, that currently does many other things like installing
         packages from sources using <code>setuptools</code>.
       </p>
       <p>
-        It should also be noted that, to create packages, it’s no longer
-        required to use <code>setuptools</code>.
+        You should also note that, to create packages, it’s no longer required
+        to use <code>setuptools</code>.
         Other tools exist to create a source package or a wheel. Which means
         that, from creation to installation, we start to see the end of the
         tunnel: it’s possible to use quite simple tools, mostly based on
-        specifications, which don’t have to deal with the age of <code>setuptools</code>.
+        specifications, without dealing with the aging <code>setuptools</code>
+        library.
       </p>
       <p>
         <code>Poetry</code> and <code>Flit</code> are, on this point, rather
         close. These two tools are able to create packages without <code>setuptools</code>
         and so without <code>setup.py</code> file.
-        Following the PEPs
-        <a href="https://www.python.org/dev/peps/pep-0517/">517</a> and
-        <a href="https://www.python.org/dev/peps/pep-0518/">518</a>, to use
-        the <code>pyproject.toml</code> file as the only information source,
+        Following
+        <a href="https://www.python.org/dev/peps/pep-0517/">PEP 517</a> and
+        <a href="https://www.python.org/dev/peps/pep-0518/">PEP 518</a>, using
+        the <code>pyproject.toml</code> file as the only source of information,
         they propose an alternative solution to create source packages and
         classic wheels, installable by <code>pip</code>.
       </p>
       <p>
         That’s about all <code>Flit</code> does. It also contains stuff to
-        install packages with <code>pip</code> and by symbolic links, which is
-        useful for development.
-        <code>Poetry</code> is more complete: it offer like <code>Pipenv</code>
-        the creation of virtual environments, useful for development.
+        install packages with <code>pip</code> or using symbolic links, which
+        is useful for development.
+        <code>Poetry</code> is more complete: it offers, like <code>Pipenv</code>,
+        the possibility to create virtual environments.
       </p>
       <p>
         Of course, switching from a <code>setup.py</code> file in Python to a
         <code>pyproject.toml</code> file limits the possibilities. Despite the
         effort of these tools to allow a wide flexibility, it’s not possible
         to do everything we were able to do with <code>setuptools</code>,
-        leaving to this honorable library to take care of complex cases which
-        are mostly the result of sick minds more related to psychiatry than IT.
+        leaving to this honorable library the responsibility to take care of
+        complex cases, which are mostly the result of sick minds more related
+        to psychiatry than IT.
       </p>
 
-      <h4>Sending packages</h4>
+      <h4>Publishing packages</h4>
       <p>
         In the same way, <code>Poetry</code> and <code>Flit</code> offer the
-        possibility to send packages on PyPI or on compatible servers.
+        possibility to send packages to PyPI or to compatible servers.
         This functionality only requires to follow PyPI’s HTTP APIs, and can
         seem quite simple.
       </p>
       <p>
-        This hasn’t been always like this. For a longtime, <code>setuptools</code>
-        proposed a command to send packages, not without troubles. To ensure a
+        This hasn’t been always like this. For a long time, <code>setuptools</code>
+        proposed a command to send packages, not without trouble. To ensure a
         compatibility between all Python versions, it has been mandatory to deal
         with supported TLS protocol versions, security breaches, passwords… And
-        of course, what should have been kept simple has quickly becoming a
+        of course, what should have been kept simple has quickly become a
         sad nightmare of indigestible code.
       </p>
       <p>
-        To fix this issue, the project <code>Twine</code> has been developed.
-        The only goal for <code>Twine</code> is to send packages on PyPI, and to
+        To fix this issue, the <code>Twine</code> project has been developed.
+        The only goal of <code>Twine</code> is to send packages to PyPI, and to
         do it well. As a bonus, it offers the possibility to store the password
-        in the passwords manager of the system, rather than to store it in
-        plain text in a file like <code>setuptools</code> did.
-        Other detail: <code>Twine</code> sends as they are files generated by
-        the packaging creation tool. It seems to be obvious, but you have to
-        know that <code>setuptools</code> recreate the package before sending it,
-        which make testing more difficult.
+        in the system passwords manager, rather than to store it in a plain
+        text file (as <code>setuptools</code> does).
+        Other detail: <code>Twine</code> sends files just as they are,
+        generated by the packaging tool. It seems to be obvious, but
+        you have to know that <code>setuptools</code> recreates the package
+        before publishing it, making testing more difficult.
       </p>
     </section>
 
     <section>
       <h3>To Sum Up (Well, We Try)</h3>
       <p>
-        It has been a long period of dependency to <code>setuptools</code>, its
-        unintelligible configuration files, its implementation which is
-        authoritative, its aging architecture and its arguable commands. But
+        We’ve gone through a long period of dependency to <code>setuptools</code>,
+        its unintelligible configuration files, its authoritative
+        implementation, its aging architecture and its arguable commands. But
         those days are almost over, and other solutions already exist to create
         and send packages.
       </p>
       <p>
         We’re in a period of uncertainty. It’s difficult, almost impossible, to
-        know which tools will be used tomorrow. It’s hard to build packages with
-        an architecture which will be stand the test of time. But one thing is
-        clear: we have more liberties and possibilities than ever.
+        know which tools will be used tomorrow. It’s hard to build packages
+        with an architecture that will face difficulties through time. But one
+        thing is clear: we have more liberties and possibilities than ever.
       </p>
       <p>
-        After all, having a lot of tools to create packages isn’t something bad,
-        as long as they all create interoperable packages, installable by the
-        same tools. We haven’t all the same needs when we create a small pure
-        Python package, or a packages containing C intended for all platforms.
+        After all, having a lot of tools to create packages isn’t something
+        bad, as long as they all create interoperable packages, installable by
+        the same tools. We don’t have the same needs when we create a small
+        pure-Python package, or a packages containing C intended for all
+        platforms.
       </p>
       <p>
         About that, <code>Flit</code> proposes
         <a href="https://flit.readthedocs.io/en/latest/rationale.html">an interesting view</a>:
       </p>
       <blockquote>
-        « Make the easy things easy and the hard things possible is an old motto
-        from the Perl community. Flit is entirely focused on the easy things
-        part of that, and leaves the hard things up to other tools.
+        <em>Make the easy things easy and the hard things possible</em> is an
+        old motto from the Perl community. Flit is entirely focused on the
+        <em>easy things</em> part of that, and leaves the hard things up to
+        other tools.
       </blockquote>
       <p>
-        (We come to be inspire by Perl community, everything is possible…)
+        (When we look for inspiration from the Perl community, everything is
+        possible…)
       </p>
       <p>
-        It all depends on what we want to do. And it’s good timing: that’s what
-        we’ll talk about in the next article!
+        It depends on what we want to do. What a good timing: that’s what we’ll
+        talk about in the next article!
       </p>
     </section>
   </article>
