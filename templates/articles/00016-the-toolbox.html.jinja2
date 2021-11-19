@@ -1,0 +1,379 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>The Python Packaging Hell: The Toolbox (5 / 7)</h2>
+      <aside><time datetime="2021-11-19">November 19, 2021</time>, by CourtBouillon</aside>
+      <p>
+        Python packaging can sometimes be a nightmare. To create, share and
+        install packages, there are a lot of tools, sometimes doing the same
+        thing, but not the same way.
+      </p>
+    </header>
+
+    {% include 'articles/_python_contents.jinja2' %}
+
+    <section>
+      <h3>Tools To Do Everything</h3>
+      <p>
+        Libraries, scripts, executable scripts… Even as a simple user, we have
+        to know and try a lot of tools before using a Python program. You’ll
+        have to create a virtual environment to install packages. With time,
+        you’ll have your own habits, which will change according to evolution
+        and good practices.
+      </p>
+      <p>
+        We won’t really talk about that. Or just a little bit.
+      </p>
+      <p>
+        If we focus on package management, there are three distinct steps:
+        installing, creating, publishing to a package repository. Each step can
+        be split into smaller steps, and it would be interesting to understand
+        in detail how it works.
+      </p>
+      <p>
+        We won’t really talk about that in detail neither.
+      </p>
+      <p>
+        What we’re trying to make is: drawing a partial, superficial, rough and
+        non-exhaustive picture of what we can use to do these three basic
+        steps. It doesn’t sell dreams but it’s already complex, although it
+        doesn’t seem to be.
+      </p>
+      <p>
+        We’ll have to look at some details of these steps, we’ll have to look
+        at virtual environments. But we’ll try hard not to get lost in these
+        details, otherwise it would be very long. And you’ve got better things
+        to do.
+      </p>
+      <p>
+        Let’s start with two tables. The first one lists libraries usable by
+        other tools.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Library</th>
+            <th>Installation</th>
+            <th>Creation</th>
+            <th>Publishing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>distutils</th>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td style="opacity: 0.2">No</td>
+          </tr>
+          <tr>
+            <th>setuptools</th>
+            <td>Yes, based on distutils</td>
+            <td>Yes, based on distutils</td>
+            <td>Yes, until version 42</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        The second one lists tools offering commands.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Installation</th>
+            <th>Creation</th>
+            <th>Publishing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>easy_install</th>
+            <td>Yes, distributed with setuptools</td>
+            <td style="opacity: 0.2">No</td>
+            <td style="opacity: 0.2">No</td>
+          </tr>
+          <tr>
+            <th>pip</th>
+            <td>Yes, includes a partial copy of setuptools</td>
+            <td>Yes, wheels with setuptools and wheel</td>
+            <td style="opacity: 0.2">No</td>
+          </tr>
+          <tr>
+            <th>wheel</th>
+            <td style="opacity: 0.2">No</td>
+            <td>Yes, wheels</td>
+            <td style="opacity: 0.2">No</td>
+          </tr>
+          <tr>
+            <th>twine</th>
+            <td style="opacity: 0.2">No</td>
+            <td style="opacity: 0.2">No</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th>pipenv</th>
+            <td>Yes, includes a modified copy of pip</td>
+            <td style="opacity: 0.2">No</td>
+            <td style="opacity: 0.2">No</td>
+          </tr>
+          <tr>
+            <th>pipx</th>
+            <td>Yes, based on pip</td>
+            <td style="opacity: 0.2">No</td>
+            <td style="opacity: 0.2">No</td>
+          </tr>
+          <tr>
+            <th>poetry</th>
+            <td>Yes, based on pip</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th>flit</th>
+            <td>Yes, based on pip</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        These two tables only list the functionalities we’re interest in, but
+        some of these tools do a lot of other things. It’s not useful to
+        stupidly compare how many boxes they tick, moreover since other
+        parameters must be taken in consideration, like quality and
+        maintainability of code.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00016-xkcd.png')}}" alt="Mandatory Related XKCD™" title="I just came from The Martian, and I just have to say: Forget BB-8; I want a pet Sojourner! It's always been the cutest of our Mars rovers." />
+        <figcaption>
+          The mandatory <a href="https://xkcd.com/1585/">XKCD</a>. Taking only
+          a few points of comparison has never been enough. Don’t try this
+          at home.
+        </figcaption>
+      </figure>
+      <p>
+        Moreover, we’re not really going to compare these tools; we’re mostly going
+        to introduce these three functionalities and describe the libraries and
+        tools that can manage them. No need to sulk, it’ll be easier, we promise.
+      </p>
+
+      <h4>Installing packages</h4>
+      <p>
+        In the beginning, when the concept of packages has been introduced in
+        Python in 2000, <code>distutils</code> has been in charge to create
+        and install packages. As we already said it in the previous articles
+        (but we’ll repeat it): it has been done with no dependency management
+        and no package repository.
+      </p>
+      <p>
+        <code>distutils</code> is a library that mainly allows to write
+        <code>setup.py</code> files, and that has been for a long time the
+        cornerstone of Python packages. By importing <code>distutils</code>
+        these files are executable and offer two commands:
+        <code>install</code> to install, <code>sdist</code> to create a package.
+        So we can share archives containing all the code, and install them
+        after we decompress them. In other words: these archives are packages.
+      </p>
+      <p>
+        The idea to have a place to store and share these packages came quickly.
+        PyPI has been put online three years after the birth of <code>distutils</code>;
+        it allows to distribute and find, in a public central place, a lot of
+        Python packages.
+      </p>
+      <p>
+        The <code>setuptools</code> library comes in 2004 to bring new
+        functionalities, in particular the dependencies management. For Python
+        packaging, it’s a revolution: <code>easy_install</code>
+        is included in the library and allows to install packages from PyPI
+        using their names.
+      </p>
+      <p>
+        However, <code>setuptools</code> and <code>easy_install</code> are
+        going to show their limits. Created with no real specification, based
+        on a flawed packages format (eggs), they’re going to quickly ask for a
+        replacement.
+      </p>
+      <p>
+        It will be the case for <code>easy_install</code>, replaced 4 years later
+        by <code>pip</code>. <code>pip</code>’s goal is to install Python
+        packages while correctly managing their metadata, allowing for example
+        to list and uninstall installed packages.
+      </p>
+      <p>
+        <code>pip</code> has evolved a lot, and today it’s the reference
+        application for packages installation. The tool has been able to adapt
+        to the numerous changes and is now able to handle source packages and
+        wheels. Its thoughtful architecture and its wide use allowed it to
+        integrate features step by step, and to stay alive after more than 10
+        years.
+      </p>
+      <p>
+        This tool is used or included in all recent tools for package installation.
+        If we look at tools widely used like <code>Pipenv</code>, <code>Poetry</code>
+        and <code>pipx</code>, all of them use <code>pip</code> to install
+        packages.
+      </p>
+      <p>
+        Then, why would we use other tools than <code>pip</code>?
+        <code>Pipenv</code>, <code>Poetry</code>, <code>pipx</code> and others
+        allow, each in their own way, to partition installations. By default,
+        <code>pip</code> installs packages in a central folder, which can be
+        annoying when we have different projects using different versions
+        of a same library.
+      </p>
+      <p>
+        <code>Pipenv</code> and <code>Poetry</code> allow roughly the same
+        mechanic for the installation: they create a virtual environment for
+        each project in which they install the dependencies. For this purpose,
+        they act like a simple capsule around <code>pip</code> and <code>venv</code>,
+        with commands allowing to manage simple cases.
+      </p>
+      <p>
+        <code>pipx</code> has a different goal: it offers the same interface as
+        <code>pip</code> but to install executable files. It manages to
+        automatically create a virtual environment for each command, and to
+        make this command available for the user. So, it’s more tailored for
+        final users than developers, who are preferential targets of <code>Pipenv</code> and <code>Poetry</code>.
+      </p>
+      <p>
+        One last surprising thing about <code>pip</code>: it now creates
+        packages in order to install them. Why? You’ll have to read more…
+      </p>
+
+      <h4>Creating packages</h4>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00016-gift.jpg')}}" alt="Picture of packages" title="You’ll never guess what is inside…" />
+        <figcaption>
+          Reminder: it’s not because the packaging is nice that the content is
+          bound to please.
+        </figcaption>
+      </figure>
+      <p>
+        Yes, you read correctly: <code>pip</code> creates packages now.
+        With the underlying will to
+        <a href="{{ url_for('blog', article='00015-files-everywhere') }}">get rid of <code>setuptools</code></a>
+        and other package formats, <code>pip</code> is slowly becoming a simple
+        wheel installer. When there is a source package, it now tries to
+        transform this source package into a wheel before installing it, rather
+        than using the installer of <code>setuptools</code>.
+      </p>
+      <p>
+        This system has a lot of pros. First of all, it means that, with time,
+        <code>pip</code> could just be an installer of wheels (which are much
+        simpler to install), paired with a source-to-wheel transformer.
+        This kind of mechanism would simplify a lot the source code of
+        <code>pip</code>, that currently does many other things like installing
+        packages from sources using <code>setuptools</code>.
+      </p>
+      <p>
+        You should also note that, to create packages, it’s no longer required
+        to use <code>setuptools</code>.
+        Other tools exist to create a source package or a wheel. Which means
+        that, from creation to installation, we start to see the end of the
+        tunnel: it’s possible to use quite simple tools, mostly based on
+        specifications, without dealing with the aging <code>setuptools</code>
+        library.
+      </p>
+      <p>
+        <code>Poetry</code> and <code>Flit</code> are, on this point, rather
+        close. These two tools are able to create packages without <code>setuptools</code>
+        and so without <code>setup.py</code> file.
+        Following
+        <a href="https://www.python.org/dev/peps/pep-0517/">PEP 517</a> and
+        <a href="https://www.python.org/dev/peps/pep-0518/">PEP 518</a>, using
+        the <code>pyproject.toml</code> file as the only source of information,
+        they propose an alternative solution to create source packages and
+        classic wheels, installable by <code>pip</code>.
+      </p>
+      <p>
+        That’s about all <code>Flit</code> does. It also contains stuff to
+        install packages with <code>pip</code> or using symbolic links, which
+        is useful for development.
+        <code>Poetry</code> is more complete: it offers, like <code>Pipenv</code>,
+        the possibility to create virtual environments.
+      </p>
+      <p>
+        Of course, switching from a <code>setup.py</code> file in Python to a
+        <code>pyproject.toml</code> file limits the possibilities. Despite the
+        effort of these tools to allow a wide flexibility, it’s not possible
+        to do everything we were able to do with <code>setuptools</code>,
+        leaving to this honorable library the responsibility to take care of
+        complex cases, which are mostly the result of sick minds more related
+        to psychiatry than IT.
+      </p>
+
+      <h4>Publishing packages</h4>
+      <p>
+        In the same way, <code>Poetry</code> and <code>Flit</code> offer the
+        possibility to send packages to PyPI or to compatible servers.
+        This functionality only requires to follow PyPI’s HTTP APIs, and can
+        seem quite simple.
+      </p>
+      <p>
+        This hasn’t been always like this. For a long time, <code>setuptools</code>
+        proposed a command to send packages, not without trouble. To ensure a
+        compatibility between all Python versions, it has been mandatory to deal
+        with supported TLS protocol versions, security breaches, passwords… And
+        of course, what should have been kept simple has quickly become a
+        sad nightmare of indigestible code.
+      </p>
+      <p>
+        To fix this issue, the <code>Twine</code> project has been developed.
+        The only goal of <code>Twine</code> is to send packages to PyPI, and to
+        do it well. As a bonus, it offers the possibility to store the password
+        in the system passwords manager, rather than to store it in a plain
+        text file (as <code>setuptools</code> does).
+        Other detail: <code>Twine</code> sends files just as they are,
+        generated by the packaging tool. It seems to be obvious, but
+        you have to know that <code>setuptools</code> recreates the package
+        before publishing it, making testing more difficult.
+      </p>
+    </section>
+
+    <section>
+      <h3>To Sum Up (Well, We Try)</h3>
+      <p>
+        We’ve gone through a long period of dependency to <code>setuptools</code>,
+        its unintelligible configuration files, its authoritative
+        implementation, its aging architecture and its arguable commands. But
+        those days are almost over, and other solutions already exist to create
+        and send packages.
+      </p>
+      <p>
+        We’re in a period of uncertainty. It’s difficult, almost impossible, to
+        know which tools will be used tomorrow. It’s hard to build packages
+        with an architecture that will face difficulties through time. But one
+        thing is clear: we have more liberties and possibilities than ever.
+      </p>
+      <p>
+        After all, having a lot of tools to create packages isn’t something
+        bad, as long as they all create interoperable packages, installable by
+        the same tools. We don’t have the same needs when we create a small
+        pure-Python package, or a packages containing C intended for all
+        platforms.
+      </p>
+      <p>
+        About that, <code>Flit</code> proposes
+        <a href="https://flit.readthedocs.io/en/latest/rationale.html">an interesting view</a>:
+      </p>
+      <blockquote>
+        <em>Make the easy things easy and the hard things possible</em> is an
+        old motto from the Perl community. Flit is entirely focused on the
+        <em>easy things</em> part of that, and leaves the hard things up to
+        other tools.
+      </blockquote>
+      <p>
+        (When we look for inspiration from the Perl community, everything is
+        possible…)
+      </p>
+      <p>
+        It depends on what we want to do. What a good timing: that’s what we’ll
+        talk about in the next article!
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}

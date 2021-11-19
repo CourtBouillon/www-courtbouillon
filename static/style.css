@@ -636,6 +636,25 @@ footer ul {
   padding: 0.5em;
 }
 
+table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 2em 0;
+  text-align: center;
+  width: 100%;
+}
+td {
+  padding: 0.75em;
+}
+tbody tr:nth-child(even) {
+  background: #f762620a;
+}
+thead {
+  border-bottom: 1px solid #29346222;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 
 /* Icons Lists */
 
