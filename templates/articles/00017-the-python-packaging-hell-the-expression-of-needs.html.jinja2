@@ -1,0 +1,374 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>The Python Packaging Hell: The Expression of Needs (6 / 7)</h2>
+      <aside><time datetime="2021-12-02">December 02, 2021</time>, by CourtBouillon</aside>
+      <p>
+        Python packaging can sometimes be a nightmare. It’s all the more hellish
+        because when we talk about package creation and installation, we should
+        first start to define precisely what we mean.
+      </p>
+    </header>
+
+    {% include 'articles/_python_contents.jinja2' %}
+
+    <section>
+      <h3>Daddy, Mommy: How Do We Make Packages?</h3>
+      <p>
+        It’s all well and good to talk about a package in up, but we
+        often talk about it in down. Actually, we talk a lot about what’s in it,
+        about what we can do with it, but not in detail about the different steps
+        of its birth and its life.
+      </p>
+      <p>
+        The goal isn’t to present <code>setuptools</code> technically
+        (you can thank us). The goal is rather to become aware that
+        the notion of package groups together miscellaneous realities, and that we
+        shouldn’t use the same tools and the same protocols depending on the reality
+        we face.
+      </p>
+      <p>
+        You’ve always thought that creating a package was just putting files
+        from a folder into an archive? Sorry to spoil the fun, but it’s
+        definitely not. Not at all. Otherwise, we wouldn’t be there to write about
+        this topic, and you wouldn’t be there to read this article.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00017-xkcd.png')}}" alt="Mandatory Related XKCD™" title="In the 60s, Marvin Minsky assigned a couple of undergrads to spend the summer programming a computer to use a camera to identify objects in a scene. He figured they'd have the problem solved by the end of the summer. Half a century later, we're still working on it." />
+        <figcaption>
+          The mandatory <a href="https://xkcd.com/1425/">XKCD</a>. People making
+          Python packages are all incompetent, give me 5 minutes and I can solve
+          this issue once and for all.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h3>The Scene of Operations</h3>
+      <p>
+        Here we are. You’ve finished your code, you want to share it, and for
+        that you want to create a package. You’ve read countless tutorials
+        that boasted countless foolproof techniques, countless wonderful
+        tools, countless magical files.
+      </p>
+      <p>
+        We’re going to give you our opinion (you’re here for that, no?). The good
+        question to ask yourself is: "which operations will have to be done to
+        create and install my packages?". From that, you’ll be able to pick in
+        your library the most suitable tutorial for your situation.
+      </p>
+      <p>
+        Jumping headlong into the creation of your package is taking a double
+        risk: the risk of doing too much, and the risk of not being able to do
+        enough. You can take our word for it: you want neither of that. Life is
+        too short.
+      </p>
+      <p>
+        So, what happens in our packages?
+      </p>
+
+      <h4>Code</h4>
+      <p>
+        Obviously, if you want to share a Python package, there is good chance
+        that you have Python code to include in your package. And when we talk
+        about code, we often talk about a module.
+      </p>
+      <p>
+        A Python module, in its simple expression, is a simple file, or a folder
+        containing several files, and, eventually sub-folders composing as many
+        sub-modules as you’ll need.
+      </p>
+      <p>
+        If we put aside the installation of executable scripts (we’ll talk about
+        them later), this step is without surprise especially well managed by the
+        different tools available. If you want to specify a folder to include
+        (and automatically include the code inside), if you want specify
+        manually the list of files and folders to include, even if you have
+        several modules to include in your package, this step shouldn’t cause
+        any particular issue.
+      </p>
+      <p>
+        If you really look for complication (that crossed your mind, there’s no
+        need to lie), you’ll be tempted to include some files only for
+        some platforms: a file for Windows, a file for normal operating
+        systems. You’ll want to apply some code updates for a specific version
+        of Python, or depending on the presence of some dependencies. Don’t be
+        afraid, your sickly vice won’t be swept under the carpet: we’ll see
+        that later, during creation and installation steps.
+      </p>
+
+      <h4>Metadata</h4>
+      <p>
+        With you packages, maybe even without noticing, you want to lug a swarm
+        of metadata. Hardly nothing, indeed. A package name, a version number,
+        a contact email address. And supported versions of Python. And
+        dependencies, required and optional. And a description, keywords, some
+        <a href="https://pypi.org/classifiers/">classifiers</a>, some standard
+        links to the documentation and the source repository to put on PyPI.
+        And some specific options to launch tests or build documentation. And…
+      </p>
+      <p>
+        OK. That’s not "nothing".
+      </p>
+      <p>
+        For our mental health, most of this metadata is standardized and can
+        easily be integrated. As long as we want to integrate what is expected to
+        integrate. Be reasonable. Be quiet.
+      </p>
+      <p>
+        Can you feel it coming?
+      </p>
+      <p>
+        You may be tempted to integrate metadata in files. Not configuration
+        files, not code files. Files aside. A <code>README</code>, a <code>CHANGELOG</code>, things like that.
+        A code of conduct, a list of contributors, a roadmap…
+      </p>
+      <p>
+        And that’s only for the source package. For the wheel, we don’t want
+        these annex files. Obviously. It goes without saying.
+      </p>
+      <p>
+        Don’t worry, you can. However, here’s a small detail: by default, the
+        <a href="https://packaging.python.org/guides/using-manifest-in/">configuration
+          file</a> that allows to do that is based on a pseudo-code including 8
+        different commands and a specific syntax of regular expressions. This
+        file’s only goal is to define the list of files to include in the
+        source package, and it’s got a name IN CAPITAL LETTERS, a dot, and an
+        extension of two lowercase letters (we won’t say its name). It follows
+        implicit rules that depend on the <code>setuptools</code> version, it’s
+        automatically adapted to CVS and Subversion repositories (!), it
+        necessarily creates files we can’t change.
+      </p>
+      <p>
+        Apart from this microscopic detail, that is very similar to a purulent
+        wart from the Jurassic period, nothing to report.
+      </p>
+
+      <h4>Annex Files</h4>
+      <p>
+        You develop a spell checker and you want to integrate dictionaries. You
+        develop a game and you want to integrate images. You develop a
+        simulator of giant chicken fights and you want to generate cards from
+        geospatial data of Mars. Of course, why not.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00017-mars.jpg')}}" alt="Image du rover Curiosity sur Mars" title="This isn’t a real selfie, this robot certainly has other thing to do" />
+        <figcaption>
+          It’s not because Curiosity didn’t find giant chickens that they don’t
+          exist.
+        </figcaption>
+      </figure>
+      <p>
+        The common point? You want to integrate files that aren’t Python code.
+      </p>
+      <p>
+        These files aren’t metadata. They are data to install with the code,
+        directly used by code, and without them your module wouldn’t work. By
+        the way, if you suffer from a serious lack of empathy towards the rest
+        of the human race, you put these data inside the folder of your module,
+        if possible in a dedicated sub-folder.
+      </p>
+      <p>
+        We have good news. Everything that’s quite classic is easily
+        manageable. Everything that has to be managed manually can be handled
+        with the needed tact (and patience).
+      </p>
+      <p>
+        Oh. Before moving on, we have a small thing to tell you… To access
+        these files from your code, you’ll undoubtedly have the naivety to
+        search them with their filenames, from the relative path of your code.
+        Did you forget what we said about eggs that can be used without being
+        decompressed? Did you forget Windows <code>.exe</code> files that can
+        include all the data in one single file? Did you forget people who will
+        come to explain to you that, on Mars, giant chickens use a format of
+        quantum archives used, at the same time, compressed and decompressed?
+      </p>
+      <p>
+        We’re hardly exaggerating. In doubt, use
+        <code><a href="https://docs.python.org/3/library/importlib.html#module-importlib.resources">importlib.resources</a></code>.
+        What? It’s new in Python 3.7? Well… Show some resilience! After endless
+        weeks spent to read all the forums on Earth you should easily find a
+        solution that works for all the required cases.
+      </p>
+
+      <h4>Executable files</h4>
+      <p>
+        This part is simple: don’t integrate executable files.
+      </p>
+      <p>
+        Well, yes. You’re grumbling because you don’t understand how, without
+        executable files, we’ll be able to launch your program that draws a
+        Nyan Cat on your wallpaper. And you’re right.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00017-nyan-cat.png')}}" alt="Nyan Cat" title="Nyanyanyanyanyanyanya!" />
+        <figcaption>
+          This flying cat will look great on your wallpaper. Think about it.
+          Seriously.
+        </figcaption>
+      </figure>
+      <p>
+        But we’re right too. To get an executable file installed by your
+        package, you don’t need to write it. Python offers a clever system of
+        <a href="https://packaging.python.org/specifications/entry-points/">entry points</a>
+        to save you some work.
+      </p>
+      <p>
+        These entry points are functions that will be automatically transformed
+        into executable files during the installation of your package. This
+        solution offers a lot of pros, like being able to use your <code>backnyan</code> app
+        by launching <code>backnyan</code> in your terminal (or by clicking on
+        the icon of the installed app), but also as a module with
+        <code>python -m backnyan</code>. And voilà, without noticing, you’ve
+        got the possibility to use an other module with your app. By chance,
+        with <code>python -m pdb -m backnyan</code> you can now discover the
+        joys of debugging.
+      </p>
+      <p>
+        We wish you a lot of fun with pdb. It’s a gift. A gift package.
+      </p>
+
+      <h4>Operations During Creation</h4>
+      <p>
+        Until this precise moment, we see in your eyes the innocent glimmers of
+        hope, those which animate human beings with a still immaculate reason
+        to live, intoxicated by the tempting fragrance of unreachable success.
+      </p>
+      <p>
+        We suggest you stop there.
+      </p>
+      <p>
+        Too bad for you, if you continue, don’t complain.
+      </p>
+      <p>
+        We saw many times that <code>setup.py</code> is a classic Python file
+        allowing to execute all sorts of fantasies. And by "fantasies", we
+        don’t talk about unicorns, we talk about Cerberus or Minotaur. Enemies
+        who bite and hurt.
+      </p>
+      <p>
+        In the operations that <code>setup.py</code> can manage, we’ll
+        determine two distinct groups: the ones done before creating the
+        package, and the ones done after. We’ll start with the first group.
+      </p>
+      <p>
+        During the package creation, we may have deviant desire to tinker
+        files. We would like to create files on the fly and to include them
+        into the package, or to retrieve some files online. We may want to do
+        some adjustments to create an optimized package for a specific version
+        of Python, or for a specific OS.
+      </p>
+      <p>
+        Oh, wait, here are some other good ideas. We could compile C code to
+        integrate different versions in specific wheels. We could directly
+        create executable files or specific archives. We could obfuscate
+        proprietary code.
+      </p>
+      <p>
+        Instead of writing a module, we could write a meta-module that
+        generates the code of the module on the fly.
+      </p>
+      <p>
+        You get the idea.
+      </p>
+      <p>
+        If you think that these examples are strange, even eccentric, take some
+        time to think about them seriously. They’re only examples from real
+        life, listed with no bad faith. True story. And Python allows to
+        do that without too much trouble, as <code>setup.py</code> is a simple Python file.
+      </p>
+      <p>
+        It also shows that with no <code>setup.py</code> file, it will be very
+        hard to do that. We can’t create a simple configuration file taking
+        care of all the different possibilities offered by code.
+      </p>
+      <p>
+        We’re now beginning to understand why, in Python, having a single tool
+        to create packages is an illusion. Between simplicity and complexity,
+        between static formats and dynamic code, the solution depends on the
+        context. That why we’ll have for long time a lot of tutorials, focused
+        on a particular solution, without no silver bullet.
+      </p>
+
+      <h4>Operations During Installation</h4>
+      <p>
+        There we are, the final step.
+      </p>
+      <p>
+        Even if we can do a lot of complex things during the creation of a
+        package (sometimes for honest reasons), we’re limited by the
+        responsibility of the person creating the package. In a pinch, all
+        these operations could be done outside the tool used to create
+        packages, by an external script executed before using the classic
+        software stack to generate the archive.
+      </p>
+      <p>
+        Put it this way, it’s almost easy.
+      </p>
+      <p>
+        The real complexity is to execute code during the installation. For
+        that, we (almost) have to depend of what <code>pip</code> offers,
+        and thus to fall again in the hazards of <code>setuptools</code>.
+      </p>
+      <p>
+        Even worse: as the code is executed on the computer where the package
+        is installed, it must be adapted to its specificities: its OS, its file
+        system, its Python version, its installed tools… So, inventiveness and
+        dexterity are often required to get code adapted to its target.
+      </p>
+      <p>
+        But, to do what?
+      </p>
+      <p>
+        During the installation of source packages, we may want to do almost
+        everything we wanted during the creation of a wheel. But this time, we
+        can do it using everything that is available on the host machine:
+        optimized compilation depending on the architecture, interfaces with
+        specific installed libraries, adjustments to the Python version, to the
+        OS, to some dependencies…
+      </p>
+      <p>
+        <code>setuptools</code>, to name just one library, offers a lot of
+        tools to simplify these tasks, in particular the compilation part.
+        Writing C code in the middle of its Python library, to optimize some
+        functions, is a fairly common practice. And in this case, we can either
+        generate wheels for all platforms (pure utopia), or we can leave <code>pip</code>
+        handle that during the installation step.
+      </p>
+      <p>
+        Unfortunately, depending on the host means depending on its installed
+        tools. You have to hope that your target includes a functioning
+        compiler, adapted to what <code>setuptools</code> does. Otherwise, the
+        work required to install your code may well discourage everyone.
+      </p>
+    </section>
+
+    <section>
+      <h3>Where Do We Go Now?</h3>
+      <p>
+        Now that we have an overview of what can be done with a Python package,
+        we’re well on our way. But, where do we go now?
+      </p>
+      <p>
+        We’ve made good progress. If you’ve been attentive (and you’ve probably
+        been), you should now be able to find a way. After determining more
+        precisely what you should and what you must do with your code, you’ll
+        be able to use the table of
+        <a href="{{ url_for('blog', article='00016-the-toolbox') }}">The toolbox article</a>
+        to choose precisely the most adapted weapons.
+      </p>
+      <p>
+        Obviously, you’ll have to read a lot of documentation, articles and other
+        forums to get a better idea. If you’re a bit patient, you can also read
+        an umpteenth partial tutorial, as it’s the subject of our last article.
+      </p>
+      <p>
+        Until then, happy readings!
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
