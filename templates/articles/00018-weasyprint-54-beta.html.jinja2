@@ -8,8 +8,8 @@
       <aside><time datetime="2021-12-16">December 16, 2021</time>, by grewn0uille</aside>
       <p>
       v54 is the next main version of WeasyPrint. A <a href="">beta has been released</a> so you can
-      try it and helping us to have a nice stable release!
-      This version has new features like footnote support, parallel flows and
+      try it and help us to have a nice stable release!
+      This version has new features like footnotes support, parallel flows and
       colored emojis. Let’s present these features!
       </p>
     </header>
@@ -18,17 +18,17 @@
       <h3>Footnote Support</h3>
       <p>
       Thanks to <a href="https://www.codeandco.com/">Code & Co.</a> who
-      sponsored it, WeasyPrint now supports footnote 🎉.
+      sponsored it, WeasyPrint now supports footnotes 🎉.
       </p>
 
       <p>
-      Footnote allows you to put some notes at the bottom of a page which let you
+      Footnotes allow you to put some notes at the bottom of a page, which let you
       provide comments, citations…
       </p>
 
       <h4>A Footnote Example</h4>
       <p>
-      To create a footnote element, <code>float: footnote;</code> is used.
+      To create a footnote element, <code>float: footnote</code> is used.
       For example, a footnote statement that looks like this:
       </p>
 
@@ -42,14 +42,13 @@
       <h3>Parallel Flows</h3>
 
       <p>
-      For a long time, elements that aren’t in the normal flow, like float or
-      absolute, weren’t cutable. So if a float element was too long for a page,
+      For a long time, elements that aren’t in the normal flow, like floats or
+      absolutes, weren’t breakable. So, if a float element was too long for a page,
       only the part fitting on the first page was rendered.
       </p>
       <p>
-      But now, with parallel flows, when a page break appears, we can know
-      where we stop to render these elements which aren’t in the flow and
-      fully display them on several pages.
+      But now, with parallel flows, when a page break appears, we can display
+      the rest of the float on the next page.
       </p>
 
       <h4>A Parallel Flow Example</h4>
@@ -81,17 +80,23 @@
           When we <a href="{{ url_for('blog', article='00009-weasyprint-53-what-s-new') }}">
           replaced cairo by our own PDF generator</a>, we lost support of
           colored emojis. But this time is over, colored emojis are back in the
-          game 🥳!
+          game, including
+          <a href="https://github.com/eosrei/twemoji-color-font#what-is-svginot">vector emojis</a> 🥳!
         </li>
         <li>
-          Improvement of <code>overflow-wrap</code>: the property <code>overflow-wrap</code>
-          now supports the value <code>anywhere</code>. This may helps you
-          dealing with text split.
+          Improvement of <code>overflow-wrap</code>: the <code>overflow-wrap</code> property
+          now supports the value <code>anywhere</code>. This may help you
+          dealing with text split, in tables for example.
         </li>
         <li>
           DLLs management for Windows: with Python 3.8, DLL resolution changed.
           You can now specify to WeasyPrint where to look for the DLLs with the
           environment variable <code>WEASYPRINT_DLL_DIRECTORIES</code>.
+        </li>
+        <li>
+          <code>text-align-all</code> and <code>text-align-last</code>: these
+          properties are now supported if you want to justify the last line of
+          a paragraph.
         </li>
       </ul>
     </section>
@@ -101,14 +106,14 @@
 
       <p>
       The next main step is, of course, to make a real release of this version
-      WeasyPrint.
+      of WeasyPrint.
       </p>
       <p>
-      But before that, we need you to try this beta and report us the bugs you
+      But before that, we need you to try this beta and report bugs you
       may found 🪲!
       </p>
       <p>
-      And so, we’ll be able to have a really nice version 54 😊.
+      We’ll then be able to have a really nice version 54 😊.
       </p>
       <p>
         Have fun with this <a href="">beta</a> 💜.
