@@ -1,0 +1,120 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>WeasyPrint v54: Beta Time</h2>
+      <aside><time datetime="2021-12-16">December 16, 2021</time>, by grewn0uille</aside>
+      <p>
+      v54 is the next main version of WeasyPrint. A <a href="">beta has been released</a> so you can
+      try it and helping us to have a nice stable release!
+      This version has new features like footnote support, parallel flows and
+      colored emojis. Let’s present these features!
+      </p>
+    </header>
+
+    <section>
+      <h3>Footnote Support</h3>
+      <p>
+      Thanks to <a href="https://www.codeandco.com/">Code & Co.</a> who
+      sponsored it, WeasyPrint now supports footnote 🎉.
+      </p>
+
+      <p>
+      Footnote allows you to put some notes at the bottom of a page which let you
+      provide comments, citations…
+      </p>
+
+      <h4>A Footnote Example</h4>
+      <p>
+      To create a footnote element, <code>float: footnote;</code> is used.
+      For example, a footnote statement that looks like this:
+      </p>
+
+      {{ '00018-footnotes.html' | pygmentize }}
+
+      <p>gives the following result:</p>
+      <img style="width:70%" alt="Example of footnote" src="{{ url_for('static', filename='images/00018-footnote.png') }}" />
+    </section>
+
+    <section>
+      <h3>Parallel Flows</h3>
+
+      <p>
+      For a long time, elements that aren’t in the normal flow, like float or
+      absolute, weren’t cutable. So if a float element was too long for a page,
+      only the part fitting on the first page was rendered.
+      </p>
+      <p>
+      But now, with parallel flows, when a page break appears, we can know
+      where we stop to render these elements which aren’t in the flow and
+      fully display them on several pages.
+      </p>
+
+      <h4>A Parallel Flow Example</h4>
+      <p>
+      As an example is better than a lot of words, let’s see what happens with
+      WeasyPrint v53.4 and WeasyPrint v54-beta on this sample:
+      </p>
+
+      {{ '00018-parallel-flows.html' | pygmentize }}
+
+      <figure>
+        <img alt="Example of parallel flow issue with WeasyPrint v53.4" src="{{ url_for('static', filename='images/00018-parallel-flows-53.png') }}" />
+        <img alt="Example of parallel flow with WeasyPrint v54-beta" src="{{ url_for('static', filename='images/00018-parallel-flows-54.png') }}" />
+        <figcaption>
+          WeasyPrint v53.4 vs WeasyPrint v54-beta
+        </figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h3>And More…</h3>
+
+      <p>
+      Other features have been added in this version:
+      </p>
+      <ul>
+        <li>
+          Colored Emojis:
+          When we <a href="{{ url_for('blog', article='00009-weasyprint-53-what-s-new') }}">
+          replaced cairo by our own PDF generator</a>, we lost support of
+          colored emojis. But this time is over, colored emojis are back in the
+          game 🥳!
+        </li>
+        <li>
+          Improvement of <code>overflow-wrap</code>: the property <code>overflow-wrap</code>
+          now supports the value <code>anywhere</code>. This may helps you
+          dealing with text split.
+        </li>
+        <li>
+          DLLs management for Windows: with Python 3.8, DLL resolution changed.
+          You can now specify to WeasyPrint where to look for the DLLs with the
+          environment variable <code>WEASYPRINT_DLL_DIRECTORIES</code>.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What Are the Next Steps?</h3>
+
+      <p>
+      The next main step is, of course, to make a real release of this version
+      WeasyPrint.
+      </p>
+      <p>
+      But before that, we need you to try this beta and report us the bugs you
+      may found 🪲!
+      </p>
+      <p>
+      And so, we’ll be able to have a really nice version 54 😊.
+      </p>
+      <p>
+        Have fun with this <a href="">beta</a> 💜.
+      </p>
+    </section>
+
+  </article>
+
+{% endblock content %}
