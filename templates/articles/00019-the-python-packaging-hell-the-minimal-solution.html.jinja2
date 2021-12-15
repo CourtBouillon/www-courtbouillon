@@ -21,13 +21,13 @@
         We saw in
         <a href="{{ url_for('blog', article='00017-the-python-packaging-hell-the-expression-of-needs')}}">the previous article</a>
         what we can put in our packages. That’s a lot of stuff to include, but
-        we haven’t really defined where or how.
+        we haven’t really defined where or how we can include it.
       </p>
       <p>
         As this article is just an example among others, we won’t have any
-        qualms to propose opinions purely subjective based on a particular
-        sensitivity. It’s not the absolute truth, it’s just an opinion.
-        But, of course, as it’s our own, it’s a good one, else you would be
+        qualms to propose purely subjective opinions based on a peculiar
+        sensitivity. It’s not the absolute truth, it’s just an opinion. But, of
+        course, as it’s our own, it’s a good one, otherwise you would be
         reading something else.
       </p>
 
@@ -45,39 +45,38 @@
       </p>
       <p>
         The goal of this package is to provide the functional code already ready
-        for the target. The <code>pip</code> that’ll install it will have
-        nothing to do apart from decompress the archive, retrieve some
-        information (like dependencies) and put the decompressed folder on the
-        disk. No compilation, no arbitrary Python code execution, no special
-        case for a particular platform.
+        for the target. The <code>pip</code> command that will install it will
+        have nothing to do apart from decompressing the archive, retrieving
+        some information (like dependencies) and putting the decompressed
+        folder on the disk. No compilation, no arbitrary Python code execution,
+        no special case for a particular platform.
       </p>
       <p>
         Incidentally, this means that if your code isn’t the same depending on
-        the Python version or the operating system, you’ll have to create as
-        many packages as there different computer combinations on which to
-        install your creation. You have to work a little, though.
+        the Python version or the operating system, you’ll have to create a
+        different package for each combination on which your creation will be
+        installed. So, you’ll have to work a little bit.
       </p>
       <p>
         It doesn’t matter: we have all the tools we need to do that. What is
         important is to agree on what we want to put inside. On this subject,
-        our opinion is simple: the code, the metadata, and maybe one or two
-        files like the <code>README</code> or the license.
+        our opinion is simple: code, metadata, and maybe one or two files like
+        the <code>README</code> or the license.
       </p>
       <p>
-        The rest, it clears.
+        Nothing else.
       </p>
       <p>
-        No mood. Who had already installed a wheel to look inside at the
-        <code>CHANGELOG</code>? Who had already installed a wheel to launch
-        unit tests? Who had already installed a wheel to rebuild the
-        documentation of the module? If you already did that, the time has
-        come for you to discover an amazing tool called Internet. It’s full of
-        nice pages presenting the documentation with colors, pictures and
-        even links.
+        No need to cry. Who installs a wheel to look inside at the
+        <code>CHANGELOG</code>? Who installs a wheel to launch unit tests? Who
+        installs a wheel to rebuild the documentation of the module? If you
+        already did that, the time has come for you to discover an amazing tool
+        called Internet. It’s full of nice pages presenting the documentation
+        with colors, pictures and even links.
       </p>
       <p>
-        More seriously: wheels have no other calling that to be installed.
-        No matter how they work, what they contain, the most important thing is
+        More seriously: the only purpose of wheels is to be installed. No
+        matter how they work, what they contain, the most important thing is
         that their installation works properly with <code>pip</code>.
         Everything else is secondary. Really. Goodbye tests, goodbye
         documentation, goodbye configuration files.
@@ -85,51 +84,51 @@
 
       <h4>The Source Package</h4>
       <p>
-        Sources, it’s the basis, it’s the alternative, it’s the last resort,
-        it’s the ultimate comprehensiveness, and that’s why wheels will never
-        send into oblivion this venerable format which has supported Python
-        users since the beginning of package sharing.
+        Sources are the basis, the alternative, the last resort, the ultimate
+        comprehensiveness, and that’s why wheels will never send into oblivion
+        this venerable format that has been supported by Python users since the
+        beginning of package sharing.
       </p>
       <p>
         Before defining what we’ll put inside, let’s settle a crucial issue
-        right away: what our source package will be really used for?
+        right away: what will our source package be really used for?
         The answer is simple:
       </p>
       <ol>
         <li>
-          to read sources,
+          reading sources,
         </li>
         <li>
-          to create packages for other package managers (for example, for
+          creating packages for other package managers (for example, for
           Linux distributions),
         </li>
         <li>
-          to install packages, for hopeless cases.
+          installing packages, for hopeless cases.
         </li>
       </ol>
       <p>
-        For these cases, it’s often useful to have more information than the
-        one contained in the wheel. We like to have some files explaining us
-        the changes between versions, some tests to see how it works, some
-        documentation to read with a text editor… We may want to see how the
-        package is configured, to play with the <code>setup.py</code>, or even
+        For these cases, it’s often useful to have more information than what’s
+        included in the wheel. We like to have some files to discover changes
+        between versions, some tests to see how it works, some documentation
+        that can be read with a text editor… We may want to see how the package
+        is configured, to play with the <code>setup.py</code> file, or even
         to try to modify the code.
       </p>
       <p>
         So, the source package will contain more or less the same content as
-        the one of the versioned repository. We have, on broad terms, to
-        retrieve what we’d retrieved with a <code>git clone</code> (or the
-        equivalent with your favorite version control software, we’re not
-        sectarian). Of course, we’ll remove the versioning itself and some
-        details like the CI configuration.
+        the versioned repository. We have, on broad terms, to retrieve what
+        we’d retrieved with <code>git clone</code> (or the equivalent command
+        of your favorite version control software, no offense). Of course,
+        we’ll remove the versioning data and some details like the CI
+        configuration.
       </p>
 
       <h4>Let’s Go</h4>
       <p>
-        With all these details, we’re now able to venture into package creation.
-        We won’t go into detail of each line of configuration or code to write
-        (you must be allowed a little freedom!), but we’ll try to, at least, to
-        lay the necessary foundations for the creation of your packages.
+        With all these details, we’re now able to venture into package
+        creation. We won’t explain each line of configuration or code to write,
+        but we’ll try, at least, to lay the necessary foundation for the
+        creation of your packages.
       </p>
     </section>
 
@@ -140,41 +139,41 @@
         <figcaption>
           Want to drive a nail? Use a hammer! This tool is perfect to drive
           nails, and… that’s all in fact. It drives nails, that’s all it does,
-          but it does it well.
+          but it does that well.
         </figcaption>
       </figure>
       <p>
-        We’ll get rid, like that, in a few words, of a big unspoken that
-        clutters us. You want to do a package? Let’s say that your code
-        only contains Python, and that you want to follow the rules we’ve
+        We’ll get rid, with only a few words, of a huge unspoken fact that
+        clutters us. You want to build a package? Let’s say that your code
+        contains only Python, and that you want to follow the rules we’ve
         settled before. There, it’s already better.
       </p>
       <p>
-        We agree? Else you can console yourself with an other article,
-        somewhere on the Internet, speaking about <code>setuptools</code>.
-        We leave it to you.
+        Do we agree? Otherwise you can console yourself with another article,
+        somewhere on Internet, about <code>setuptools</code>. We leave that to
+        you.
       </p>
 
       <h4>The Tool</h4>
       <p>
-        Without further suspense, the tool that we’ll use is
+        Without further suspense, the tool we’ll use is
         <a href="https://flit.readthedocs.io/">Flit</a>.
       </p>
       <p>
-        Flit is the hammer of package creation. It’s limited, it only do one
+        Flit is the hammer of package creation. It’s limited, it only does one
         thing, but it’s clear, limpid, efficient. We want to create and share
-        packages with simple rules to foolishly follow, that’s all.
+        packages with simple and foolish rules, that’s all.
       </p>
       <p>
         Flit is also one of the tools behind
         <a href="https://www.python.org/dev/peps/pep-0517/">PEP 517</a> and
-        <a href="https://www.python.org/dev/peps/pep-0517/">PEP 518</a>.
-        Yes, it’s thanks to its creator Thomas Kluyver that now we can free
-        of <code>setuptools</code> and <code>setup.py</code>. Respect.
+        <a href="https://www.python.org/dev/peps/pep-0517/">PEP 518</a>. Yes,
+        it’s thanks to its creator Thomas Kluyver that now we can be free from
+        <code>setuptools</code> and <code>setup.py</code>. Respect.
       </p>
       <p>
-        Flit is above all simplicity. If you don’t want to ask questions about
-        package creation, if you don’t want to write as much code as your
+        Flit is simplicity above all. If you don’t want to ask questions about
+        package creation, if you don’t want to write more code than your
         module, it’s the choice of reason.
       </p>
 
@@ -187,22 +186,22 @@
       <p>
         In the past, we took examples of
         <a href="{{ url_for('blog', article='00015-files-everywhere') }}">staggering overdoses</a>.
-        Without going back into all the projects that we’ve already talk about,
+        Without going back into all the projects we’ve already talked about,
         let’s take only one example of what we don’t want:
         <a href="https://github.com/psf/requests/tree/v2.24.0">Requests</a>.
       </p>
       <p>
-        (Requests isn’t to the ultimate evil, don’t make us say what we hadn’t
-        write. Just, it’s a good example of want we don’t want.)
+        (Requests isn’t the ultimate evil, don’t make us say what we didn’t
+        write. It’s just a good example of want we don’t want.)
       </p>
       <p>
-        The root folder contains 22 files and folders. Inside, we find the
-        classic suspects of package creation:
-        <code>setup.py</code>, <code>setup.cfg</code>, <code>MANIFEST.in</code>,
-        <code>Pipfile</code>… We also find nice configuration files for
-        third-party tools: Tox, Coverage, Pytest. Some metadata, some folders,
-        here’s something to impress a person which would like to take this
-        famous project as an example to understand of Python modules works.
+        The root folder contains 22 files and folders. Among them, we find the
+        usual suspects of package creation: <code>setup.py</code>,
+        <code>setup.cfg</code>, <code>MANIFEST.in</code>, <code>Pipfile</code>…
+        We also find nice configuration files for third-party tools: Tox,
+        Coverage, Pytest. Some metadata, some folders, here’s something to
+        impress a person who would like to use this famous project as an
+        example to understand how Python modules work.
       </p>
       <p>
         In contrast to this project, we suggest 6 basic folders and files to
@@ -218,89 +217,89 @@
       </ol>
       <p>
         Of course, this is only a basis that you can adapt to your needs. But
-        restrict ourselves to keep a light and clean root folder is also a good
-        reason to think about the hygiene and the project structuring.
+        restricting ourselves to keep a light and clean root folder is also a
+        good reason to think about the hygiene and the structure of projects.
         Let’s see what we can put in these little boxes…
       </p>
 
       <h4>The Folders</h4>
       <p>
         In the folder containing the code of your project, you’ll first put…
-        the code of your project. This seems to be nothing, but if we stuck to
-        our idea of having a minimalist wheel, we quickly understand that this
-        folder will be the one ready to be decompressed. For the simple goal to
-        install the module, the rest is just decoration.
+        the code of your project. This seems to be obvious, but if we follow
+        our idea of having a minimal wheel, we quickly understand that this
+        folder will be the one ready to be decompressed. For the simple goal of
+        installing the module, the rest is just decoration.
       </p>
       <p>
-        A consequence of this division is that this folder have to include the
+        A consequence of this division is that this folder has to include the
         additional files required for the module. Pictures for your game?
-        Include them into this folder. Lists of passwords to your NSA hacking
-        tool? Include them into this folder.
+        Include them in this folder. A lists of famous passwords for your NSA
+        hacking tool? Include them in this folder.
       </p>
       <p>
-        That also explains why we don’t include in this folder tests or
-        documentation. Everybody knows that tests and documentation are
-        useless when the code is limpid and without bugs.
-        However, in doubt, until all humans are omniscient, we could keep these
-        relics, but only in the source package.
+        That also explains why we don’t include tests or documentation in this
+        folder. Everybody knows that tests and documentation are useless when
+        the code is limpid and bug-free. However, in doubt, until all humans are
+        omniscient, we could keep these relics, but only in the source package.
       </p>
       <p>
-        The tests, if they follow the naming conventions of your favorite tool,
+        Tests, if they follow the naming conventions of your favorite tool,
         will be automatically discovered. For this purpose, <code>tests</code>
         seems to be an appropriate name, for humans and for tools (Flit or
-        Pytest, for example). After, up to you to organize your tests as you
-        want to, but you’ll help everyone by putting them in the same folder,
-        at the root of your project.
+        Pytest, for example). Then, up to you to organize your tests as you
+        want, but you’ll help everyone by putting them in the same folder, at
+        the root of your project.
       </p>
       <p>
         The documentation has, also, good reasons to be put in the source
-        package. You give to the curious people the possibility to go digging
-        into the clear explanations about your project, next to your code,
-        without Internet access requirement. You give to the Linux
-        distributions the possibility to include an appreciable introduction
-        to your tool, but also to possible manual pages. In fact, you give the
-        possibility to anyone to do anything with content which help people,
-        and in this case you can never be sure of good surprises.
+        package. You give to the curious people the possibility to dig into the
+        clear explanations about your project, next to your code, without
+        Internet access requirement. You give to the Linux distributions the
+        possibility to include an appreciable introduction to your tool, but
+        also to optional manual pages. In fact, you give the possibility to
+        anyone to do anything with content that helps people, and in this case
+        you can never be safe from pleasant surprises.
       </p>
       <p>
         This documentation is also the perfect place to store some information
         that we may want to put in the root, like a <code>CHANGELOG</code> or
-        configuration samples. So they’ll be available in a format pleasant to
-        read, in addition to stay available in text files. Code hosting
-        platforms also offer dedicated pages to some of these information,
-        making useless a lot of unnecessary root files. Nothing stops you, if
-        you really want to, to put links into your <code>README</code> to
-        guide people who only looks at the root.
+        configuration samples. So, they’ll be available in a pleasant format,
+        in addition to text files. Code hosting platforms also offer dedicated
+        pages to some of this information, so that a lot of root files become
+        unnecessary. Nothing stops you, if you really want to, to put links
+        into your <code>README</code> file to guide people who only look at
+        the root folder.
       </p>
 
       <h4>The Files</h4>
       <p>
-        The <code>README</code> file is the basis of your project. In pure
-        text format or with a light markup, it’s the entry point for most of
-        people interested in the technique. There is also a good chance of
-        being put forward in your software forge and by PyPI.
+        The <code>README</code> file is the basis of your project. In pure text
+        format or with a light markup, it’s the entry point of the majority of
+        people interested in code. There’s also a good chance that the file is
+        brought to the fore by your software forge and by PyPI.
       </p>
       <p>
-        That’s a good reason to work on your <code>README</code>. Beyond the
-        project description, you have to point all the necessary information
-        we like to quickly have when we discover a project: the license, the
-        supported versions of Python, the way to contact people taking care of
-        the project…
+        That’s a good reason to work on your <code>README</code> file. Beyond
+        the project description, you have to point all the necessary
+        information we like to quickly have when we discover a project: the
+        license, the supported versions of Python, the way to contact people
+        taking care of the project…
       </p>
       <p>
         By the way, putting the license at the root of the project, in a
-        specific file, is very classic choice but questionable. After all,
-        this legal information couldn’t be in the documentation? A line in the
-        <code>README</code> wouldn’t be enough to indicate which license
-        applies to the project?
+        specific file, is very classic but questionable. After all, couldn’t
+        this legal information be in the documentation? Wouldn’t a line in the
+        <code>README</code> be enough to indicate which license applies to the
+        project?
       </p>
       <p>
-        Yes, probably. But many tools expect to find this file at the root,
-        even some read it to deduct the license of the project. If it’s easy to
-        change people habits, who’ll be happy with an indication in the
-        documentation, it’s more complex to change machines habits. So… Let’s
-        say this choice is a small agreement between ideal and reality. Let’s
-        work to ensure that in some years we can get rid of it more simply.
+        Yes, probably. But many tools expect to find this file at the root, and
+        some of them even read it to deduct the license of the project. If it’s
+        easy to change the habits of people, who’ll be happy with an indication
+        in the documentation, it’s more complex to change the habits of
+        machines. So… Let’s say this choice is a small agreement between ideals
+        and reality. Let’s work to ensure that in some years we can get rid of
+        this more simply.
       </p>
       <p>
         At last, the main dish: <code>pyproject.toml</code>.
@@ -309,96 +308,95 @@
         The default choices of Flit being really good (objectively), you
         shouldn’t need to change a lot of things to the proposed values. But
         you should know that if you want to, you’ll find a long list of options
-        which will satisfy all of your crazy ideas.
+        that will satisfy all your crazy ideas.
       </p>
       <p>
         With Flit, <code>pyproject.toml</code> is going to replace what you can
         do with (at least) <code>setup.py</code>, <code>setup.cfg</code>,
         <code>requirements.txt</code> and <code>MANIFEST.in</code>. Of course,
         possibilities are limited, just because you can’t write Python code to
-        commit atrocities executed during the creation or the installation of
-        a package. But it’s not a limitation, it’s a functionality: stop
-        playing with idea, interesting at the beginning but which had become
-        more than filthy, it may be more useful for the posteriority to write
-        your module.
+        commit atrocities executed during the creation or the installation of a
+        package. But it’s not a limitation, it’s a feature: stop playing with
+        this idea, interesting at the beginning but becoming more than filthy.
+        It may be more useful for the posteriority to write your module.
       </p>
       <p>
-        It’s also this file that will allows you to configure
+        This file will also allow you to configure
         <a href="https://github.com/carlosperate/awesome-pyproject">most of</a>
         the third-party tools you use: Tox, Black, Pytest, Coverage.py, isort,
-        Pylint… Yes, that means that you can say goodbye to this pile of
-        configuration files each using its own naming convention and format!
-        The list of supported tools is getting bigger, don’t hesitate to have
-        a look time to time to see if your favorite project dared to take the
+        Pylint… Yes, it means that you can say goodbye to this pile of
+        configuration files, each using its own naming conventions and formats!
+        The list of supported tools is getting bigger, don’t hesitate to have a
+        look time to time to see if your favorite project dared to take the
         plunge.
       </p>
 
       <h4>From Creation To Deployment</h4>
       <p>
-        Don’t expect a tutorial in which we hold your hand, write your
-        configuration files, and give you all the tricks to use Flit. The
-        title of the article isn’t "7 things you don’t know about Flit − the
-        fifth will surprise you".
+        Don’t expect a tutorial where we hold your hand, write your
+        configuration files, and give you all the tricks to use Flit. The title
+        of the article isn’t "7 things you don’t know about Flit—the
+        5<sup>th</sup> one will surprise you."
       </p>
       <p>
         Why? Simply because the
-        <a href="https://flit.readthedocs.io/en/latest/">documentation of Flit</a>
+        <a href="https://flit.readthedocs.io/en/latest/">Flit’s documentation</a>
         is amazing. You’ll find all you need to install and use Flit (almost)
         blindly. It’s limpid, it’s quick, and mainly it works.
       </p>
       <p>
         <code>init</code>, <code>install</code>, <code>build</code>,
-        <code>publish</code>. It’s all you need to model you little package with
-        love. No more need to suffer our derogatory prose, we leave you in the
-        delicate words of a delicate tool.
+        <code>publish</code>. It’s all you need to model you little package
+        with love. No more need to suffer our derogatory prose, we leave you
+        among the delicate words of a delicate tool.
       </p>
       <p>
-        Enjoy flying on your own, let the wind blow you away.
+        Enjoy flying on your own, let the wind .
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00019-ostrich.jpg')}}" alt="Ostriches" title="You always dreamed of having wings? Wish granted!" />
         <figcaption>
-          Yes, ostriches. When you don’t find picture of butterfly or dragonfly,
-          we do what we can…
+          Yes, ostriches. When you don’t find a picture of a butterfly or a
+          dragonfly, you do what you can…
         </figcaption>
       </figure>
     </section>
 
     <section>
-      <h3>For The Remainder…</h3>
+      <h3>Finally…</h3>
       <p>
         Don’t lie to ourselves: Flit doesn’t solve everything. We already saw
-        its limitations and its small wicknesses, but fortunately it’s not
-        alone.
+        its limitations and its small wicknesses, but unfortunately there’s
+        more.
       </p>
       <p>
-        You want an other tool which worth a visit?
+        Do you want another tool?
         <a href="https://python-poetry.org/">Poetry</a> can do the same as Flit,
-        but it does more: managing virtual environment, solving dependencies,
+        but it does more: managing virtual environments, solving dependencies,
         installing packages, numbering versions… If you like all-in-one tools
-        which avoid the pitfall of becoming a tentacled and megalomaniac
+        that avoid the pitfall of becoming a tentacled and megalomaniac
         behemoths impossible to maintain (we won’t give names), you can find
         in Poetry an elegant substitute to Pipenv (oops, sorry).
       </p>
       <p>
-        But… whether it’s on Flit or Poetry, a big shadow hovers: the
-        abandonment. Flit and Poetry are widely used, but they stay third-party
-        tools which aren’t as supported as <code>setuptools</code> is. As well
-        as many open-source projects, they already had some
-        <a href="https://github.com/takluyver/flit/issues/283">pump stroke</a>,
-        and they’ll have others.
+        But… whether it’s on Flit or Poetry, there’s a big shadow: abandonment.
+        Flit and Poetry are widely used, but they stay third-party tools that
+        aren’t as supported as <code>setuptools</code> is. As well
+        as many open-source projects, they already go through some
+        <a href="https://github.com/takluyver/flit/issues/283">problems</a>,
+        and there will be other ones.
       </p>
       <p>
         Fortunately, PEPs are now widely adopted, leaving the door open to
         other future tools. Out of the shackles of <code>setuptools</code>, we
         can use other tools based on <code>pyproject.toml</code>. The keys and
         the values of options will change, but at least we won’t need to depend
-        of an unique implementation sclerosed weight of historic and need of
-        backwards compatibility.
+        on a unique implementation stuck by the weight of legacy and the need
+        of backwards compatibility.
       </p>
       <p>
-        Wheels will stay wheels, sources will stay sources, and everything
-        will be for the best in the best of the worlds.
+        Wheels are wheels, sources are sources, and they lived happily ever
+        after.
       </p>
       <p>
         Tools change, but formats remain.
