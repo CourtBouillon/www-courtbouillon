@@ -1,0 +1,148 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>New Feature: footnote</h2>
+      <aside><time datetime="2022-01-08">January 8, 2022</time>, by grewn0uille</aside>
+      <p>
+        A new feature, <code>footnote</code>, has been added in WeasyPrint 🎉.
+      </p>
+    </header>
+
+    <section>
+      <p>
+        <em>
+          <code>footnote</code> has been added thanks to the financial
+          support of <a href="https://www.codeandco.com/">Code & Co.</a>. It has been
+          a real pleasure to develop this feature with them.
+        </em>
+      </p>
+      <p>
+        <em>
+          You would love to get a new feature, a bug fix, or some support on
+          WeasyPrint? Don’t hesitate to
+          <a href="{{ url_for('page', _anchor="support") }}">get in touch with us</a>! Or if you
+          simply want to see the project grow beautifully, you can donate on
+          <a href="https://opencollective.com/courtbouillon">OpenCollective</a> 😉.
+        </em>
+      </p>
+    </section>
+
+    <section>
+      <h3>What is <code>footnote</code> and how to use it?</h3>
+      <p>
+      Footnotes allow you to put some notes at the bottom of a page, which let you
+      provide comments, citations…
+      </p>
+
+      <p>
+      To create a footnote element, <code>float: footnote</code> is used.
+      For example, a footnote statement that looks like this:
+      </p>
+          {{ '00018-footnotes.html' | pygmentize }}
+      <p>gives the following result:</p>
+      <img style="width:70%" alt="Example of footnote" src="{{ url_for('static', filename='images/00018-footnote.png') }}" />
+
+      <p>
+      Several CSS properties and pseudo-elements let you manage how footnotes
+      are displayed.
+      </p>
+
+      <h4>The <code>footnote-display</code> property</h4>
+      <p>
+      The <code>footnote-display</code> property allows you to indicate if a
+      footnote element is display as a block element or as an inline element.
+      By default, footnotes are displayed as block element.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00020-footnote_display_block.png') }}" alt="Example of footnotes displayed as block" title="Block footnotes" />
+        <figcaption>
+        Footnotes as block elements
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00020-footnote_display_inline.png') }}" alt="Example of footnotes displayed as inline" title="Inline footnotes" />
+        <figcaption>
+        Footnotes as inline elements
+        </figcaption>
+      </figure>
+
+      <h4>The <code>footnote-policy</code> property</h4>
+      <p>
+      The <code>footnote-policy</code> property helps you to influence how to
+      render difficult pages, like when a footnote falls near the bottom of a
+      page and doesn’t fully fit.
+      </p>
+      <p>
+      By default, the user agent chooses how to render footnotes.
+      </p>
+      <p>
+      You can make the user agent introduce a forced page break at the start of
+      the line containing the footnote reference with the <code>line</code> value,
+      so both the footnote reference and the footnote content go on the next page.
+      </p>
+      <p>
+      Or, you can make the user agent introduce a forced page break before the
+      paragraph that contains the footnote with the <code>block</code> value.
+      </p>
+
+      <h4>The <code>::footnote-call</code> and the <code>::footnote-marker</code> pseudo-elements</h4>
+      <p>
+      The <code>::footnote-call</code> pseudo-element is the element inserted
+      in the text to reference the footnote.
+      </p>
+      <p>
+      The <code>::footnote-marker</code> pseudo-element is the element representing
+      the footnote marker in the footnote area, it’s the number or the symbol
+      identifying each footnote.
+      </p>
+
+      <p>
+      By default, the content of these two pseudo-elements is the value of the
+      footnote counter. As there is a footnote counter, you can style it like
+      any other counter.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00020-footnote_counter_styled.png') }}" alt="Example of footnote counter styled" title="Styled footnote counter" />
+        <figcaption>
+        Footnote counter styled as upper-roman
+        </figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h3>Limitations and undefined cases</h3>
+      <p>
+      There are currently some limitations and undefined cases.
+      </p>
+      <p>
+      The <code>footnote-display</code> property has a <code>compact</code>
+      value which lets the user agent to decide if a footnote is render as a
+      block or inline element. This value isn’t supported by WeasyPrint.
+      </p>
+
+      <p>
+      If you have a look at the <a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">
+      footnote specification</a>, you can found the
+      <code>::footnote-marker::after</code> selector. This syntax doesn’t
+      work (yet) in WeasyPrint, but will be supported when <a href="https://www.w3.org/TR/selectors-4/">
+      Selectors Level 4</a> will be.
+      </p>
+
+      <p>
+      Finally, when a footnote is larger than the page, nothing is defined in the
+      specification to handle it. So in WeasyPrint, we decide that the content
+      of the footnote simply overflows.
+      </p>
+
+      <p>
+      This feature is available in the last WeasyPrint release: <a href="">v54</a>.
+      We hope that footnote support will be useful for you 😄!
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
