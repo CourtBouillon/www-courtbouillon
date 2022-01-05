@@ -4,17 +4,17 @@
 
   <article>
     <header>
-      <h2>New Feature: footnote</h2>
+      <h2>New Feature: Footnotes</h2>
       <aside><time datetime="2022-01-08">January 8, 2022</time>, by grewn0uille</aside>
       <p>
-        A new feature, <code>footnote</code>, has been added in WeasyPrint 🎉.
+        A new feature, <code>footnote</code>, has been added into WeasyPrint 🎉.
       </p>
     </header>
 
     <section>
       <p>
         <em>
-          <code>footnote</code> has been added thanks to the financial
+          <code>footnote</code> support has been added thanks to the financial
           support of <a href="https://www.codeandco.com/">Code & Co.</a>. It has been
           a real pleasure to develop this feature with them.
         </em>
@@ -31,9 +31,9 @@
     </section>
 
     <section>
-      <h3>What is <code>footnote</code> and how to use it?</h3>
+      <h3>What Is <code>footnote</code> and How to Use It?</h3>
       <p>
-      Footnotes allow you to put some notes at the bottom of a page, which let you
+      Footnotes allow you to put some notes at the bottom of a page, which lets you
       provide comments, citations…
       </p>
 
@@ -50,11 +50,11 @@
       are displayed.
       </p>
 
-      <h4>The <code>footnote-display</code> property</h4>
+      <h4>The <code>footnote-display</code> Property</h4>
       <p>
       The <code>footnote-display</code> property allows you to indicate if a
-      footnote element is display as a block element or as an inline element.
-      By default, footnotes are displayed as block element.
+      footnote element is displayed as a block element or as an inline element.
+      By default, footnotes are displayed as block elements.
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00020-footnote_display_block.png') }}" alt="Example of footnotes displayed as block" title="Block footnotes" />
@@ -69,14 +69,16 @@
         </figcaption>
       </figure>
 
-      <h4>The <code>footnote-policy</code> property</h4>
+      <h4>The <code>footnote-policy</code> Property</h4>
       <p>
       The <code>footnote-policy</code> property helps you to influence how to
       render difficult pages, like when a footnote falls near the bottom of a
       page and doesn’t fully fit.
       </p>
       <p>
-      By default, the user agent chooses how to render footnotes.
+      By default, the user agent chooses how to render footnotes, and
+      WeasyPrint decides to put the note on the next page when there is not
+      enough place on the current page.
       </p>
       <p>
       You can make the user agent introduce a forced page break at the start of
@@ -84,11 +86,11 @@
       so both the footnote reference and the footnote content go on the next page.
       </p>
       <p>
-      Or, you can make the user agent introduce a forced page break before the
+      You can also make the user agent introduce a forced page break before the
       paragraph that contains the footnote with the <code>block</code> value.
       </p>
 
-      <h4>The <code>::footnote-call</code> and the <code>::footnote-marker</code> pseudo-elements</h4>
+      <h4>The <code>::footnote-call</code> and the <code>::footnote-marker</code> Pseudo-Elements</h4>
       <p>
       The <code>::footnote-call</code> pseudo-element is the element inserted
       in the text to reference the footnote.
@@ -108,28 +110,29 @@
       <figure>
         <img src="{{ url_for('static', filename='images/00020-footnote_counter_styled.png') }}" alt="Example of footnote counter styled" title="Styled footnote counter" />
         <figcaption>
-        Footnote counter styled as upper-roman
+        Footnote counter styled as <code>upper-roman</code>
         </figcaption>
       </figure>
     </section>
 
     <section>
-      <h3>Limitations and undefined cases</h3>
+      <h3>Limitations and Undefined Cases</h3>
       <p>
       There are currently some limitations and undefined cases.
       </p>
       <p>
       The <code>footnote-display</code> property has a <code>compact</code>
-      value which lets the user agent to decide if a footnote is render as a
+      value that lets the user agent decide if a footnote is rendered as a
       block or inline element. This value isn’t supported by WeasyPrint.
       </p>
 
       <p>
-      If you have a look at the <a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">
-      footnote specification</a>, you can found the
-      <code>::footnote-marker::after</code> selector. This syntax doesn’t
-      work (yet) in WeasyPrint, but will be supported when <a href="https://www.w3.org/TR/selectors-4/">
-      Selectors Level 4</a> will be.
+      If you look at the <a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">
+      footnotes specification</a>, you can find the
+      <code>::footnote-marker::after</code> selector. This syntax containing
+      two pseudo-elements doesn’t work (yet) in WeasyPrint, but will be
+      supported with
+      <a href="https://www.w3.org/TR/selectors-4/">Selectors Level 4</a>.
       </p>
 
       <p>
@@ -139,8 +142,8 @@
       </p>
 
       <p>
-      This feature is available in the last WeasyPrint release: <a href="">v54</a>.
-      We hope that footnote support will be useful for you 😄!
+      Footnotes are available in the latest WeasyPrint release: <a href="">v54</a>.
+      We hope that they will be useful for you 😄!
       </p>
     </section>
   </article>
