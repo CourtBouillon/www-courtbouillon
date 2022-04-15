@@ -1,15 +1,6 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
-  <style>
-    @media (min-width: 920px) {
-      figure object {
-        display: inline-block;
-        width: 30%;
-      }
-    }
-  </style>
-
   <article>
     <header>
       <h2>WeasyPrint v55: Beta Time</h2>
@@ -199,7 +190,14 @@
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v55.0b1">beta</a> 💜.
       </p>
     </section>
-
   </article>
 
+  <style>
+    @media (min-width: 920px) {
+      figure object {
+        display: inline-block;
+        width: 30%;
+      }
+    }
+  </style>
 {% endblock content %}
