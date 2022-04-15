@@ -1,6 +1,14 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <style>
+    @media (min-width: 920px) {
+      figure object {
+        display: inline-block;
+        width: 30%;
+      }
+    }
+  </style>
 
   <article>
     <header>
@@ -8,9 +16,10 @@
       <aside><time datetime="2022-04-15">April 15, 2022</time>, by grewn0uille</aside>
       <p>
         WeasyPrint v55 is the next major version of WeasyPrint.
-        We released a <a href="">beta</a> so you can give it a try and help us to have a nice stable major release!
-        For this version, the main focus was performance improvement.
-        Let’s see what we got in this version!
+        We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v55.0b1">beta</a>,
+        you can give it a try and help us to have a nice stable major release!
+        For this version, the main focus was performance improvement. Let’s see
+        what we got in this version!
       </p>
     </header>
 
@@ -18,101 +27,114 @@
       <h3>Better performance</h3>
 
       <p>
-        The main goal of this version is to improve WeasyPrint performance 🌱.
+        The main goal of this version is to improve WeasyPrint’s performance 🌱.
       </p>
       <p>
-        For that, changes have been done in WeasyPrint on fonts management and column layout,
-        and also in cssselect2.
+        For that, changes have been done in WeasyPrint on fonts management, on
+        column layout and in cssselect2.
       </p>
 
       <h4>Fonts</h4>
       <p>
-        When a font is include into the PDF, only the needed informations about the font
-        are kept, which means font objects are now smaller.
+        When a font is included into the PDF, only the needed information of
+        the font is now kept, which means font objects are now smaller.
       </p>
       <p>
-        Many work for fonts is done with Harfbuzz and Pango libraries. Calls to these librairies
-        have been reduced, which makes font treatment faster. This improvement is particulary
-        useful for large document using always using a same <code>@font-face</code>.
+        Most of the work for text is done with Harfbuzz and Pango libraries.
+        Calls to these librairies have been reduced, improving the font
+        treatment speed. This improvement is particulary useful for large
+        documents always using a same <code>@font-face</code>.
       </p>
       <p>
-        Another improvement for font is with the <code>ch</code> and <code>ex</code> units.
-        A cache is now used to store ch and ex ratios. With this enhancement, font management
-        of large documents using these units becomes faster.
+        Another improvement for font management is related to the
+        <code>ch</code> and <code>ex</code> units, whose absolute sizes are now
+        cached. With this enhancement, rendering large documents using these
+        units a lot is now really faster.
       </p>
 
       <h4>Column layout</h4>
       <p>
-        The column layout algorithm has been changed 🤓.
+        The column layout algorithm has been changed 🤓.
       </p>
       <p>
-        Before, this algorithm was rendering column’s content regardless of the free height remaining
-        on a page, and tried to find a nice height steps by steps.
+        A massive performance improvement is visible when you have columns
+        split among multiple pages: instead of slowly increasing the column
+        height, WeasyPrint now directly uses all the available height when the
+        content doesn’t fit in the page.
       </p>
       <p>
-        Now, the column layout algorithm takes into account the current height remaining on a page.
-      </p>
-      <p>
-        With this change, column layout is faster.
+        If you generate long documents with columns, you should give this new
+        version a try!
       </p>
 
       <h4>cssselect2</h4>
       <p>
-        The main change in cssselect2 <a href="">new version</a> is how ancestors are calculated
-        for each HTML element 🧓.
+        The main change in cssselect2
+        <a href="https://github.com/Kozea/cssselect2/releases/tag/0.6.0">new version</a>
+        is about how ancestors are calculated for each HTML element 🧓.
       </p>
       <p>
-        When a CSS selector composed with a space is encounter on an HTML element, we need
-        to get all its ancestors. Before we used to reparse all the tree to get all of them.
-        Now, the ancestors of an element is directly store in an attribute when created
-        and so we avoid useless calculation.
+        When a CSS selector composed with a space is encountered on an HTML
+        element, we need to get all its ancestors. Before, we used to go
+        through the whole tree to get all of them, multiple times. Now, the
+        element’s ancestors are directly cached when needed to avoid useless
+        calculation.
+      </p>
+      <p>
+        The same improvement has been included to cache previous siblings,
+        used in the <code>:nth-child</code> selector (among others).
       </p>
 
 
       <h4>Performance graphs</h4>
       <p>
-        To illustrate these performance improvement, let’s have a look at the following graphs
-        (everybody likes graphs 📊, no?).
+        To illustrate these performance improvement, let’s have a look at the
+        following graphs (everybody likes graphs 📊, don’t you?)
       </p>
       <p>
-        You can find the documents used for these in the <a href="https://github.com/Kozea/WeasyPerf">WeasyPerf repository</a>.
+        You can find the documents used for these on the
+        <a href="https://kozea.github.io/WeasyPerf/">WeasyPerf page</a>.
       </p>
       <figure>
-        <img src="{{ url_for('static', filename='images/00021-columns.png') }}" alt="Graphs performances with columns layout" title="Graphs performances with columns layout" />
+        <object data="{{ url_for('static', filename='images/00021-columns-memory.svg') }}" alt="Memory for columns"></object>
+        <object data="{{ url_for('static', filename='images/00021-columns-speed.svg') }}" alt="Speed for columns"></object>
+        <object data="{{ url_for('static', filename='images/00021-columns-size.svg') }}" alt="PDF size for columns"></object>
         <figcaption>
           Memory and time used for the PDF generation and PDF size comparison
-          between WeasyPrint v54.3 and v55 beta on a <a href="">columns layout document</a>.
+          between WeasyPrint v54.3 and v55.0 beta on a
+          <a href="https://kozea.github.io/WeasyPerf/samples/columns/columns.html">document with columns</a>.
         </figcaption>
       </figure>
       <figure>
-        <img src="{{ url_for('static', filename='images/00021-fonts.png') }}" alt="Graphs performances with many fonts" title="Graphs performances with many fonts" />
+        <object data="{{ url_for('static', filename='images/00021-fonts-memory.svg') }}" alt="Memory for fonts"></object>
+        <object data="{{ url_for('static', filename='images/00021-fonts-speed.svg') }}" alt="Speed for fonts"></object>
+        <object data="{{ url_for('static', filename='images/00021-fonts-size.svg') }}" alt="PDF size for fonts"></object>
         <figcaption>
           Memory and time used for the PDF generation and PDF size comparison
-          between WeasyPrint v54.3 and v55 beta on a <a href="">document using many fonts</a>.
+          between WeasyPrint v54.3 and v55.0 beta on a
+          <a href="https://kozea.github.io/WeasyPerf/samples/fonts/fonts.html">document using many fonts</a>.
         </figcaption>
       </figure>
       <figure>
-        <img src="{{ url_for('static', filename='images/00021-large-doc.png') }}" alt="Graphs performances with large document" title="Graphs performances with large document" />
+        <object data="{{ url_for('static', filename='images/00021-doc-memory.svg') }}" alt="Memory for doc"></object>
+        <object data="{{ url_for('static', filename='images/00021-doc-speed.svg') }}" alt="Speed for doc"></object>
+        <object data="{{ url_for('static', filename='images/00021-doc-size.svg') }}" alt="PDF size for doc"></object>
         <figcaption>
           Memory and time used for the PDF generation and PDF size comparison
-          between WeasyPrint v54.3 and v55 beta on a <a href="https://github.com/Kozea/WeasyPerf/tree/master/samples/doc">large document</a>.
+          between WeasyPrint v54.3 and v55.0 beta on a
+          <a href="https://kozea.github.io/WeasyPerf/samples/doc/doc.html">documentation page</a>.
         </figcaption>
       </figure>
 
       <p>
-        Depending the documents, memory and time used during the PDF generation have been improved, as the size of the generated PDF.
+        For these documents, memory and time used during the PDF generation
+        have been improved, and the size of the generated PDF got down. That’s
+        also the case for most of the documents we tested.
       </p>
       <p>
-        PDF generation uses between ~8% to ~15‰ less memory and is between ~18% to ~75% faster.
-      </p>
-      <p>
-        The size of the PDF produced is now ~4‰ to ~21% smaller.
-      </p>
-
-      <p>
-        These results are nice to have an indication on how the different improvements
-        are efficient. But to have the results according to your documents, trying the
-        beta is the best 😉!
+        These results are nice to have an indication on how the different
+        improvements are efficient. But to have the results related to your
+        documents, trying the beta is the best solution 😉!
       </p>
     </section>
 
@@ -120,13 +142,14 @@
       <h3>And More…</h3>
 
       <p>
-        Besides performance improvements, new features and bug fixes come in this version 🎉!
+        Besides performance improvements, new features and bug fixes come in
+        this version 🎉!
       </p>
       <ul>
         <li>
           <code>break-before</code>, <code>break-inside</code> and <code>break-after</code> properties
-          <a href="https://github.com/Kozea/WeasyPrint/issues/489">supports <code>column</code> and <code>avoid-column</code> values</a>.
-          This means you can now prevent or force break before, inside or after column!
+          <a href="https://github.com/Kozea/WeasyPrint/issues/489">support <code>column</code> and <code>avoid-column</code> values</a>.
+          This means you can now prevent or force breaks before, inside or after columns!
         </li>
         <li>
           Value <code>inherit</code> is now <a href="https://github.com/Kozea/WeasyPrint/pull/1524">supported for shorthand properties</a>.
@@ -134,16 +157,20 @@
           <code>text-decoration-line</code> and <code>text-decoration-style</code> to <code>inherit</code>.
         </li>
         <li>
-          Speaking about <code>text-decoration</code>, <a href="https://github.com/Kozea/WeasyPrint/issues/1621">multiple value
-          are now applied more correctly</a> than it used to be!
+          Speaking about <code>text-decoration</code>,
+          <a href="https://github.com/Kozea/WeasyPrint/issues/1621">nested values are now applied more correctly</a>
+          than previously!
         </li>
         <li>
-          Various issues with columns have been fixed, like
+          Various issues with columns have been fixed and tested, like
           <a href="https://github.com/Kozea/WeasyPrint/issues/1604">page duplication</a> and
           <a href="https://github.com/Kozea/WeasyPrint/issues/1020">infinite loops</a>.
         </li>
         <li>
-          And also, SVG and column layouts got more tests!
+          Embedded fonts now include weight and style in their names, separated by cute hyphens.
+        </li>
+        <li>
+          The SVG layout got new tests and many small fixes.
         </li>
       </ul>
 
@@ -151,7 +178,8 @@
       <p>
         Thanks a lot to
         <a href="https://github.com/Kozea/WeasyPrint/graphs/contributors">our wonderful contributors</a>
-        for their hard work on this release, performance improvement can be tricky 💜.
+        (and especially to aschmitz) for their hard work on this release.
+        Performance improvements can be tricky 💜.
       </p>
     </section>
 
@@ -159,14 +187,16 @@
       <h3>What Are the Next Steps?</h3>
 
       <p>
-        The next step is for you! Don’t hesitate to try this beta and report bugs you
-        may found 🐞!
+        The next step is yours! Don’t hesitate to try this beta and report bugs you
+        may find 🐞.
       </p>
       <p>
-        The next one is to fix the bugs reported and release a nice WeasyPrint v55.
+        The one after is to fix the reported bugs and release a nice WeasyPrint
+        version 55.
       </p>
       <p>
-        Have fun with this <a href="">beta</a> 💜.
+        Have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v55.0b1">beta</a> 💜.
       </p>
     </section>
 
