@@ -1,0 +1,282 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Goodbye, Web Diversity</h2>
+      <aside><time datetime="2022-06-16">June 16, 2022</time>, by liZe</aside>
+      <p>
+        Do you read this post on Google Chrome? Statistically, it’s highly
+        probable. And if you’re on another browser, don’t worry, you won’t have
+        the choice for long…
+      </p>
+    </header>
+
+    <section>
+      <h3>Standards Win</h3>
+
+      <p>
+        For those of you who grew up during the last century, "Internet
+        Explorer" is a name that can you can link to a small
+        <a href="https://en.wikipedia.org/wiki/Internet_Explorer#/media/File:Internet-explorer.png">blue icon</a>
+        on which you had to double-click to "surf the world wide web", or that
+        makes you remember endless distress hours (I mean it) developing a
+        website able to be displayed on this perfectly demoniac software
+        creation.
+      </p>
+
+      <p>
+        For those of you who barely know the name, here is a short history
+        class: in 2000, the web slowly invades personal computers all around
+        the world. To browse the web, a tool is largely used: Microsoft’s
+        Internet Explorer. It’s quite easy to use, but it comes with a bad
+        reputation: it’s known to be awful at drawing websites correctly. And
+        it’s not only a reputation. Nobody knows how it works, and creating
+        websites requires hours of testing (and black magic) to get a pretty
+        random rendering.
+      </p>
+
+      <p>
+        In 2004, Internet Explorer reaches more than 95% of market share, and
+        squishes its challenger of the time, Netscape. At this moment,
+        Microsoft is almighty and doesn’t really work on its browser: Internet
+        Explorer 6 has been released in 2001 and will not evolve during 5 long
+        years, keeping its bugs and its limits. After all, why changing
+        something that "works", as all the largest websites of the world are
+        already "optimized for Internet Explorer?"
+      </p>
+
+      <p>
+        Nothing can possibly happen to Microsoft. Users are captive, even more
+        because it’s really hard to create websites that work correctly on both
+        Internet Explorer and other browsers. But…
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00025-firefox-ie.png') }}"
+             title="Hi losers, keep on fighting for nothing!"
+             alt="A cake sent by Microsoft to Mozilla for the release of Firefox 2" />
+        <figcaption>
+          A cake sent by Microsoft to Mozilla for the release of Firefox 2 in
+          2006. The first of a long series of cakes sent by browsers creators…
+        </figcaption>
+      </figure>
+
+      <p>
+        However, in only 6 years, this share market will unavoidably drop under
+        50%, because of two valorous competitors: first Firefox, then Chrome.
+        The browsers try to live together as best as they can, and even if the
+        challenge is complex it is still possible thanks to one huge detail:
+        standards.
+      </p>
+
+      <p>
+        The <a href="https://www.w3.org/">W3C</a> is a consortium whose mission
+        is to define some web standards, like HTML and CSS. Some big companies,
+        including Microsoft, Mozilla, Google and Apple (developing Internet
+        Explorer, Firefox, Chrome and Safari) discuss around features to add,
+        formats syntaxes, and rendering rules of web pages. These standards are
+        free and allow everybody to create interoperable tools.
+      </p>
+
+      <p>
+        This interoperability is crucial while developing the web. Many
+        browsers flourish, and they’re not alone anymore: a myriad of services
+        use protocols, formats and tools used by the web. All this technology
+        is tested, diverted and improved in a joyful bazaar that is the root of
+        a vast majority of the Internet services used today. This is only
+        possible because these tools use the same languages, and these
+        languages are defined by big actors talking together to define
+        transparent standards.
+      </p>
+
+      <p>
+        Standards win. At least they once did.
+      </p>
+    </section>
+
+    <section>
+      <h3>All Against One, One Against All</h3>
+
+      <p>
+        Don’t claim victory too early, because the fateful history repeats
+        itself.
+      </p>
+
+      <p>
+        The irresistible rise of Internet Explorer wasn’t only due to its
+        performance (coughing, coughing). Microsoft, by installing its
+        browser on all the computers running Windows, did easily get a large
+        part of users. It then meanly tried to trick its users to keep its
+        monopoly:
+        <a href="https://en.wikipedia.org/wiki/Removal_of_Internet_Explorer">no way to uninstall Internet Explorer</a>,
+        <a href="https://en.wikipedia.org/wiki/ActiveX">integration of closed Windows-based technologies</a>,
+        <a href="https://muffinman.io/blog/ie6-hacks-ten-years-after/">obvious incompatibilities with the other tools</a>…
+      </p>
+
+      <p>
+        Today, in 2022, the actors changed but the situation didn’t.
+      </p>
+
+      <p>
+        Chrome became an insatiable beast. On computers, it’s over 70% of
+        market share. But there’s more:
+        <a href="https://brucelawson.co.uk/2013/hello-blink/">Opera</a> and
+        <a href="https://blogs.windows.com/windowsexperience/2018/12/06/microsoft-edge-making-the-web-better-through-more-open-source-collaboration/">Microsoft</a>
+        dropped their own rendering engines and use Chrome’s one instead,
+        transforming Opera and Edge into sad Chrome clones. Together, they
+        probably render more than 85% of the web pages on computers. Only
+        Safari, largely used by iPhone owners
+        (<a href="https://developer.apple.com/app-store/review/guidelines/#2.5.6">do they have the choice?</a>),
+        is pretty stable with 20% of smartphone users.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00025-edge-chromium.jpg') }}"
+             title="Thanks for the gift, you largely deserve this cake"
+             alt="A cake sent by Google to Microsoft for the release of the first Chromium-based version of Edge" />
+        <figcaption>
+          A cake sent by Google to Microsoft for the release of the first
+          Chromium-based version of Edge. Who is really offering a gift to
+          the other?
+        </figcaption>
+      </figure>
+
+      <p>
+        Why? Chrome is a good browser, for sure. Google invested a lot of
+        energy, time and money to make Chrome the good tool it is, way better
+        than what Internet Explorer ever was. Everybody agrees on that, but…
+        Maybe the reality is a bit more complex than that.
+      </p>
+    </section>
+
+    <section>
+      <h3>The Technological Trojan Horse</h3>
+
+      <p>
+        First of all, as explained in the
+        <a href="{{ url_for('blog', article='00022-we-need-to-save-the-web') }}">previous article</a>,
+        Google used a lot of advertisements to praise the merits of its
+        browser. This operation is not technically illegal, but when the
+        browser is advertised for free on the most popular website of the
+        world, it may be seen as an abuse of dominant position.
+      </p>
+
+      <p>
+        And there’s more.
+      </p>
+
+      <p>
+        Google is very powerful, even when we don’t really see it. Regularly,
+        Google adds <a href="https://en.wikipedia.org/wiki/HTTP/2">new features</a> to
+        Chrome, new features that it created itself. It can take some time to
+        have them specified, in order to remain the bright knight of this
+        fabulous story, but it actually installs its technical superiority by
+        implementing its own technologies quickly in Chrome. Other browsers can only
+        <a href="https://en.wikipedia.org/wiki/HTTP/2#Criticisms">criticize and follow</a>…
+      </p>
+
+      <p>
+        After all, why not? These technologies will only become popular if they
+        are good, won’t they? Well… Not exactly. Chrome owns
+        <a href="https://developers.google.com/speed/pagespeed/insights/">tools that define the "quality" of websites</a>.
+        You don’t want to use what Google thinks is good? Your grade will drop.
+        You didn’t use this feature Google developed? Google will judge your
+        pages negatively.
+      </p>
+
+      <p>
+        After all, why not? That’s only a bad grade… That’s true, but when we
+        remember that Google’s opinion on your website will change its rank on
+        the search page, the choice becomes more and more difficult. Will you
+        ignore this technology that’s useless for you, even if it means that
+        you’ll be harder to find on search engines? Will you let your opponents
+        pass you by if they use the wonderful toys created by Google?
+      </p>
+
+      <p>
+        After all, why not? You’ll keep your conscience clear. At least if you
+        don’t depend on advertisement revenues from Google, that will oblige
+        you to fulfill its technological dreams. And if you keep on avoiding
+        other Google tools, like Maps for example. And if you accept
+        <a href="https://twitter.com/johnath/status/1116871243301625856">some little artificial problems in the layout and the compatibility</a>.
+        And if you accept the unfortunately degraded performances of Google
+        tools on competing browsers. And… The list is endless.
+      </p>
+
+      <p>
+        OK. Well… Let’s use
+        <a href="https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea">questionable technologies, quickly and dirtily developed by Google</a>,
+        it’s not that bad. Let’s develop a website that’s "optimized for Google Chrome."
+      </p>
+
+      <p>
+        It’s not bad for you. But it’s becoming to be bad for the people in
+        charge of implementing browsers and web tools. How is it possible to
+        keep up with the fast pace of Google, that has an incredible manpower
+        dedicated to implement the technologies it created and specified? How
+        is it possible to quickly include, in other code bases, features
+        designed to match Google tools’ internals?
+      </p>
+
+      <p>
+        By force of circumstances, you turn other browsers into second-class
+        tools.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00025-ie-mozilla.jpg') }}"
+             title="Hi fellas! Let’s work together, because in a few year we’ll disappear."
+             alt="A cake sent by Mozilla to Microsoft for the release of Internet Explorer 10" />
+        <figcaption>
+          A cake sent by Mozilla to Microsoft for the release of Internet
+          Explorer 10. Sending cakes is nice, but they won’t prevent you both
+          from being destroyed soon.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h3>The Trap</h3>
+
+      <p>
+        Yes. Google misuses its dominant position, on purpose or not. Why are
+        they so bad? And are they actually bad? It’s hard to say.
+      </p>
+
+      <p>
+        Google is one of the companies that made Internet Explorer fall from
+        its unbeatable position. They were behind
+        <a href="https://blog.chriszacharias.com/a-conspiracy-to-kill-ie6">a conspiracy to kill IE6</a>.
+        Google openly criticized the hegemonic position of Microsoft, when it
+        only was a challenger. But now that the company is above the other
+        ones, it uses the exact same tricks it was denouncing.
+      </p>
+
+      <p>
+        Fun fact: more than 10 years ago
+        <a href="https://www.theregister.com/2009/05/11/ms_slings_rocks_at_google/">Microsoft was afraid that Google would be in a monopoly position</a>.
+      </p>
+
+      <p>
+        The problem is not in the companies, that would be good or bad. It is
+        in their positions, that gives them the power to enforce their choices,
+        strengthening their positions in an endless loop. This power will lead
+        them to their downfall, one day, in one way or another. But we would
+        highly benefit from not spending years in the darkness until them.
+      </p>
+
+      <p>
+        What can we do?
+      </p>
+
+      <p>
+        Be patient! We’ll try to find some hope in the next article.
+      </p>
+
+      <p>
+        <em>To be continued…</em>
+      </p>
+    </section>
+  </article>
+{% endblock content %}
