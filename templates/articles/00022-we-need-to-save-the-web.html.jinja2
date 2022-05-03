@@ -1,0 +1,269 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>We Need to Save the Web</h2>
+      <aside><time datetime="2022-04-15">April 15, 2022</time>, by liZe</aside>
+      <p>
+        OK, the title is a bit dramatic, but we have to face it: the situation
+        is serious in the small world of web browsers. Little by little, users
+        lose what should be theirs. And if you’re reading this, it means that
+        you’re one of the users.
+      </p>
+    </header>
+
+    <section>
+      <h3>When David Becomes Goliath</h3>
+
+      <p>
+        The old web was better.
+      </p>
+
+      <p>
+        Of course, that’s not true. I’m exaggerating, I know that.
+      </p>
+
+      <p>
+        We won’t forget the pain of our ancestors of the twentieth century, we
+        won’t sink in a blinding and short-sighted nostalgia, here’s what the
+        web was in before 2000:
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00022-amazon.webp') }}"
+             title="Tidoooo, tidoooo (that’s the noise of the modem)"
+             alt="A screenshot of Amazon in 1995" />
+        <figcaption>
+          Amazon, 1995. That’s ugly, you’re right. And it was actually hard to
+          reach this page, as Google didn’t exist. But, as less than 100 000
+          websites were online, well… (Other images can be found on the excellent
+          <a href="https://www.versionmuseum.com/">Version Museum</a>.)
+        </figcaption>
+      </figure>
+
+      <p>
+        At the time, Amazon was almost nothing more than a library. What’s more
+        harmless than a library? What’s more beautiful than spreading books
+        and knowledge at small price? "One million titles, consistently low
+        prices." And at the same time, "Earth’s biggest bookstore."
+      </p>
+
+      <p>
+        This very same company is today accused of a lot of things: destroying
+        small libraries, impoverishing small businesses, humiliating
+        supermarket distribution, destroying employment, globalizing culture,
+        and event forcing its drivers to
+        <a href="https://www.nbcnews.com/business/business-news/amazon-acknowledges-issue-drivers-urinating-bottles-apology-congressman-n1262965">urinate in bottles</a>
+        to keep on delivering packages on time.
+      </p>
+
+      <p>
+        What happened in between? It’s quite simple: Amazon grew up. Amazon
+        became gigantic. Amazon turned into a monster who ate everything.
+      </p>
+
+      <p>
+        You’ve heard this story many times. The small startup, the guy in the
+        garage eating pizzas, the nights spent in front of a cathodic computer
+        screen, the exponential growth, the benefits on economy, employment,
+        science, culture…
+      </p>
+
+      <p>
+        This story is beautiful. It’s
+        <a href="https://en.wikipedia.org/wiki/Survivorship_bias">incredibly biased</a>,
+        but it’s beautiful, it’s appealing. And for reluctant communists we use
+        appropriated
+        <a href="https://en.wikipedia.org/wiki/Unicorn_(finance)">lexical trickery</a>
+        to put the idea deep in everybody’s mind. This story is beautiful,
+        that’s it.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00022-survivor.svg') }}"
+             title="Our enemies are so stupid that they miss our reactors…"
+             alt="Damaged parts of planes back from the front" />
+        <figcaption>
+          Canonical example of the survivorship bias. In order to improve planes,
+          it’s important to armor them where they have <strong>not</strong> been hit:
+          this image doesn’t show where planes are not hit, it shows where the
+          lost planes have been hit. It’s so counter-intuitive that it required
+          an important statistician, Abraham Wald, to be understood. But well,
+          knowing that doesn’t prevent some medias from praising the
+          meritocratic propaganda of the web giants.
+        </figcaption>
+      </figure>
+
+      <p>
+        Amazon is not alone. A lot of web giants like to talk about
+        <a href="https://about.google/intl/en_us/our-story/">their modest origin</a>
+        and
+        <a href="https://news.microsoft.com/about/">their amazing journey</a>.
+        Giants are big, for sure, but they used to be small. They changed the
+        world, and it worked because the world was needing them. They deserve
+        this, because they’re
+        <a href="https://www.apple.com/privacy/">on the user’s side</a>.
+      </p>
+
+      <p>
+        This story is appealing… Until when?
+      </p>
+    </section>
+
+    <section>
+      <h3>Utopia</h3>
+
+      <p>
+        This startup story is not the only matrix story appealing for the
+        computer science, for Internet, for the web. At an early stage, voices
+        rose to fight against the greedy appetite of countries. The
+        <a href="https://en.wikipedia.org/wiki/A_Declaration_of_the_Independence_of_Cyberspace">Declaration of the Independence of Cyberspace</a>,
+        before the birth of the <a href="https://www.eff.org/about">EFF</a>,
+        is an important cornerstone of this awareness.
+      </p>
+
+      <p>
+        Countries are greedy, and so are companies. The unavoidable raise of
+        the merchandising of the web has not always been seen as good news, for
+        example
+        <a href="http://www.uzine.net/article60.html">in France for some pioneers of the web</a>.
+      </p>
+
+      <p>
+        Because at the beginning, the web is not really a capitalist thing.
+        <a href="https://en.wikipedia.org/wiki/World_Wide_Web#History">Created by scientists, put in the public domain on purpose</a>,
+        the web and its tools are far from interesting for people looking for a
+        fast profitability. Another speech, prevailing while nobody was caring,
+        presented the web as
+        <a href="https://fredturner.stanford.edu/books/from-counterculture-to-cyberculture/">the transfer of a hippie community into the cyberspace</a>.
+        Borderless, unbidden, decentralized, it was supposed to be a space of
+        freedom and to transform us into actors, not customers.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00022-microsoft.jpg') }}"
+             title="Cheese!"
+             alt="Microsoft in 1975" />
+        <figcaption>
+          Long hair, sunglasses, impressive beards… We’re not in Woodstock, but
+          in the group photo of the first Microsoft employees, at the end of
+          the seventies.
+        </figcaption>
+      </figure>
+
+      <p>
+        This hope for emancipation is not a view of the mind.
+        <a href="https://www.letemps.ch/opinions/quest-devenu-linternet-libertaire-debut">As explained by its "creator"</a>,
+        the web included in its original idea the seed of happy horizontality.
+        The tool, used by enlightened people, was supposed to bring them to
+        creativity and freedom.
+      </p>
+
+      <p>
+        By the way, opposing libertarian hippies and greedy capitalists is
+        particularly inappropriate here: they are the same people. We can for
+        example quote the public interest of
+        <a href="https://en.wikipedia.org/wiki/Steve_Jobs">Steve Jobs</a> for
+        LSD, and the importance given to mysticism through his life.
+      </p>
+
+      <p>
+        And Steve Jobs is not alone: we can enjoy Bill Gates "confessions"
+        about his youth experiences in Playboy, enjoy the openly progressive
+        position of Richard Branson on drugs, enjoy the incomparable Elon
+        Musk’s antics. It’s easy to understand how the same people have been
+        able to navigate between these two ideals depending on their personal
+        and professional situations.
+      </p>
+
+      <p>
+        The creators of the web giants grew up during a period and in an
+        atmosphere suitable for sharing. They also achieved to create a kind of
+        community. Even the word "community" is largely
+        <a href="https://about.instagram.com/community">adopted by digital platforms</a>,
+        as it was adopted by hippy communities. Then, should we be surprised
+        when streamers talk about their "communities" on (Amazon’s) Twitch,
+        while the world was, a few decades ago, referring kolkhozes, kibbutzes
+        and other artifacts of the soviet ideology?
+      </p>
+
+      <p>
+        Maybe the "old web" simply died because its glorious creators fulfilled
+        their dreams and seamlessly adapted their values. But then, what should
+        we "save" the web from? Should we fight its original figures who were
+        so successful?
+      </p>
+    </section>
+
+    <section>
+      <h3>Black Is Black</h3>
+
+      <p>
+        What should we save the web from?
+      </p>
+
+      <p>
+        After all, it’s totally OK to be professionally successful, even if
+        some values have to be adapted. These big companies changed the world,
+        and doing so they improved employment, wealth, science, technology.
+        What’s the problem?
+      </p>
+
+      <p>
+        We could talk for a long time of advertising problems, of systemic
+        digital filing, of growing fake news. We could also indicate that these
+        unicorns hugely rely on public infrastructure while being the masters
+        of tax "optimization."
+      </p>
+
+      <p>
+        Let’s look at the big picture. Beyond political affinities, some
+        behaviors can’t be tolerated. Even the United States of America, more
+        liberal than socialist, can
+        <a href="https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.">fight against its own big companies</a>.
+        These situations are not unbearable only for end users, they also are
+        for economy. Then, different voices raise, and finally reach the
+        courts.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00022-chrome.png') }}"
+             title="Why would you use something else when you could dependent on us even more?"
+             alt="Advertisement for Google Chrome on Google’s front page" />
+        <figcaption>
+          Google didn’t hesitate for long to use its monopoly on search engines
+          to drive people to use Chrome, their own browser, with advertisements
+          on the most popular web page of the world.
+        </figcaption>
+      </figure>
+
+      <p>
+        Now, for these big companies who split the web like a cake with their
+        services, the most important thing is not the time spent online by
+        their "customers." What’s really important is to
+        <strong>change the web for their own interest.</strong> They have to
+        shrink the user’s power, and to deploy their own agenda. Not
+        necessarily for the public interest, as we’ll see later.
+      </p>
+
+      <p>
+        That’s what we need to save the web from.
+      </p>
+
+      <p>
+        The old web wasn’t better. But, when we think twice, the future web may
+        be worse.
+      </p>
+
+      <p>
+        Here we are. The introduction is over. Did you find the title of this
+        article a bit too dramatic? You’ll be surprised by the next one.
+      </p>
+
+      <p>
+        <em>To be continued…</em>
+      </p>
+    </section>
+  </article>
+{% endblock content %}
