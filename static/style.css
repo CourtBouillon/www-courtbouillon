@@ -46,7 +46,7 @@ html {
   background: var(--white);
   color: var(--black);
   font-family: ClarityCity, sans-serif;
-  font-size: 13pt;
+  font-size: 14pt;
   line-height: 1.5;
   overflow-x: hidden;
 }
@@ -132,7 +132,7 @@ body > header nav {
   box-sizing: border-box;
   font-size: 1.25em;
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: 50rem;
   padding: 1rem;
   position: relative;
   width: 100%;
@@ -258,7 +258,7 @@ main > * {
   box-sizing: border-box;
   flex: 1;
   margin: 0 auto;
-  max-width: 60em;
+  max-width: 50rem;
   padding: 1rem 2rem;
   position: relative;
   width: 100%;
@@ -313,7 +313,7 @@ footer {
   display: flex;
   justify-content: space-evenly;
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: 50rem;
   min-height: 7rem;
   padding: 2rem 0;
   width: 100%;
@@ -559,7 +559,7 @@ footer ul {
 
 @media (min-width: 921px) {
   .presentation {
-    margin: 2em 10em;
+    margin: 2em 6em 4em;
   }
 }
 
