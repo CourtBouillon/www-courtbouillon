@@ -1,0 +1,140 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint 55 Has Been Released</h2>
+      <aside><time datetime="2022-05-12">May 12, 2022</time>, by liZe</aside>
+      <p>
+        Version 55 of WeasyPrint has been released. The last bugs of the beta
+        version have been fixed, it’s time for you to install and enjoy the new
+        features of this latest major version.
+      </p>
+    </header>
+
+    <section>
+      <h3>What’s New?</h3>
+
+      <h4>Visible Features</h4>
+      <p>
+        As explained in the
+        <a href="{{ url_for('blog', article='00021-weasyprint-55-beta') }}">previous article</a>,
+        WeasyPrint has been improved in different fields:
+      </p>
+      <ul>
+        <li><strong>Performance</strong>, with improved speed and document size;</li>
+        <li><strong>Columns</strong> can be finely managed and are more solid in many corner cases;</li>
+        <li><strong>Shorthand properties</strong> handle the <code>inherit</code> value;</li>
+        <li><strong>Text decoration</strong> is correctly applied for nested values;</li>
+        <li><strong>Embedded fonts</strong> are smaller and have nice names;</li>
+        <li><strong>Absolute boxes</strong> are correctly positioned in right-to-left;</li>
+        <li><strong>SVG images</strong> got new tests and small fixes.</li>
+      </ul>
+      <p>
+        That’s nice, isn’t it?
+      </p>
+
+      <h4>Invisible Work</h4>
+      <p>
+        A lot of work has been done for these features, for sure, but that’s
+        only the tip of the iceberg: apart from these visible improvements, we
+        tirelessly continue to work on more obscure (but not less important)
+        topics.
+      </p>
+      <p>
+        <strong>Tests are a good example of these invisible tasks.</strong> 31
+        issues have been closed, but fixing bugs is not enough: we have to test
+        fixed cases, so that bugs don’t come back. Non-regression tests are
+        really important to have the proof that the bug is actually fixed, and
+        to detect future problems that may be involuntary introduced.
+      </p>
+      <p>
+        We also have to prevent new bugs from appearing. That’s why we
+        regularly add tests to cover more and more corner cases. Finding code
+        that’s not covered by test is a good way to find bugs: code that’s
+        tested doesn’t necessarily work, but code that’s not tested is
+        undoubtedly rotting with time!
+      </p>
+      <p>
+        The number of tests has increased from 1,861 to 1,969 between versions
+        54 and 55, but we’re lucid: having more code for tests than for
+        WeasyPrint itself (yes, really) doesn’t prevent users from finding bugs!
+        However, we also know that this work is important to keep a high
+        quality of code and give our users the best experience when they update
+        WeasyPrint.
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Coming Next?</h3>
+
+      <h4>Layout</h4>
+      <p>
+        Footnotes, rendering speed and smaller PDFs were among
+        <a href="{{ url_for('blog', article='00010-weasyprint-survey-2021') }}">the most important topics for your users</a>.
+        We have worked on this during the previous versions, but it’s now time
+        to work on the number one feature of this survey: grid layout.
+      </p>
+      <p>
+        <strong>Grid layout</strong> has been largely used since its official
+        implementation in major browsers in 2017. The possibility to use a
+        tabular presentation without using HTML tables is a great improvement
+        for layout flexibility and semantic structure of the content, and
+        having this feature will greatly help users to use the same layout for
+        both their printed documents and their online pages.
+      </p>
+      <p>
+        Implementing the support of the grid layout will take time (and hard
+        work, including endless hours reading the specification!), but we think
+        that it’s the right moment: we will highly benefit from some the recent
+        previous improvements, specifically from the new page-breaking
+        possibilities for non-standard layouts.
+      </p>
+      <p>
+        This low-level work on the layout was important to be able to support
+        grid, but it also gives nice possibilities for other out-of-the-flow
+        layouts. Columns support has been largely improved in version 55 and
+        will be improved again in version 56. And columns are not alone:
+        <strong>Flexbox support</strong>, that has always been limited,
+        <strong>will also be improved</strong> to reach the quality levels we
+        want to provide.
+      </p>
+
+      <h4>Surprises</h4>
+      <p>
+        Last but not least: <strong>the next version will also include features
+        sponsored by some of our clients.</strong> Which features? That’s a
+        surprise, stay tuned!
+      </p>
+      <p>
+        During version 55, many bug fixes and features have been included
+        thanks different clients who had specific needs for their projects.
+        We’ve been glad to help them designing gorgeous documents and solve
+        problems related to paged media. It’s always a pleasure to see that
+        these improvements will benefit to all our users. We’re proud of this
+        model of collaboration, and we’ll proudly continue to bring the best of
+        our skills to companies that share these values.
+      </p>
+      <p>
+        <strong>We also want to thank
+        <a href="https://opencollective.com/courtbouillon#section-contributors">our sponsors and our bakers</a>:</strong>
+        they really help us to spend the time needed to manage the everyday
+        work. Triaging issues, updating continuous integration, improving
+        documentation, reviewing pull requests (by our lovely contributors 💜)…
+        These tasks are really important to keep the project sane and clean!
+        So, don’t hesitate to
+        <a href="https://opencollective.com/courtbouillon">help us</a> if you
+        use WeasyPrint and like the work done so far: each financial
+        contribution is important for us.
+      </p>
+
+      <h4>Your Turn!</h4>
+      <p>
+        Now that version 55 has been released, it’s time for you to update
+        WeasyPrint! <strong>We really hope that you’ll enjoy the new features
+        of this new version.</strong> Don’t hesitate to report bugs, ask for new
+        features, or just say that everything works well for you … we’ll be
+        happy to answer, as usual!
+      </p>
+    </section>
+{% endblock content %}
