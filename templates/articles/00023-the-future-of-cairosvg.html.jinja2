@@ -1,0 +1,195 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>The Future of CairoSVG</h2>
+      <aside><time datetime="2022-05-19">May 19, 2022</time>, by grewn0uille</aside>
+      <p>
+        After some times of doubts and questioning about the future of CairoSVG, we made
+        a survey to know what the current users would like and expect.
+        This article presents the results of this survey and what is coming for CairoSVG.
+      </p>
+    </header>
+
+    <section>
+      <h3>Why a Survey?</h3>
+
+      <p>
+        For a long time, CairoSVG has been used by WeasyPrint when it was relying
+        on cairo to render SVG, PNG and PDF. Cairo is nice but it brought some
+        limitations and bugs in WeasyPrint.
+      </p>
+      <p>
+        Because of these bugs and limitations, we removed this dependency from
+        WeasyPrint by developing our own <a href="{{ url_for('blog', article='000008-weasyprint-53-beta') }}">low-level PDF engine</a>.
+        Most of CairoSVG’s code was then adapted to work with this new engine
+        and was included into WeasyPrint.
+      </p>
+      <p>
+        Since this big change, we didn’t really use CairoSVG anymore, and it was
+        thus hard for us know where to lead this project or what would be nice
+        to have when using CairoSVG.
+      </p>
+      <p>
+        We could have some ideas by looking at the issues on GitHub, but it didn’t
+        really reflect the majority of users. Thus, we decided to made a survey to
+        ask directly these users 🔎.
+      </p>
+      <p>
+        So, which answers did we get from this survey?
+      </p>
+    </section>
+
+    <section>
+      <h3>Results</h3>
+
+      <h4>How long have you been using CairoSVG?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q1.svg') }}" />
+      <p>
+        CairoSVG was a dependency of WeasyPrint, so it’s not very surprising to
+        see that a part of the users have been using it for a long time. It’s
+        more surprising to have recent users as the project didn’t get new
+        features since quite a time.
+      </p>
+
+      <h4>In which context do you use CairoSVG?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q2.svg') }}" />
+      <p>
+        Most people use CairoSVG in a professional context, but it’s
+        interesting to see that some are using it in a personal context too.
+      </p>
+
+      <h4>Why did you choose to use CairoSVG, compared to other SVG conversion libraries?</h4>
+      <p>
+        Users like to use CairoSVG because it’s fast, open source and easy to
+        use. You can have a good control on what you’re doing.
+      </p>
+
+      <h4>In which format do you convert your SVG images with CairoSVG?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q3.svg') }}" />
+      <p>
+        It’s funny to see that a large part of the users are using CairoSVG to
+        convert SVG into SVG. This feature had been developed as a joke as the
+        original goal of CairoSVG is to convert SVG into other formats 😄.
+      </p>
+
+      <h4>On which OS do you use CairoSVG?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q4.svg') }}" />
+      <p>
+        Linux is the main OS on which CairoSVG is used, but there is a
+        significant part on Windows too.
+      </p>
+
+      <h4>What would you expect from CairoSVG in the future?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q5.svg') }}" />
+      <p>
+        The majority of the users expects bug fixes for CairoSVG. It’s also
+        quite interesting to see that some people expect nothing in particular.
+      </p>
+      <p>
+        In the comments, CairoSVG users would also like to see CairoSVG
+        maintained with recent Python versions and have a long life.
+      </p>
+
+      <h4>Would you like to use another library?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q6.svg') }}" />
+      <p>
+        Most people aren’t really into using something else than CairoSVG, but
+        some are willing to try something else.
+      </p>
+
+      <h4>Would WeasyPrint + GhostScript be a solution for you?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q7.svg') }}" />
+      <p>
+        The answer is kind of clear, WeasyPrint + Ghostscript wouldn’t be
+        a solution to replace the usage of CairoSVG.
+      </p>
+
+      <h4>Would you be ready to pay for new features or bug fixes?</h4>
+      <embed src="{{ url_for('static', filename='graphs/cairosvg_q8.svg') }}" />
+      <p>
+        Only 12.5% would be ready to pay for new features or bug fixes.
+        While 75% wouldn’t like that.
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Next</h3>
+
+      <p>
+        First, we’d like to thank all the people who took some time to answer
+        the survey 💜. It really helped us to have a clearer view and to take a
+        decision about what we’re going to do for the future of CairoSVG.
+      </p>
+      <p>
+        Before talking about the future (so much suspense), we’d like to
+        talk a bit more of this survey itself.
+      </p>
+      <p>
+        When we created it and looked for CairoSVG issues on GitHub to
+        communicate about the survey, we realized that, in fact, there aren’t
+        so many new issues. The more recent ones are from 2021.
+      </p>
+      <p>
+        We were also surprised by the number of answers we got, which
+        is lower than what we expected.
+      </p>
+      <p>
+        Therefore, with the results of the survey, with the number of open
+        issues, and knowing that WeasyPrint doesn’t depend on CairoSVG anymore,
+        we took these decisions (the suspense is over):
+      </p>
+      <ul>
+        <li>
+          We’ll continue to release CairoSVG versions to support new Python
+          versions 🎉.
+        </li>
+        <li>
+          We’ll continue to release CairoSVG versions in case of security
+          issues (as it was the case for CairoSVG 2.5.1) 🎉.
+        </li>
+        <li>
+          We’ll include pull requests for obvious bug fixes, but we’ll be very
+          conservative with pull requests for new features. We won’t develop
+          new features, unless some users are willing to sponsor their
+          development.
+        </li>
+      </ul>
+      <p>
+        This way, with our limited resources, we’ll be able to keep providing
+        the current experience for the current CairoSVG users, and they can be
+        assured that project will be maintained and will keep working in the
+        future 🚀.
+      </p>
+      <p>
+        That’s all, thanks for your attention!
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 70%;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    section {
+      clear: left;
+    }
+    h4 {
+      clear: left;
+    }
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+
+{% endblock content %}
