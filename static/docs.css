@@ -71,6 +71,11 @@ body {
   padding: 0;
 }
 
+.rst-content .section ul li > ul, .rst-content .section ol li > ul, .rst-content .section ul li > ol, .rst-content .section ol li > ol {
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
 .rst-content code.literal, .rst-content tt.literal {
   background: transparent;
   color: inherit;
