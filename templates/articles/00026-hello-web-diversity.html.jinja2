@@ -1,0 +1,261 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Hello, Web Diversity</h2>
+      <aside><time datetime="2022-06-30">June 30, 2022</time>, by liZe</aside>
+      <p>
+        Do you read this post on Google Chrome? Probably, as almost everybody
+        does, but… Do you read it on your good old personal computer, in the
+        bathroom on your smartphone, in your bed on your game console? Or maybe
+        you’re listening to the article thanks to a voice synthesis? Chrome is
+        everywhere, but the diversity of its uses may actually save web
+        diversity.
+      </p>
+    </header>
+
+    <section>
+      <h3>Web Everywhere, Justice Nowhere</h3>
+
+      <h4>One Head Above</h4>
+
+      <p>
+        The web is everywhere: at home in all your rooms, in subways, in
+        planes, in boats, in space. The web is everywhere: at work to work, at
+        home to have fun, or vice versa. The web is everywhere: in the morning
+        to wake up and listen to the news, at noon to play while you’re eating,
+        in the evening to watch series, and at night to fall asleep with music.
+      </p>
+
+      <p>
+        A lot of people worked hard in order to get the web everywhere. If we
+        only talk about the software layer (that’s not fair for the treasures
+        hardware had to create, but unfortunately time is running out), we’ll
+        for example think of the people behind Wi-Fi protocols, cryptography
+        algorithms, CSS specifications and HTML parsers.
+      </p>
+
+      <p>
+        Well, no. Actually, not at all. We never think of them. Never ever.
+      </p>
+
+      <p>
+        We click on the Chrome icon, and we think a little bit of Google. Even
+        when we’re not fully aware of that.
+      </p>
+
+      <p>
+        If its search engine has been a real revolution, Google has however
+        been a bit late for its browser. Chrome is born in 2008, 5 years after
+        Safari, 6 years after Firefox, 13 years after Opera and Internet
+        Explorer. And today it’s almighty, with tiny crumbs let for its
+        opponents that the youngest readers may even not know.
+      </p>
+
+      <h4>The "theory" of runoff</h4>
+
+      <p>
+        Runoff may work for some topics, where a leader would let its wealth
+        and fame go down to all the stakeholders. But it doesn’t work very well
+        for the web tools.
+      </p>
+
+      <p>
+        To be honest, Google would almost look like a nice fellow: the company
+        emphasizes its technical and financial involvement in free software,
+        especially with its
+        <a href="https://en.wikipedia.org/wiki/Google_Summer_of_Code">Summer of Code</a>.
+        <a href="https://github.com/google/">A lot of tools they created are free</a>,
+        and it would be hard to blame them for their work on open source.
+      </p>
+
+      <p>
+        However, it’s not enough. Some examples show the very bad situation
+        where some open source projects are, even when they’re used by a vast
+        majority of simple web users. Let’s talk about two of them.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00026-heartbleed.svg') }}"
+             title="Don’t let the web’s heart bleed…"
+             alt="Logo of the Heartbleed security breach" />
+        <figcaption>
+          The Heartbleed security breach showed that OpenSSL library misses a
+          lot of money and involvement, even if billions people use it daily.
+        </figcaption>
+      </figure>
+
+      <p>
+        The first one is OpenSSL. This library provides cryptography tools
+        largely used by, among other tools, HTTP servers and clients. It’s a
+        cornerstone of the current web. But when, in 2014, a security breach
+        called Heartbleed was found, everybody looked at the team responsible
+        for this disaster. Well, "team" may be slightly too big, as only one
+        person was working full time on the project. And the world discovered
+        <a href="https://web.archive.org/web/20161202163921/http://blog.ssh.com/free-can-make-you-bleed">the precariousness of OpenSSL</a>,
+        lost among other ignored but essential libraries.
+      </p>
+
+      <p>
+        The second one is cURL, a tool that can retrieve various content from
+        various servers. As OpenSSL, cURL is installed everywhere, on about
+        10 billion terminals. Impressive, isn’t it? Which "team" does this tool
+        rely on? 95% of the work has been done by one person. Only one person,
+        that’s all? Actually less, because
+        <a href="https://daniel.haxx.se/blog/2021/01/15/food-on-the-table-while-giving-away-code/">more than 20 years</a>
+        were needed before this person has been able to be paid to work full
+        time on cURL.
+      </p>
+
+      <p>
+        How are these two projects linked with our subject? Why do we use these
+        two examples to complain, one more time, about the world we live in?
+      </p>
+
+      <p>
+        Because it’s a source of hope.
+      </p>
+
+      <h4>We Are Legion</h4>
+
+      <p>
+        The web is not only what the browsers let us see. Behind the website’s
+        magic, we have hundreds of shadow tools in charge of transiting data
+        all around the world. They are the clock’s cogs, the cloud’s molecules,
+        Santa’s elves: always there but rarely shown.
+      </p>
+
+      <p>
+        These tools use the same protocols, the same formats, the same
+        standards. They talk to each other, automatically, without requiring
+        anything more but common languages and interoperable procedures.
+      </p>
+
+      <p>
+        This magic isn’t magic. It required the genius and the work of
+        architects behind these protocols, formats, standards. With an
+        incredible stability, these technologies have seen a lot of very
+        different uses raise and fall, from a simple text page to 3D games with
+        hardware rendering. The foundations didn’t evolve much, so that
+        <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">a website created more than 30 years ago</a>
+        can be displayed correctly in your current browser. No, it’s not magic,
+        it’s not the product of chance. Some people thought about this really
+        hard. Having everything working is not normal, it’s a real technical
+        achievement.
+      </p>
+
+      <p>
+        Diversity has played an important role in this stability. As it’s not
+        possible to change all the servers, clients, pages and tools at the
+        same time, each piece of the clockwork has to keep some kind of
+        backwards compatibility and interoperability.
+      </p>
+
+      <p>
+        As long as we have different actors, as long as the balance of power is
+        equal, this situation can continue. And the (pretty real) distribution
+        of the network gave us the illusion that it could be forever. Countries
+        and companies, as powerful as they can be, didn’t break this amazing
+        engine yet.
+      </p>
+
+      <p>
+        It doesn’t mean that we are blind. Some countries such as the USA and
+        China have a central position, the balance is far from being perfect.
+        And of course, as we discussed earlier, the monopoly position of
+        Microsoft or Google can be a real threat this common tool largely based
+        on open and accessible technologies.
+      </p>
+
+      <p>
+        But we are legion.
+      </p>
+
+      <p>
+        As long as we use, create, get data on the web, with our various tools
+        and needs, we hopefully will be able to keep this diversity alive.
+        Google is certainly today in a predatory situation, being involved in
+        browsers, OSes, websites and online advertisement, but its attempts to
+        impose radical changes are rarely accepted without lots of critics of
+        the other actors.
+      </p>
+
+      <p>
+        We are legion, that’s great. But what can we really do, behind our
+        screens?
+      </p>
+    </section>
+
+    <section>
+      <h3>Show the Invisible</h3>
+
+      <p>
+        Against these huge companies, it would be easy to pretend that nothing
+        is possible. But we the people have the power, together. That’s where
+        we get back to the invisible tools everybody use without knowing.
+      </p>
+
+      <p>
+        For sure, it’s not possible for everybody to create tools everyone use.
+        But it’s possible to keep these tools alive, by helping those who
+        created them.
+      </p>
+
+      <p>
+        Deliberately using these tools is already helping them. As long as
+        these tools exist and are widely used, it will be difficult to make the
+        web evolve to closed technologies. Of course, even with that, a lot of
+        features limited to one browser appear. But this situation with a
+        limited choice of browsers shall not expand to other uses of the web.
+      </p>
+
+      <p>
+        That’s because browsers are not the only doors to enter the web that
+        the web is still open. We use APIs, web scrapers, scripts that use the
+        same protocols to read the same formats. Everything waits to be
+        invented, for both tools and uses.
+      </p>
+
+      <p>
+        We have to find new uses. We won’t be afraid of thinking outside the
+        box, we’ll go further than expected. New ideas based on current tools
+        give each day more and more power to this diversity that can’t be
+        destroyed.
+      </p>
+
+      <p>
+        Using other browsers is also possible, even if the fight seems to be
+        over. Keeping Firefox alive, even with a very low number of users, is
+        the only way to push website creators to test it, and not being blinded
+        by Google’s browser specific "features".
+      </p>
+
+      <p>
+        Finally, beyond creating new uses and tools, it’s possible to help
+        what’s already been invented. "Teams" behind tools are often no more
+        than one of two kind volunteers, and supporting them is important to
+        give them the will to continue.
+      </p>
+
+      <p>
+        Being a volunteer doesn’t mean refusing money. The best way to
+        sustainably help projects is to give some money to their developers.
+        Code is freely available, but its development has a cost, if only for
+        the development time. A lot of sponsoring solutions exist, don’t
+        hesitate to use them, even for relatively small amounts.
+      </p>
+
+      <p>
+        We can do a lot. With our means, with our time, with our capacities, we
+        can each choose the methods we prefer. What’s important is to keep in
+        mind the various treasures we have, and to give them the credit they
+        deserve. Each small step counts.
+      </p>
+
+      <p>
+        We are, together, with our differences, the web diversity.
+      </p>
+    </section>
+  </article>
+{% endblock content %}
