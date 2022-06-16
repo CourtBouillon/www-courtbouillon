@@ -1,0 +1,151 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v56: Beta Time</h2>
+      <aside><time datetime="2022-06-17">June 17, 2022</time>, by grewn0uille</aside>
+      <p>
+        WeasyPrint v56 is the next major version of WeasyPrint.
+        We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v56.0b1">beta</a>,
+        you can give it a try and help us to have a nice stable major release!
+        This version brings two new features and improves another one.
+        Let’s see what we got!
+      </p>
+    </header>
+
+    <section>
+      <h3>Bitmap Fonts and Better <code>line-clamp</code> Support</h3>
+
+      <p>
+        Thanks to the financial support of <a href="https://www.expert.de/">Expert Germany</a>,
+        WeasyPrint has now a better support of <code>line-clamp</code> and supports bitmap fonts 🎉.
+      </p>
+
+      <h4>Bitmap Fonts</h4>
+
+      <p>
+        You can now use your favorite OpenType bitmap (otb) fonts in your documents.
+      </p>
+      <p>
+        If you use rasterizer tools, like Poppler or Ghostscript, you’ll get pixel-perfect
+        rendering ✨!
+      </p>
+
+      <h4><code>line-clamp</code> improvements</h4>
+
+      <p>
+        <code>line-clamp</code> is a shorthand property for three different properties: <code>max-lines</code>,
+        <code>block-ellipsis</code> and <code>continue</code>.
+      </p>
+      <p>
+        These properties are helpful to limit blocks height and to prevent strange layout
+        if the content is larger than expected. You can read <a href="{{ url_for('blog', article='00006-line-clamp') }}">
+        our article</a> to know more about it.
+      </p>
+      <p>
+        One of the limitations we had is that the <code>max-lines</code> did work with nested blocks.
+        Which means you can limit the number of lines of a div block for example, but if this div has
+        some p tags inside, it wouldn’t work.
+      </p>
+      <p>
+        But now, this limitation is over! <code>max-lines</code> works with nested tags. You can limit
+        your div blocks with tons of other blocks inside, or your ul blocks, or whatever you need 😊.
+      </p>
+    </section>
+
+    <section>
+      <h3>PDF/A Support</h3>
+
+      <p>
+        Thanks to the financial support of <a href="https://www.blueshoe.de/">Blueshoe</a>,
+        you can generate PDF/A documents 🎉.
+      </p>
+
+      <p>
+        <a href="https://en.wikipedia.org/wiki/PDF/A">PDF/A is a version of PDF</a>
+        specialized for archiving and long-term conservation purposes.
+      </p>
+      <p>
+        Several conformance levels exist with different requirements. WeasyPrint supports:
+      </p>
+      <ul>
+        <li>A-1b</li>
+        <li>A-2b</li>
+        <li>A-3b</li>
+        <li>A-4b.</li>
+      </ul>
+
+      <p>
+        Each level of conformance hasn’t the same requirements about how and what has
+        to be store in the document itself and which PDF version is needed.
+      </p>
+      
+      <p>
+        As the specification interpretations can vary, the reference tool choose to
+        validate PDF/A documents is <a href="https://verapdf.org/">VeraPDF</a>.
+        You can use another, but we can’t assure that it’ll give the same results.
+      </p>
+
+      <h4>How to generate PDF/A document?</h4>
+
+      <p>
+        To generate PDF/A document with WeasyPrint, a new option has been added:
+        <code>--pdf-variant</code>. You can set the variant you need among <code>pdf/a1-b</code>,
+        <code>pdf/a2-b</code>, <code>pdf/a3-b</code> and <code>pdf/a4-b</code>.
+      </p>
+
+      <p>
+        You may also need to set an identifier to your generated document. You can do that
+        with the <code>--pdf-identifier</code> option.
+      </p>
+
+      <h4>How to set PDF version?</h4>
+
+      <p>
+        As PDF/A conformance levels require different PDF version, a new option has been added
+        to set it: <code>--pdf-version</code>. The default version is 1.7.
+      </p>
+
+      <h4>How to set custom metadata?</h4>
+
+      <p>
+        For archiving purpose, you may need to have custom metadata in your documents.
+      </p>
+      <p>
+        To do that, you add them in your HTML file with the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta"><code>meta</code> tag</a>.
+        When generating the PDF, use the <code>--custom-metadata</code> option.
+      </p>
+
+      <p>
+        The generation of PDF/A document is experimental and the generated PDFs
+        aren’t guarenteed to be valid.
+        Don’t hesitate to open a new issue if you encounter problem with it 😉!.
+      </p>
+    </section>
+    
+    <section>
+      <h3>What Are the Next Steps?</h3>
+
+      <p>
+        The next step is yours! Don’t hesitate to try this beta and report bugs you
+        may find 🪲.
+      </p>
+      <p>
+        The one after is to fix the reported bugs and release a nice WeasyPrint
+        version 56.
+      </p>
+      <p>
+        Thanks again to <a href="https://www.expert.de/">Expert Germany</a> and
+        <a href="https://www.blueshoe.de/">Blueshoe</a> for sponsoring these features.
+        It’ve been a real pleasure to work with them!
+      </p>
+      <p>
+        Have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v56.0b1">beta</a> 💜.
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
