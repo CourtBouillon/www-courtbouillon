@@ -39,18 +39,20 @@
         <code>block-ellipsis</code> and <code>continue</code>.
       </p>
       <p>
-        These properties are helpful to limit blocks height and to prevent strange layout
+        These properties are helpful to limit blocks height and to prevent strange layouts
         if the content is larger than expected. You can read <a href="{{ url_for('blog', article='00006-line-clamp') }}">
         our article</a> to know more about it.
       </p>
       <p>
-        One of the limitations we had is that the <code>max-lines</code> did work with nested blocks.
-        Which means you can limit the number of lines of a div block for example, but if this div has
-        some p tags inside, it wouldn’t work.
+        One of the limitations we had is that the <code>max-lines</code> didn’t work with nested blocks,
+        which means you can limit the number of lines of a <code>div</code> block
+        for example, but if this <code>div</code> has some <code>p</code> tags
+        inside, it wouldn’t work.
       </p>
       <p>
         But now, this limitation is over! <code>max-lines</code> works with nested tags. You can limit
-        your div blocks with tons of other blocks inside, or your ul blocks, or whatever you need 😊.
+        your <code>div</code> blocks with tons of other blocks inside, or your <code>ul</code> blocks
+        with list items inside, or whatever you need 😊.
       </p>
     </section>
 
@@ -79,12 +81,6 @@
       <p>
         Each level of conformance hasn’t the same requirements about how and what has
         to be store in the document itself and which PDF version is needed.
-      </p>
-      
-      <p>
-        As the specification interpretations can vary, the reference tool choose to
-        validate PDF/A documents is <a href="https://verapdf.org/">VeraPDF</a>.
-        You can use another, but we can’t assure that it’ll give the same results.
       </p>
 
       <h4>How to generate PDF/A document?</h4>
@@ -124,7 +120,7 @@
         Don’t hesitate to open a new issue if you encounter problem with it 😉!.
       </p>
     </section>
-    
+
     <section>
       <h3>What Are the Next Steps?</h3>
 
@@ -139,7 +135,7 @@
       <p>
         Thanks again to <a href="https://www.expert.de/">Expert Germany</a> and
         <a href="https://www.blueshoe.de/">Blueshoe</a> for sponsoring these features.
-        It’ve been a real pleasure to work with them!
+        It has been a real pleasure to work with them!
       </p>
       <p>
         Have fun with this
