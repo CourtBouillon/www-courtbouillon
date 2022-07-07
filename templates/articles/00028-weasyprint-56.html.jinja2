@@ -1,0 +1,127 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v56 Has Been Released</h2>
+      <aside><time datetime="2022-07-07">July 7, 2022</time>, by liZe</aside>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v56.0">Version 56</a>
+        of WeasyPrint has been released. The beta didn’t suffer from
+        outstanding bugs, this stable version is now ready to be installed and
+        tested.
+      </p>
+    </header>
+
+    <section>
+      <h3>What’s New?</h3>
+
+      <h4>Visible Features</h4>
+      <p>
+        The
+        <a href="{{ url_for('blog', article='00026-weasyprint-56-beta') }}">previous article</a>
+        explained in details the three major features included in WeasyPrint v56:
+      </p>
+      <ul>
+        <li><strong>PDF/A-*b</strong> documents can now be generated,</li>
+        <li><strong>bitmap fonts</strong> (in otb format) are now supported,</li>
+        <li><strong>max-lines</strong> works in nested tags,</li>
+      </ul>
+      <p>
+        We would like to thank <a href="https://www.blueshoe.de/">Blueshoe</a> and
+        <a href="https://www.expert.de/">Expert Germany</a> for their financial
+        and professional investment on these topics. It has been a real
+        pleasure to work with them during this release 💜. Don’t hesitate to
+        contact us if your workflow requires specific features, bug fixes,
+        gorgeous HTML templates or CSS magic tricks 🪄, we’ll be happy to help!
+      </p>
+
+      <h4>Invisible Work</h4>
+      <p>
+        As always, our work on WeasyPrint includes a lot of less visible but
+        critical tasks.
+      </p>
+      <p>
+        This release includes a lot of changes in tests. Of course,
+        <strong>more tests have been added,</strong> mainly to avoid
+        regressions for the bugs that have been fixed recently, but that’s not
+        the main part of what has changed.
+      </p>
+      <p>
+        One simple but important change has been made in the way tests are
+        launched on our continuous integration platform, GitHub Actions.
+        <strong>Instead of launching tests sequentially, <a href="https://github.com/Kozea/WeasyPrint/commit/e6021da">we now launch tests in parallel</a>.</strong>
+        We also removed the code coverage reports by default. It takes less
+        time and saves some server use, avoiding a useless waste of
+        resources 🌿 while keeping our quality requirements intact 💯.
+      </p>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/commit/e212c83">Another simplification</a>
+        has been made for tests comparing drawings. Instead of repeating
+        multiple times the name of the test and the size of the expected
+        result,
+        <strong>we now have nice fixtures avoiding duplication.</strong>
+        The code is now easier to read and more simple to understand for
+        newcomers. Moreover, we avoid possible errors that were always
+        frustrating, as this duplicated information sometimes led to problems
+        that were really hard to debug.
+      </p>
+      <p>
+        WeasyPrint’s code has also been improved to take advantage of the new
+        features offered by Python and of our increasing knowledge of its
+        capabilities. We’ve been working on this project for a long time, and
+        we believe that we are now better developers than we used to be! For
+        example, we have replaced the <code>pkgutil</code> module by the brand
+        new and more powerful
+        <a href="https://github.com/Kozea/WeasyPrint/commit/bf6041b"><code>importlib.resources</code> module</a>.
+        We also <a href="https://github.com/Kozea/WeasyPrint/commit/1e4fde4">simplified the management of fonts</a>
+        especially on Windows,
+        <a href="https://github.com/Kozea/WeasyPrint/commit/5486875">continued our effort to separate the PDF generation code from the layout</a>,
+        <a href="https://github.com/Kozea/WeasyPrint/commit/e2eb182">simplified text extraction</a>, or
+        <a href="https://github.com/Kozea/WeasyPrint/commit/00d5b03">improved reproducible PDF generation</a>.
+      </p>
+      <p>
+        Most of these changes are modest, but
+        <strong>they really help to keep the code clean, readable and maintainable.</strong>
+        Removing the useless complexity of code is an endless task, for sure,
+        but each step makes the code slightly better. Adding code for new
+        features is exciting, but
+        <strong>removing code that’s dead or uselessly complicated is also very satisfying and important in the long term.</strong>
+      </p>
+      <p>
+        Thanks to the issues and the pull requests of our wonderful
+        contributors 💜, thanks to the hard work we proudly provide for
+        CourtBouillon ⭕, we believe that WeasyPrint can be more and more
+        useful for you, and useful to more and more people.
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Coming Next?</h3>
+
+      <h4>Layout</h4>
+      <p>
+        Grid support has been delayed many times 🕓, flex boxes need some love ❤️,
+        but don’t worry: their time has come! We explained in a
+        <a href="{{ url_for('blog', article='00022-weasyprint-55') }}">previous article</a>
+        how important these features are for many users, it’s still true today!
+      </p>
+      <p>
+        Of course, as usual, we may have surprises 🎁 coming during the next
+        months! And if you love surprises, don’t forget that you can be part of
+        them by sponsoring a feature you’d love to have or by
+        <a href="https://opencollective.com/courtbouillon">becoming a sponsor on OpenCollective</a>.
+        Sharing these features with the community is a nice way to be sure that
+        you’ll benefit from the ones they’ll develop for you 🥰.
+      </p>
+
+      <h4>Your Turn!</h4>
+      <p>
+        Now that <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v56.0">version 56</a>
+        has been released, it’s time for you to update WeasyPrint and give some
+        feedback! <strong>We really hope that you’ll enjoy this new version.</strong>
+        Keep in touch even if it’s just to say that everything works well for
+        you, we’ll be happy to share good vibes with you!
+      </p>
+    </section>
+{% endblock content %}
