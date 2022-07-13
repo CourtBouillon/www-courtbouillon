@@ -1,0 +1,66 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Tips And Tricks: <code>@page</code></h2>
+      <aside><time datetime="2022-07-07">July 19, 2022</time>, by CourtBouillon</aside>
+      <p>
+        Ever wanted to use a landscape orientation for your tables, because they’re too
+        large and overflow the page? It’s possible with CSS named pages!
+      </p>
+    </header>
+
+    <section>
+
+      {{ '00029-page.css' | pygmentize }}
+      
+      <p>
+        With this example, you have your normal content on portrait pages and tables on
+        landscape pages. You can of course change the selector to target specific tables
+        or other elements that may be too large.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00029-page-1.png') }}" alt="First page with portrait orientation" title="Portrait page" />
+        <figcaption>
+          First page with the default orientation
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00029-page-2.png') }}" alt="Second page with landscape orientation" title="Landscape page" />
+        <figcaption>
+          Second page containing table with landscape orientation
+        </figcaption>
+      </figure>
+
+      <p>
+        This feature can be used in various cases, each time you need different page
+        sizes depending on your content. It’s often used as a smart solution to avoid
+        some ugly content overflows.
+      </p>
+
+      <p>
+        You can also define different page names with different formats if needed,
+        these pages can have different margin sizes, margin contents, layouts and
+        backgrounds. That’s useful to create dedicated pages for chapter titles, with a
+        layout that is totally different from the main text. That’s also a nice way
+        to put some content on the last page of a book or a magazine.
+      </p>
+
+      <p>
+        Page selectors are another way to select first, left, right and blank pages.
+        Don’t hesitate to mix these page selectors with named pages to finely define
+        the structure of your document!
+      </p>
+
+      <p>
+        Learn more about named pages:
+      </p>
+      <ul>
+        <li><a href="https://drafts.csswg.org/css-logical/#page">W3C CSS specification</a></li>
+        <li><a href="https://print-css.rocks/lessons/lesson-page-areas">Example on print-css.rocks</a></li>
+      </ul>
+      
+    </section>
+{% endblock content %}
