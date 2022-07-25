@@ -1,0 +1,7 @@
+@page landscape {
+  size: A4 landscape;
+}
+
+table {
+  page: landscape;
+}
