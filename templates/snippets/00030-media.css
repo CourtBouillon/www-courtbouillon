@@ -1,0 +1,9 @@
+html {
+  background: #ddd;
+}
+
+@media print {
+  html {
+    background: transparent;
+  }
+}
