@@ -1,0 +1,61 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: <code>@media</code></h2>
+      <aside><time datetime="2022-08-31">August 31, 2022</time>, by CourtBouillon</aside>
+      <p>
+        Using the same content on a website and on a printed document is a very common
+        requirement. Even when the two versions share most of the style, it’s often
+        useful to define some specific details for one of the supports using media types.
+      </p>
+    </header>
+
+    <section>
+
+      {{ '00030-media.css' | pygmentize }}
+      
+      <p>
+        This example shows that a page with a light grey background. If this background
+        is nice when displayed on a browser, where designers sometimes try to avoid
+        pure black and white, it would require a lot of useless ink on paper for a bad
+        result. Let’s set a transparent background, only for the printed document!
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00030-media-1.png') }}" alt="Website view with light grey background" title="Website view" />
+        <figcaption>
+          Website view with a light grey background
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00030-media-2.png') }}" alt="Print view with transparent background" title="Print view" />
+        <figcaption>
+          Print view with a transparent background
+        </figcaption>
+      </figure>
+
+      <p>
+        The media types give the possibility to use a single stylesheet, with rule mixed
+        for different supports. But they also give nice syntaxes to split the stylesheets
+        into different files, either using HTML:
+      </p>
+      
+      {{ '00030-media-2.css' | pygmentize }}
+
+      <p>
+        Or CSS:
+      </p>
+
+      {{ '00030-media-3.css' | pygmentize }}
+
+      <p>
+        Learn more about media types:
+      </p>
+      <ul>
+        <li><a href="https://www.w3.org/TR/mediaqueries-3/#media0">W3C CSS specification</a></li>
+      </ul>
+      
+    </section>
+{% endblock content %}
