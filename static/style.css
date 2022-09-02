@@ -373,6 +373,18 @@ footer ul {
   text-align: center;
 }
 
+#page-index figcaption:before {
+  content: "– ";
+}
+
+#page-index figcaption {
+  text-align: right;
+}
+
+#page-index blockquote {
+  margin: 0;
+}
+
 @media (max-width: 920px) {
   #page-index header p {
     font-size: 2em;
