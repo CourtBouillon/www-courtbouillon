@@ -1,32 +1,32 @@
 @font-face {
   font-family: ClarityCity;
   font-weight: 400;
-  src: local("ClarityCity Regular"), local("ClarityCity-Regular"), url(/static/fonts/ClarityCity-Regular.woff2);
+  src: local("ClarityCity Regular"), local("ClarityCity-Regular"), url(fonts/ClarityCity-Regular.woff2);
 }
 
 @font-face {
   font-family: ClarityCity;
   font-weight: 700;
-  src: local("ClarityCity Bold"), local("ClarityCity-Bold"), url(/static/fonts/ClarityCity-Bold.woff2);
+  src: local("ClarityCity Bold"), local("ClarityCity-Bold"), url(fonts/ClarityCity-Bold.woff2);
 }
 
 @font-face {
   font-family: ClarityCity;
   font-style: italic;
   font-weight: 400;
-  src: local("ClarityCity RegularItalic"), local("ClarityCity-RegularItalic"), url(/static/fonts/ClarityCity-RegularItalic.woff2);
+  src: local("ClarityCity RegularItalic"), local("ClarityCity-RegularItalic"), url(fonts/ClarityCity-RegularItalic.woff2);
 }
 
 @font-face {
   font-family: Inconsolata;
   font-weight: 400;
-  src: local("Inconsolata"), url(/static/fonts/Inconsolata-Regular.woff2);
+  src: local("Inconsolata"), url(fonts/Inconsolata-Regular.woff2);
 }
 
 @font-face {
   font-family: Inconsolata;
   font-weight: 700;
-  src: local("Inconsolata Bold"), url(/static/fonts/Inconsolata-Bold.woff2);
+  src: local("Inconsolata Bold"), url(fonts/Inconsolata-Bold.woff2);
 }
 
 :root {
@@ -40,11 +40,11 @@
 
 body {
   color: var(--black);
-  font-family: ClarityCity;
+  font-family: ClarityCity, sans-serif !important;
 }
 
 .rst-content .toctree-wrapper > p.caption, h1, h2, h3, h4, h5, h6, legend {
-  font-family: Inconsolata;
+  font-family: Inconsolata, monospace !important;
 }
 
 .rst-content h2 {
@@ -60,13 +60,13 @@ body {
 }
 
 .rst-content .linenodiv pre, .rst-content div[class^=highlight] pre, .rst-content pre.literal-block {
-  font-family: Inconsolata;
+  font-family: Inconsolata, monospace !important;
   font-size: 1em;
 }
 
 .rst-content code, .rst-content tt {
   border: none;
-  font-family: Inconsolata;
+  font-family: Inconsolata, monospace !important;
   font-size: 1em;
   padding: 0;
 }
