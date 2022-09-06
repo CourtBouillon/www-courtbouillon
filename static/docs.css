@@ -1,4 +1,10 @@
 @font-face {
+  font-family: Lato;
+  font-weight: 400;
+  src: local("ClarityCity Regular"), local("ClarityCity-Regular"), url(fonts/ClarityCity-Regular.woff2);
+}
+
+@font-face {
   font-family: ClarityCity;
   font-weight: 400;
   src: local("ClarityCity Regular"), local("ClarityCity-Regular"), url(fonts/ClarityCity-Regular.woff2);
@@ -40,11 +46,11 @@
 
 body {
   color: var(--black);
-  font-family: ClarityCity, sans-serif !important;
+  font-family: ClarityCity, sans-serif;
 }
 
 .rst-content .toctree-wrapper > p.caption, h1, h2, h3, h4, h5, h6, legend {
-  font-family: Inconsolata, monospace !important;
+  font-family: Inconsolata, monospace;
 }
 
 .rst-content h2 {
@@ -60,13 +66,13 @@ body {
 }
 
 .rst-content .linenodiv pre, .rst-content div[class^=highlight] pre, .rst-content pre.literal-block {
-  font-family: Inconsolata, monospace !important;
+  font-family: Inconsolata, monospace;
   font-size: 1em;
 }
 
 .rst-content code, .rst-content tt {
   border: none;
-  font-family: Inconsolata, monospace !important;
+  font-family: Inconsolata, monospace;
   font-size: 1em;
   padding: 0;
 }
