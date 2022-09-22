@@ -23,11 +23,11 @@
 
       <p>
         <a href="https://en.wikipedia.org/wiki/PDF/UA">PDF/UA</a> is a specific PDF version for
-        accessibility purposes which ensures access to people who uses assistant technology, like
-        screen reader.
+        accessibility purposes that ensures access to people using assistant technologies like
+        screen readers.
       </p>
 
-      <h4>How to generate PDF/UA documents?</h4>
+      <h4>How to Generate PDF/UA Documents?</h4>
 
       <p>
         Previously, we added a new option in WeasyPrint, <code>--pdf-variant</code>, to let you
@@ -35,21 +35,22 @@
         To generate PDF/UA documents, you just need to use this option and use the variant <code>pdf/ua-1</code>.
       </p>
 
-      <h4>Is the structure of the document important?</h4>
+      <h4>Is the Structure of the Document Important?</h4>
 
       <p>
         To generate a PDF/UA document, the HTML structure of the document is put in the PDF,
-        and so, have to be consistent to ensure a nice output when using an assistant technoloy.
+        and so has to be consistent to ensure a nice output when using an assistant technoloy.
       </p>
       <p>
         Your HTML structure is then very important to have a conforming PDF/UA document.
         You can try your HTML on a <a href="https://validator.w3.org/">HTML validator</a>,
-        try your PDF on a <a href="https://verapdf.org/">PDF validator</a> or ask us some help 😉.
+        try your PDF on a <a href="https://verapdf.org/">PDF validator</a> or
+        ask us for some help 😉.
       </p>
 
       <p>
-        As the PDF/A generation, PDF/UA support is experimental, so don’t hesitate to open
-        a new issue if you encounter problem with it!
+        As for the PDF/A generation, PDF/UA support is experimental, so don’t
+        hesitate to open a new issue if you encounter problems with it!
       </p>
     </section>
 
@@ -72,10 +73,16 @@
         and one for the italic.
       </p>
       <p>
-        But this time is over! With the variable fonts support, you just need to define one
-        <code>@font-face</code> rule and you can use the
-        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings"><code>font-variation-setting</code></a>
-        attribute to choose if you want your text in bold or in italic.
+        But this time is over! With the variable fonts support, if your font
+        supports bold and italic variants, you just need to define one
+        <code>@font-face</code> rule. The rendering will be automatically adapted if you set
+        <code>font-weight</code> or <code>font-style</code> on your text, or if
+        you use tags like <code>&lt;em&gt;</code> or <code>&lt;strong&gt;</code>.
+      </p>
+      <p>
+        You can also use the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings"><code>font-variation-settings</code></a>
+        attribute to choose non-standard variants proposed by your variable fonts.
       </p>
     </section>
 
@@ -88,13 +95,14 @@
       </p>
 
       <p>
-        When using multicolumn layout, footnotes tented to be render on the next page
-        with no reason or to be in the wrong order (and nobody want that 😟).
+        When using multicolumn layout, footnotes tended to be rendered on the
+        next page with no reason, or to be in the wrong order (and nobody wants
+        that 😟).
       </p>
       <p>
-        These problems are fixed, among a lot of other issues that happened
-        when we worked on this. Footnotes with multicolumn layouts now work
-        well better!
+        These problems are fixed, among a lot of other small issues that
+        appeared when we worked on this. Footnotes with multicolumn layouts now
+        work much better!
       </p>
 
     </section>
@@ -103,20 +111,20 @@
       <h3>Better List Management on Page Breaks</h3>
 
       <p>
-        Thanks to the financial sponsor of <a href="https://www.openzeppelin.com/">OpenZeppelin</a>,
-        list items management has been improve on page breaks 🎊!
+        Thanks to the financial sponsoring of <a href="https://www.openzeppelin.com/">OpenZeppelin</a>,
+        list items management has been improved on page breaks 🎊!
       </p>
 
       <p>
         When a list, ordered or unordered, was going over a page break, the position
-        of the marker on the next page was a bit weird at not align with the text.
+        of the marker on the next page was a bit weird and not aligned with the text.
       </p>
       <p>
-        Now this issue is fixed, list marker and text are nicely aligned when going
-        through a page break. You use long lists with no problem 😄!
+        This issue is now fixed, the list marker and the text are nicely
+        aligned when going through a page break. You can use long lists without
+        any problem 😄!
       </p>
     </section>
-    
 
     <section>
       <h3>What Are the Next Steps?</h3>
@@ -133,7 +141,7 @@
         Thanks again to <a href="http://novareto.de/">Novareto</a>,
         <a href="https://www.codeandco.com/">Code & Co.</a> and
         <a href="https://www.openzeppelin.com/">OpenZeppelin</a> for sponsoring these
-        feature and fixes. It’s always a pleasure to work with you 😻.
+        features and fixes. It’s always a pleasure to work with you 😻.
       </p>
       <p>
         And of course, thanks to <a href="https://opencollective.com/courtbouillon">our OpenCollective backers and sponsors</a>
