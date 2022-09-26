@@ -1,0 +1,8 @@
+article {
+  columns: 3;
+  column-gap: 3em;
+}
+
+h2 {
+  column-span: all;
+}
