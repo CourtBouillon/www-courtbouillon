@@ -1,0 +1,68 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: multicolumn</h2>
+      <aside><time datetime="2022-09-27">September 27, 2022</time>, by CourtBouillon</aside>
+      <p>
+        Splitting content into multiple columns is a common way to display text in books,
+        newspapers and flyers. Guess what: CSS can do this for you!
+      </p>
+    </header>
+
+    <section>
+
+      {{ '00032-column-1.css' | pygmentize }}
+      
+      <p>
+        That’s enough to create two columns, with automatic gutter width, columns
+        widths and balancing. Not bad for one single line of CSS!
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00032-multicolumn.png') }}" alt="Article displayed on two columns" title="Article on two columns" />
+        <figcaption>
+          Article displayed on two columns
+        </figcaption>
+      </figure>
+
+      <p>
+        Of course, CSS gives you the possibility to configure a lot of things,
+        not only the number of columns. You want to add a small line between
+        your columns, increase or decrease the empty width between them, or
+        avoid automatic balancing? You can! Just play with <code>column-fill</code>,
+        <code>column-rule</code> and <code>column-gap</code> to get what you want.
+      </p>
+
+      <p>
+        Another main feature of CSS columns is spanning elements. If you
+        want to add a title that’s displayed across the whole block of columns,
+        just use the <code>column-span</code> property!
+      </p>
+      
+      {{ '00032-column-2.css' | pygmentize }}
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00032-multicolumn-1.png') }}" alt="Article displayed on three columns with a title across all the columns" title="Article on three columns with title across all the column" />
+        <figcaption>
+          Article displayed on three columns with a title across all the columns
+        </figcaption>
+      </figure>
+
+      <p>
+        Columns are easy to use but can be hard to master. Finely controlling
+        hyphenation, line height, orphans and widows can be useful to reach a
+        rendering that’s both solid and beautiful.
+      </p>
+
+      <p>
+        Learn more about columns:
+      </p>
+      <ul>
+        <li><a href="https://www.w3.org/TR/css-multicol-1/">W3C CSS specification</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/columns">Documentation on MDN</a></li>
+      </ul>
+      
+    </section>
+{% endblock content %}
