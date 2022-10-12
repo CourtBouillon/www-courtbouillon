@@ -1,0 +1,311 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>Two Years of CourtBouillon</h2>
+      <aside><time datetime="2022-10-12">October 12, 2022</time>, by CourtBouillon</aside>
+      <p>
+        Do you know what day it is today? It’s October 12, which means that
+        it’s CourtBouillon’s two-year anniversary 🎂! So it’s time to rewind
+        and see what happened during this year.
+      </p>
+    </header>
+
+    <section>
+      <h3>A Brief Introduction</h3>
+
+      <p>
+        For this 2-year anniversary, <strong>we made a short survey about you, WeasyPrint and
+        your expectations</strong>. Thanks a lot to all the people who answered it 💜.
+      </p>
+      <p>
+        In this article, we’re going to briefly introduce ourselves for people who
+        don’t know us yet, remember what happened during this year, detail our
+        sources of income and then see what we’re up to for the next year!
+      </p>
+
+      <h4>Who Is CourtBouillon?</h4>
+
+      <p>
+        Two years ago, we announced the creation of CourtBouillon.
+      </p>
+      <p>
+        We? We are Guillaume, aka <code><a href="https://github.com/liZe">liZe</a></code>,
+        and Lucie, aka <code><a href="https://github.com/grewn0uille">grewn0uille</a></code> 👋.
+      </p>
+      <p>
+        About the full story of the creation of CourtBouillon, you can read
+        <a href="{{ url_for('blog', article='00001-have-you-met-courtbouillon') }}">this nice article</a> 😉.
+      </p>
+
+      <h4>What Does CourtBouillon Do?</h4>
+      <p>
+        <strong>Our goal, as CourtBouillon, is to develop and maintain open source software.</strong>
+        The main projects we take care of are:
+      </p>
+      <ul>
+        <li>WeasyPrint,</li>
+        <li>pydyf,</li>
+        <li>tinycss2,</li>
+        <li>Pyphen,</li>
+        <li>cssselect2,</li>
+        <li><a href="{{ url_for('page', page='projects') }}">and more…</a></li>
+      </ul>
+
+      <p>
+        Beyond maintaining and developing this nice software, we also love to write
+        articles on this blog about new WeasyPrint versions, specific new features,
+        CSS tricks, technical topics…
+      </p>
+      <p>
+        Don’t hesitate to walk around the <a href="{{ url_for('blog') }}">blog section</a> 😊.
+      <p>
+        You can follow us on <a href="https://twitter.com/BouillonCourt">Twitter</a>
+        or subscribe to our <a href="{{ url_for('rss') }}">RSS feed</a> to never miss news!
+      </p>
+    </section>
+
+    <section>
+      <h3>What Happened This Year?</h3>
+
+      <p>
+        A lot of things happened during this year. How many issues were closed?
+        How many pull requests were merged? How many releases have been out?
+        Let’s have a look!
+      </p>
+
+      <h4>Closed Issues</h4>
+      <embed src="{{ url_for('static', filename='graphs/2_year_issues.svg') }}" />
+
+      <p>
+        256 issues were closed during this year, of which 92% were on WeasyPrint.
+      </p>
+
+      <h4>Merged Pull Requests</h4>
+      <embed src="{{ url_for('static', filename='graphs/2_year_pr.svg') }}" />
+
+      <p>
+        38 pull requests have been merged, of which 81% were on WeasyPrint.
+      </p>
+
+      <h4>Releases</h4>
+      <embed src="{{ url_for('static', filename='graphs/2_year_releases.svg') }}" />
+
+      <p>
+        23 versions have been released, it’s almost 2 releases per month 🙀!
+      </p>
+
+      <h4>New Features</h4>
+
+      <p>
+        Various new features came alive this year. Which ones were the most popular?
+      </p>
+
+      <embed src="{{ url_for('static', filename='graphs/2_year_features.svg') }}" />
+
+      <p>
+        It looks like that performance is something important for many of you 😄.
+      </p>
+      <p>
+        These results are connected with the
+        <a href="{{ url_for('blog', article='00010-weasyprint-survey-2021') }}">previous survey</a>.
+      </p>
+    </section>
+
+    <section>
+      <h3>Sources of Income</h3>
+
+      <p>
+        <strong>All these things wouldn’t have been possible without sponsors, backers and users.</strong>
+        Thanks a lot 💜.
+      </p>
+      <p>
+        As we believe that transparency is important, we’re going to provide
+        details on our different sources of income.
+      </p>
+      <p>
+        We have four main sources of income:
+      </p>
+      <ul>
+        <li>templating and styling with HTML/CSS,</li>
+        <li>bug fixes and additional features,</li>
+        <li>sponsoring and donations on <a href="https://opencollective.com/courtbouillon">OpenCollective</a>,</li>
+        <li>miscellaneous, which will be detailed.</li>
+      </ul>
+
+      <embed src="{{ url_for('static', filename='graphs/2_year_incomes.svg') }}" />
+
+      <p>
+        The distribution between the different sources is quite homogeneous.
+      </p>
+
+      <h4>Templating and styling with HTML/CSS</h4>
+      <p>
+        If you didn’t know yet, <strong>we offer professional support,</strong>
+        mainly on WeasyPrint and its usage.
+      </p>
+      <p>
+        <strong>Creating HTML and CSS for print is one of the (many) things we can do.</strong>
+        If you have a cute mock-up for your documents made by your sweet
+        designer, if you don’t know how to transform it into nice HTML/CSS (or
+        don’t have the time to do it), we’re here for you!
+      </p>
+      <p>
+        CSS can sometimes be hard to master, even more when it’s CSS for print.
+        Our long experience on this topic gives us the skills to create
+        reliable HTML and CSS quickly. Reading our CSS is also a simple way for
+        our clients to learn how to write their future stylesheets.
+      </p>
+
+      <h4>Bug Fixes and Additional Features</h4>
+      <p>
+        Another thing that we can do is <strong>to fix the bugs that make your
+        life hard</strong> and <strong>to add the features you need to generate
+        the greatest documents of all time.</strong>
+      </p>
+
+      <p>
+        A nice thing about this part is that the bug fixes and the new features you
+        sponsor benefit the whole community. Another nice thing is that the bug
+        fixes and the new features funded by other companies will be useful for you
+        😉!
+      </p>
+      <p>
+        During this year, some nice features and bug fixes have been funded by
+        sponsors:
+      </p>
+      <ul>
+        <li>footnotes support,</li>
+        <li>PDF/A support,</li>
+        <li>bitmap fonts support,</li>
+        <li>nested <code>line-clamp</code> support,</li>
+        <li>better footnotes support for multicolumn layouts,</li>
+        <li>and more are coming!</li>
+      </ul>
+      <p>
+        <strong>Thanks a lot to everyone who sponsored features and bug fixes 💜.</strong>
+      </p>
+
+      <h4>Sponsoring and Donations on OpenCollective</h4>
+      <p>
+        <strong>When <a href="https://opencollective.com/courtbouillon">you become a
+        backer or a sponsor on OpenCollective</a>, you greatly help
+        CourtBouillon to maintain its projects in a sustainable way.</strong>
+      </p>
+      <p>
+        Of course, fixing bugs and adding features requires a lot of time. But
+        there is also a lot of invisible work.
+      </p>
+      <p>
+        Answering and sorting GitHub issues, improving tests, improving performance,
+        writing articles, communicating … all these things require time.
+        Thanks to <a href="https://opencollective.com/courtbouillon">OpenCollective backers and sponsors</a>,
+        we’re able to spend time to do that peacefully.
+      </p>
+      <p>
+        <strong>Thanks to all the OpenCollective backers and sponsors 💜.</strong>
+      </p>
+
+      <h4>Miscellaneous</h4>
+      <p>
+        As you can guess, this category contains everything that doesn’t fit in
+        the other categories.
+      </p>
+      <p>
+        This year, it includes:
+      </p>
+      <ul>
+        <li>helping packaging <a href="https://www.mercurial-scm.org/">Mercurial</a> for Windows,</li>
+        <li>automating document generation with WeasyPrint,</li>
+        <li>advising on best practices for print CSS,</li>
+        <li>developing a <a href="https://radicale.org/">Radicale</a> plugin.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What for Next Year?</h3>
+
+      <p>
+        After this year, what can you expect for the next one?
+      </p>
+
+      <h4>New Features</h4>
+      <p>
+        In the survey, we asked you which features you’d like to see in WeasyPrint.
+        Here are the results!
+      </p>
+
+      <embed src="{{ url_for('static', filename='graphs/2_year_next_features.svg') }}" />
+      <p>
+        The battle has been tough between faster generation and grid
+        support!
+      </p>
+
+      <p>
+        This ranking doesn’t contain all the GitHub issues with the <code>feature</code> label.
+        It doesn’t mean that everything here will be done, but it will
+        definitely help us prioritize the roadmap 🛣️.
+      </p>
+
+      <h4>New Articles</h4>
+      <p>
+        We think that communication is important, so that everyone can be
+        up-to-date regarding the software we maintain. It’s also nice to share
+        some knowledge about CSS, printed documents, Python, and all the other
+        cool subjects we’re sure we’ll cover in the future!
+      </p>
+      <p>
+        So, you can expect new articles about features, WeasyPrint versions,
+        CSS tricks, and more!
+      </p>
+
+      <h4>And More!</h4>
+      <p>
+        Of course, you can be sure we’ll continue to answer all the GitHub
+        issues you may open, all the mails you may send us, all the messages
+        you may write on our Matrix/Gitter channel.
+      </p>
+      <p>
+        <strong>You can be sure we’ll do our best to offer WeasyPrint and its
+        dependencies a bright future.</strong>
+      </p>
+      <p>
+        Thanks again to all the people who sponsored features and bug fixes, to
+        our lovely backers and sponsors, to our fantastic clients, to everyone
+        who uses our software and opens issues 💜.
+      </p>
+
+      <p>
+        Don’t hesitate to follow us on <a href="https://twitter.com/BouillonCourt">Twitter</a>
+        to never miss news, to <a href="mailto:contact@courtbouillon.org">contact us</a> if
+        you’d like from some help or some advice on WeasyPrint, and to
+        <a href="https://opencollective.com/courtbouillon">support us</a> on OpenCollective!
+      </p>
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 70%;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    h2, h3, h4 {
+      clear: left;
+    }
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+
+{% endblock content %}
