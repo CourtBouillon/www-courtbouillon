@@ -1,0 +1,161 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v57: Beta Time</h2>
+      <aside><time datetime="2022-09-22">September 22, 2022</time>, by grewn0uille</aside>
+      <p>
+        WeasyPrint v57 is the next major version of WeasyPrint.
+        We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v57.0b1">beta</a>,
+        you can give it a try and help us to have a nice stable major release!
+        Let’s see what we got in this version 🤓!
+      </p>
+    </header>
+
+    <section>
+      <h3>PDF/UA Support</h3>
+
+      <p>
+        Thanks to <a href="http://novareto.de/">Novareto</a> who sponsored this feature, WeasyPrint
+        is now able to generate PDF/UA documents 🎉!
+      </p>
+
+      <p>
+        <a href="https://en.wikipedia.org/wiki/PDF/UA">PDF/UA</a> is a specific PDF version for
+        accessibility purposes that ensures access to people using assistant technologies like
+        screen readers.
+      </p>
+
+      <h4>How to Generate PDF/UA Documents?</h4>
+
+      <p>
+        Previously, we added a new option in WeasyPrint, <code>--pdf-variant</code>, to let you
+        choose which PDF variant you want among different PDF/A variant.
+        To generate PDF/UA documents, you just need to use this option and use the variant <code>pdf/ua-1</code>.
+      </p>
+
+      <h4>Is the Structure of the Document Important?</h4>
+
+      <p>
+        To generate a PDF/UA document, the HTML structure of the document is put in the PDF,
+        and so has to be consistent to ensure a nice output when using an assistant technoloy.
+      </p>
+      <p>
+        Your HTML structure is then very important to have a conforming PDF/UA document.
+        You can try your HTML on a <a href="https://validator.w3.org/">HTML validator</a>,
+        try your PDF on a <a href="https://verapdf.org/">PDF validator</a> or
+        ask us for some help 😉.
+      </p>
+
+      <p>
+        As for the PDF/A generation, PDF/UA support is experimental, so don’t
+        hesitate to open a new issue if you encounter problems with it!
+      </p>
+    </section>
+
+    <section>
+      <h3>Font Variant Support</h3>
+
+      <p>
+        Thanks to <a href="https://opencollective.com/courtbouillon">our OpenCollective backers and sponsors</a>,
+        WeasyPrint now supports variable fonts 🎉!
+      </p>
+
+      <p>
+        A <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide">variable font</a>
+        allows you to have different typefaces of a font in a single file, rather than
+        one per typeface.
+      </p>
+      <p>
+        Until now, if you wanted to use, for example, the bold and the italic version of a font,
+        you needed to define two <code>@font-face</code> rule in your CSS, one for the bold version
+        and one for the italic.
+      </p>
+      <p>
+        But this time is over! With the variable fonts support, if your font
+        supports bold and italic variants, you just need to define one
+        <code>@font-face</code> rule. The rendering will be automatically adapted if you set
+        <code>font-weight</code> or <code>font-style</code> on your text, or if
+        you use tags like <code>&lt;em&gt;</code> or <code>&lt;strong&gt;</code>.
+      </p>
+      <p>
+        You can also use the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings"><code>font-variation-settings</code></a>
+        attribute to choose non-standard variants proposed by your variable fonts.
+      </p>
+    </section>
+
+    <section>
+      <h3>Better Support of Footnotes With Multicolumn Layout</h3>
+
+      <p>
+        With the financial support of <a href="https://www.codeandco.com/">Code & Co.</a>, we’ve
+        been able to improve the support of footnotes in multicolumn layout 🎊!
+      </p>
+
+      <p>
+        When using multicolumn layout, footnotes tended to be rendered on the
+        next page with no reason, or to be in the wrong order (and nobody wants
+        that 😟).
+      </p>
+      <p>
+        These problems are fixed, among a lot of other small issues that
+        appeared when we worked on this. Footnotes with multicolumn layouts now
+        work much better!
+      </p>
+
+    </section>
+
+    <section>
+      <h3>Better List Management on Page Breaks</h3>
+
+      <p>
+        Thanks to the financial sponsoring of <a href="https://www.openzeppelin.com/">OpenZeppelin</a>,
+        list items management has been improved on page breaks 🎊!
+      </p>
+
+      <p>
+        When a list, ordered or unordered, was going over a page break, the position
+        of the marker on the next page was a bit weird and not aligned with the text.
+      </p>
+      <p>
+        This issue is now fixed, the list marker and the text are nicely
+        aligned when going through a page break. You can use long lists without
+        any problem 😄!
+      </p>
+    </section>
+
+    <section>
+      <h3>What Are the Next Steps?</h3>
+
+      <p>
+        The next step is yours! Don’t hesitate to try this beta and report bugs you
+        may find 🐜.
+      </p>
+      <p>
+        The one after is to fix the reported bugs and release a nice WeasyPrint
+        version 57.
+      </p>
+      <p>
+        Thanks again to <a href="http://novareto.de/">Novareto</a>,
+        <a href="https://www.codeandco.com/">Code & Co.</a> and
+        <a href="https://www.openzeppelin.com/">OpenZeppelin</a> for sponsoring these
+        features and fixes. It’s always a pleasure to work with you 😻.
+      </p>
+      <p>
+        And of course, thanks to <a href="https://opencollective.com/courtbouillon">our OpenCollective backers and sponsors</a>
+        for sponsoring us and give us time to add new features, fix bugs… in WeasyPrint 💜.
+      </p>
+      <p>
+        Have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v57.0b1">beta</a>!
+      </p>
+      <p>
+        And by the way, if you didn’t know, we launched a <a href="https://thym.courtbouillon.org/1">survey about WeasyPrint</a>.
+        It’s opened until October 10th, don’t hesitate to answer!
+      </p>
+    </section>
+  </article>
+
+{% endblock content %}
