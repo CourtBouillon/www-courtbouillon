@@ -1,0 +1,118 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v57 Has Been Released</h2>
+      <aside><time datetime="2022-10-18">October 18, 2022</time>, by liZe</aside>
+      <p>
+        Version 57 of WeasyPrint has been released. As usual, it comes with a
+        lot of exciting new features and bug fixes.
+      </p>
+    </header>
+
+    <section>
+      <h3>What’s New?</h3>
+
+      <h4>Visible Features</h4>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v57.0">This stable version</a>
+        includes all the changes from
+        <a href="{{ url_for('blog', article='00031-weasyprint-57-beta') }}">the beta version</a>:
+      </p>
+      <ul>
+        <li><strong>PDF/UA</strong> documents can now be generated,</li>
+        <li><strong>variable fonts</strong> are now supported,</li>
+        <li>many bugs of <strong>footnotes in multicolumn layouts</strong> have been fixed.</li>
+      </ul>
+      <p>
+        Version 57 also includes many small bug fixes since the beta version,
+        with an improved support of fonts, a bug fix for the skew
+        transformation, the possibility to attach documents to PDF files with
+        anchors, or a better handling of baselines in inline flex elements.
+      </p>
+      <p>
+        Note also that <a href="https://github.com/Kozea/cssselect2/pull/24">a lot of new CSS selectors</a>
+        are available in the latest versions of cssselect2 released in 2022.
+        Don’t forget to update this library to get the possibility to put these
+        very useful selectors in your stylesheets!
+      </p>
+      <p>
+        We would like to thank <a href="https://www.codeandco.com/">Code & Co.</a>,
+        <a href="https://www.openzeppelin.com/">OpenZeppelin</a> and
+        <a href="http://novareto.de/">Novareto</a> for their financial
+        support, we’ve had a great time working with them during this
+        release 😻. If you want to be the next company to benefit from our
+        <em>savoir-faire</em>, don’t hesitate to send a mail to share your
+        great projects with us!
+      </p>
+
+      <h4>Invisible Work</h4>
+      <p>
+        As always, our work on WeasyPrint includes a lot of less visible but
+        critical tasks.
+      </p>
+      <p>
+        <strong>Among these tasks, packaging is a very important one.</strong> We’ve spent
+        <a href="{{ url_for('blog', article='00011-the-python-packaging-hell-the-can-of-worms') }}">a lot of time</a>
+        to get a nice workflow to easily generate our
+        <a href="https://pypi.org/project/weasyprint/">source and wheel packages on PyPI</a>,
+        so that <code>pip install weasyprint</code> works correctly on many
+        platforms.
+      </p>
+      <p>
+        Linux is not the only platform where WeasyPrint is packaged: you can
+        now easily install WeasyPrint with
+        <a href="https://formulae.brew.sh/formula/weasyprint">Homebrew on macOS 🍎</a>
+        or <a href="https://github.com/openbsd/ports/tree/master/print/weasyprint">with OpenBSD’s port 🐠</a>.
+      </p>
+      <p>
+        Packaging takes a lot of time. Python’s packaging ecosystem is
+        improving fast, tools change and sometimes things break…
+        <strong>It’s important for us to take the time to talk with packagers,</strong>
+        even <a href="https://github.com/Kozea/WeasyPrint/issues/1410">when it’s difficult</a>
+        (and that’s not the only example), because they’re the people working
+        in the shadows to give everyone the possibility to use software more
+        easily. In this release, we had to
+        <a href="https://github.com/Kozea/WeasyPrint/commit/b9c086d">remove the default use of Pytest’s plugins for coverage and linting</a>,
+        because of nasty compatibility bugs between Pytest and Pytest-Flake8.
+        That’s also a way to improve the packagers’ life, because it avoids
+        useless problems with these tools while they’re testing their packages.
+      </p>
+      <p>
+        Thanks to everyone working around our libraries 🙏, thanks to our
+        wonderful contributors 💜, we’ll continue to do our best to make
+        WeasyPrint easy to hack, to debug, to package, and of course to use!
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Coming Next?</h3>
+
+      <h4>Layout</h4>
+      <p>
+        Our work on Grid and Flex has been delayed so many times 📅… Sorry for
+        all the people waiting for these features, we had a lot of work to do
+        to please our lovely sponsors 🚀. Let’s hope that version 58 will
+        finally bring good news for these topics!
+      </p>
+      <p>
+        Of course, if you really want some features to come earlier, <strong>don’t
+        hesitate to send a message to share your needs with us,</strong> or to
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a>.
+        We’ve already had a lot of fun working with big companies on to big
+        projects with a lot code 🏭, we love small documents with cute
+        handcrafted stylesheets 📑, and we always thank our beloved backers
+        when we drink a cup of coffee ☕ or a pint of beer 🍺. <strong>Each
+        project and each donation, big or small, is important to keep WeasyPrint working well.</strong>
+      </p>
+
+      <h4>Your Turn!</h4>
+      <p>
+        It’s now your turn to work! Install
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v57.0">version 57</a>
+        and give us some feedback.
+        <strong>We hope that the different improvements brought by this release will be helpful for you.</strong>
+      </p>
+    </section>
+{% endblock content %}
