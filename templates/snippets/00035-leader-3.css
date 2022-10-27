@@ -1,0 +1,3 @@
+#toc a::after {
+  content: leader('_') target-counter(attr(href), page);
+}

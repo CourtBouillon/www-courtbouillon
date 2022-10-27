@@ -1,0 +1,62 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: <code>leader()</code></h2>
+      <aside><time datetime="2022-10-27">October 27, 2022</time>, by CourtBouillon</aside>
+      <p>
+        If you ever tried to create a beautiful table of contents, you may have tried
+        to include leaders. Leaders? Yes, these small dots you put between a chapter’s
+        title and its page number.
+      </p>
+    </header>
+
+    <section>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00035-leader-1.png') }}" alt="Table of Content with dots between chapter titles and page numbers" title="Table of Content with dots" />
+        <figcaption>
+          Table of Content with dots
+        </figcaption>
+      </figure>
+
+      {{ '00035-leader-1.css' | pygmentize }}
+      
+      <p>
+        This property will work well in an HTML structure like this one:
+      </p>
+
+      {{ '00035-leader-2.html' | pygmentize }}
+
+      <p>
+        Leaders are not simple dots. If you look at them carefully, you’ll find
+        that they actually have superpowers. Your title is too long or too short?
+        You’ll get more or less dots. They can even handle the cases where your
+        title and your page number are too large to fit on one line. Even more
+        important: they’ll always be aligned with each other. Wow, that’s magic!
+      </p>
+
+      <p>
+        Of course, you can decide to replace dots with other characters:
+      </p>
+      
+      {{ '00035-leader-3.css' | pygmentize }}
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00035-leader-2.png') }}" alt="Table of Content with underscores between chapter titles and page numbers" title="Table of Content with underscores" />
+        <figcaption>
+          Table of Content with underscores
+        </figcaption>
+      </figure>
+
+      <p>
+        Learn more about leaders:
+      </p>
+      <ul>
+        <li><a href="https://www.w3.org/TR/css-content-3/#leader-function">W3C CSS specification</a></li>
+        <li><a href="https://www.courtbouillon.org/blog/00007-leader">Documentation on MDN</a></li>
+      </ul>
+      
+    </section>
+{% endblock content %}
