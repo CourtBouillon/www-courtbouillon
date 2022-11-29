@@ -1,0 +1,58 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: <code>margin</code></h2>
+      <aside><time datetime="2022-11-30">November 30, 2022</time>, by CourtBouillon</aside>
+      <p>
+        You probably already noticed that books are made of pages. And you probably already
+        noticed that there are two kinds of pages: rectos and versos. But, did you notice
+        that it causes the layout of these pages to be slightly different?
+      </p>
+    </header>
+
+    <section>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00036-margin.png') }}" alt="Left and right pages with different page margins" title="A left and a right page" />
+        <figcaption>
+          A left and a right page
+        </figcaption>
+      </figure>
+
+      <p>
+        Many books define different layouts for their pages depending on their side: we
+        generally want the margins to be larger on the outside, so that our fingers can
+        handle the pages without recovering the text. We also want the page numbers to
+        be on the outside, making our lives easier when we want to reach a specific page quickly.
+      </p>
+
+      <p>
+        CSS gives a way to define different page layouts for left and right pages:
+      </p>
+
+      {{ '00036-margins.css' | pygmentize }}
+
+      <p>
+        Page margins are divided into many small areas where you can put the
+        content you want: page numbers, current chapter title, fancy footers…
+        These areas have nice default vertical and horizontal alignments, but
+        you can of course change them if you really want to.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00036-margin-boxes.png') }}" alt="Margin boxes scheme" title="Margin boxes scheme" />
+        <figcaption>
+          Margin boxes scheme
+        </figcaption>
+      </figure>
+
+      <p>
+        Learn more about page margins:
+      </p>
+      <ul>
+        <li><a href="https://drafts.csswg.org/css-page/#margin-boxes">W3C CSS specification</a></li>
+      </ul>
+      
+    </section>
+{% endblock content %}
