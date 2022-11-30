@@ -1,0 +1,9 @@
+@page :left {
+  margin: 20mm 15mm 25mm 30mm;
+  @bottom-left-corner { content: counter(page) }
+}
+
+@page :right {
+  margin: 20mm 30mm 25mm 15mm;
+  @bottom-right-corner { content: counter(page) }
+}
