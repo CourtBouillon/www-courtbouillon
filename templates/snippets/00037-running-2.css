@@ -1,0 +1,7 @@
+html {
+ counter-set: chapter-number;
+}
+h2 {
+ counter-increment: chapter-number;
+ string-set: chapter counter(chapter-number) ". " content(text);
+} 
