@@ -1,0 +1,5 @@
+@page {
+ @top-left { content: string(chapter) }
+ @top-right { content: counter(page) }
+}
+h2 { string-set: chapter content(text) } 
