@@ -1,0 +1,59 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: running elements</h2>
+      <aside><time datetime="2022-12-20">December 20, 2022</time>, by CourtBouillon</aside>
+      <p>
+        Having the current chapter name and number displayed in each page margin is useful
+        in many situations: quickly turning the pages and checking the current chapter,
+        printing a page and knowing in which part of the book it is, remembering the general
+        topic of a long paragraph when reading a complex essay…
+      </p>
+    </header>
+
+    <section>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00037-running-1.png') }}" alt="Chapter title and page number in the top margin of the document" title="The chapter title and page number in the page top margin" />
+        <figcaption>
+          The chapter title and page numbre in the page top margin
+        </figcaption>
+      </figure>
+
+      <p>
+        You can put this information in your documents by defining a named string and
+        using it in your page margins: 
+      </p>
+
+      {{ '00037-running-1.css' | pygmentize }}
+
+      <p>
+        The <code>string-set</code> property also gives the possibility to include
+        counters in the text that will appear in the margin: 
+      </p>
+
+      {{ '00037-running-2.css' | pygmentize }}
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00037-running-2.png') }}" alt="Chapter counter next to the title in the top margin of the document" title="The chapter counter with its related chapter title in the page margin" />
+        <figcaption>
+          The chapter counter with its related chapter title in the page margin
+        </figcaption>
+      </figure>
+
+      <p>
+        Of course, it’s possible to alternate the position of the chapter
+        <a href="{{ url_for('blog', article='00036-tips-and-tricks-margin') }}">on left and right pages</a>,
+        and to remove it from some pages using <a href="{{ url_for('blog', article='00029-tips-and-tricks-page') }}">named pages</a>!
+
+      <p>
+        Learn more about page margins:
+      </p>
+      <ul>
+        <li><a href="https://drafts.csswg.org/css-gcpm/#running-elements">W3C CSS specification</a></li>
+        <li><a href="https://github.com/CourtBouillon/weasyprint-samples/tree/master/report">A sample using this feature (with generated PDF and HTML/CSS source)</a></li>
+      </ul>
+      
+    </section>
+{% endblock content %}
