@@ -612,6 +612,13 @@ footer ul {
 }
 
 
+/* Testimonials */
+
+#testimonials figure:not(:last-of-type) {
+  margin-bottom: 2em;
+}
+
+
 /* Blog */
 
 #page-article article header {
