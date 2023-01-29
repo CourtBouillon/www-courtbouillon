@@ -1,0 +1,69 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: footnotes</h2>
+      <aside><time datetime="2023-01-30">January 30, 2023</time>, by CourtBouillon</aside>
+      <p>
+        What would be an old book, a research paper, a 100-page report, a very important
+        contract without footnotes at the bottom of the pages?
+      </p>
+    </header>
+
+    <section>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00038-footnote.png') }}" alt="Example of a footnote" title="A basic footnote" />
+        <figcaption>
+          A basic footnote
+        </figcaption>
+      </figure>
+
+      <p>
+        How do you include footnotes in your document? CSS has the perfect property for you:
+      </p>
+
+      {{ '00038-footnote-1.css' | pygmentize }}
+
+      <p>
+        You can then include the footnotes in your document using the class you’ve just configured:
+      </p>
+
+      {{ '00038-footnote-1.html' | pygmentize }}
+
+      <p>
+        You’ll then have the footnote displayed at the bottom of the page!
+      </p>
+
+      <p>
+        It’s also possible to add some style to the zone where footnotes are displayed.
+        What about adding some space and a small border?
+      </p>
+
+      {{ '00038-footnote-2.css' | pygmentize }}
+
+      <p>
+        The footnote call can also be customized. By default, it automatically uses
+        small superscript numbers if they’re available in your font. If they’re not
+        available, no problem: just use a small block of CSS to get what you want:
+      </p>
+
+      {{ '00038-footnote-3.css' | pygmentize }}
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00038-footnote-1.png') }}" alt="Example of a footnote" title="A footnote with a top border" />
+        <figcaption>
+          A stylish footnote
+        </figcaption>
+      </figure>
+
+      <p>
+        Learn more about page margins:
+      </p>
+      <ul>
+        <li><a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">W3C CSS specification</a></li>
+        <li><a href="{{ url_for('blog', article='00020-footnotes') }}">Article on this blog</a></li>
+      </ul>
+      
+    </section>
+{% endblock content %}
