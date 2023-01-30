@@ -1,0 +1,106 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v58: Beta Time</h2>
+      <aside><time datetime="2023-02-03">February 3, 2023</time>, by grewn0uille</aside>
+      <p>
+        WeasyPrint v58 is the next major version of WeasyPrint.
+        We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v58.0b1">beta</a>,
+        you can give it a try and help us to have a nice stable major release!
+        In this new version, WeasyPrint now supports PDF forms. 
+      </p>
+    </header>
+
+    <section>
+      <p>
+        <em>
+          PDF forms support has been added thanks to the financial
+          support of <a href="https://personalkollen.se">Personalkollen</a>. It has been
+          a real pleasure to develop this feature with them.
+        </em>
+      </p>
+      <p>
+        <em>
+          You would love to get a new feature, a bug fix, or some support on
+          WeasyPrint? Don’t hesitate to
+          <a href="{{ url_for('page', _anchor="support") }}">get in touch with us</a>! Or if you
+          simply want to see the project grow beautifully, you can donate on
+          <a href="https://opencollective.com/courtbouillon">OpenCollective</a> 😉.
+        </em>
+      </p>
+    </section>
+
+    <section>
+      <h3>How to Use PDF Form feature?</h3>
+
+      <p>
+        Since a long time, you can include forms in your HTML documents and gather informations.
+        Since a long time, <a href="https://github.com/Kozea/WeasyPrint/issues/61">"Form/Form Fields"</a>
+        issue is opened on the WeasyPrint repository.
+      </p>
+
+      <h4>Which inputs are supported?</h4>
+      <p>
+        WeasyPrint supports text-based <code>input</code>, check-boxes and <code>textarea</code>. Your inputs
+        have default value? No problem, they’ll be in your PDF!
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00039-inputs.png') }}" alt="A checkbox, a text input and a textarea" title="Form fields supported by WeasyPrint" />
+        <figcaption>
+          Form fields supported by WeasyPrint
+        </figcaption>
+      </figure>
+
+      <p>
+        As WeasyPrint now supports form fields, default style for form elements has been added.
+      </p>
+
+      <h4>How to Activate The Feature?</h4>
+      <p>
+        To enable this feature, you can use the <code>--pdf-forms</code> option or use the
+        <code>appearance</code> CSS property.
+      </p>
+
+      <p>
+        The <code>--pdf-forms</code> option will enable all of the form fields of your documents but
+        <code>appearance</code> allows you to manage it more finely.
+      </p>
+
+      <p>
+        When set to <code>auto</code> on a form field, <code>appearance</code> will enable the form feature
+        for this field. When set to <code>none</code>, it will disable the form feature.
+      </p>
+
+      {{ '00039-forms.css' | pygmentize }}
+    </section>
+
+    <section>
+      <h3>What Are the Next Steps?</h3>
+
+      <p>
+        The next step is yours! Don’t hesitate to try this beta and report bugs you
+        may find 🐞.
+      </p>
+      <p>
+        The one after is to fix the reported bugs and release a nice WeasyPrint
+        version 58.
+      </p>
+      <p>
+        Have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v58.0b1">beta</a> 💜.
+      </p>
+    </section>
+  </article>
+
+  <style>
+    @media (min-width: 920px) {
+      figure object {
+        display: inline-block;
+        width: 30%;
+      }
+    }
+  </style>
+{% endblock content %}
