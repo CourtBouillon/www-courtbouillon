@@ -1,0 +1,4 @@
+<!-- Check-boxes inputs are disabled -->
+input[type="checkbox"] {
+  appearance: none;
+}
