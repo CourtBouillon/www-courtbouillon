@@ -33,17 +33,21 @@
     </section>
 
     <section>
-      <h3>How to Use PDF Form feature?</h3>
+      <h3>How to Use PDF Form Feature?</h3>
 
       <p>
-        Since a long time, you can include forms in your HTML documents and gather informations.
-        Since a long time, <a href="https://github.com/Kozea/WeasyPrint/issues/61">"Form/Form Fields"</a>
-        issue is opened on the WeasyPrint repository.
+        For a long time, it’s been possible to include forms in your HTML documents and gather information.
+        For a long time, the <a href="https://github.com/Kozea/WeasyPrint/issues/61">"Form/Form Fields"</a>
+        issue has been opened in the WeasyPrint repository.
       </p>
 
-      <h4>Which inputs are supported?</h4>
       <p>
-        WeasyPrint supports text-based <code>input</code>, check-boxes and <code>textarea</code>. Your inputs
+        This issue is now closed!
+      </p>
+
+      <h4>Which Inputs Are Supported?</h4>
+      <p>
+        WeasyPrint supports text-based <code>input</code> tags, check-boxes and <code>textarea</code> tags. Your inputs
         have default value? No problem, they’ll be in your PDF!
       </p>
 
@@ -55,23 +59,19 @@
       </figure>
 
       <p>
-        As WeasyPrint now supports form fields, default style for form elements has been added.
+        And now that WeasyPrint supports form fields, a default style for form elements has also been added!
       </p>
 
-      <h4>How to Activate The Feature?</h4>
+      <h4>How to Activate the Feature?</h4>
       <p>
         To enable this feature, you can use the <code>--pdf-forms</code> option or use the
-        <code>appearance</code> CSS property.
+        <code>appearance</code> CSS property. The <code>--pdf-forms</code> option will enable all of the form fields of your documents,
+        and the <code>appearance</code> property can manage them more finely.
       </p>
 
       <p>
-        The <code>--pdf-forms</code> option will enable all of the form fields of your documents but
-        <code>appearance</code> allows you to manage it more finely.
-      </p>
-
-      <p>
-        When set to <code>auto</code> on a form field, <code>appearance</code> will enable the form feature
-        for this field. When set to <code>none</code>, it will disable the form feature.
+        When set to <code>auto</code> on a form field, <code>appearance</code> will generate a PDF form input
+        for this field. When set to <code>none</code>, it will disable the PDF form input and display it as normal PDF content.
       </p>
 
       {{ '00039-forms.css' | pygmentize }}
