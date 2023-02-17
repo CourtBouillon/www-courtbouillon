@@ -1,0 +1,104 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v58 Has Been Released</h2>
+      <aside><time datetime="2022-02-17">February 17, 2023</time>, by liZe</aside>
+      <p>
+        Version 58 of WeasyPrint has been released. It comes with a main new
+        feature and minor bug fixes 🎉.
+      </p>
+    </header>
+
+    <section>
+      <h3>What’s New?</h3>
+
+      <h4>Visible Features</h4>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v58.0">This stable version</a>
+        includes the main change from
+        <a href="{{ url_for('blog', article='00039-weasyprint-58-beta') }}">the beta version</a>: PDF forms!
+      </p>
+      <p>
+        <em>
+          PDF forms support has been added thanks to the financial
+          support of <a href="https://personalkollen.se">Personalkollen</a>.
+          It’s been a real pleasure to develop this feature with them 😻.
+        </em>
+      </p>
+      <p>
+        Version 58 also includes many small bug fixes since the beta version,
+        with a better default stylesheet for (non-PDF) forms, better SVG
+        gradients, an optimization for some JPEG images, a bug fix for
+        transformed backgrounds, and some crash fixes.
+      </p>
+
+      <h4>Invisible Work</h4>
+      <p>
+        As always, our work on WeasyPrint includes a lot of less visible but
+        critical tasks.
+      </p>
+      <p>
+        Some of the work required for managing PDF forms is really close to
+        what was already done for anchors and links. This was a good
+        opportunity to reorganize and optimize the code required to parse the
+        paginated document and find the different required elements.
+      </p>
+      <p>
+        Many tests have also been added, in order to improve WeasyPrint’s code
+        coverage and reliability. Regressions are always very frustrating for
+        users 👿, that’s why we try hard to avoid them! Most of our bug fixes
+        come with one or more tests to be sure that these issues won’t come
+        again.
+      </p>
+      <p>
+        Some corner cases are a bit complicated to tests too, and gradients are
+        a good example. Getting pixel-perfect renderings is important for fully
+        automated tests, but common gradients can give strange rasterisation
+        results. Moreover, gradients have a lot of combinations: translations,
+        rotations, zooms, relative units…
+      </p>
+      <p>
+        In this release, we greatly improved tests for gradients by finding
+        test cases that are both useful (to test different combinations) and
+        reliable (with a reliable raster rendering). This work was quite long,
+        and sometimes a bit painful, but it was important to get simpler and
+        more accurate gradients in SVG images.
+      </p>
+      <p>
+        Thanks to everyone working around our libraries 🙏, thanks to our
+        wonderful contributors 💜, we’ll continue to do our best to make
+        WeasyPrint easy to hack, to debug, to package, and of course to use!
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Coming Next?</h3>
+
+      <h4>Layout</h4>
+      <p>
+        What will be included in the next version of WeasyPrint? That’s a good
+        question, and our previous assumptions have always been wrong!
+      </p>
+      <p>
+        The answer is actually up to you. If you really want some features to
+        come earlier, if you want to fix the bug that’s been blocking for your
+        application <strong>don’t
+        hesitate to send a message to share your needs with us</strong>. You can also
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a> and
+        help us to keep on developing WeasyPrint. We’ve had a very good time
+        working with our different clients so far, and it’s always a pleasure
+        to see that the work accomplished for our different sponsors is
+        available for all our users.
+      </p>
+
+      <h4>Your Turn!</h4>
+      <p>
+        It’s now your turn to work! Install
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v58.0">version 58</a>
+        and give us some feedback.
+        <strong>We hope that the different improvements brought by this release will be helpful for you.</strong>
+      </p>
+    </section>
+{% endblock content %}
