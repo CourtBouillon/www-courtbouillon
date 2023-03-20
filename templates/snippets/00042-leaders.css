@@ -1,0 +1,3 @@
+#table-of-content a::after {
+  content: leader('.') ' ' target-counter(attr(href), page);
+}

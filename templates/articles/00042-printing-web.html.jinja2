@@ -1,0 +1,359 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Printing the Web</h2>
+      <aside><time datetime="2023-04-06">April 6, 2023</time>, by CourtBouillon</aside>
+      <p>
+        Everyday we work with web technologies, but our work is a bit different from a
+        lot of people: we don’t create websites. Our HTML and CSS aren’t displayed on
+        web browser, but transformed in PDF files.
+      </p>
+    </header>
+
+    <section>
+      <p>
+        <em>
+          This article <a href="https://www.24joursdeweb.fr/2022/mettre-le-web-en-pages/">was
+          originally published in French</a> for the "24 jours de web" advent calendar.
+        </em>
+      </p>
+    </section>
+
+    <section>
+      <h3>A Small Introduction</h3>
+
+      <p>
+        We are Lucie and Guillaume, and like many people, everyday we work with web technologies.
+      </p>
+      <p>
+        Like many people, we like to create nice HTML structures to insert our content. Like many
+        people, we like to paint nice colors and build nice structures with our CSS.
+      </p>
+      <p>
+        But our work is a bit different from a lot of people: we don’t create website. Our HTML and CSS
+        aren’t displayed in web browsers. It’s transformed into PDF files to be print,
+        read on smartphones or computers, or simply archived.
+      </p>
+      <p>
+        In other words: we litteraly printing web.
+      </p>
+      <p>
+        How? Why? We’re going to see in detail that this idea isn’t as strange as it may looks…
+      </p>
+    </section>
+
+    <section>
+      <h3>A Bit of History</h3>
+
+      <h4>Weaknesses of Classic Tools</h4>
+      <p>
+        Let’s be honest: using HTML and CSS to create PDF files wasn’t our first idea.
+        There is a ton of tools to create beautiful documents, from Microsoft Word to LaTeX,
+        from LibreOffice Writter to Google Docs, through Adobe InDesign… These software are
+        generally enough to meet a large list of needs, from the simple letter writen in
+        two minutes to the magasine ready to be print.
+      </p>
+      <p>
+        However, there is a need for which these tools aren’t really made for: automatic document generation.
+      </p>
+      <p>
+        Let’s say that you have a online shop. You like creating amazing ceramic bowls 🥣️and
+        the whole world can see them on your website. Customers love what you do and you quickly sell
+        dozens and dozens bowls. Congrats! Users fill their basket, enter the number of their credit card
+        to pay, and… they’d like to have an invoice.
+      </p>
+      <p>
+        Hm… You’re not going to write all these invoices by hand! The layout is always the same, but the
+        content change a bit: name, price, address… How to do it?
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00042-invoices-thumbnail.jpg') }}" alt="An invoice" title="Your invoices are as pretty as your bowls!" />
+        <figcaption>
+          Your invoices are as pretty as your bowls!
+        </figcaption>
+      </figure>
+      
+      <p>
+        The same question comes if you have an online business card creation site, where you’d like that
+        your customers choose among different styles, in which they may change colors, fonts or logo.
+        Same if you’d like to generate promotional flyers or electronic labels for your shop.
+        Same again if you’d like to print diplomas, school reports or schedules.
+      </p>
+
+      <p>
+        Anyway, you get the idea 😁️.
+      </p>
+
+      <p>
+        <strong>That’s the moment where the idea of using web technologies to generate printable documents appears.</strong>
+      </p>
+
+      <p>
+        After all, in each of these cases, we have to generate a document with a well-defined structure and layout.
+        To print content coming from a database, HTML has nothing left to prove. You can use whatever tool, framework,
+        library and language you want to create pages you need. And to layout this HTML, what’d be better than CSS?
+        You can create one or more stylesheet depending your desires, you can even customize them with variables or
+        preprocessor (like <a href="https://sass-lang.com/">Sass</a>) if you’d like to.
+      </p>
+
+      <p>
+        Alright, we see how this works for displaying website on browser. But for a paged document, honnestly,
+        wouldn’t that be far-fetched?
+      </p>
+
+      <h4>The Strenghts of Web Technologies</h4>
+      <p>
+        Actually, and as surprising as it may be, it’s not, and not only to generate some invoices for your cute bowls.
+        There is a good chance that you have in your library a book that has been made with HTML/CSS! Publishers are often
+        discrete about technologies they use, but some like <a href="https://www.xml.com/articles/2017/02/20/beyond-xml-making-books-html/">Hachette</a> talk about it.
+        Real books made with HTML/CSS, sold to real customers, without anyone knowing!
+      </p>
+      <p>
+        So, if big publishers use these technologies "for real", that can work for other, no?
+      </p>
+
+      <p>
+        It’s not the product of chance… It’s time to dig a little, let’s back to 1996.
+        The IT world only speak about Windows 95, the new Microsoft OS, which doesn’t even
+        have a default browser. 90% of the Internet users (which aren’t many of them) use Netscape, which
+        will integrate this year a langage hastly created: JavaScript.
+      </p>
+      <p>
+        It’s also in 1996 that the <a href="https://www.w3.org/TR/WD-CSS2-971104/cover.html">first CSS2 specification</a> is published.
+        To build an open and interoperable standard, the W3C writes a document which still a reference more than 25 years after.
+        In this document, we can find a clear definition of the syntax, selectors and a lot of basic properties we still use
+        today. But that’s not all…
+      </p>
+      <p>
+        You can find in it a <a href="https://www.w3.org/TR/WD-CSS2-971104/page.html#h-12.1">whole chapter about paged documents generation</a>.
+      </p>
+      <p>
+        CSS creators see far and like to think outside the box. The format wasn’t only thought for PC and Mac cathode ray tubes of 1996,
+        not only to be manipulated with just a mouse and a keyboard. They already think about
+        displaying website on TV, Braille pads, on portable devices (the first iPhone will be released more than 10 years after),
+        reading this content with voice synthetizers… or, of course, printing documents.
+      </p>
+      <p>
+        If the idea is praiseworthy (and absolutly visionnary), it brings many concrete issues.
+        Automatically cutting a web document on several pages with a fixed size has specific
+        issues and CSS 2 covers only a portion of it: forcing or avoiding page breaks, adding
+        margins and inserting page numbers, defining a format for printing.
+        It’s a good start but it’s not enough. Without being aware of it, tons of printed documents
+        around us teem with details of which we need to take care of to have a quality layout.
+      </p>
+    </section>
+
+    <section>
+      <h3>In Practice</h3>
+
+      <p>
+        So, what is like to print web?
+      </p>
+      <p>
+        When we create a document, whether it’s a letter, a poster, a book or something else,
+        we have a lot of choices. For example, the format: will my document will be printed on
+        a A4 page, a A6, in 15cm x 24cm, in portrait or landscape? That’s something that is
+        easily doable in CSS. Let’s choose A4 format:
+      </p>
+      
+      {{ '00042-at-page.css' | pygmentize }}
+
+      <p>
+        That was quite easy!
+      </p>
+      <p>
+        Did you notice that, on a document of several pages, margins are often not the same
+        depending if we are on a left or right page, and that the page numbers aren’t always
+        on the same side? This too is easily doable in CSS:
+      </p>
+
+      {{ '00042-left-right.css' | pygmentize }}      
+
+      <p>
+        You got the idea, <strong>CSS can deal with these issues for web and paged documents</strong>.
+        Let’s try with other issues more specific to documents 🤯!
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00042-book.jpg') }}" alt="Photo of an opened book" title="Books are beautiful" />
+        <figcaption>
+          Books are beautiful
+        </figcaption>
+      </figure>
+
+      <p>
+        Do you see what leaders are? These little points you find on table of contents, linking
+        chapter title to its page number. Alright, it’s not always little points, but you get the idea.
+        This is also doable with CSS:
+      </p>
+
+      {{ '00042-leaders.css' | pygmentize }}            
+      
+      <p>
+        It may sounds a bit barbaric, but let’s have a closer look.
+      </p>
+      <p>
+        <code>target-counter()</code> permits to get the number of the page on which the chapter starts.
+        <code>leader()</code>, it’s the main character of our table of contents, that’s this function
+        (yes, there are function in CSS) that will draw the little points between the chapter name and
+        its page number. Each line will have the right amount of points depending the space available,
+        and the points of all lines will be perfectly aligned: <code>leader()</code> does things nicely.
+      </p>
+      <p>
+        We won’t have a tour of all the things possible to do, but CSS is full of functionnality and
+        properties which help us to make a document with the smallest details. Whether you want to define
+        if it’s possible to cut inside a block or not, whether you like to insert footnotes, text on multi-columns,
+        or something else, you often find a way to achieve it.
+      </p>
+
+      <p>
+        <strong>
+          By creating documents with HTML/CSS, you benefit of all the specific things for paged documents
+          already managed by CSS, but you also benefit of all the power of CSS that you already use
+          for your websites!
+        </strong>
+      </p>
+
+      <p>
+        As we put some CSS sample in this article, we used them to generate
+        <a href="https://github.com/CourtBouillon/24joursdeweb-2022/raw/main/article.pdf">a simple PDF</a> from
+        the French version of it 😄. If you want to have a closer look to the code, the CSS is
+        available in <a href="https://github.com/CourtBouillon/24joursdeweb-2022/">this GitHub repository</a>.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00042-article-in-pdf.png') }}" alt="The article transformed in PDF" title="The article(French version) laid out" />
+        <figcaption>
+          The article (French version) laid out
+        </figcaption>
+      </figure>
+
+    </section>
+
+    <section>
+      <h3>The Tools to Make Your Documents</h3>
+
+      <p>
+        It’s nice, we have our content inside some HTML and a nice layout inside some CSS, but
+        how to generate PDF with that?
+      </p>
+
+      <p>
+        <strong>There are a lot of differents tools that transform HTML/CSS into PDF</strong>.
+        Each tool has its strenghts and its weaknesses, but all stay interoperable because they
+        use the same HTML and CSS standards.
+      </p>
+
+      <p>
+        Among these tools, the first one you can easily try is… your browser.
+      </p>
+      <p>
+        Printing your HTML page into a PDF will, without surprise, give you a PDF. This solution is really
+        convenient and doesn’t require you to install something on your computer.
+      </p>
+      <p>
+        Generating PDF files with your browser has their limits. The main one is that your browser is made to allow
+        you browsing the web. That’s its main functionnality (you already know that) and that’s why browsers
+        are far from includisng all CSS properties and functionnalities specific to printing, like footnotes.
+      </p>
+      <p>
+        That’s why dedicated tools have been developped. Unlike browsers, these tools are specifically
+        developped to generate paged documents, and so are more careful about the features for this support.
+      </p>
+
+      <p>
+        What are these tools? We can cite for example <a href="https://pagedjs.org/">PagedJS</a>,
+        <a href="https://vivliostyle.org/">Vivliostyle</a>, <a href="https://www.princexml.com/">PrinceXML</a>,
+        <a href="https://www.pdfreactor.com/">PDFreactor</a>, <a href="https://www.antennahouse.com/">Antenna House</a>
+        or <a href="https://weasyprint.org/">WeasyPrint</a>.
+      </p>
+      <p>
+        Among these tools, some are open source and easily available:
+      </p>
+      <ul>
+        <li>
+          PagedJS is a JavaScript library that, in addition to transform your HTML/CSS into PDF, allows
+          you to see the rendering of your document directly in the browser.
+        </li>
+        <li>
+          Vivliostyle is developped in TypeScript, useable directly in your terminal and also allows you to
+          visualise your PDF. Special mention to Vivliostyle which manage very well right-to-left and top-to-bottom
+          writting mode (because you, you have to take care of that when you make documents).
+        </li>
+        <li>
+          As for WeasyPrint, it’s a Python library useable by command line or callable from your Python application.
+          It’s a tool that you really should try, as we develop it 😉️.
+        </li>
+      </ul>
+
+      <p>
+        If you want to see what these tools are able to generate, you can have a look at:
+      </p>
+      <ul>
+        <li>
+          <a href="https://pagedjs.org/made-with-paged.js.html">the books created with PagedJS</a>;
+        </li>
+        <li>
+          <a href="https://vivliostyle.org/samples/">the books and magazines created with Vivliostyle</a>;
+        </li>
+        <li>
+          <a href="https://weasyprint.org/#samples">the books, reports, letters and other created with WeasyPrint</a>;
+        </li>
+      </ul>
+
+      <p>
+        It makes you want to try a little, doesn’t it?
+      </p>
+    </section>
+
+    <section>
+      <h3>The Web Diversity</h3>
+
+      <p>
+        Creating PDF documents with web technologies is a niche, but it teems of ideas, tools, solutions.
+        People from this microcosm often shares values and desires, and sometimes confront vehemently
+        their antagonistic points of view. Not everyone agrees, of course 😁, but at least things can
+        move thanks to the work of the people behind standards, the developpers of tools and their users.
+      </p>
+      <p>
+        This boiling world, it’s world of the web as we know it, at least for now. The older persons among you
+        certainly recall the dark hours of the web at the beginning of the 2000’s, with Internet Explorer 6 and
+        its 90% market shares that didn’t care of the interoperability and the innovation like any
+        omnipotent ogre.
+      </p>
+      <p>
+        The <a href="https://gs.statcounter.com/browser-market-share">actual position of Chrome</a> is getting
+        closer and closer each day to a quasi-monopolistic situation. At short or middle term, this may dive back
+        an ecosystem praticularly innovative in the torpor and the constraints enforced by a despot.
+        Google is less and less cautious to push inside it browser surveillance tools and to promote online ads.
+        The company doesn’t do it out of malice, but for a simple reason: increase their income.
+        Whereas a relative balance has been found with the other implementations, current trends
+        (disenchantment for Firefox, use of the Chrome rendering engine by Edge and Opera) suggest that the balance
+        of power doesn’t exist anymore to counter the assertive agenda of the search engine.
+      </p>
+
+      <p>
+        In front of this, it appears that it’s important to continue playing the interoperability game.
+        The web, and internet in general, works well thanks to a lot of tools based on the same protocols,
+        langages and formats, like TCP/IP, HTTP, HTML, CSS, JavaScript… One of the strenght of these technologies
+        is their multiple implementations: whether you make a static website, a REST API, a scraper, a web app
+        or a streaming service, you’re able to choose between langages you like and tools you prefer.
+        All of this is possible because these technologies are the product of a consensus among consortia,
+        trying to focus on the best interest of users instead of the interest of a private actor or a
+        specific public.
+        <strong>And in the end, for us, participate in consensus by developping this alternative
+        usage is a modest, but sincere, way to try to make live this open web</strong>.
+      </p>
+      <p>
+        We’re Lucie and Guillaume, and like many people we work everyday with web technologies.
+        We’d like that to continue for a long time, we’d like to be able to invent and printing pages of
+        our content, independently of the wishes of big actors with which we don’t necessarily share goals.
+        So, at our small level, with our nice documents overflowing with beautiful letters and
+        harmonious colors, with our open tools and standards, with our passion and our good mood, we try
+        to keep this web diversity alive 🌱.
+      </p>
+    </section>
+{% endblock content %}
