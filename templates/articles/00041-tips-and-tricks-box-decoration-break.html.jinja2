@@ -1,0 +1,67 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: <code>box-decoration-break</code></h2>
+      <aside><time datetime="2023-03-21">March 21, 2023</time>, by CourtBouillon</aside>
+      <p>
+        When a box is split between multiple pages, do you want do display its top and bottom
+        borders? Sometimes you do … but sometimes you don’t.
+      </p>
+    </header>
+
+    <section>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00041-box-decoration-1.png') }}" alt="Example of an article with borders repeating on page break" title="An article with borders repeated across page break" />
+        <figcaption>
+          An article with borders repeated across page break
+        </figcaption>
+      </figure>
+
+      <p>
+        As often, CSS has good news for you: <code>box-decoration-break</code>:
+      </p>
+
+      {{ '00041-box-decoration-1.css' | pygmentize }}
+
+      <p>
+        This feature lets you display the borders at the top and the bottom of the box,
+        even when it’s split. Of course, you’ll also keep the padding inside your box.
+      </p>
+
+      <p>
+        With the default value, slice, you’ll be able to keep the default behavior that’s
+        more common: keep borders and padding on the left and right sides, but skip them at
+        the top and the bottom of the pages.
+      </p>
+
+      <p>
+        Note that at page breaks, split boxes always reach the bottom of the page, even
+        if their content is too small to fill the whole blank space.
+      </p>
+
+      <p>
+        And don’t hesitate to try this feature with inline boxes, it works very well too
+        if you want to keep your borders when your text breaks across multiple lines!
+      </p>
+
+      {{ '00041-box-decoration-2.css' | pygmentize }}      
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00041-box-decoration-2.png') }}" alt="Example of a span with borders repeating on line breaks" title="A span with borders repeated across multiple lines" />
+        <figcaption>
+          A span with borders repeated across multiple lines
+        </figcaption>
+      </figure>
+
+      <p>
+        Learn more about footnotes:
+      </p>
+      <ul>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS/box-decoration-break">MDN</a></li>
+        <li><a href="https://www.w3.org/TR/css-break-3/#break-decoration">W3C CSS specification</a></li>
+      </ul>
+    </section>
+  </article>
+{% endblock content %}
