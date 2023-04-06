@@ -1,0 +1,12 @@
+@page :left {
+  margin: 20mm 10mm 20mm 15mm;
+  @bottom-left {
+    content: counter(page)
+  }
+}
+@page :right {
+  margin: 20mm 15mm 20mm 10mm;
+  @bottom-right {
+    content: counter(page)
+  }
+}
