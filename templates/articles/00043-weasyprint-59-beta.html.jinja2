@@ -4,12 +4,13 @@
   <article>
     <header>
       <h2>WeasyPrint v59: Beta Time</h2>
-      <aside><time datetime="2023-02-03">April 12, 2023</time>, by liZe</aside>
+      <aside><time datetime="2023-04-14">April 14, 2023</time>, by liZe</aside>
       <p>
         WeasyPrint v59 is the next major version of WeasyPrint.
-        We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v59.0b1">beta</a>,
-        you can give it a try and help us to have a nice stable major release!
-        The major improvement in this version is a much smaller size of generated PDFs.
+        We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v59.0b1">beta</a>
+        <strong>with subtle API changes</strong>, you can give it a try and
+        help us to have a nice stable major release! The major improvement in
+        this version is a much smaller size of generated PDFs.
       </p>
     </header>
 
@@ -69,7 +70,8 @@
       <p>
         Some optimizations are lossless, allowing users to get exactly the same
         rendering while saving some space. Such an option already exists in
-        WeasyPrint: using the <code>-O images</code> asks
+        WeasyPrint: using the <code>-O images</code> (now
+        <code>--optimize-images</code>) asks
         <a href="https://pillow.readthedocs.io/">Pillow</a> to generate smaller
         images if possible. Let’s trust Pillow for this, there’s probably
         nothing more we can do.
