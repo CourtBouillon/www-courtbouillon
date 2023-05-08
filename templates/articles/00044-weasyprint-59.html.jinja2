@@ -1,0 +1,254 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v59 Has Been Released</h2>
+      <aside><time datetime="2023-05-13">May 11, 2023</time>, by grewn0uille</aside>
+      <p>
+        Version 59 of WeasyPrint has been released. It comes with new features to
+        reduce the size of generated PDFs and to compress PDFs 🎉.
+      </p>
+    </header>
+ 
+    <section>
+      <h3>Reduce the PDFs Size</h3>
+
+      <p>
+        In this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v59.0">new WeasyPrint version</a>,
+        a lot of work has been done to <strong>reduce the size of the generated documents</strong>.
+      </p>
+
+      <p>
+        <em>
+          Size optimizations have been added thanks to the financial support of
+          <a href="https://www.codeandco.com/">Code & Co.</a>.
+          It’s been a real pleasure to work with them 😻.
+        </em>
+      </p>
+
+      <h4>A New pydyf Version</h4>
+      <p>
+        In order to reduce the size of the generated PDFs, a
+        <a href="https://github.com/CourtBouillon/pydyf/releases/tag/v0.6.0">new version of pydyf</a>
+        has been released.
+      </p>
+      <p>
+        This pydyf version avoids writing useless characters in the PDF (like spaces, for example).
+        This works for all types of PDFs (PDF/UA, PDF/A, regular PDFs) and thus
+        all of <strong>your documents will be lighter</strong>!
+      </p>
+      <p>
+        Also in this version, we add a new option to allow the creation of compressed PDFs.
+        By default, the generated PDFs will be compressed. But you can disable that using
+        the <code>uncompressed-pdf</code> option in WeasyPrint.
+      </p>
+      
+      <h4>New Optimize Options</h4>
+      <p>
+        This new <code>uncompressed-pdf</code> option is related to an <strong>API change</strong> ⚠️.
+      </p>
+      <p>
+        Until then, you were able to choose several optimizations through the
+        <code>-O</code> option. Now <strong>this option is deprecated</strong> and has been
+        replaced by different options with clear names to be more intuitive and
+        to make it easier for you to customize your optimizations!
+      </p>
+      <p>
+        These new options include:
+      </p>
+      <ul>
+        <li><code>uncompressed-pdf</code></li>
+        <li><code>optimize-images</code></li>
+        <li><code>full-fonts</code></li>
+        <li><code>hinting</code></li>
+      </ul>
+      <p>
+        The <code>--optimize-images</code> option, formerly <code>-O images</code>, reduces
+        the size of the images in the documents. To do that, we rely on Pillow.
+        <strong>It’s a lossless optimization for your PDFs</strong>.
+      </p>
+      <p>
+        <strong>By default, fonts are optimized</strong> to take up less space in the documents. You can
+        disable that and include the full fonts by using the <code>--full-fonts</code>
+        option.
+      </p>
+      <p>
+        Other information related to the fonts can be stored in the PDF, like the hinting.
+        By default, WeasyPrint doesn’t include this information, but you can now do
+        it by using the <code>--hinting</code> option.
+      </p>
+
+      <p>
+        For now, it’s more like we have new options to increase the size of the PDFs
+        but not really to reduce it… So let’s talk about <code>--jpeg-quality</code> and
+        <code>--dpi</code> options!
+      </p>
+
+      <h4>JPEG quality</h4>
+      <p>
+        One of the easiest ways to reduce the size of a document is to <strong>reduce the size of
+        the images</strong> it contains.
+      </p>
+      <p>
+        For that, we add a new <code>--jpeg-quality</code> option which allows you
+        to <strong>choose the quality of the JPEG images in your PDFs</strong>.
+      </p>
+      <p>
+        The quality is between 0 (worst) and 95 (best). The lower the quality is, the
+        smaller the PDF is. You can try different values and see which one
+        works well for you!
+      </p>
+
+      <h4>DPI</h4>
+      <p>
+        Another new option has been added for images: <code>--dpi</code>.
+      </p>
+      <p>
+        This option allows you to <strong>set the maximum resolution for embedded images
+        in the PDFs</strong>.
+      </p>
+
+      <p>
+        That’s all for the size of the generated PDFs, let’s talk about
+        memory used.
+      </p>
+    </section>
+
+    <section>
+      <h3>Reduce the Memory Used</h3>
+
+      <p>
+        One of the most consuming memory thing in WeasyPrint are images.
+      </p>
+      <p>
+        As said before, we use Pillow to deal with images in WeasyPrint. Until then,
+        we stored an image all the long of the documents’s generation.
+      </p>
+      <p>
+        Now, when a Pillow image is created, it’s transformed into a
+        ready-to-store-in-pdf image and then forgotten, thus <strong>WeasyPrint consumes
+        less memory</strong>.
+      </p>
+
+      <p>
+        On top of that, a new option has been added related to that:
+        <code>--cache-folder</code>.
+      </p>
+      <p>
+        With this option, you can specify a folder to <strong>store the images on the disk
+        instead of storing them in memory</strong>.
+      </p>
+    </section>
+
+    <section>
+      <h3>Let’s Compare!</h3>
+
+      <p>
+        That’s a lot of changes to reduce the size of the generated PDFs,
+        and what is always nice are numbers, so let’s compare options on
+        different documents 🤓.
+      </p>
+      <p>
+        For this, we’re going to use the following documents:
+      </p>
+      <ul>
+        <li><a href="https://github.com/Kozea/WeasyPerf/tree/master/samples/odyssey">Odyssey</a>: sample from WeasyPerf, with a lot of text</li>
+        <li><a href="https://github.com/Kozea/WeasyPerf/tree/master/samples/html5">HTML5</a>: sample from WeasyPerf, with a lot of links</li>
+        <li><a href="https://github.com/CourtBouillon/weasyprint-samples/tree/master/book">All Cats Are Beautiful</a>: book sample, with a lot of images</li>
+        <li><a href="https://github.com/CourtBouillon/weasyprint-samples/tree/master/report">Report</a>: report sample, a quite common document with text and images</li>
+      </ul>
+
+      <p>
+        The different comparisons are going to be made on:
+      </p>
+      <ul>
+        <li>previous WeasyPrint and pydyf versions</li>
+        <li>new WeasyPrint and pydyf versions</li>
+        <li><code>--optimize-images</code></li>
+        <li><code>--jpeg-quality 60</code></li>
+        <li><code>--dpi 150</code></li>
+      </ul>
+
+      <p>
+        Results are in bytes.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Odyssey</th>
+            <th>HTML5</th>
+            <th>Book</th>
+            <th>Report</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WeasyPrint v58.1 (ref.)</td>
+            <td>1'157'953</td>
+            <td>1'435'069</td>
+            <td>5'266'989</td>
+            <td>685'147</td>
+          </tr>
+          <tr>
+            <td>with the new pydyf</td>
+            <td>971'714 (<strong>-16%</strong>)</td>
+            <td>291'305 (<strong>-79%</strong>)</td>
+            <td>5'280'512 (+0.2%)</td>
+            <td>667'042 (-2%)</td>
+          </tr>
+          <tr>
+            <td>with <code>--optimize-images</code></td>
+            <td>971'713 (-16%)</td>
+            <td>291'306 (-79%)</td>
+            <td>4'864'745 (-7%)</td>
+            <td>573'802 (-16%)</td>
+          </tr>
+          <tr>
+            <td>with <code>--jpeg-quality</code></td>
+            <td>971'711 (-16%)</td>
+            <td>291'309 (-79%)</td>
+            <td>4'241'525 (<strong>-19%</strong>)</td>
+            <td>500'068 (-27%)</td>
+          </tr>
+          <tr>
+            <td>with <code>--dpi</code>
+            <td>971'710 (-16%)</td>
+            <td>291'309 (-79%)</td>
+            <td></td>
+            <td>374'106 (<strong>-45%</strong>)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The most impressive results are on the HTML5 documents, which is a lot of text and links.
+      </p>
+      <p>
+        There are no change with the images optimizations with Odyssey and HTML5 samples
+        as these documents don’t contain any images.
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Coming Next?</h3>
+
+      <p>
+        What’s coming next is a hard question for us. Every time we said something, we were wrong,
+        so no more assumptions!
+      </p>
+      <p>
+        What’s coming next is rather a question for you 😝. If you want some new features,
+        some bug fixes, <strong>don’t hesitate to contact us to share your needs</strong>. You can also
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a>,
+        it’s really <strong>helping us to secure time to work on WeasyPrint</strong> and its dependencies.
+      </p>
+      <p>
+        Have fun with this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v59.0">new WeasyPrint version</a>,
+        <strong>we hope that all of these improvements will be useful for you</strong>!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
