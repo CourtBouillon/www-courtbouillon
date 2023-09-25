@@ -2,7 +2,7 @@ name: www-courtbouillon deploy
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
