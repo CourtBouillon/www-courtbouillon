@@ -1,0 +1,102 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v60 Has Been Released</h2>
+      <aside><time datetime="2023-09-25">September 25, 2023</time>, by liZe</aside>
+      <p>
+        Version 60 of WeasyPrint has been released. It comes with a lot of bug
+        fixes 🐛, from an unprecedented number of amazing contributors!
+      </p>
+    </header>
+
+    <section>
+      <h3>A Lot of Bug Fixes, and Useful New Features</h3>
+
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v60.0">WeasyPrint version 60</a>
+        comes with a lot of bug fixes, and some new features that you may find useful.
+      </p>
+
+      <h4>Layout</h4>
+      <p>
+        <strong>Many layout problems have been fixed in this new version,</strong>
+        improving our respect of standards and our interoperability with other
+        rendering engines.
+      </p>
+      <p>
+        We have for example improved column balancing with spanning
+        elements, respected table cells’ minimum sizes, avoided page breaks
+        caused by hidden elements, fixed leaders with margins, or improved
+        inheritance for named pages.
+      </p>
+
+      <h4>Text and Fonts</h4>
+      <p>
+        <strong>Drawing text correctly is complex and requires to take care of a lot of details.</strong>
+        In this version, WeasyPrint improves some of them:
+      </p>
+      <ul>
+        <li>correctly draw glyphs with vertical offsets,</li>
+        <li>apply text transformation on first letter pseudo elements,</li>
+        <li>only draw required glyphs of multi-character SVG fonts,</li>
+        <li>support <code>&lt;wbr&gt;</code> tags to add manual line-breaking opportunities,</li>
+        <li>adjust text length in SVG using <code>textLength</code> and <code>lengthAdjust</code> attributes.</li>
+      </ul>
+
+      <h4>And More!</h4>
+      <ul>
+        <li>
+          A new <code>--timeout</code> command line option has been added to
+          define the maximum amount of time you want to give to your HTTP
+          requests.
+        </li>
+        <li>
+          Background images are now drawn on PDF’s bleed area.
+        <li>
+          Form fields are now displayed when printed on real paper!
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Amazing Contributors</h3>
+
+      <p>
+        <strong>WeasyPrint is an open source library since its first commit,</strong>
+        and we’re very proud of its hundred contributors so far 💜. But
+        we know that working on a HTML/CSS rendering engine may be intimidating
+        for newcomers.
+      </p>
+      <p>
+        In order to get more coders onboard, we tried during this release
+        period to give more advice in issues on GitHub. Many tickets have been
+        marked as "good first issue" and hints have been added to guide users.
+        Contributing is not always easy, but it may be easier than what you
+        think!
+      </p>
+      <p>
+        As a result, <strong>10 people have contributed code to WeasyPrint v60.0</strong>,
+        and that’s our record so far for a single version 🥳!
+        <strong>Thanks a lot to all the contributors,</strong> many bugs have
+        been addressed thanks to your hard work!
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Coming Next?</h3>
+
+      <p>
+        What’s coming next is rather a question for you 😝. If you want some new features,
+        some bug fixes, <strong>don’t hesitate to contact us to share your needs</strong>. You can also
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a>,
+        it’s really <strong>helping us to secure time to work on WeasyPrint</strong> and its dependencies.
+      </p>
+      <p>
+        Have fun with this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v60.0">new WeasyPrint version</a>,
+        <strong>we hope that all of these improvements will be useful for you</strong>!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
