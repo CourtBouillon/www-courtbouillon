@@ -1,6 +1,6 @@
 install:
 	python3 -m venv .venv
-	.venv/bin/pip install frozen-flask pygments
+	.venv/bin/pip install frozen-flask pygments "Werkzeug<=2.3.3"
 
 static: install
 	FLASK_APP=courtbouillon.py .venv/bin/flask freeze
