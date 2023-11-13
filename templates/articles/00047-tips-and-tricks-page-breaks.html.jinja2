@@ -1,0 +1,93 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Tricks: page breaks</h2>
+      <aside><time datetime="2023-11-14">November 14, 2023</time>, by CourtBouillon</aside>
+      <p>
+        When creating paged documents automatically, one of the most common
+        remarks is: "This page break is really ugly, a human would never have
+        done this!" That’s true: humans are still better than computers to
+        define page breaks. But nothing prevents humans from teaching computers
+        how to choose better page breaks!
+      </p>
+    </header>
+
+    <section>
+      <p>
+        The easiest way to improve page breaks is to define forced page breaks.
+        For example, you may want a page break before each article title:
+      </p>
+
+      {{ '00047-break-before.css' | pygmentize }}
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/') }}" alt="Two pages with a page break before the article title" />
+        <figcaption>
+          Two pages with a page break before the article title
+        </figcaption>
+      </figure>
+
+      <p>
+        With <code>break-before: page</code> and <code>break-after:
+        page</code>, you can insert forced page breaks before or after selected
+        elements. You can also use <code>left</code> or <code>right</code>
+        instead of <code>page</code> to force the next page to be a left or
+        right page.
+      </p>
+
+      <p>
+        But there’s more: you can also define places where you want to avoid
+        page breaks. Let’s say you want to avoid page breaks in paragraphs, or
+        between paragraphs and tables:
+      </p>
+
+      {{ '00047-break-avoid.css' | pygmentize }}
+
+      <p>
+        These rules can be defined on any block-level boxes, and between table
+        rows for example. For lines, other rules exist: <code>orphans</code>
+        and <code>widows</code> define the minimum number of lines required at
+        the beginning or at the end of an element broken between two pages.
+      </p>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/') }}" alt="A page break in a paragraph, without and with the orphans and widows properties set" />
+        <figcaption>
+          A page break in a paragraph, without and with the orphans and widows properties set
+        </figcaption>
+      </figure>
+
+      <p>
+        Some rules are already defined for you, for example to avoid page
+        breaks just after titles or before lists. The default value set for
+        orphans and widows is 2, preventing text lines to be alone at the
+        beginning or the end of a page.
+      </p>
+
+      <p>
+        Fine-tuning these rules can be long and difficult, particularly for
+        long documents. With some experience, this work will become easier and
+        give results that are closer to what humans would do manually!
+      </p>
+
+      <p>
+        Learn more about page breaks:
+      </p>
+      <ul>
+        <li>
+          MDN for
+          <a href="https://developer.mozilla.org/en/docs/Web/CSS/break-before"><code>break-before</code></a>,
+          <a href="https://developer.mozilla.org/en/docs/Web/CSS/break-after"><code>break-after</code></a>,
+          <a href="https://developer.mozilla.org/en/docs/Web/CSS/break-inside"><code>break-inside</code></a>,
+          <a href="https://developer.mozilla.org/en/docs/Web/CSS/orphans"><code>orphans</code></a> and
+          <a href="https://developer.mozilla.org/en/docs/Web/CSS/widows"><code>widows</code></a>
+        </li>
+        <li>
+          <a href="https://www.w3.org/TR/css-break-3/#breaking-controls">W3C CSS specification</a>
+        </li>
+      </ul>
+    </section>
+  </article>
+{% endblock content %}

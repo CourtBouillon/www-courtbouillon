@@ -1,0 +1,7 @@
+p {
+  break-inside: avoid;
+}
+
+p + table {
+  break-before: avoid;
+}
