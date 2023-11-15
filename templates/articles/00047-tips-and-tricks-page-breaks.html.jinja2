@@ -4,7 +4,7 @@
   <article>
     <header>
       <h2>CSS Tricks: page breaks</h2>
-      <aside><time datetime="2023-11-14">November 14, 2023</time>, by CourtBouillon</aside>
+      <aside><time datetime="2023-11-16">November 16, 2023</time>, by CourtBouillon</aside>
       <p>
         When creating paged documents automatically, one of the most common
         remarks is: "This page break is really ugly, a human would never have
@@ -23,7 +23,7 @@
       {{ '00047-break-before.css' | pygmentize }}
 
       <figure>
-        <img src="{{ url_for('static', filename='images/') }}" alt="Two pages with a page break before the article title" />
+        <img src="{{ url_for('static', filename='images/00047-page-break-1.png') }}" alt="Two pages with a page break before the article title" />
         <figcaption>
           Two pages with a page break before the article title
         </figcaption>
@@ -53,9 +53,16 @@
       </p>
 
       <figure>
-        <img src="{{ url_for('static', filename='images/') }}" alt="A page break in a paragraph, without and with the orphans and widows properties set" />
+        <img src="{{ url_for('static', filename='images/00047-page-break-2.png') }}" alt="A page break in a paragraph without the orphans and widows properties set" />
         <figcaption>
-          A page break in a paragraph, without and with the orphans and widows properties set
+          A page break in a paragraph without the orphans and widows properties set
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="{{ url_for('static', filename='images/00047-page-break-3.png') }}" alt="A page break in a paragraph with the orphans set at 4 and the widows set at 8" />
+        <figcaption>
+          A page break in a paragraph with the orphans set at 4 and the widows set at 8
         </figcaption>
       </figure>
 
