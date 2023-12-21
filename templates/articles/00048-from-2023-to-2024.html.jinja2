@@ -1,0 +1,173 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>From 2023 to 2024</h2>
+      <aside><time datetime="2023-12-21">December 21, 2023</time>, by grewn0uille</aside>
+      <p>
+        For CourtBouillon’s three-year anniversary, we conducted a short survey to find out what
+        matters to you, our users. Let’s discover the results! ✨
+      </p>
+    </header>
+
+    <section>
+      <p>
+        First of all, thanks a lot to all the people who took part in this survey 💜. It
+        really helps us to know more about the needs around CourtBouillon and our projects.
+      </p>
+    </section>
+
+    <section>
+      <h3>Which Projects Are Used and for What?</h3>
+
+      <p>
+        All of the respondants use <a href="https://weasyprint.org/">WeasyPrint</a>!
+        And some also directly use <a href="https://github.com/Kozea/CairoSVG">CairoSVG</a>,
+        <a href="https://github.com/Kozea/tinycss2">tinycss2</a> and
+        <a href="https://github.com/Kozea/Pyphen">Pyphen</a>.
+      </p>
+
+      <p>
+        We wanted to know more about your usage of the different projects, so… we asked.
+      </p>
+
+      <p>
+        Unsurprisingly, everyone generates PDF using WeasyPrint and <strong>many use it
+        in automated processes</strong>.
+      </p>
+
+      <p>
+        The types of documents generated are often reports, invoices and manuals. But <strong>the sectors of
+        application are very varied</strong>! There are food services, pentesting, science, transport,
+        dental laboratories… We’re very happy and amused to see WeasyPrint being used in such
+        a wide variety of applications and domains 😄.
+      </p>
+    </section>
+
+    <section>
+      <h3>Most Enjoyed New Features from 2023</h3>
+
+      <embed src="{{ url_for('static', filename='graphs/3_year_enjoyed_features.svg') }}" />
+
+      <p>
+        The most enjoyed new feature of 2023 is <strong>PDF’s size reduction</strong>. This was a fun thing
+        to add to WeasyPrint and we’re glad to see that a lot of people enjoyed it as well 😁.
+        <br />
+        <strong>Various performance improvements, including smaller PDFs, have been added in <a href="{{ url_for('blog', article='00044-weasyprint-59') }}">WeasyPrint v59</a></strong>.
+      </p>
+      <p>
+        Some people also mentioned that the right-to-left support has been slightly improved during the year.
+      </p>
+    </section>
+
+    <section>
+      <h3>Most Wanted for 2024</h3>
+
+      <h4>Most Wanted features</h4>
+
+      <embed src="{{ url_for('static', filename='graphs/3_year_wanted_features.svg') }}" />
+
+      <p>
+        Grid support and Flex improvements have been in a rude battle during this survey.
+        <strong>Grid finally wins 🥇</strong>.
+      </p>
+      <p>
+        Adding Grid support and improving Flex support is hard work and probably <strong>needs some
+        financial sponsorship</strong>.
+      </p>
+      <p>
+        A lot of work is in progress to support <code>var()</code> in shorthand
+        properties. Once this work is done, it will be easier to add support for <code>calc()</code>.
+      </p>
+
+      <h4>Most Wanted Content</h4>
+
+      <embed src="{{ url_for('static', filename='graphs/3_year_interested_content.svg') }}" />
+
+      <p>
+        We regularly published articles to introduce new major versions, features or explain
+        some cool CSS properties.
+      </p>
+      <p>
+        The most appreciated content seems to be the one that makes you learn something 🤓!
+      </p>
+      <p>
+        We’ll continue to write articles about releases, features and CSS, and maybe
+        other topics 🤫.
+    </section>
+
+    <section>
+      <h3>Sponsoring and Donations</h3>
+
+      <embed src="{{ url_for('static', filename='graphs/3_year_sponsors.svg') }}" />
+
+      <p>
+        While <a href="{{ url_for('blog', article='00046-three-years-of-courtbouillon') }}">~14% of our income</a>
+        comes from sponsorship and donations, <strong>most of the
+        respondents didn’t know they could <a href="https://opencollective.com/courtbouillon">be a sponsor on OpenCollective</a></strong>.
+      </p>
+      <p>
+        Sponsorship and donations are <strong>important to help us maintain all the projects</strong>,
+        fix bugs, add features, answer GitHub issues, communicate…
+      </p>
+      <p>
+        Thanks a lot to all of our current (and future) sponsors and donors 💖!
+      </p>
+    </section>
+
+    <section>
+      <h3>Never Miss News</h3>
+
+      <embed src="{{ url_for('static', filename='graphs/3_year_social_accounts.svg') }}" />
+
+      <p>
+        We communicate on many different platforms. The most followed are the GitHub
+        repositories, but we don’t necessarily publish everything there.
+      </p>
+      <p>
+        <strong>To make sure you never miss a thing, you can follow us on <a href="https://twitter.com/BouillonCourt">Twitter</a>,
+        <a href="https://fosstodon.org/@courtbouillon">Mastodon</a> or
+        <a href="https://linkedin.com/company/courtbouillon">LinkedIn</a></strong>, where we
+        post all of our news!
+      </p>
+    </section>
+
+    <section>
+      <p>
+        <strong>A big thank you to all our users, sponsors and customers</strong> for this wonderful year 💜🧡💚!
+      </p>
+      <p>
+        We’ll, of course, continue to work hard on WeasyPrint and our other
+        projects next year to <strong>bring new cool features to life</strong>.
+      </p>
+      <p>
+        Have fun with CourtBouillon’s projects, and happy end of year!
+      </p>
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 66%;
+    }
+    section {
+      clear: left;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    h2, h3, h4,
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+{% endblock content %}
