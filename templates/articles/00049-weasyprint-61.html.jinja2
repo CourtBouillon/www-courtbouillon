@@ -1,0 +1,176 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v61 Has Been Released</h2>
+      <aside><time datetime="2024-02-12">February 12, 2024</time>, by liZe</aside>
+      <p>
+        Version 61 of WeasyPrint has been released. It comes with nice new
+        features 🚀, a Windows executable 🪟, a lot of bug fixes 🐛, and code
+        from 12 different contributors!
+      </p>
+    </header>
+
+    <section>
+      <h3>Better CSS Support</h3>
+
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v61.0">WeasyPrint v61</a>
+        brings better CSS support for various properties.
+      </p>
+
+      <h4>Allowing <code>var()</code> Everywhere</h4>
+      <p>
+        <code>var()</code> is widely used. WeasyPrint supports it since 2019,
+        but only in the simplest use case: as a single value. There was no way
+        to use it in shorthand properties (like
+        <code>background</code> or <code>border</code>), or even in
+        properties that allow multiple values (like <code>background-position</code>
+        or <code>transform-origin</code>).
+      </p>
+      <p>
+        Good news, <strong><code>var()</code> should now be allowed everywhere:</strong>
+        shorthand properties, multi-value properties, and even in functions!
+        Also, it now works at the CSS token level as expected, meaning
+        you can for, example include, put values in a single variable and
+        pass them as multiple function parameters or multiple property values.
+        Ever wanted to use <code>--rgb: 0, 255, 128; color:
+        rgb(var(--rgb))</code>? Now you can 🌈!
+      </p>
+
+      <h4>Drawing Full Page Backgrounds with <code>background-attachment: fixed</code></h4>
+      <p>
+        <strong>Positioning a background image on a page can sometimes be confusing,</strong>
+        because the default page surface doesn’t include page margins.
+      </p>
+      <p>
+        Hopefully, CSS provides a feature that allows you to include these
+        margins: <code>background-attachment: fixed</code>. Set it to your page
+        background, and the default page surface will automatically include its
+        margins. No need to calculate negative background positions and
+        complicated image sizes anymore!
+      </p>
+
+      <h4>Using Percentages for <code>opacity</code></h4>
+      <p>
+        In the CSS Color Level 3 specification, the well-known
+        <code>opacity</code> property was designed to allow a number between 0
+        and 1. But… what about percentages? Since many users wanted to use
+        percentages too, the feature was added in Level 4.
+      </p>
+      <p>
+        Since the new feature was quickly adopted by browsers, many stylesheets
+        already use it. It was time to support it in WeasyPrint as well ✨!
+      </p>
+    </section>
+
+    <section>
+      <h3>Let’s Introduce… <code>weasyprint.exe</code></h3>
+
+      <p>
+        <strong>Installing WeasyPrint on Windows is known to be a bit
+        complicated.</strong> Since it requires non-Python dependencies,
+        <code>pip install weasyprint</code> is not enough, and escaping
+        the <a href="https://en.wikipedia.org/wiki/DLL_Hell">DLL hell</a> can
+        sometimes discourage newcomers 😔.
+      </p>
+      <p>
+        As a lot of related issues have been opened in the last few years,
+        we’ve tried to improve our communication about this problem: a
+        dedicated chapter was added in the documentation, consistent answers were
+        given to issues, and an explicit warning message was printed on
+        the terminal when such a problem occurs. But let’s face it: <strong>nobody
+        wants to carefully follow the documentation steps to install
+        software!</strong>
+      </p>
+      <p>
+        We had to do more. There are several solutions to this problem, and
+        here’s the one we chose: <strong><code>weasyprint.exe</code></strong>.
+        Building an executable from a Python project is not an easy task,
+        but thanks to <a href="https://pyinstaller.org/">PyInstaller</a> we now
+        generate a standalone executable. Download the file, run it, and…
+        you’re done 🧙!
+      </p>
+      <p>
+        Of course, using an executable doesn’t magically solve all cases: for
+        example, you can’t use WeasyPrint as a Python library. The startup time
+        is also known to be affected by this packaging. But avoiding complex
+        installation steps can be a big advantage for many users, and you might
+        be interested if you just want to test WeasyPrint or use it in a
+        non-Python application.
+      </p>
+      <p>
+        <strong>Dear Windows users, it’s time to <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v61.0">download and test</a>
+        <code>weasyprint.exe</code>!</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>Less Bugs, More Tests</h3>
+      <p>
+        <strong>Nobody likes bugs, and fixing them is a big part of our
+          work.</strong> But the best way to reduce this part is… to avoid
+        introducing new bugs 🐛!
+      </p>
+      <p>
+        In this release, we added about 260 lines of code (1117 insertions, 855
+        deletions) to WeasyPrint. It doesn’t seem like much, but we have to be
+        careful: more code means more maintenance and more
+        bugs. <strong>Keeping WeasyPrint "small" and "simple" is important if
+        we want the project to be sustainable.</strong> But writing small code
+        takes a lot of time, and writing simple code is sometimes really
+        complex!
+      </p>
+      <p>
+        <strong>Another cornerstone of our quality management is testing,</strong>
+        and we always try to add a lot of tests! We add tests
+        when we add new features, and when we fix bugs to avoid regressions.
+        That’s why we added almost 1000 new lines of tests in this release
+        (1463 insertions, 483 deletions). This ratio of about 4:1 lines between
+        tests and code is not a perfect metric, as tests tend to be more
+        verbose than code, but it’s an important thing to keep in mind:
+        <strong>in WeasyPrint, code almost always comes with hidden related test code.</strong>
+      </p>
+      <p>
+        Tests are very powerful for us. As you can imagine, they check that
+        features behave correctly, they prevent old bugs from reappearing, they
+        detect problems on specific versions of Python, on specific OSes, with
+        new dependency versions. But tests have an even greater
+        power: <strong>they allow us to add new features quickly, with (almost)
+        no fear of breaking everything.</strong> We can also easily refactor
+        code, clean dirty parts, reduce our technical debt. This way we can
+        always keep our motivation high when we code on WeasyPrint 😁!
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+
+      <p>
+        What’s next? That depends on you! If you are interested in better
+        CSS layout support such as <strong>solid Flexbox and Grid support</strong>,
+        don’t be afraid to contact us! <strong>Your help might be very useful.</strong>
+      </p>
+      <p>
+        Opening issues and pull requests is also a great way to improve
+        WeasyPrint. <strong>This release includes code from 12 different
+        contributors</strong>, and we’re very proud to welcome a growing number
+        of contributors 💜. If you want to get involved, a list of
+        <a href="https://github.com/Kozea/WeasyPrint/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good
+        first issues</a> is waiting for you! Choose your favorite issue and
+        write a short comment, we’ll be happy to help you dive into WeasyPrint’s
+        code!
+      </p>
+      <p>
+        And of course you can also
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a>,
+        <strong>it really helps us to have more time to work on WeasyPrint</strong> and its dependencies.
+      </p>
+      <p>
+        Have fun with this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v61.0">new version of WeasyPrint</a>,
+        <strong>we hope that these improvements will be useful for you</strong>!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
