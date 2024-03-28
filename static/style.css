@@ -110,6 +110,11 @@ ul {
   list-style-type: circle;
 }
 
+blockquote {
+  letter-spacing: -0.035em;
+  min-height: 3.6em;
+}
+
 blockquote::before {
   content: '”';
   font-size: 12em;

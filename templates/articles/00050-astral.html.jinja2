@@ -1,0 +1,490 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Astral: Beauty and the Beast</h2>
+      <aside><time datetime="2024-02-12">March 28, 2024</time>, by liZe</aside>
+      <p>
+        Ruff is a code formatter and linter for Python. It’s so fast and so powerful
+        that it has already replaced Black, isort or Flake8 in many open source Python
+        projects. And that’s just the start: Ruff’s creator has raised 4 million dollars
+        and now wants to "fix" the Python ecosystem once and for all.
+      </p>
+    </header>
+
+    <section>
+      <p>
+        Everybody knows that Python has serious problems with its tooling ecosystem.
+        <a href="{{ url_for('blog', article='00011-the-python-packaging-hell-the-can-of-worms') }}">Packaging
+        is the obvious disaster</a>, but it’s not the only one: we have dozens of
+        linters, dependency file formats, type checkers… We’re not even sure about how
+        to format our documentation: ReStructuredText or Markdown, Sphinx or MkDocs,
+        single or double quotes?
+      </p>
+      <p>
+        After almost 20 years of writing Python code, I was sure that this problem was
+        endless. But suddenly, Astral came out of nowhere. Ruff. uv. Rye. A lot of
+        money, a lot of talented coders, a lot of Rust.
+      </p>
+      <p>
+        Is this a dream? Or maybe a nightmare. Or just the reality.
+      </p>
+
+      <h3>At the Beginning Was Ruff</h3>
+      <p>
+        The first lines of Ruff were committed on August 9, 2022. Less than a month
+        later, <a href="https://notes.crmarsh.com/python-tooling-could-be-much-much-faster">a
+        blog entry is
+        written</a>. By the end
+        of November, major Python projects like
+        <a href="https://github.com/tiangolo/fastapi/commit/fa74093">FastAPI</a> or
+        <a href="https://github.com/pydantic/pydantic/commit/a57346a">Pydantic</a> have adopted Ruff as
+        their linter. The project gets 5k GitHub stars at the end of the year, in less than 5
+        months.
+      </p>
+      <p>
+        That’s insane.
+      </p>
+      <p>
+        Ruff comes with many promises:
+      </p>
+      <ul>
+        <li>It’s fast.</li>
+        <li>It’s a linter that replaces many other tools.</li>
+        <li>It’s a code formatter that replaces Black.</li>
+      </ul>
+      <p>
+        And in a few weeks, those promises have become reality. Ruff is a better tool
+        than Black, Flake8 and isort. In fact, even <a href="https://twitter.com/timothycrosley/status/1606420868514877440">Timothy Crosley, the creator of isort, uses
+        Ruff instead of his own
+        library</a>.
+      </p>
+      <p>
+        2023 was going to be a great year for the Python ecosystem. And we were not even
+        prepared for what was to come.
+      </p>
+      <h3>Ruff, an Amazing Tool</h3>
+      <p>
+        All the cool kids love Rust. It’s fast, it’s memory-safe, it’s the future. Rust
+        is a perfect tool for a linter or a code formatter, because these tools require
+        compiled and optimized code to be incredibly fast. Parsing files is a common
+        task for low-level languages: a parser, a linter, a code formatter, that’s much
+        easier to code than a compiler!
+      </p>
+      <p>
+        So, Rust is cool, and it makes Ruff fast. But Python users don’t care about
+        speed, or they would use another language, right?
+      </p>
+      <p>
+        To be honest, this is not a discussion about speed. Ruff is not 2 or 3 times
+        faster than Black or Flake8. It’s 10 times, 100 times, 1000 times faster. It’s
+        not fast, it’s not faster, it’s <em>instant</em>. And that changes everything.
+      </p>
+      <p>
+        If you work on a project with a lot of good unit tests, you know how safe you
+        can feel coding on this project: when your change is done, you can run the tests
+        and check that everything is OK. That’s great!
+      </p>
+      <p>
+        But now, imagine that your tests take no time to run. Every time you change a
+        character in your code, your editor can automatically run the tests and tell you
+        in a few milliseconds if you broke anything. Tests are no longer a nice tool you
+        can use before your commits or on your CI cloud. They are an instant red or
+        green light in your editor. They don’t help you avoid committing bugs, they help
+        you avoid writing them.
+      </p>
+      <p>
+        For the same reason, using Ruff instead of Flake8 in a code editor is a game
+        changer. At first, <em>you can’t believe it</em>. As explains
+        <a href="https://twitter.com/tiangolo/status/1591912354882764802">Sebastián
+        Ramírez, creator of FastAPI</a>:
+      </p>
+      <blockquote>
+        <p>
+          Ruff is so fast that sometimes I add an intentional bug in the code just to
+          confirm it's actually running and checking the code.
+        </p>
+      </blockquote>
+      <p>
+        Ruff makes you understand that waiting for those extra 2 seconds to get linting
+        feedback was just as intolerable as waiting 2 seconds between a keystroke and a
+        letter being drawn on screen, or between a mouse move and the cursor being
+        updated. The new way just
+        <em>feels</em> right. And you never want to go back.
+      </p>
+      <p>
+        Also, Ruff’s quality is truly impressive. Sure, you’ll find bugs, you’ll find
+        missing features, you’ll find problems. But the result is often better than what
+        many previous tools offered so far. And why is that? Because it’s easier to have
+        just one consistent library based on modern tools, free of legacy.
+      </p>
+      <p>
+        And because having a dictator saves the community a lot of useless discussions.
+      </p>
+      <h3>One Command to Rule Them All</h3>
+      <p>
+        Disclaimer: I like dictators. Not all of them, of course, because they are for
+        example really bad at running a country. I like some <a href="http://catb.org/~esr/writings/homesteading/homesteading/ar01s16.html">benevolent
+        dictators</a> in
+        computer science, when they rule a project that users can choose to leave (or fork!)
+        if they don’t like their dictator anymore.
+      </p>
+      <p>
+        Python has been a dictatorship for a long time, Guido van Rossum being the
+        famous
+        <a href="https://en.wikipedia.org/wiki/Benevolent_dictator_for_life">Benevolent Dictator For
+          Life</a>. The way decisions are
+        made for the language’s evolution has worked quite well during these years, and Python
+        has changed a lot without becoming inconsistent. If Python is widely used today, its old
+        and <a href="https://peps.python.org/pep-0013/">new governance system</a> may be one of the
+        reasons.
+      </p>
+      <p>
+        As <a href="https://peps.python.org/pep-0020/">PEP 20</a> says:
+      </p>
+      <blockquote>
+        <p>
+          There should be one—and preferably only one—obvious way to do it.
+        </p>
+      </blockquote>
+      <p>
+        Python’s simplicity is the result of many difficult choices: no repeat loops, no
+        powerful lambda functions, no magical <code>this</code> variables. If there is one way to do it,
+        someone has to decide which way. Guido van Rossum is known to have strong ideas about
+        how his language should work, and it took some time for other people to fully understand
+        what he had in mind. He made important decisions, sometimes against the will of the
+        Python community. And that’s OK: Guido was a dictator, Python is not a democracy.
+      </p>
+      <p>
+        For a long time, many topics around Python, including packaging and linting,
+        were outside the scope of the dictatorship. But the <a href="https://peps.python.org/pep-0621/">recent evolution of the packaging
+        system</a> has shown the need to make decisions about
+        these topics as well. Having specifications for a <code>pyproject.toml</code> file, which is
+        supposed to be <em>the</em> configuration file that rules them all, was the beginning of a
+        question that newcomers and long-time Python developers always ask: how should I do
+        this?
+      </p>
+      <p>
+        Other people decided that it was time to answer that question. With
+        <a href="https://black.readthedocs.io/en/stable/">Black</a>, "the uncompromising code formatter",
+        Łukasz Langa decided that you could not choose "<a href="https://en.wikipedia.org/wiki/Ford_Model_T#Colors">any color you
+          like</a>, so long as it is black." <a href="https://peps.python.org/pep-0008/">PEP
+          8</a> was not enough, we needed arbitrary rules, we
+        needed decisions, we needed to spend less time on code style and more time on code.
+      </p>
+      <blockquote>
+        <p>
+          By using Black, you agree to cede control over minutiae of hand-formatting. In
+          return, Black gives you speed, determinism, and freedom from pycodestyle
+          nagging about formatting. You will save time and mental energy for more
+          important matters.
+        </p>
+      </blockquote>
+      <p>
+        Let’s stop the discussion.
+      </p>
+      <p>
+        Why do we have too many different rules, and too many different tools? Why don’t
+        we answer the question, "How should I do this?" Why do we accept the infamous
+        status quo?
+      </p>
+      <blockquote>
+        <p>
+          Ultimately, my goal with Ruff is to get the Python ecosystem to question the
+          status quo.
+        </p>
+      </blockquote>
+      <p>
+        And that’s why Charlie Marsh decides to write Ruff. First, it’s just a linter
+        replacing Flake8 or Pylint.
+      </p>
+      <blockquote>
+        <p>
+          The question I keep asking myself is: could we take the Ruff model and apply
+          it to other tooling? You could probably give autoformatters (like Black and
+          isort) the same treatment.
+        </p>
+      </blockquote>
+      <p>
+        And then, Ruff is an autoformatter. It replaces Black, and isort.
+      </p>
+      <blockquote>
+        <p>
+          But what about type checkers? I’m not sure! Mypy is already compiled with
+          mypyc, and so is much faster than pure Python; and Pyright is written in Node.
+          It’s something I’d like to put to the test.
+        </p>
+      </blockquote>
+      <p>
+        You get the idea. Ruff is not a type checker, but Charlie won’t stop there.
+      </p>
+      <h3>With Great Money Comes Great Responsibility</h3>
+      <p>
+        <a href="https://astral.sh/blog/announcing-astral-the-company-behind-ruff">4 million dollars</a>.
+        That’s the money raised by Astral, the company Charlie founded to make his vision a
+        reality:
+      </p>
+      <blockquote>
+        <p>
+          We build high-performance developer tools for the Python ecosystem. […] Tools
+          that change how we work.
+        </p>
+      </blockquote>
+      <p>
+        4 million dollars is a lot of money. It’s roughly <a href="https://www.python.org/psf/annual-report/2022/">the total revenue of the PSF in
+        2022</a>. And it’s <em>a lot</em> more than what
+        the developers of Black, isort, or Flake8 ever got paid to work on their respective
+        projects.
+      </p>
+      <p>
+        Astral’s goal is to build high-performance developer tools, and that takes a
+        team:
+      </p>
+      <blockquote>
+        <p>
+          We're growing the team. Not rapidly, but deliberately. We’re a small,
+          distributed team of software engineers — with big ambitions.
+        </p>
+      </blockquote>
+      <p>
+        They have some money, they have a team, they have a vision. They have <em>a lot</em> of work to
+        do, to replace the incredible amount of tools created by the Python community. And since
+        they build "open source and permissively licensed" tools, the community will always be
+        able to fork if something goes wrong.
+      </p>
+      <p>
+        4 million dollars, a team, a vision, and a lot of code to write. Sounds like
+        every open source project’s dream! Sustainability is a major problem for free
+        software, and it’s great to see investors finally taking this issue seriously by
+        putting money into an ecosystem that deserves it!
+      </p>
+      <p>
+        We’ll finally have people solving a long-standing problem, and getting paid for
+        it. But… Is there any reason for the Python community to be reluctant, other
+        than jealousy? What if Astral runs out of cash? What if Astral makes bad
+        decisions?
+      </p>
+      <p>
+        And what if Astral becomes a non-benevolent dictator?
+      </p>
+      <h3>Fatality</h3>
+      <p>
+        If you ever played <a href="https://en.wikipedia.org/wiki/Mortal_Kombat">Mortal Kombat</a>, you
+        probably remember its most impressive gameplay feature: the
+        <a href="https://en.wikipedia.org/wiki/Fatality_(Mortal_Kombat)">fatality</a>.
+      </p>
+      <p>
+        I can remember that feeling. The fatality happens when the game is over because
+        I’ve lost (I always lose), my character is almost dead, I can’t do anything. The
+        game asks for one last thing: "Finish him". The other player presses a lot of
+        buttons, delivers an amazing <em>coup de grâce</em>, and my character is killed in a very brutal way. The other
+        player smiles. And sometimes, I do too.
+      </p>
+      <p>
+        A fatality is very brutal, but it’s not forbidden by the rules, it’s not
+        illegal, it’s even part of the rules. It can be frustrating, it can be
+        disheartening. But it’s fun, because it’s a game.
+      </p>
+      <p>
+        Now, you can <a href="https://www.youtube.com/watch?v=XzW4-KEB664">watch this video (that’s not about Mortal
+        Kombat)</a>. The person speaking is Anthony
+        Sottile. He has created and contributed to many open source projects, including Flake8
+        and Pyupgrade.
+      </p>
+      <p>
+        I find this video very moving. I admire how Anthony can remain calm and gentle.
+        He says that Ruff is an incredible tool, and he hopes that it will succeed. At
+        the same time, he explains how Ruff is killing many tools he has worked on, how
+        they forgot to credit other projects in the license, how they forget to
+        contribute back to the people who worked on the previous tools, and how Ruff is
+        "profiting off his work".
+      </p>
+      <p>
+        Anthony is sad. He deeply admires Ruff as a piece of software, but he deeply
+        regrets how it has absorbed everything without giving enough back to the
+        developers. He doesn’t want to fight back. He doesn’t want to say bad things
+        about Ruff. He just understands that the game is over.
+      </p>
+      <p>
+        A fatality is very brutal, but it’s not forbidden the rules, it’s not illegal,
+        it’s even part of the rules. It can be frustrating, it can be disheartening. And
+        it’s not fun, because it’s not a game.
+      </p>
+      <p>
+        Think about it.
+      </p>
+      <p>
+        You work for years on a beautiful piece of software. Your users are pretty
+        happy, the whole community is pretty happy, and you are pretty happy because
+        everybody is pretty happy. Then one day, someone comes out of nowhere, uses your
+        work to make a lot of money, creates more in a few paid months than what you
+        could have done in years of free time, and makes everyone a little happier.
+      </p>
+      <p>
+        What should you do? You should be happier, because all your ex-users are happier
+        now.
+      </p>
+      <p>
+        Fatality.
+      </p>
+      <p>
+        Does it mean that Ruff, that Charlie, that Astral are evil? Of course not. They
+        made (almost) everyone a little happier. They worked hard for this, they
+        followed the rules, they didn’t steal anything to anyone. They solved a problem
+        that the Python ecosystem has had for decades, in less than a year.
+      </p>
+      <p>
+        They didn’t contribute back to the previous developers because they don’t care
+        much. It wasn’t their priority. Maybe one day it will be, because everyone at
+        Astral wants everything to be as good as possible. Maybe not. They don’t want to
+        hurt Anthony, or the other contributors, or the whole community. They just want
+        to build efficient software. Everything else is out of the scope. It’s just not
+        in the business plan.
+      </p>
+      <p>
+        Wait… What business plan?
+      </p>
+      <h3>Let Us Build Ourselves a City and a Tower with Its Top in the Heavens</h3>
+      <p>
+        Astral has a plan.
+      </p>
+      <p>
+        After Ruff, <a href="https://astral.sh/blog/uv">Astral released uv</a>. Different name, different
+        project, but same story: uv replaces pip and pip-tools, it’s in Rust, it’s fast, it’s
+        simple, it takes all the good ideas from the previous projects.
+      </p>
+      <p>
+        Of course, pip and pip-tools are just the first ones of an impressive list:
+        venv, virtualenv, poetry, pdm, pipenv… All these tools are listed in the
+        announcement blog entry, and all these tools may soon be obsolete.
+      </p>
+      <p>
+        Another tool is mentioned: Rye, created by Armin Ronacher, well known in the
+        Python community as the creator of Flask (among many other things). Charlie says
+        that Astral takes the "stewardship" of Rye, and that Rye will be absorbed by uv
+        to create a "unified successor project".
+      </p>
+      <p>
+        One last thing about uv. This blog post has an interesting title: "uv: Python
+        packaging in Rust". Read the title a bit more carefully. Yes, you can add
+        setuptools, hatch, flit, maturin to the long list of future obsolete projects.
+        The sky is the limit (it’s called Astral, remember?).
+      </p>
+      <p>
+        So, yes. Astral has a plan. But, is it a business plan?
+      </p>
+      <p>
+        Astral has raised 4 million dollars. It’s a startup, and it’s easy to understand
+        the problem they are trying to solve. So far, <a href="https://astral.sh/blog/announcing-astral-the-company-behind-ruff#star-history-desktop_svg__Layer_1">it’s been very
+        successful</a>,
+        at least if we count the number of early adopters. But it doesn’t explain how it will
+        make money in the future.
+      </p>
+      <p>
+        For that, we have to read <a href="https://astral.sh/blog/announcing-astral-the-company-behind-ruff">Astral’s first blog
+        entry</a> again.
+      </p>
+      <blockquote>
+        <p>
+          Ruff remains Ruff, and our work will remain open-source and permissively
+          licensed. In the future, we’ll build and sell services on top of our tools —
+          but the tools themselves will remain free and open-source.
+        </p>
+      </blockquote>
+      <p>
+        OK, why not. Astral is a talented team that can raise a lot of money, write a
+        wonderful piece of software and convince a lot of users to adopt it in a few
+        months. They can certainly sell services to very rich companies that will pay
+        the price to get the job done well and fast. It may be a very efficient way to
+        transform the money of the biggest tech companies into open source code.
+      </p>
+      <p>
+        In fact, it’s not the first time someone has built a company on top of an open
+        source unified linter and formatter written in Rust. Let me introduce
+        <a href="https://github.com/rome/tools">Rome</a>:
+      </p>
+      <blockquote>
+        <p>
+          Rome is a formatter, linter, bundler, and more for JavaScript, TypeScript,
+          JSON, HTML, Markdown, and CSS.
+        </p>
+        <p>
+          Rome is designed to replace Babel, ESLint, webpack, Prettier, Jest, and
+          others.
+        </p>
+        <p>
+          Rome unifies functionality that has previously been separate tools. Building
+          upon a shared base allows us to provide a cohesive experience for processing
+          code, displaying errors, parallelizing work, caching, and configuration.
+        </p>
+      </blockquote>
+      <p>
+        At first, the project was incubated by Meta. But Meta didn’t like the project
+        very much, so a company called Rome Tools Inc. was founded to continue working
+        on Rome and eventually become sustainable.
+      </p>
+      <p>
+        Unfortunately, Rome Tools Inc. didn’t succeed, all its employees were laid off.
+        Rome, as a tool, was <a href="https://biomejs.dev/blog/annoucing-biome/">renamed to "Biome"</a> to avoid
+        many technical and legal complications. It’s still alive as an independent open source
+        project.
+      </p>
+      <p>
+        The history of Rome Tools Inc. has some similarities to Astral. In fact, one of
+        the early employees of Astral was a former employee of Rome Tool Inc. So even if
+        Astral has a lot of money, even if they swear that they "won’t let [us] down",
+        the Python community has to be careful. The old and mighty Rome has finally
+        fallen, and the stars won’t shine forever.
+      </p>
+      <h3>Back to the Future Community</h3>
+      <p>
+        As always in the vast world of free software, the community will decide. And
+        hope that the code stays in the vast world of free software.
+      </p>
+      <blockquote>
+        <p>
+          We build in the open. Our tools are open source and permissively licensed.
+        </p>
+      </blockquote>
+      <p>
+        When uv was first released, some people were a bit surprised. No one knew that
+        such a project was being developed, because it was being developed in secret in
+        a private repository.
+      </p>
+      <p>
+        This <a href="https://discuss.python.org/t/46039">thread on discuss.python.org</a> is a good
+        summary of the situation. Some people are happy, even delighted, and express their
+        gratitude to Astral for getting more powerful software for free. There’s a long
+        discussion about the name of the command: should it be "uvpip", "unpip", "uv pip", "uv
+        install", "uv pkg"? Some people complain: if they had written uv, they would have used
+        this library instead of that one. The Astral team takes a lot of time to answer all the
+        important questions and thank everyone.
+      </p>
+      <p>
+        And to be honest, nobody’s really knows what’s going on.
+      </p>
+      <p>
+        Things change quickly. We’re going to use Ruff for CourtBouillon’s code because
+        we think it’s a great tool, and because it looks like a real open source
+        project. We hope that the Astral team is as honest as they are talented. We
+        really hope that they’ll <em>fully
+        understand</em> that they’ve built their tool and their company on the shoulders of other
+        talented developers, and that they could take care of those developers as much as they
+        take care of the speed of their Rust code.
+      </p>
+      <p>
+        Astral has got a lot of great things to offer to the Python community. They also
+        have a lot of great things to listen and to understand from the Python
+        community. That’s how open source projects work: forking is always an option.
+        Even if they have a lot of money and talented developers, they can’t go against
+        everyone. Users have the power to take control of their tools, and they have
+        done so with many projects much bigger than Ruff or uv (MariaDB, LibreOffice,
+        Rocky Linux, freenginx…).
+      </p>
+      <p>
+        May Astral be wise.
+      </p>
+    </section>
+  </article>
+{% endblock %}
