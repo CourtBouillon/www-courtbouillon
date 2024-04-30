@@ -1,0 +1,8 @@
+section {
+  color: pink;
+
+  &  > a {
+    color: lightgreen;
+    text-decoration: none;
+  }
+}

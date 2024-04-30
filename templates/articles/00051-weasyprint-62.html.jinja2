@@ -1,0 +1,178 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v62 Has Been Released</h2>
+      <aside><time datetime="2024-04-30">April 30, 2024</time>, by grewn0uille</aside>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v62.0">WeasyPrint v62</a> is
+        here and comes with a most-wanted feature… 👀
+      </p>
+    </header>
+
+    <section>
+      <h3>Grid Layout</h3>
+
+      <p>
+        After been a most-wanted feature for quite a time, always on top positions
+        in our annual survey, with a lot of thumb-ups on its GitHub issue.
+        <strong><a href="https://github.com/Kozea/WeasyPrint/releases/tag/v62.0">WeasyPrint
+          v62</a> now supports Grid layout!</strong>
+      </p>
+      <p>
+        <em>
+          Grid layout support has been added thanks to the financial
+          support of a nice anonymous company. It’s been a real
+          pleasure to work with them 😍.
+        </em>
+      </p>
+
+      <h4>What Can I Use?</h4>
+      <p>
+        <strong>All of the Grid properties are supported by WeasyPrint</strong> and can
+        be use to style your documents 🎉.
+      </p>
+      <p>
+        Indeed, you can also use margins, paddings and borders on Grid
+        containers and Grid items and fragmentation between rows is
+        handled.
+      </p>
+
+      <h4>Limitations</h4>
+      <p>
+        <strong>This implementation of Grid into WeasyPrint is a (big) first step
+          for Grid support</strong>, and some properties and cases aren’t fully
+        supported yet.
+      </p>
+      <p>
+        Absolutely positioned and floating Grid items aren’t well
+        handled yet, as fragmentation in rows.
+      </p>
+
+      <p>
+        The full list of supported / unsupported Grid properties is
+        available <a href="https://doc.courtbouillon.org/weasyprint/stable/api_reference.html#css-grid-layout-module-level-2">in the documentation</a>.
+        Don’t hesitate to have a look!
+      </p>
+    </section>
+
+    <section>
+      <h3>CSS Nesting</h3>
+
+      <p>
+        Another nice feature has been added to WeasyPrint: <strong>CSS nesting!</strong>
+      </p>
+      <p>
+        When writing CSS, you often need to repeat selectors and
+        stylesheets can easily become not very pleasant to read.  To
+        avoid that, you could use some CSS generator, like SASS, to
+        nest CSS selectors.
+      </p>
+      <p>
+        But with CSS nesting, you can now do that directly in pure
+        CSS 🤯. <strong>Let’s say hi to nested rules and <code>&</code> selector.</strong>
+      </p>
+
+      <p>
+        For example, if you want to set a color on a section and then
+        a different color for ul in this section, usually you write
+        something like:
+      </p>
+
+      {{ '00051-without-nesting.css' | pygmentize }}
+
+      <p>
+        With CSS nesting, you can now write:
+      </p>
+
+      {{ '00051-with-nesting.css' | pygmentize }}
+
+      <p>
+        The <code>&</code> selector allows to select the parent.  For
+        example, if you want to apply a style on a section and a
+        specific style for a direct child, you write something like:
+      </p>
+
+      {{ '00051-without-selector.css' | pygmentize }}
+
+      <p>
+        With the <code>&</code> selector, you can now write:
+      </p>
+
+      {{ '00051-with-selector.css' | pygmentize }}
+
+      <p>
+        <strong>CSS nesting will certainly simplify your stylesheet!</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>More Features and Bug Fixes</h3>
+
+      <p>
+        This version comes with other nice features:
+      </p>
+
+      <ul>
+        <li>
+          <code>border-image-*</code> support: you can now <strong>use images
+            for box borders to have fancy borders</strong>, you can even use
+          gradients!
+        </li>
+        <li>
+          form field limit: you can set <code>maxlength</code> on form
+          inputs
+        </li>
+      </ul>
+
+      <p>
+        Font storage has been improved and a font isn’t duplicated
+        anymore, then <strong>use less space and avoid a memory leak</strong>.
+      </p>
+
+      <p>
+        Several other bugs have been fixed, you can find the full list in
+        the <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v62.0">changelog</a>.
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+
+      <p>
+        This version, with Grid support, is an important step for
+        WeasyPrint and we’re very happy release it. We hope you’ll
+        have fun with this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v62.0">new version</a>
+        and that all these new features will be useful for you.
+      </p>
+      <p>
+        What’s next? That depends on you! If you are interested in better
+        CSS layout support such as <strong>solid Flexbox</strong> or <strong>larger Grid support</strong>,
+        don’t be afraid to contact us! <strong>Your help might be very useful.</strong>
+      </p>
+      <p>
+        Thanks a lot to the nice anonymous company who sponsored Grid
+        support and also thanks a lot to all the contributors of this
+        release 💜.
+      </p>
+      <p>
+        Opening issues and pull requests is also a great way to
+        improve WeasyPrint. If you want to get involved, a list of
+        <a href="https://github.com/Kozea/WeasyPrint/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good
+        first issues</a> is waiting for you! Choose your favorite issue and
+        write a short comment, we’ll be happy to help you dive into WeasyPrint’s
+        code!
+      </p>
+      <p>
+        And of course you can also
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a>,
+        <strong>it really helps us to have more time to work on WeasyPrint</strong> and its dependencies.
+      </p>
+      <p>
+        Have fun with this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v62.0">new version of WeasyPrint</a>,
+        <strong>we hope that these new features will be useful for you</strong>!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
