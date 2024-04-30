@@ -1,8 +1,7 @@
 section {
   color: pink;
 
-  &  > a {
+  article & {
     color: lightgreen;
-    text-decoration: none;
   }
 }

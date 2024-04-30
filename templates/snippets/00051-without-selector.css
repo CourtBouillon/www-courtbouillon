@@ -2,7 +2,6 @@ section {
   color: pink;
 }
 
-section > a {
+article section {
   color: lightgreen;
-  text-decoration: none;
 }
