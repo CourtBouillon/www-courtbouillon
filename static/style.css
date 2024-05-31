@@ -743,11 +743,11 @@ thead {
   padding: 0.5em;
 }
 
-.icons li a {
+.icons a {
   padding: 0.5em;
 }
 
-.icons li a::before {
+.icons a::before {
   font-family: ForkAwesome;
   margin-right: 0.5em;
 }
