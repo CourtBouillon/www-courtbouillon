@@ -684,6 +684,54 @@ thead {
 }
 
 
+/* Page Links */
+
+#page-links {
+  text-align: center;
+}
+
+#page-links header,
+#page-links footer,
+#page-links h2 {
+  display: none;
+}
+
+#page-links article {
+  height: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+#page-links img {
+  width: 10rem;
+}
+
+#page-links ul {
+  list-style: none;
+  margin: auto;
+  padding: 0;
+}
+
+#page-links li {
+  border: 1px solid var(--red);
+  margin: 2em 0;
+  padding: 0;
+}
+
+#page-links a {
+  color: var(--black);
+  display: block;
+  padding: 1em 0;
+  transition: 0.2s;
+  width: 100%;
+}
+#page-links ul a:hover {
+  background: var(--red);
+  color: var(--white);
+  text-decoration: none;
+}
+
+
 /* Icons Lists */
 
 .icons {
@@ -695,11 +743,11 @@ thead {
   padding: 0.5em;
 }
 
-.icons li a {
+.icons a {
   padding: 0.5em;
 }
 
-.icons li a::before {
+.icons a::before {
   font-family: ForkAwesome;
   margin-right: 0.5em;
 }
@@ -722,6 +770,26 @@ thead {
 
 .report a::before {
   content: "\f15c";
+}
+
+.twitter a::before {
+  content: "\f099";
+}
+
+.mastodon a::before {
+  content: "\f2e1";
+}
+
+.linkedin a::before {
+  content: "\f0e1";
+}
+
+.opencollective a::before {
+  content: "\f336";
+}
+
+.link a::before {
+  content: "\f0c1";
 }
 
 @media (max-width: 920px) {
