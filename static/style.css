@@ -788,11 +788,19 @@ thead {
   content: "\f336";
 }
 
+.talks a::before {
+  content: "\f130";
+}
+
 .link a::before {
   content: "\f0c1";
 }
 
 @media (max-width: 920px) {
+  #page-links main {
+    margin: 1em;
+  }
+
   .icons {
     flex-direction: column;
     font-size: 1rem;
