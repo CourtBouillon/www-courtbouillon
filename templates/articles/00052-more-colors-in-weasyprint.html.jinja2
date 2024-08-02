@@ -1,0 +1,173 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>More Colors in WeasyPrint</h2>
+      <aside><time datetime="2024-08-01">August 1, 2024</time>, by liZe</aside>
+      <p>
+        In the next major version of WeasyPrint, you’ll be able to use many new
+        ways to define colors! New color notations 🎨 will be available, that’s
+        cool, but that’s just the tip of the iceberg: behind the curtain,
+        WeasyPrint had to change the way it manages colors. It’s the first
+        step of the road leading to our final destination: CMYK support.
+      </p>
+    </header>
+
+    <section>
+      <h3>New Syntaxes</h3>
+
+      <p>
+        WeasyPrint will support
+        <a href="https://www.w3.org/TR/css-color-4/">CSS Color Module Level 4</a>
+        in version 63. For users, the more visible change is the possibility to
+        use <strong>new syntaxes,</strong> including:
+      </p>
+      <ul>
+        <li>
+          the space separated syntax for functions, allowing slash-separated
+          alpha channel at the end: <code>rgb(100% 50% 10% / 40%)</code>;
+        </li>
+        <li>
+          4- and 8-digit syntaxes for hex colors, adding alpha at the end:
+          <code>#12A9</code> and <code>#2420B933</code>;
+        </li>
+        <li>
+          the <code>none</code> value for powerless channels:
+          <code>hsl(none 0% 100%)</code> to express white with no hue;
+        </li>
+        <li>
+          the <code>hwb()</code> function to define colors using the hue,
+          whiteness and blackness channels:
+          <code>hwb(150 40% 70%)</code>.
+        </li>
+      </ul>
+      <p>
+        As these syntaxes are supported by modern browsers and offer very
+        practical ways to define colors, they’re quite widely used. So, you
+        won’t be disappointed anymore 😞 when you want to use them! 😄
+      </p>
+      <p>
+        Moreover, <strong>many CSS frameworks (including Tailwind) already use
+        Level 4 to define their colors.</strong> That’s a great improvement for
+        those using such frameworks to create their stylesheets, and that’s a
+        very important milestone to improve interoperability with other CSS
+        implementations.
+      </p>
+    </section>
+
+    <section>
+      <h3>More Colors</h3>
+
+      <p>
+        These new syntaxes are useful, but they’re not the main reason why
+        Level 4 has been written. The real reason is that we need to be able to
+        define more colors.
+      </p>
+      <p>
+        Until then, CSS was only able to reference colors that were in the sRGB
+        color space, whose gamut is unfortunately really narrow. If you have no
+        idea of what this means, that’s normal, here’s an image that explains
+        the problem:
+      </p>
+      <figure>
+        <img src="/static/images/00052-srgb-gamut.svg">
+        <figcaption><a href="https://commons.wikimedia.org/w/index.php?curid=116654642">By Myndex - Own work, CC BY-SA 4.0</a></fig-caption>
+      </figure>
+      <p>
+        On this chromaticity diagram, the sRGB color space is represented by
+        the triangle, while the strange colored shape represents the whole CIE
+        1931 color space of all visible colors for humans. Without going deeper
+        in the technical details, it’s easy to understand what’s going on:
+        <strong>with sRGB, we can’t represent all the colors humans can see.</strong> 👓
+      </p>
+      <p>
+        sRGB has been designed in 1996, when monitors were not as powerful as
+        they are now. Of course, modern screens are able to display much
+        more colors than monitors from the last century! But, how can we
+        reference them in web pages?
+      </p>
+      <p>
+        Before Level 4, it wasn’t possible. The maximum values of the
+        <code>rgb()</code> or <code>#RGB</code> notations were the points of
+        the sRGB triangle, there was no way to reach the colors outside.
+        <strong>But now, the <code>color()</code> function gives us the
+        possibility to use wider predefined RGB color spaces,</strong> such as
+        P3 (supported by some recent screens), Rec2020 or ProPhoto RGB.
+      </p>
+      <figure>
+        <img src="/static/images/00052-gamut-comparison.svg">
+        <figcaption><a href="https://commons.wikimedia.org/w/index.php?curid=116654642">By Myndex - Own work, CC BY-SA 4.0</a></figcaption>
+      </figure>
+      <p>
+        Even better: the whole range of colors human can see is covered by the
+        CIEXYZ color space. This color space, its more recent CIELAB and Oklab
+        derivatives, and their cylindrical CIELCH and Oklch counterparts, are
+        available through the <code>lab()</code>, <code>lch()</code>
+        <code>oklab()</code> and <code>oklch()</code> functions.
+      </p>
+      <p>
+        Of course, these colors need to be supported by the device they’re
+        drawn on. For browsers, this is quite complicated: the browser has to
+        discuss with the operating system to know the supported color space,
+        and has to adapt its output to draw colors that were impossible to draw
+        with the older sRGB color space.
+      </p>
+      <p>
+        Hopefully, WeasyPrint leaves this hard final drawing work to the 📄 PDF
+        reader. But it doesn’t mean that everything is handled automatically!
+        <strong>WeasyPrint has to define the required color spaces in the PDF,</strong>
+        instead of using the naive device-dependent RGB color space as it did
+        until then (and as it was supposed to work in CSS2).
+      </p>
+      <p>
+        The PDF specification gives the possibility to use different color
+        spaces, including specific ones through ICC profiles (for sRGB and
+        wider gamut color spaces), or the CIELAB color space (that we can use
+        for device-independent colors). Perfect!
+      </p>
+      <p>
+        <strong>For old-school RGB colors in your documents, nothing changes:</strong>
+        we use either the device-dependent RGB colors (as we did before) or the
+        sRGB colors (with an ICC file, as we already did for PDF/A). <strong>But
+        you’re now able to use wider color spaces and benefit from glorious new
+        colors…</strong> as long as your PDF reader displays your documents on
+        a screen that can draw these colors!
+      </p>
+    </section>
+
+    <section>
+      <h3>A Step Closer to CMYK</h3>
+
+      <p>
+        These features are quite interesting, but are they what users want to
+        actually print their documents? Not really.
+        <strong>They want CMYK.</strong> 🖨️
+      </p>
+      <p>
+        Unlike RGB color spaces which lay on additive color (light 💡, for example
+        emitted by a screen), <strong>CMYK defines color spaces based on
+        subtractive color</strong> (ink 🖋️, for example printed on paper). As PDFs
+        are often created to be printed, with ink, many users would like to use
+        CMYK colors instead of RGB. Of course, as they want to get reliable
+        results, they want to use an ICC profiles that defines the color space
+        of the printer they’ll use.
+      </p>
+      <p>
+        This feature is not in CSS Color Level 4 … but it’s in Level 5! So,
+        unfortunately, the next version of WeasyPrint will not be able to close
+        bugs <a href="https://github.com/Kozea/WeasyPrint/issues/844">#844</a>
+        and <a href="https://github.com/Kozea/WeasyPrint/issues/1091">#1091</a>,
+        but…
+      </p>
+      <p>
+        But we have good reasons to be optimistic. <strong>We already support multiple
+        color spaces, we know how to include ICC profiles, and the
+        specification proposes nice new syntaxes to define calibrated and
+        uncalibrated CMYK colors.</strong> We’ll find of course many problems
+        🤯 that we can’t imagine yet, but nothing seems to be impossible, now
+        that we begin to understand the amazingly complex world of colors.
+      </p>
+    </section>
+  </article>
+{% endblock content %}
