@@ -198,4 +198,8 @@ body {
   .wy-menu-vertical li.current > a span.toctree-expand {
     color: inherit;
   }
+
+  .dark-invert {
+    filter: invert(100%);
+  }
 }
