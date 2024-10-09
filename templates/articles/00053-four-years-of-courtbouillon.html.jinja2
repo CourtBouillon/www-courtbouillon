@@ -1,0 +1,336 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>Four Years of CourtBouillon</h2>
+      <aside><time datetime="2024-10-12">October 12, 2024</time>, by grewn0uille</aside>
+      <p>
+        Do you know what day it is today? It’s October 12, which means that
+        it’s CourtBouillon’s four-year anniversary 🎂! So it’s time to rewind
+        and see what happened during this year.
+      </p>
+    </header>
+
+    <section>
+      <h3>A New Anniversary</h3>
+
+      <p>
+        When we started CourtBouillon in 2020 to take care of
+        WeasyPrint and its dependencies, it was important to us to be
+        transparent about our activities and incomes.
+      </p>
+      <p>
+        So, as each October 12th, for CourtBouillon’s anniversary, we
+        prepared a rewind of the year to share with you the main
+        things that happenned and what is coming for the next one!
+      </p>
+
+      <!--<p>Survey ?</p>-->
+    </section>
+
+    <section>
+      <h3>What Happened This Year?</h3>
+
+      <p>
+        Many things occured during this year. First, let’s start with
+        some metrics about WeasyPrint and its dependencies. How many
+        issues were closed? How many pull requests were merged? How
+        many releases have been out?
+      </p>
+
+      <h4>Closed Issues</h4>
+      <embed src="{{ url_for('static', filename='graphs/4_year_issues.svg') }}" />
+
+      <p>
+        During the year, 269 issues have been closed. It’s <strong>an increase
+        of 35% compared to the previous year</strong>.
+      </p>
+
+      <h4>Merged Pull Requests</h4>
+      <embed src="{{ url_for('static', filename='graphs/4_year_pr.svg') }}" />
+
+      <p>
+        63 pull requests have been merged. It’s also <strong>an increase
+        compared to last year of… 53%</strong>.
+      </p>
+
+      <h4>Releases</h4>
+      <embed src="{{ url_for('static', filename='graphs/4_year_releases.svg') }}" />
+
+      <p>
+        15 versions have been released!
+      </p>
+
+      <p>
+        More issues have been closed this year, more pull requests
+        have been merged and a bit less of versions have been
+        released, but <strong>with more content</strong>.
+      </p>
+      <p>
+        Also <strong>thanks a lot to all the contributors and welcome to the
+        newcomers</strong> 💖.
+      </p>
+
+      <h4>New Features</h4>
+
+      <p>
+        Among all of these releases, indeed there are some
+        new cool features and improvements:
+      </p>
+      <ul>
+        <li>grid support,</li>
+        <li>CSS nesting,</li>
+        <li><code>var()</code> support,</li>
+        <li><code>border-image-*</code> properties support,</li>
+        <li>PDF/A-?u support,</li>
+        <li>select fields in forms,</li>
+        <li>Windows executable generation,</li>
+        <li>and other things…</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Meeting the community</h3>
+
+      <p>
+        During the year, we had the opportunity to go to several
+        conferences to <strong>give a talk about living from Free Software</strong> and
+        meet some of you in real life:
+      </p>
+      <ul>
+        <li><a href="https://jdll.org/">JDLL</a> in Lyon,</li>
+        <li>IT Woman by Yeeso meetup in Lyon,</li>
+        <li><a href="https://2024.sunny-tech.io/">Sunny Tech</a> in Montpellier,</li>
+        <li><a href="https://www.volcamp.io/">Volcamp</a> in Clermont-Ferrand.</li>
+      </ul>
+      <p>
+        It was always in French, but we’ll write an article in
+        English, we promise!
+      </p>
+      <p>
+        We also had the chance to participate in a <a href="https://prepostprint.org/">PrePostPrint</a> event
+        in Strasbourg. It was very nice to discuss about web-to-print
+        usages (and merge some pull requests).
+      </p>
+      <p>
+        As always, meeting some of you in person is really nice and
+        led to interesting discussions! So if you see us in some
+        events, don’t hesitate to come and say hi 👋!
+      </p>
+    </section>
+    
+    <section>
+      <h3>Sources of Income</h3>
+
+      <p>
+        And here is the part where we talk about money. Like every
+        year we’re going to provide details on our different sources
+        of income.
+      </p>
+      <p>
+        We have four main sources of income:
+      </p>
+      <ul>
+        <li>templating and styling with HTML/CSS,</li>
+        <li>bug fixes and additional features,</li>
+        <li>consulting,</li>
+        <li>sponsoring and donations on <a href="https://opencollective.com/courtbouillon">OpenCollective</a>,</li>
+        <li>miscellaneous, which will be detailed.</li>
+      </ul>
+      <p>
+        On the previous anniversary articles, the consulting part was
+        merged with miscellaneous but we thought it makes more sense
+        to separate them both.
+      </p>
+
+      <embed src="{{ url_for('static', filename='graphs/4_year_incomes.svg') }}" />
+
+      <p>
+        The main sources are templating, consulting and
+        miscellaneous. Surprisingly, bugs & features is the smallest.
+      </p>
+
+      <h4>Templating and styling with HTML/CSS</h4>
+      <p>
+        <strong>Creating HTML and CSS for print is one of the services we provide.</strong>
+        It’s very useful when you have a nice mock-up for your
+        documents coming from your designer but have some difficulties
+        to transform them into HTML/CSS template (or don’t have time to
+        do it).
+      </p>
+      <p>
+        During this year, we created several <strong>HTML/CSS templates for differents
+        type of documents</strong> like analysis reports, bank
+        documents, GDPR related reports, transport and holidays
+        roadmaps…
+      </p>
+
+      <h4>Bug Fixes and Additional Features</h4>
+      <p>
+        Another service we provide is <strong>fixing bugs you encounter and adding new
+        features to make your life easier</strong>.
+      </p>
+      <p>
+        A nice thing about this part is that <strong>the bug fixes and the new features you
+        sponsor benefit the whole community. Another nice thing is that the bug
+        fixes and the new features funded by other companies will be useful for you
+        😉!</strong>
+      </p>
+      <p>
+        As said before, this source of income is the smallest this
+        year. Only grid layout support and page groups have been sponsored.
+        Maybe it’s because the most wanted features are already in WeasyPrint.
+      </p>
+      <p>
+        (Page groups may be a spoiler of the incoming WeasyPrint v63 🤫)
+      </p>
+      <p>
+        Anyway, <strong>thanks a lot to everyone who sponsored features 💜.</strong>
+      </p>
+
+      <h4>Sponsoring and Donations on OpenCollective</h4>
+      <p>
+        <strong>When <a href="https://opencollective.com/courtbouillon">you become a
+        backer or a sponsor on OpenCollective</a>, you greatly help
+        CourtBouillon to maintain its projects in a sustainable way.</strong>
+      </p>
+      <p>
+        The OpenCollective part helps us to do the invisible
+        maintenance work, like answering and sorting GitHub issues,
+        writing articles, improving performance…
+      </p>
+      <p>
+        <strong>Thanks to all the OpenCollective backers and sponsors 💜.</strong>
+      </p>
+
+      <h4>Consulting</h4>
+      <p>
+        This year we decide to get out from the "Miscellaneous"
+        category a part of the work that is actually consulting about
+        WeasyPrint usage and integration with tools and workflows.
+      </p>
+      <p>
+        <strong>Helping people to have a better experience with WeasyPrint</strong> is
+        something we do.
+      </p>
+      <p>
+        During the year, we provided <strong>consulting and advices</strong> about
+        upgrading from an old version of WeasyPrint to a more
+        recent. We also provided guidance on the architecture of an
+        internal documents factory and the creation of a <strong>shared
+        HTML/CSS template usable by all of the users without the need
+        to write CSS themselves</strong>.
+      </p>
+
+      <h4>Miscellaneous</h4>
+      <p>
+        As you can guess, this category contains everything that doesn’t fit in
+        the other categories.
+      </p>
+      <p>
+        This year, it includes:
+      </p>
+      <ul>
+        <li>showcase website development with CRM integration,</li>
+        <li>web applications development with document generation.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What for Next Year?</h3>
+
+      <p>
+        After this year, what can you expect for the next one?
+      </p>
+
+      <h4>Consulting Packages</h4>
+      <p>
+        After some (a lot?) of "why don’t you provide consulting
+        packages? It’s just one line to add on your website.", "we’d
+        like to sponsor you, but our company requires a contract and
+        can’t use OpenCollective", or "OK you answered my mails
+        everytime, but I want to be sure to have an answer real
+        quick", <strong>we decided to create <a href="https://weasyprint.org/#support">WeasyPrint consulting packages</a>!</strong>
+      </p>
+      <p>
+        These packages get you a number of topics per month about
+        WeasyPrint usage, configuration or integration that you can
+        discuss with us (by mail or video call).
+      </p>
+      <p>
+        <strong>These packages are designed for companies for which WeasyPrint
+        is critical and for companies who want to be a sponsor but
+          can’t use OpenCollective.</strong>
+      </p>
+
+      <h4>New Features</h4>
+      <p>
+        Now <strong>we have a basic solid CSS grid layout support</strong> in WeasyPrint, we’d
+        like to <strong>improve it</strong> and add the missing features.
+      </p>
+      <p>
+        We also dream of a <strong>solid flex support</strong> and hope we’ll be able
+        to have dedicated time to work on that as the work to be done
+        is quite huge.
+      </p>
+      <p>
+        Another topic we’d like to <strong>focus on is PDF/UA
+        support</strong>. Currently the support is basic and we’d like to have
+        something stronger and <strong>make PDF/UA the default PDF format of
+        WeasyPrint</strong>.
+      </p>
+
+      <h4>And More!</h4>
+      <p>
+        Of course, we’ll continue to answer all the GitHub issues you
+        open, all the mails you send us, all the messages you write on
+        our Matrix/Gitter channel.
+      </p>
+      <p>
+        <strong>You can be sure we still motivate to do our best to get WeasyPrint and its
+        dependencies a shiny future.</strong>
+      </p>
+      <p>
+        Thanks again to all the people who sponsored features and bug fixes, to
+        our nice backers and sponsors, to our lovely clients, to our
+        sweet contributors, to everyone who uses our software and opens
+        issues 💜.
+      </p>
+
+      <p>
+        Don’t hesitate to follow us on <a href="https://x.com/BouillonCourt">X (Twitter)</a>,
+        <a href="https://fosstodon.org/@courtbouillon">Mastodon</a> or
+        <a href="https://linkedin.com/company/courtbouillon">LinkedIn</a>
+        to never miss news, to <a href="mailto:contact@courtbouillon.org">contact us</a> if
+        you’d like from some help or some advice on WeasyPrint, and to
+        <a href="https://opencollective.com/courtbouillon">support us</a> on OpenCollective!
+      </p>
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 70%;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    h2, h3, h4,
+    p + p {
+      clear: left;
+    }
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+
+{% endblock content %}
