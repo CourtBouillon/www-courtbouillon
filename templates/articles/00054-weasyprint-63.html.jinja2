@@ -1,0 +1,224 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v63 Has Been Released</h2>
+      <aside><time datetime="2024-10-29">October, 2024</time>, by grewn0uille</aside>
+      <p>
+        WeasyPrint v63 is finally here and comes with several new features and a lot of bug fixes 🎃!
+      </p>
+    </header>
+
+    <section>
+      <h3>CSS Color Level 4</h3>
+
+      <p>
+        <strong>CSS Color Level 4 is now supported</strong> in WeasyPrint, with <a href="https://github.com/Kozea/tinycss2/releases/tag/v1.4.0">tinycss2 v1.4.0</a>.
+      </p>
+      <p>
+        So, what changes with Color Level 4?
+      </p>
+
+      <h4>A New Syntax for Existing Functions</h4>
+      <p>
+        Now you can use the new syntax for <code>rgb()</code>, <code>rgba()</code>, <code>hsl()</code> and <code>hsla()</code>,
+        which means that <strong>arguments are space-separated</strong>.
+      </p>
+      <p>
+        For example, <code>rgb(232, 64, 58)</code> can be writen <code>rgb(232 64 58)</code>.
+      </p>
+      <p>
+        Also, <code>rgb()</code> is now an alias for <code>rgba()</code>. You
+        can specified the opacity directly within <code>rgb()</code> like this <code>rgb(232 64 58 / 0.5)</code>.
+        It works the same way for <code>hsl()</code> being an alias of <code>hsla()</code>.
+      </p>
+
+      <h4>A New Way of Defining Colors</h4>
+      <p>
+        <strong>New functions to define (more) colors in different color spaces</strong> are available 🌈! Let’s welcome:
+      </p>
+      <ul>
+        <li><code>lab()</code> to define colors in the CIE Lab color space,</li>
+        <li><code>lch()</code> to define colors in the CIELCH color space,</li>
+        <li><code>oklab()</code> to define colors in the Oklab color space, which is an improved Lab-like space,</li>
+        <li>and <code>oklch()</code> to define colors in the Oklch color space, which (you may have guessed) is an improved CIELCH-like space.</li>
+      </ul>
+
+      <p>
+        A new way of defining sRGB colors is also available: the <code>hwb()</code> function
+        which let you defined the color through its hue, whiteness and
+        blackness.
+      </p>
+
+      <p>
+        <strong>
+          If you’re interested in learning more about color spaces in
+          WeasyPrint, you should read our <a href="{{ url_for('blog', article='00052-more-colors-in-weasyprint') }}">previous article</a> 🗞️.
+        </strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>Page Groups</h3>
+
+      <p>
+        Until then, you had the possibility to select the nth page of a document using <code>@page :nth(5)</code>.
+      </p>
+      <p>
+        Now, thanks to the financial support of <a href="https://www.codeandco.com/">Code & Co.</a>,
+        you can <strong>select the nth page of a group of named pages</strong> 🤩.
+      </p>
+      <p>
+        For example:
+      </p>
+      {{ '00054-page-group.html' | pygmentize }}
+      <p>
+        All the pages have 20mm of margins, but the third page of the
+        chapter group has larger margins.
+      </p>
+    </section>
+
+    <section>
+      <h3>PDF Forms Improvements</h3>
+
+      <p>
+        For PDF Forms, WeasyPrint was already supporting checkboxes,
+        select fields, text fields and textarea. Now you also can put
+        <strong>radio inputs</strong> in your forms ✨!
+      </p>
+      <p>
+        PDF Forms got another nice feature. <strong>You can now use a submit input</strong>
+        to send the PDF Forms data 🤯.
+      </p>
+      <p>
+        <strong>Submitting data only works with Adobe Reader and Foxit.</strong> Other open-source
+        PDF readers indicate in their code that the feature isn’t supported.
+      </p>
+    </section>
+
+    <section>
+      <h3>Flex Improvements</h3>
+
+      <p>
+        Bad news, flex support hasn’t been entirely rewrite yet. But
+        good news, <strong>flex support received some care in this new
+        version</strong> 💖.
+      </p>
+      <p>
+        Several improvements have been made:
+      </p>
+      <ul>
+        <li>respect <code>break-inside: avoid</code> in flex items,</li>
+        <li>support absolute children in flex boxes,</li>
+        <li>respect <code>margin: auto</code> for flex boxes,</li>
+        <li>fix height of flex elements when using <code>flex-direction: column</code>, and</li>
+        <li>a better rendering of nested flex elements.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Dependencies Update</h3>
+
+      <p>
+        Other than requiring tinycss2 v1.4.0 to handle CSS Color Level
+        4, <strong>WeasyPrint now relies on <a href="https://github.com/CourtBouillon/tinyhtml5">tinyhtml5</a>
+        to parse HTML and transform it into an ElementTree tree.</strong>
+      </p>
+
+      <p>
+        Until now, we were relying on <a href="https://github.com/html5lib/html5lib-python">html5lib</a> to do this job.
+        Unfortunately, there are no regular versions of this library, the last one being released in 2020. After discussing with its maintainers,
+        we decided to <a href="https://doc.courtbouillon.org/tinyhtml5/2.0.0/going_further.html">fork it</a> and
+        <strong>focus on the features we need in WeasyPrint.</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>Other Things</h3>
+
+      <p>
+        Among all the new things in this release, WeasyPrint now supports <strong>the <code>mask-border-*</code> properties</strong>,
+        which allow you to have more fancy borders.
+      </p>
+      <p>
+        A lot of bugs have also been fixed. Some are about tables 🪲:
+      </p>
+      <ul>
+        <li>support <code>break-inside: avoid</code> in table cells,</li>
+        <li>fix vertical alignment of floating elements in tables,</li>
+        <li>don’t draw bottom border on cells with split rows.</li>
+      </ul>
+
+      <p>
+        Other noticable issues have been fixed, like 🐞:
+      </p>
+      <ul>
+        <li><strong>improved compliance with PDF/A-1* format</strong>,</li>
+        <li>managing a bug from Adobe Photoshop which is inverting data of some JPEG (hopefully they will fix that on their side one day).</li>
+      </ul>
+
+      <p>
+        Some work has also been done for some performance issues.
+      </p>
+      <p>
+        Now, <strong>WeasyPrint uses Harfbuzz by default to create subset of fonts</strong>, which
+        is way faster, specially for large fonts. Fonttools is still used as a fallback.
+      </p>
+      <p>
+        The algorithm to resolve <code>colspan</code> has also been improved and is
+        now faster, especially when you have a huge colspan value.
+      </p>
+
+      <p>
+        These are the major bug fixes in this release, you can find the
+        complete list in <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v63.0">the changelog</a>.
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+
+      <p>
+        <strong>This version with CSS Color Level 4 support is an important
+          step forward the support of CMYK</strong> and, as always, we’re happy
+        to release it 😍.
+      </p>
+      <p>
+        We hope <strong>you’ll
+        have fun with this <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v63.0">new version</a>
+        and that all these new features will be useful for you</strong>.
+      </p>
+      <p>
+        What’s next? That depends on you! If you are interested in better
+        CSS layout support such as <strong>solid Flexbox</strong> or <strong>complete Grid support</strong>,
+        don’t be afraid to contact us! <strong>Your help might be very useful.</strong>
+      </p>
+      <p>
+        Thanks a lot to <a href="https://www.codeandco.com/">Code & Co.</a> who
+        sponsored the page group features, and thanks a lot to all the
+        contributors of this release 💜.
+      </p>
+      <p>
+        <strong>Opening issues and pull requests is also a great way to
+          improve WeasyPrint.</strong> If you want to get involved, a list of
+        <a href="https://github.com/Kozea/WeasyPrint/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good
+        first issues</a> is waiting for you! Choose your favorite issue and
+        write a short comment, we’ll be happy to help you dive into WeasyPrint’s
+        code!
+      </p>
+      <p>
+        Of course you can also
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a>,
+        <strong>it really helps us to have more time to work on WeasyPrint</strong> and its dependencies.
+      </p>
+      <p>
+        If you missed it, <strong>October 12th was our 4-year anniversary</strong>. As
+        each year we published a <a href="{{ url_for('blog', article='00053-four-years-of-courtbouillon') }}">rewind of the year</a> about the
+        projects, money and future. This year, <strong>we also launched
+        <a href="https://weasyprint.org/#support">consulting packages</a>, don’t hesitate to contact us if you’re
+        interested</strong>.
+      </p>
+    </section>
+  </article>
+{% endblock content %}
