@@ -7,7 +7,7 @@
       <aside><time datetime="2025-01-30">January 30, 2025</time>, by liZe</aside>
       <p>
         If you’re in Europe or work with European enterprises, you may have heard about
-        eInvoices, Factur-X or ZUGFeRD. We have good news for you: with version 64.0,
+        eInvoices, Factur-X or ZUGFeRD. We have good news for you: from version 64.0,
         you can generate valid eInvoices with WeasyPrint.
       </p>
     </header>
@@ -16,23 +16,23 @@
       <h3>eInvoices</h3>
 
       <p>
-        Many users (maybe you?) use WeasyPrint to generate great PDF invoices. PDF
-        invoices are an obvious way to avoid printed paper, and they are common today in
-        a lot of companies.
+        Many users (maybe you?) use <strong>WeasyPrint to generate great PDF invoices.</strong>
+        PDF invoices are an obvious way to avoid printed paper, and they are common
+        today in a lot of companies.
       </p>
       <p>
         But PDFs are not perfect: they embed invoice information in a way that’s
         visually accessible to people, but not to computers. The PDF format is known to
         be hard to parse, and almost impossible to get data in a logically structured
-        way. That’s why invoices have to be manually or semi-automatically inserted into
-        accounting or bank software.
+        way. <strong>That’s why invoices have to be manually or semi-automatically
+        inserted into accounting or bank software.</strong>
       </p>
       <p>
         This manual step is repetitive, useless work that often leads to copy/paste
         errors. That’s why the European commission built a solution called
         <a href="https://ec.europa.eu/digital-building-blocks/sites/display/DIGITAL/What+is+eInvoicing">eInvoices</a>,
-        the next generation of electronic invoices. eInvoices bring a lot of
-        possibilities and simplification, thanks to standard formats that can be use by
+        the next generation of electronic invoices. <strong>eInvoices bring a lot of
+        possibilities and simplifications,</strong> thanks to standard formats that can be use by
         different platforms: faster payments, automatic VAT declarations, easy
         classification of income and outcome… The goal is to help companies to reduce
         their administrative costs, and help countries to fight fraud.
@@ -40,7 +40,7 @@
     </section>
 
     <section>
-      <h3>One Norm, Many Formats</h3>
+      <h3>One Standard, Many Formats</h3>
       <p>
         The European commission proposed a standard, EN16931, that defines the structure
         and the transmission systems of eInvoices. But this structure is not a format,
@@ -48,16 +48,16 @@
         different formats have been created to embed these metadata, including… PDF.
       </p>
       <p>
-        France and Germany then developed two different formats called Factur-X and
-        ZUGFeRD, based on PDF and respecting the EN16931 standard. At the beginning,
-        these formats were different, even if they shared most of the general structure:
-        PDF documents with attached XML files.
+        <strong>France and Germany then developed two different formats called Factur-X and
+        ZUGFeRD,</strong> both based on PDF and respecting the EN16931 standard. At the
+        beginning, these formats were different, even if they shared most of the general
+        structure: PDF documents with attached XML files.
       </p>
       <p>
         Having two different but very close formats was for sure a bad situation. That’s
         why the teams behind the two formats worked to merge the formats into one single
         format. Since November 2024,
-        <a href="http://fnfe-mpe.org/factur-x/factur-x_en/">Factur-X is the same standard than ZUGFeRD</a>,
+        <a href="http://fnfe-mpe.org/factur-x/factur-x_en/">Factur-X is the same standard as ZUGFeRD</a>,
         based on the PDF/A standard, a PDF variant specialized on archiving. It is the
         first and one of the main implementations of EN16931.
       </p>
@@ -73,17 +73,18 @@
       <p>
         Thanks to the hard work of
         <a href="https://binary-butterfly.de/artikel/factur-x-zugferd-e-invoices-with-python/">Binary Butterfly</a>,
-        a new API has been built to easily include Factur-X / ZUGFeRD metadata in
-        WeasyPrint, and will be available in version 64.0! A
+        <strong>a new API has been built to easily include Factur-X / ZUGFeRD metadata in
+        WeasyPrint,</strong> and this new API will be available in version 64.0! A
         <a href="https://doc.courtbouillon.org/weasyprint/latest/common_use_cases.html#factur-x-zugferd-electronic-invoices">simple example</a>
-        has been added to the documentation, to help users integrate WeasyPrint in their
+        has been added to the documentation, to help users integrate WeasyPrint into their
         invoicing systems.
       </p>
       <p>
         The only part that’s not covered by WeasyPrint is the generation of
         EN16931-compatible XML metadata. Of course, WeasyPrint can’t take the
         responsibility to handle this step itself, but we can rely on the Python
-        community to provide open-source libraries for this step.
+        community to provide open-source libraries for this step. Until then, it is
+        possible to generate such XML files using your favorite XML generator.
       </p>
       <p>
         If you’re interested in eInvoices generation, you can test the current
