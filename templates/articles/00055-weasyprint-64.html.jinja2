@@ -3,12 +3,11 @@
 {% block content %}
   <article>
     <header>
-      <h2>Factur-X and ZUGFeRD: eInvoices with WeasyPrint</h2>
+      <h2>WeasyPrint v64 Has Been Released</h2>
       <aside><time datetime="2025-01-30">January 30, 2025</time>, by liZe</aside>
       <p>
-        If you’re in Europe or work with European enterprises, you may have heard about
-        eInvoices, Factur-X or ZUGFeRD. We have good news for you: from version 64.0,
-        you can generate valid eInvoices with WeasyPrint.
+        WeasyPrint v64 has been released, it comes with several new features and a lot
+        of bug fixes! ❄️
       </p>
     </header>
 
@@ -18,13 +17,10 @@
       <p>
         Many users (maybe you?) use <strong>WeasyPrint to generate great PDF invoices.</strong>
         PDF invoices are an obvious way to avoid printed paper, and they are common
-        today in a lot of companies.
-      </p>
-      <p>
-        But PDFs are not perfect: they embed invoice information in a way that’s
-        visually accessible to people, but not to computers. The PDF format is known to
-        be hard to parse, and almost impossible to get data in a logically structured
-        way. <strong>That’s why invoices have to be manually or semi-automatically
+        today in a lot of companies. But PDFs are not perfect: they embed invoice
+        information in a way that’s visually accessible to people, but not to computers.
+        The PDF format is known to be hard to parse, and almost impossible to get data
+        in a logically structured way. <strong>That’s why invoices have to be manually or semi-automatically
         inserted into accounting or bank software.</strong>
       </p>
       <p>
@@ -37,10 +33,6 @@
         classification of income and outcome… The goal is to help companies to reduce
         their administrative costs, and help countries to fight fraud.
       </p>
-    </section>
-
-    <section>
-      <h3>One Standard, Many Formats</h3>
       <p>
         The European commission proposed a standard, EN16931, that defines the structure
         and the transmission systems of eInvoices. But this structure is not a format,
@@ -61,23 +53,20 @@
         based on the PDF/A standard, a PDF variant specialized on archiving. It is the
         first and one of the main implementations of EN16931.
       </p>
-    </section>
-
-    <section>
-      <h3>What About WeasyPrint?</h3>
       <p>
-        WeasyPrint can already
+        WeasyPrint could already
         <a href="https://doc.courtbouillon.org/weasyprint/latest/common_use_cases.html#pdf-a-archiving">generate PDF/A document</a>,
-        that’s a start. But what about embedding the XML metadata part?
+        that was a start. But what about embedding the XML metadata part?
       </p>
       <p>
         Thanks to the hard work of
         <a href="https://binary-butterfly.de/artikel/factur-x-zugferd-e-invoices-with-python/">Binary Butterfly</a>,
         <strong>a new API has been built to easily include Factur-X / ZUGFeRD metadata in
-        WeasyPrint,</strong> and this new API will be available in version 64.0! A
+        WeasyPrint,</strong> and this new API is available in v64! A
         <a href="https://doc.courtbouillon.org/weasyprint/latest/common_use_cases.html#factur-x-zugferd-electronic-invoices">simple example</a>
-        has been added to the documentation, to help users integrate WeasyPrint into their
-        invoicing systems.
+        has been added to the documentation, with many other new examples related to PDF
+        features and metadata, to help users integrate WeasyPrint into their invoicing
+        systems.
       </p>
       <p>
         The only part that’s not covered by WeasyPrint is the generation of
@@ -87,13 +76,44 @@
         possible to generate such XML files using your favorite XML generator.
       </p>
       <p>
-        If you’re interested in eInvoices generation, you can test the current
-        <code>main</code> branch or wait for version 64.0 to see if the new API fits
-        your needs! Don’t hesitate to
+        If you’re interested in eInvoices generation, please test v64 and tell us if the
+        new API fits your needs! Don’t hesitate to
         <a href="url_for('page', page='index', _anchor='support')">contact us</a> if you
         have questions or remarks, we’ll be happy to help you and help the community
         generate beautiful and valid Factur-X / ZUGFeRD invoices.
       </p>
+    </section>
+
+    <section>
+      <h3>Text Features and Speed</h3>
+      <p>
+        Version 64 brings <strong>new features and speed improvements for text.</strong>
+      </p>
+      <p>
+        Text decoration got the new <strong><code>text-decoration-thickness</code> and
+        <code>text-underline-offset</code> properties</strong> supported. If you want to
+        control the way your text is underlined, you have new toys to play with!
+      </p>
+      <p>
+        <strong>Small-caps synthesis</strong> has also been added. If you use a font
+        that doesn’t contain specific small-caps characters, these characters will be
+        automatically created for you, just as in other browsers.
+      </p>
+      <p>
+        This new version also includes tiny changes in the way text layout is done.
+        They’re tiny, but they give impressive speed improvements in some cases:
+      </p>
+      <ul>
+        <li>
+          if your document contains a lot of text, with a lot of regular paragraphs,
+          <strong>you can expect a 5% speed improvement</strong> for your overall
+          document generation;
+        </li>
+        <li>
+          if you render very, very long strings of plain text, split between multiple
+          pages, then you can expect more: one of our tests is now 10 times faster!
+        </li>
+      </ul>
     </section>
   </article>
 {% endblock content %}
