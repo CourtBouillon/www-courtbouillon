@@ -29,8 +29,19 @@
   src: local("Inconsolata Bold"), url(fonts/Inconsolata-Bold.woff2);
 }
 
-:root {
+body[data-theme="dark"],
+body:not([data-theme="light"]) {
   --red: #e8403a;
+
+  --color-brand-primary: var(--red);
+  --color-brand-content: var(--red);
+  --color-brand-visited: var(--red);
+  --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  --color-highlight-on-target: color-mix(in srgb, var(--red), transparent 35%);
+  --font-stack: ClarityCity, sans-serif;
+  --font-stack--monospace: Inconsolata, monospace;
+  --font-stack--headings: Inconsolata, monospace;
 }
 
 h2, h3, h4 {
