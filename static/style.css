@@ -291,7 +291,7 @@ main article {
 main h2 {
   border-bottom: 2px solid var(--red);
   font-size: 1.8em;
-  font-weight: regular;
+  font-weight: normal;
   margin: 0.25em auto 1.5em;
   display: table;
 }
