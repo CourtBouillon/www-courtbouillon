@@ -1,0 +1,116 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint and the NLnet Foundation</h2>
+      <aside><time datetime="2025-03-11">March 11, 2025</time>, by grewn0uille</aside>
+      <p>
+        At the beginning of this year, WeasyPrint <a href="https://nlnet.nl/project/Weasyprint/">has been selected</a> by NLnet to receive a NGI Zero grant.
+        What is NLnet? What is a NGI Zero grant? How is this helping WeasyPrint?
+      </p>
+    </header>
+
+    <section>
+      <h3>What is the NLnet Foundation?</h3>
+      
+      <p>
+        Created in the 80’s, the <a href="https://nlnet.nl/">NLnet Foundation</a> is a non-profit organization
+        who worked a lot on the the European Unix network and the commercial and public internet network provision in the Netherlands.
+        They also also pioneered the world’s first dial-in and ISDN infrastructure with full country coverage.
+      </p>
+      <p>
+        Since then, the Foundation aims to create a better, safer and more secure internet and
+        they support independent people and organizations contributing to the open information society.
+      </p>
+      <p>
+        For that, NLnet sponsors open source software and open standards that benefit everyone 💜 
+      </p>
+      <figure>
+        <img alt="NLnet logo" src="{{ url_for('static', filename='images/sponsor-nlnet.svg') }}" />
+      </figure>
+    </section>
+
+    <section>
+      <h3>What is a NGI Zero Grant?</h3>
+
+      <p>
+        To receive financial support from the Foundation, you have to apply to one
+        of <a href="https://nlnet.nl/funding.html">their fundings</a>. So that’s what we did!
+      </p>
+      <p>
+        We applied to the <a href="https://nlnet.nl/core/">NGI Zero Core Fund</a>,
+        a fund supported by the European Commission to help creating an open, trust-worthy and reliable internet for all.
+      </p>
+      <p>
+        A fund about internet open standards and interoperability, a perfect fund for WeasyPrint!
+      </p>
+      <p>
+        If you develop an open source project aligned with the values and mission of the Foundation and need support, don’t hesitate to apply too.
+        They try to keep the process as simple as possible so you can focus on your project. And as far as we’re concerned, they’re pretty good at it 😊
+      </p>
+    </section>
+
+    <section>
+      <h3>How is this Helping WeasyPrint?</h3>
+
+      <p>
+        With this grant, we’re able focus on different topics that are quite huge and for which we need a long period of time to work on.
+      </p>
+      <p>
+        These topics are:
+      </p>
+      <ul>
+        <li>improving the flex layout;</li>
+        <li>improving PDF/UA support;</li>
+        <li>supporting CMYK.</li>
+      </ul>
+
+      <h4>Improving Flex Layout</h4>
+      <p>
+        A lot of issues have been opened during the last years about flex. Some have been closed with more or less clean work-arounds, bringing other issues.
+      </p>
+      <p>
+        The real deal was to have time to rewrite flex layout support in a cleaner way.
+      </p>
+      <p>
+        You can track the progress on this topic, and the linked issues that will be fixed, in the related GitHub issue
+        <a href="https://github.com/Kozea/WeasyPrint/issues/2362">#2362</a>.
+      </p>
+
+      <h4>Improving PDF/UA Support</h4>
+      <p>
+        Since v57, WeasyPrint is able to generate <a href="https://en.wikipedia.org/wiki/PDF/UA">PDF/UA</a> documents.
+      </p>
+      <p>
+        PDF/UA is a sub-module of the PDF standard specifying terms and requirements for accessibility in PDF documents.
+      </p>
+      <p>
+        The support of PDF/UA in WeasyPrint works well for documents with simple content, but have issues with some more complex structures.
+        With the grant, we’ll be able to improve this support and also have time to find a way to write more solid tests on it.
+      </p>
+      <p>
+        You can also track the progress on this topic, and the linked issues that will be fixed, in the related GitHub issue
+        <a href="https://github.com/Kozea/WeasyPrint/issues/2363">#2363</a>.
+      </p>
+
+      <h4>Supporting CMYK</h4>
+      <p>
+        Adding support of CMYK in WeasyPrint is a long-standing request, the
+        <a href="https://github.com/Kozea/WeasyPrint/issues/1091">related GitHub issue</a> has been opened in 2020.
+      </p>
+      <p>
+        CMYK has been specified in CSS Color Level 4 for quite some time, but has been moved into Level 5.
+      </p>
+      <p>
+        Fortunately, WeasyPrint already supports Level 4, so we "just" have to support Level 5 🌈
+      </p>
+
+      <h3>What’s Coming Next?</h3>
+      <p>
+        For roadmap lovers, each topic will have its own WeasyPrint major version, starting this month with
+        WeasyPrint v65.0 and flex layout improvements!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
