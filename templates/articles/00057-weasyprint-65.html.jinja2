@@ -1,0 +1,197 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v65 Has Been Released</h2>
+      <aside><time datetime="2025-03-19">March 19, 2025</time>, by liZe</aside>
+      <p>
+        WeasyPrint v65 has been released, and thanks to
+        <a href="{{ url_for('blog', article='00056-weasyprint-and-nlnet') }}">the amazing NLnet foundation</a>,
+        we now have a solid Flex layout… among other good news!
+      </p>
+    </header>
+
+    <section>
+      <h3>A Fresh New Flex Layout</h3>
+
+      <h4>That’s a Long Story</h4>
+      <p>
+        <strong>The Flex layout has a long history in WeasyPrint.</strong>
+      </p>
+      <p>
+        In 2017, some of our users wanted WeasyPrint to get support of the new shiny
+        Flex layout, that all the cool CSS kids were using at the moment. This layout
+        was supported in major browsers since at least 2015 (Edge being the last one),
+        and it was slowly but massively adopted by web creators.
+      </p>
+      <p>
+        <strong>It was time to implement the Flex layout in WeasyPrint.</strong>
+        These users even helped us to write code, but of course, things are never easy…
+      </p>
+      <p>
+        At this moment, apart from tables, WeasyPrint was only able to handle the common
+        block and inline layouts. Adding a new type of layout is not an easy task, and
+        as it was the first time, a lot of mistakes were made. But well,
+        <strong>in version 0.42, the day after Christmas 🎁 2017, WeasyPrint had an initial support of Flex.</strong>
+        That happened at the same time we dropped Python 2 support, what an amazing time
+        to be alive…
+      </p>
+      <p>
+        Flex support was working, but only for simple cases.
+        <strong>It was useful for many users, but that was not enough.</strong>
+        A lot of tickets have then been opened, some of them have been closed, but some
+        were almost impossible to fix with the current implementation. The many
+        shortcuts and workarounds we used in the code were nice to deliver a first
+        version fast, but as always:
+        <strong>not following the specification really closely was a bad idea.</strong>
+      </p>
+      <p>
+        Rewriting the Flex layout has since then been a kind of running gag:
+        <strong>always high on our ToDo-list 📋, but never on top.</strong> Reality is
+        that this kind of features requires a lot of time, but as you can imagine it’s
+        almost impossible to find 2 consecutive weeks of free time in our schedule.
+      </p>
+      <p>
+        <strong>To find a lot of time, we needed a sponsor.</strong> That worked very
+        well with the Grid layout, because we had a sponsor… and the Flex experience of
+        what not to do when implementing new layouts 😁.
+      </p>
+      <p>
+        That’s why we proposed
+        <a href="{{ url_for('blog', article='00056-weasyprint-and-nlnet') }}">the NLnet foundation</a>
+        to help us on this topic. They were very excited by the idea, and even asked us
+        if they could help on other important complex topics. That’s how we agreed
+        on 3 different features: <strong>Flex layout, PDF/UA, CMYK.</strong>
+      </p>
+
+      <h4>So… What’s New?</h4>
+      <p>
+        After many days reading the specification (<em>almost</em> as interesting as a
+        novel), reading the specification, writing some code, reading the specification,
+        adding some tests, reading the specification, and reading the specification, we
+        finally managed to reach many goals:
+      </p>
+      <ul>
+        <li>We <strong>closed 18 issues,</strong> including a lot of bugs, but also <strong>nice features like <code>gap</code>.</strong></li>
+        <li>Closing these issues helped to <strong>fix unrelated bugs,</strong> for example for inline tables, preferred sizes, floats, formatting structure… We even fixed a bug in one of our samples!</li>
+        <li>We <strong>added 123 tests</strong> to our test suite.</li>
+        <li>346 <strong>flex layout tests from the W3C test suite</strong> were passing in version 64, they are now 470 (out of 810). Many of the failing issues left are not related to flex layout but to other unsupported features (XHTML syntaxes, right-to-left and vertical text mainly).</li>
+        <li>We <strong>pushed 47 commits in 3 weeks.</strong></li>
+        <li>We <strong>rewrote about 35% of the flex layout code,</strong> and <strong>the <code>flex.py</code> file is now 180 lines shorter</strong> (we removed a lot of comments copied from the specification).</li>
+        <li>The overall diff stat is +517-684 lines for code in 11 files, and +1324-343 lines for tests in 3 files. <strong>We basically removed broken code and transformed it into passing tests!</strong> 😄</li>
+      </ul>
+      <p>
+        What was amazing during this 3-week period is that we’ve been able to
+        <strong>stay focus on the Flex layout</strong> without being disturbed by other
+        external events. This was the only way to get this work done:
+        <strong>being focus on one goal gave us a unique possibility to be productive,</strong>
+        which is almost impossible on our free time, when we always prioritize our
+        clients.
+      </p>
+      <p>
+        <strong>Coding in these conditions is a real pleasure.</strong>
+        Code quality, testing coverage, comments, architecture solidity…
+        All the metrics are higher, and we can really feel the difference.
+      </p>
+      <p>
+        Of course, there will be bugs. But
+        <strong>we are now confident 💪 in the Flex layout,</strong>
+        just as we were when we released the Grid layout. So…
+        <strong>Don’t wait, test it!</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s More?</h3>
+
+      <h4>Improved Right-to-Left Text Support</h4>
+      <p>
+        <strong>Version 65 brings big changes to the support of right-to-left text.</strong>
+        WeasyPrint now follows the <code>dir</code> HTML attribute instead of
+        automatically finding the main direction of text, bringing more control to users
+        and following the specification.
+      </p>
+      <p>
+        Other bugs have been fixed for right-to-left text, including justification, PDF
+        text selection, and trailing spaces management. WeasyPrint is not ready yet to
+        handle complex bidirectional or vertical text cases, but it’s been reported to
+        work well for many different languages.
+        <strong>Don’t hesitate to report bugs if you have problems with right-to-left text!</strong>
+      </p>
+
+      <h4>Modernized User Agent Stylesheet</h4>
+      <p>
+        Just like any browser, WeasyPrint comes with a standard stylesheet that defines
+        common rules: <code>&lt;div></code> tags are blocks, <code>&lt;table></code> tags
+        are tables, and so on.
+      </p>
+      <p>
+        <strong>This stylesheet, called the user agent stylesheet, has been modernized.</strong>
+        For users, it shouldn’t change much: the rules are almost the same as they were,
+        even if we enabled a couple of new features such as case-insensitive HTML
+        attributes matching.
+      </p>
+      <p>
+        We now use modern selectors, like the <code>:is()</code> and <code>:has()</code>
+        pseudo-classes for example. The stylesheet is smaller, easier to understand and
+        maintain, and should be slightly faster.
+      </p>
+      <p>
+        This change is part of the invisible but important regular maintenance work done
+        on WeasyPrint. We try hard to keep our code clean, closer to the recent Python,
+        HTML, CSS, SVG, PDF versions. Web technologies evolve quickly, and we do our
+        best to be part of this evolution!
+      </p>
+
+      <h4>And More…</h4>
+      <p>
+        We can’t list here all the changes brought to you by version 65, but here are
+        some features and bug fixes that could be useful for you:
+      </p>
+      <ul>
+        <li><code>@font-face</code> rules now support the <code>unicode-range</code> property;</li>
+        <li>non-breaking spaces are now justified, just as normal spaces;</li>
+        <li>embedded fonts now have a more specific and reliable name;</li>
+        <li>more complex cases involving nested SVG text anchors have been fixed.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+      <p>
+        We hope you’ll have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v65.0">new version</a>
+        and that all these new features will be useful for you!
+      </p>
+      <p>
+        What’s next? Thanks to NLnet, version 66 will bring
+        <strong>a better support of PDF/UA, for improved accessibility.</strong>
+        That’s an amazing feature we’re really proud and excited to work on.
+        <strong>If you’re interested in testing this feature, don’t hesitate to contact us! 💌</strong>
+      </p>
+      <p>
+        If you use WeasyPrint in critical applications, you should consider
+        <a href="https://weasyprint.org/#support">subscribing to our consulting packages</a>.
+        They give you <strong>priority access</strong> to our support service and
+        <strong>customized answers</strong> to technical questions, for a given number
+        of topics per month. That’s <strong>the best way</strong> to get a reliable and
+        fast support, and be sure that you’ll continue to benefit from WeasyPrint’s
+        great features happily ever after! 🚀
+      </p>
+      <p>
+        If you’re interested in participating in WeasyPrint,
+        <strong>opening issues and pull requests is a good way to start</strong>.
+        If you want to dive into the code, a list of
+        <a href="https://github.com/Kozea/WeasyPrint/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good first issues</a>
+        is waiting for you! Choose your favorite issue and write a short comment, we’ll
+        be happy to help you.
+      </p>
+      <p>
+        And of course you can also
+        <a href="https://opencollective.com/courtbouillon">become a sponsor on OpenCollective</a>,
+        <strong>it really helps us to maintain WeasyPrint and to provide high-quality software.</strong>
+      </p>
+    </section>
+  </article>
+{% endblock content %}
