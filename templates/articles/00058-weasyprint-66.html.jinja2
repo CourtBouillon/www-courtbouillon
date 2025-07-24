@@ -1,0 +1,177 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v66 Has Been Released</h2>
+      <aside><time datetime="2025-07-24">July 24, 2025</time>, by liZe</aside>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v66.0">WeasyPrint v66</a> has been released, and thanks to
+        <a href="{{ url_for('blog', article='00056-weasyprint-and-nlnet') }}">the wonderful NLnet foundation</a>,
+        we now have a solid PDF/UA… among other good news!
+      </p>
+    </header>
+
+    <section>
+      <h3>Solid PDF/UA Generation</h3>
+
+      <h4>Accessibility, Both for Legal Reasons and Real People</h4>
+      <p>
+        Accessibility in technology is a large topic. Even with good will, it’s really
+        hard to get perfect results, because <strong>specifications and validation tools
+        are sometimes really complex.</strong> 🤯
+      </p>
+      <p>
+        Moreover, getting documents that are accessible for computers is not the same as
+        getting documents that are accessible for people. <strong>Blindly following the
+        rules is not enough:</strong> we have to understand them deeply, so that the
+        content can actually be understood using a screen reader, for example.
+      </p>
+      <p>
+        Our first PDF/UA implementation has been realized with validation topic in mind.
+        We knew that it wasn’t enough, but it was a very useful way to learn more about
+        this topic, as a first step. Of course, some of the choices made at this moment
+        were not adapted to a clean and solid support, but at least we got a large
+        overview of the topic and an implementation that could meet some of the legal
+        requirements.
+      </p>
+      <p><strong>
+        NLnet gave us an amazing opportunity to go further: have the time to focus,
+        learn from our mistakes, and provide better accessibility results for humans.
+      </strong></p>
+
+      <h4>Technical Challenges</h4>
+      <p>
+        The corner stone of PDF accessibility is tagging: <strong>we must store whether
+        a text is a title, a paragraph, a table column header… or just a list bullet.</strong> For
+        that, we have a reliable source of information, as the HTML provides a structure
+        we can reuse in our HTML document.
+      </p>
+      <p>
+        The same applies to content nesting. HTML tags are nested in a way we want to
+        keep in the PDF. Unfortunately this nesting hierarchy is not the same at the
+        hierarchy used while drawing the content on the PDF, because it relies on
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context">stacking contexts</a>,
+        which are often unrelated.
+      </p>
+      <p>
+        That’s why linking the logical and drawing structures together is a challenge.
+        With our first implementation, the document structure was based on the drawing
+        structure, mainly because it was easier technically: we could build the tag tree
+        while drawing the PDF. The problem is that the drawing structure is not the
+        logical structure, and this was leading to obvious errors in the way content was
+        nested. <strong>Even if the document was valid according to the specification,
+        its content was not correctly ordered and organized for people.</strong>
+      </p>
+      <p>
+        The only reasonable solution we had was to rewrite the whole tagging system,
+        <strong>to build the tree according to the semantic HTML tree, and then link the
+        drawing elements to this tree.</strong>
+      </p>
+
+      <h4>Separating the Content from the Layout</h4>
+      <p>
+        This way is harder to code, but it leads to much better results, as we keep the
+        original tag nesting order independently from the way the content is drawn. It
+        considers the HTML as the only source of truth to define the document semantics.
+      </p>
+      <p>
+        Actually, this question is not new in the world of web pages. Separating
+        the content from the graphical layout is an old dream, and CSS has been a
+        wonderful tool to achieve this goal. We, CourtBouillon, have always followed
+        this mantra when designing documents for clients: <strong>create the content
+        first, semantically, without thinking about the way it will be displayed.</strong>
+      </p>
+      <p>
+        This choice may require slightly better CSS skills, but we deeply think that the
+        result is worth the investment: it clearly draws a line between the content
+        structure and the design, it helps us greatly to create HTML documents that are
+        easy to read and to maintain. <strong>And now, thanks to the new implementation
+        of PDF/UA, it gives the possibility to generate accessible documents with a
+        single command-line option and no extra work.</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s More?</h3>
+
+      <h4>Flex Layout</h4>
+      <p>
+        Following
+        <a href="{{ url_for('blog', article='00057-weasyprint-65') }}">our work on the flex layout for the previous version</a>,
+        we committed many small fixes to correctly handle margins, basis sizes,
+        blockification, etc. More unit test have been added, and 9 more tests of the W3C
+        test suite pass!
+      </p>
+      <p>
+        Interestingly, <strong>many small fixes were actually related to other parts of the
+        code, and will also benefit other layouts such as floats or grid.</strong> We’re
+        happy to see that our implementation from last version is reliable and received
+        a lot of positive feedback from our users! 😄
+      </p>
+
+      <h4>Better Footnotes</h4>
+      <p>
+        In this new version, <strong>we fixed many details related to footnotes:</strong>
+      </p>
+      <ul>
+        <li>footnotes are now reported to the next page when they would force page breaks because of orphans,</li>
+        <li>style is now correctly applied to footnote markers,</li>
+        <li>footnote calls now inherit from footnotes, improving interoperability with other renderers,</li>
+        <li>bottom margins on footnotes don’t break the layout anymore.</li>
+      </ul>
+
+      <h4>Fine-tuned Page Breaks for Tables</h4>
+      <p>
+        Handling page breaks in long, large, complex tables can be hard. We fixed a
+        couple of bugs that were allowing unwanted page breaks after headers and page
+        groups, <strong>giving more possibilities to define page-breaking rules in
+        complex tables.</strong>
+      </p>
+
+      <h4>And More…</h4>
+      <p>
+        We can’t list here all the changes brought to you by version 66, but here are
+        some features and bug fixes 🐛 that could be useful for you:
+      </p>
+      <ul>
+        <li>support of <strong><code>lh</code> and <code>rlh</code></strong> (relative to line-height) units,</li>
+        <li>support of <strong><code>tranform-origin</code> in SVG,</strong></li>
+        <li>circles drawn instead of rectangles for <strong>dotted borders and lines,</strong></li>
+        <li>better position of <strong><code>outside</code> markers,</strong></li>
+        <li>management of <strong>no-break spaces for hyphenation…</strong></li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+      <p>
+        We hope you’ll have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v66.0">new version</a>
+        and that all these new features will be useful for you!
+      </p>
+      <p>
+        What’s next? Thanks to NLnet, version 67 will bring
+        <strong>CMYK and color profiles support for advanced printing.</strong>
+        Color management is a topic we have a lot to learn about, we’re excited to bring
+        this feature that a lot of users are waiting for.
+        <strong>If you’re interested in testing this feature, don’t hesitate to contact us! 💌</strong>
+      </p>
+      <p>
+        You use WeasyPrint in your company? You’d like to get personalized support? <strong>It’s time to
+        <a href="https://weasyprint.org/#support">subscribe to our consulting packages</a>!</strong>
+        You can also <a href="https://weasyprint.org/#sponsors">become a proud WeasyPrint sponsor</a>
+        to give us <strong>more time to work on amazing new features</strong> 🚀 that will
+        be useful for you in the future… even if you don’t know that yet!
+      </p>
+      <p>
+        If you’re interested in contributing to WeasyPrint,
+        <strong>opening issues and pull requests is a good way to start.</strong>
+        If you want to dive into the code, a list of
+        <a href="https://github.com/Kozea/WeasyPrint/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good first issues</a>
+        is waiting for you! Choose your favorite issue and write a short comment, we’ll
+        be happy to help you.
+      </p>
+    </section>
+  </article>
+{% endblock content %}
