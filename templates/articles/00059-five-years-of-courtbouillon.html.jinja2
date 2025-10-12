@@ -1,0 +1,342 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>Five Years of CourtBouillon</h2>
+      <aside><time datetime="2025-10-12">October 12, 2025</time>, by grewn0uille</aside>
+      <p>
+        Do you know what day it is today? It’s October 12, which means that
+        it’s CourtBouillon’s five-year anniversary 🎂! So it’s time to rewind
+        and see what happened during this year.
+      </p>
+    </header>
+
+    <section>
+      <h3>A New Anniversary</h3>
+
+      <p>
+        As each year, on October 12, it’s CourtBouillon’s anniversary.
+        It’s always a good moment to take some time to see how far
+        we’ve come during the year.
+      </p>
+
+      <p>
+        So, here is our annual rewind, what happened during this year,
+        which cool features had been released, how much money did we
+        earn…? And what’s coming next?
+      </p>
+    </section>
+
+    <section>
+      <h3>What Happened This Year?</h3>
+
+      <p>
+        Many things occured during this year. First, let’s start with
+        some metrics about WeasyPrint and its dependencies. How many
+        issues were closed? How many pull requests were merged? How
+        many releases have been out?
+      </p>
+
+      <h4>Closed Issues</h4>
+      <embed src="{{ url_for('static', filename='graphs/5_year_issues.svg') }}" />
+
+      <p>
+        During the year, <strong>237 issues have been closed</strong>.
+        It’s slightly less than last year (269)
+        and <strong>most of the issues are on WeasyPrint</strong>.
+      </p>
+
+      <h4>Merged Pull Requests</h4>
+      <embed src="{{ url_for('static', filename='graphs/5_year_pr.svg') }}" />
+
+      <p>
+        88 pull requests have been merged. It’s also <strong>an increase
+        compared to last year of… 39%</strong>.
+      </p>
+
+      <h4>Releases</h4>
+      <embed src="{{ url_for('static', filename='graphs/5_year_releases.svg') }}" />
+
+      <p>
+        <strong>16 versions have been released!</strong>
+        The number of releases is quite stable among the years.
+      </p>
+
+      <p>
+        A bit less issues have been closed this year, but more pull requests have been merged.
+        That’s two years is a row that <strong>merged pull requests has increased</strong>.
+      </p>
+      <p>
+        Also <strong>thanks a lot to all the contributors and welcome to the
+        newcomers</strong> 💗.
+      </p>
+
+      <h4>New Features</h4>
+
+      <p>
+        During this year, some nice features and cool improvements have been released:
+      </p>
+      <ul>
+        <li>PDF/UA support improvement,</li>
+        <li>custom RDF metadata for PDF/A and eInvoices,</li>
+        <li>CSS Color 4 support,</li>
+        <li>flex layout support improvement,</li>
+        <li>radio and submit inputs in forms,</li>
+        <li>page groups support,</li>
+        <li><code>lh</code> and <code>rlh</code> units support,</li>
+        <li>and other things…</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Meeting the community</h3>
+
+      <p>
+        This year, we went to several conferences to meet people
+        and give differents talks about the <strong>power of web technologies for PDF</strong>,
+        the <strong>structure of a Python library</strong>
+        and <strong>participating in Free Software communities</strong>.
+      </p>
+      <ul>
+        <li>IT Woman by Yeeso meetup in Lyon,</li>
+        <li>Python meetup in Lyon,</li>
+        <li><a href="https://devlille.fr/">DevLille</a> in Lille,</li>
+        <li><a href="https://www.paris-web.fr/">Paris Web</a> in Paris,</li>
+        <li><a href="https://2024.conference.pyladies.com/">PyLadiesCon</a> (online).</li>
+      </ul>
+      <p>
+        Meeting people in real life is always fun, so don’t hesitate to come and say hi if you saw us!
+        If there are some events you think it could be nice to see us, feel free to tell us ☺️.
+      </p>
+      <p>
+        And you can always find us at the Python meetups in Lyon, as we organise them 🐍.
+      </p>
+    </section>
+
+    <section>
+      <h3>Sources of Income</h3>
+
+      <p>
+        Like each year, this rewind includes a part about our incomes.
+        So here we go!
+      </p>
+      <p>
+        We have five main sources of income:
+      </p>
+      <ul>
+        <li>templating and styling with HTML/CSS,</li>
+        <li>bug fixes and additional features,</li>
+        <li>consulting,</li>
+        <li>sponsoring and donations,</li>
+        <li>grant,</li>
+        <li>miscellaneous, which will be detailed.</li>
+      </ul>
+
+      <embed src="{{ url_for('static', filename='graphs/5_year_incomes.svg') }}" />
+
+      <p>
+        Last year, the different sources were quite equivalent.
+        This year, templating and grant are clearly the most important.
+      </p>
+
+      <h4>Templating and Styling with HTML/CSS</h4>
+      <p>
+        <strong>Creating HTML and CSS for print is one of the services we provide.</strong>
+        It’s very useful when you have a nice mock-up for your
+        documents coming from your designer but have some difficulties
+        to transform them into HTML/CSS template (or don’t have time to
+        do it).
+      </p>
+      <p>
+        This year, we created several <strong>HTML/CSS templates for differents
+        type of documents</strong> like recipes, travel guides, analysis reports,
+        user manuals, health reporting…
+      </p>
+      <p>
+        We also started to work with a designer when there is no mock-up, ensuring
+        everyone agree on a visual and avoiding frustration 😁.
+      </p>
+
+      <h4>Bug Fixes and Additional Features</h4>
+      <p>
+        Another service we provide is <strong>fixing bugs you encounter and adding new
+        features to make your life easier</strong>.
+      </p>
+      <p>
+        A nice thing about this part is that <strong>the bug fixes and the new features you
+        sponsor benefit the whole community.</strong> Another nice thing is that <strong>the bug
+        fixes and the new features funded by other companies will be useful for you
+        😉!</strong>
+      </p>
+      <p>
+        For this year, we had a bit more incomes coming from this part compared to last year.
+        More things have been sponsored, but usually not big features.
+      </p>
+      <p>
+        You may find curious saying here that nothing big has been sponsored
+        this year but having quite big improvements listed before. We’re going
+        to talk about that a bit later!
+      </p>
+      <p>
+        <strong>Thanks a lot to everyone who sponsored features 💖.</strong>
+      </p>
+
+      <h4>Sponsoring and Donations</h4>
+      <p>
+        <strong>When <a href="https://opencollective.com/courtbouillon">you become a
+        backer or a sponsor on OpenCollective</a>, you greatly help
+        CourtBouillon to maintain its projects in a sustainable way.</strong>
+      </p>
+      <p>
+        The OpenCollective part helps us to do the invisible
+        maintenance work, like answering and sorting GitHub issues,
+        writing articles, improving performance…
+      </p>
+      <p>
+        <strong>Thanks to all the OpenCollective backers and sponsors 💜.</strong>
+      </p>
+      <p>
+        If you want to be a sponsor, but can’t use OpenCollective,
+        you can contact us for direct invoicing.
+      </p>
+
+      <h4>Consulting</h4>
+      <p>
+        <strong>Helping people to have a better experience with WeasyPrint</strong> is
+        something we love to do.
+      </p>
+      <p>
+        During the year, we provided <strong>consulting and advice</strong>
+        about automatisation of reports generation and WeasyPrint configuration.
+      </p>
+      <p>
+        We’ve also provided and animate a <strong>personalised workshop</strong> about
+        WeasyPrint, its usecases and HTML/CSS for print 🧰.
+      </p>
+      <p>
+        We’ve launched <a href="https://weasyprint.org/#support"><strong>WeasyPrint Consulting Packages</strong></a>.
+        These packages are designed for people who wants to be insured
+        that someone is always going to answer quickly to their questions.
+      </p>
+
+      <h4>Grant</h4>
+      <p>
+        This is a <strong>brand new source of incomes</strong>. Previously we tried to get some
+        grant and funding for WeasyPrint, but <strong>this is the first time we succeed</strong>!
+      </p>
+      <p>
+        WeasyPrint has been selected by the <a href="https://nlnet.nl/">NLnet Foundation</a> to receive a grant,
+        and thanks to this grant, we’ve been able to <strong>work on tasks that require
+        long time to focus on</strong>:
+      </p>
+      <ul>
+        <li>improving the flex layout;</li>
+        <li>improving PDF/UA support;</li>
+        <li>supporting CMYK (that’s may be a spoiler of the next version 🤫).</li>
+      </ul>
+
+      <h4>Miscellaneous</h4>
+      <p>
+        Unsurprisingly, this category contains everything that doesn’t fit in
+        the other categories.
+      </p>
+      <p>
+        This year, it includes:
+      </p>
+      <ul>
+        <li>web applications development with document generation,</li>
+        <li>design integration for <a href="https://genepy.org/">Genepy</a>, a website to learn Python.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What for Next Year?</h3>
+
+      <p>
+        After this year, what can you expect for the next one?
+      </p>
+
+      <h4>New Features</h4>
+      <p>
+        There was a spoiler earlier in this article, but <strong>CMYK support is coming to WeasyPrint</strong>,
+        with support of color profiles. In fact, you already can try it by using the
+        <a href="https://github.com/Kozea/WeasyPrint">main branch</a>
+        (and the <a href="https://github.com/Kozea/tinycss2">main branch of tinycss2</a>).
+        If you do so, don’t hesitate to send us some feedback!
+      </p>
+      <p>
+        We dream of <strong>supporting <code>calc()</code></strong>, and this dream has never been so
+        close to become reality, as we started to work on it.
+      </p>
+      <p>
+        Another wish for next year: <strong>rewriting the text layout</strong>; for a faster layout,
+        a better RTL support, new line break algorithm…
+      </p>
+
+      <h4>New Specifications</h4>
+      <p>
+        Because reading, understanding and implementing specifications
+        wasn’t hard enough, we decided to start <strong>writing CSS specifications</strong> 🤯.
+      </p>
+      <p>
+        We won’t be alone in this. We’re working with Julie and Julien from
+        <a href="https://pagedjs.org/">paged.js</a> and got a new grant from the NLnet Foundation.
+      </p>
+      <p>
+        One of the specifications, about Notes, has <strong>already been proposed to the w3c</strong>.
+        Feel free to have a look, discuss and upvote <a href="https://github.com/w3c/csswg-drafts/issues/12472">the proposal</a>.
+      </p>
+      
+      <h4>And More!</h4>
+      <p>
+        Of course, we’ll continue to answer all the GitHub issues you
+        open, all the mails you send us, all the messages you write on
+        our Matrix channel ✉️.
+      </p>
+      <p>
+        <strong>We’ll do our best to get WeasyPrint and its dependencies for a shiny future.</strong>
+      </p>
+      <p>
+        Thanks again to all the people who sponsored features and bug fixes, to
+        our nice backers and sponsors, to our lovely clients, to our
+        sweet contributors, to everyone who uses our software and opens
+        issues 💜.
+      </p>
+
+      <p>
+        Don’t hesitate to follow us on
+        <a href="https://fosstodon.org/@courtbouillon">Mastodon</a> or
+        <a href="https://linkedin.com/company/courtbouillon">LinkedIn</a>
+        to never miss news, to <a href="mailto:contact@courtbouillon.org">contact us</a> if
+        you’d like from some help or some advice on WeasyPrint, and to
+        <a href="https://opencollective.com/courtbouillon">support us</a> on OpenCollective!
+      </p>
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 70%;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    h2, h3, h4,
+    p + p {
+      clear: left;
+    }
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+
+{% endblock content %}
