@@ -1,0 +1,288 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v67 Has Been Released</h2>
+      <aside><time datetime="2025-12-02">December 2, 2025</time>, by liZe</aside>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v67.0">WeasyPrint v67</a>
+        has been released! It is one of the most important versions of WeasyPrint with
+        many, many major features: CMYK, PDF/X, <code>calc()</code>, <code>::first-line</code>,
+        breaks in grid rows, new length units, improved fonts management… Let’s discover
+        what’s new in v67!
+      </p>
+    </header>
+
+    <section>
+      <h3>Colors</h3>
+      <p>
+        Version 67 includes the support of many features introduced by the
+        <a href="https://drafts.csswg.org/css-color-5/">CSS Color Module Level 5</a>,
+        and among them everything you need to
+        <strong>correctly handle colors for printed documents.</strong>
+      </p>
+
+      <h4>CMYK</h4>
+      <p>
+        Before version 67, CMYK was only supported for images. Thanks to new CSS
+        features, you can now define your colors with the <code>device-cmyk()</code>
+        function, giving the values you want to the cyan, magenta, yellow and black
+        channels!
+      </p>
+      <p>
+        The values given with this function will be stored directly in the PDF file, and
+        not translated into another color space. This way, <strong>you can fully control
+        the colors you want to store in your document,</strong> and these values will be
+        used by the printer when the document is actually printed.
+      </p>
+      <p>
+        New other ways exist to handle colors in your generated PDF. You can, for
+        example, use device-independent colors everywhere and store them in the PDF
+        using CIE Lab and Oklab color spaces. <strong>These colors are independent from
+        any device</strong> and can then be converted into device-dependent channels
+        just before being drawn on a screen or printed on paper. This conversion is
+        possible using a color profile, that CSS now allows you to declare in your
+        stylesheet.
+      </p>
+
+      <h4>Color Profiles</h4>
+      <p>
+        In PDFs, color profiles can be embedded for two different uses:
+      </p>
+      <ul>
+        <li>
+          <strong>to translate device-dependent input channels into device-independent colors,</strong>
+          so that you can define your colors with custom channels and still have
+          the possibility to transform them into device-independent colors if needed;
+        </li>
+        <li>
+          <strong>to translate device-independent colors into device-dependent channels,</strong>
+          typically to define how much cyan, magenta, yellow and black ink is needed to
+          render a given device-independent color on a specific printer.
+        </li>
+      </ul>
+      <p>
+        WeasyPrint now gives you the possibility to embed color profiles for these two
+        different uses, thanks to the <code>@color-profile</code> at-rule.
+      </p>
+      <p>
+        <code>@color-profile</code> is usually used to let users define their own color
+        profiles. This way, they can define the name and the number of channels they
+        want for they color profile, and <strong>attach an <code>.icc</code> file to map these
+        values to device-independent colors.</strong> These colors can then be used in
+        CSS using the <code>color()</code> function, with the custom color profile name
+        and the different values for the different channels. These input values are
+        stored in the PDF, but thanks to the input color profile file embedded in the
+        PDF, they can be translated by the PDF reader into device-independent colors if
+        needed.
+      </p>
+      <p>
+        But <code>@color-profile</code> can also be used to define the color profile
+        used for printed output. The <code>device-cmyk</code> profile is defined by CSS
+        to allow users to map device-independent colors into CMYK channels.
+        <strong>By adding an <code>.icc</code> file in the corresponding at-rule, you
+        can actually define the profile that will be used to transform any
+        device-independent colors into the right amount of ink for your specific
+        printer.</strong>
+      </p>
+
+      <h4>PDF/X</h4>
+      <p>
+        Now that we have a proper CMYK support, why not supporting the PDF/X standard?
+        This subset of PDF adds extra checks to ensure that a PDF includes all the
+        required data to be correctly printed.
+      </p>
+      <p>
+        <strong>WeasyPrint v67 adds a list of new supported PDF variants, from PDF/X-1a
+        to PDF/X-5g,</strong> available through the <code>--pdf-variant</code> option.
+        The different variants allow or deny different lists of features, carefully
+        select the one adapted to your needs!
+      </p>
+
+      <h4>And More…</h4>
+      <p>
+        Color Level 5 comes with more than CMYK colors.
+      </p>
+      <p>
+        You probably noticed, and maybe even used, the <code>light-dark()</code>
+        function that allows to dynamically define different colors depending on the
+        light or dark theme used by the browser.
+      </p>
+      <p>
+        This feature is now available in WeasyPrint. We don’t know how this could be
+        useful to generate PDFs, but we also know that users always find incredible use
+        cases when new features are added. So… If you ever use <code>ligth-dark()</code>
+        please let us know why!
+      </p>
+    </section>
+
+    <section>
+      <h3>Math Functions and New Units</h3>
+      <p>
+        Version 67 also comes with many features introduced by the
+        <a href="https://drafts.csswg.org/css-values-4/">CSS Values and Units Level 4</a>.
+        And one of these is among the oldest and most wanted features on WeasyPrint’s
+        bug tracker: the <code>calc()</code> function.
+      </p>
+
+      <h4>The <code>calc()</code> Function</h4>
+      <p>
+        <strong><code>calc()</code> allows users to define values using additions,
+        multiplications, and other simple mathematical operations.</strong>
+      </p>
+      <p>
+        The feature can be really useful in a large number of use cases, including:
+      </p>
+      <ul>
+        <li>mixing different units, for example with <code>calc(10px + 5%)</code>,</li>
+        <li>mixing values and variables, like in <code>calc(2 * var(--vertical-border))</code>,</li>
+        <li>handling fractions, such as <code>calc(100% / 3)</code>…</li>
+      </ul>
+      <p>
+        That’s one more reason to quit your CSS pre-processor! This feature is also
+        widely used by many CSS frameworks, so it should help you if you want to use one
+        of them to generate your paged documents.
+      </p>
+
+      <h4>More Math</h4>
+      <p>
+        If <code>calc()</code> is the biggest star of this module, <strong>other
+        mathematical functions</strong> come with it to fulfill all your mathematical
+        dreams (or nightmares):
+      </p>
+      <ul>
+        <li>comparisons with <code>min()</code>, <code>max()</code> and <code>clamp()</code>,</li>
+        <li>stepped values with <code>round()</code>, <code>mod()</code> and <code>rem()</code>,</li>
+        <li>trigonometry with <code>sin()</code>, <code>cos()</code> and their friends,</li>
+        <li>exponential functions such as <code>pow()</code>, <code>sqrt()</code>, <code>log()</code> and more,</li>
+        <li>sign-related calculations with <code>abs()</code> and <code>sign()</code>.</li>
+      </ul>
+      <p>
+        Constants are also available for your pleasure: <code>e</code>, <code>pi</code>,
+        <code>infinity</code>, <code>-infinity</code> and <code>NaN</code>.
+      </p>
+
+      <h4>More Units</h4>
+      <p>
+        New units have been added to <strong>define lengths relatively to your font metrics:</strong>
+      </p>
+      <ul>
+        <li><code>cap</code> and <code>rcap</code> are relative to the cap-height of the current font,</li>
+        <li><code>ch</code> and <code>rch</code> are relative to the advance measure of the 0 (zero) glyph,</li>
+        <li><code>ic</code> and <code>ric</code> are relative to the advance measure of the 水 (water) glyph.</li>
+      </ul>
+      <p>
+        And all units now get the actual metrics from the fonts, even for <code>@font-face</code>
+        fonts!
+      </p>
+
+      <h4>And Even More!</h4>
+      <ul>
+        <li>
+          Talking about units, WeasyPrint now handles units in a case-insensitive way.
+          That’s good news for the fans of the <code>Q</code> (quarter-millimeter) unit!
+          (And please contact us if you’re a member of the club!).
+        </li>
+        <li>
+          The <code>x</code> alias for the <code>dppx</code> unit is now supported.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What’s More?</h3>
+
+      <h4>Breaks in Grid Rows</h4>
+      <p>
+        The grid layout is supported by WeasyPrint since version 62, with some
+        limitations. One of them is fragmentation: page breaks were not allowed in grid
+        rows, which can be a problem when your whole page is a grid for example.
+      </p>
+      <p>
+        <strong>Page breaks in grid rows are now supported.</strong> Even if the exact
+        algorithm is not specified yet, the result is much better for common cases and
+        should give good renderings for your documents too!
+      </p>
+
+      <h4><code>::first-line</code></h4>
+      <p>
+        One of the last, unsupported features of CSS2 is now live:
+        <strong>you can now use the <code>::first-line</code> pseudo-element!</strong>
+        For your next book, don’t hesitate to set a specific style to the first line of
+        your chapters!
+      </p>
+
+      <h4>Better Fonts Management</h4>
+      <p>
+        Fonts management is always complex in CSS, and WeasyPrint can sometimes give
+        unpredictable results depending on <code>@font-face</code> rules, fonts
+        installed system-wide and Fontconfig configuration.
+      </p>
+      <p>
+        <strong>This new version of WeasyPrint improves the font-matching algorithm</strong>
+        to avoid crashes and broken renderings is corner cases. <code>@font-face</code> fonts
+        are not mixed with system fonts anymore, and variable fonts can pacifically
+        coexist with their multi-file counterparts.
+      </p>
+      <p>
+        And even missing glyphs are not ignored anymore! As in many applications,
+        <strong>WeasyPrint draws the
+        <a href="https://en.wikipedia.org/wiki/Unicode_input#Availability">.notdef glyph</a>,
+        also known as "tofu", when a glyph is not available in any font.</strong>
+      </p>
+
+      <h4>And a Lot of Smaller Fixes…</h4>
+      <p>
+        We can’t list here all the changes brought to you by version 67, but here are
+        some features 🚀 and bug fixes 🐛 that could be useful for you:
+      </p>
+      <ul>
+        <li>you can disable a list of unwanted network protocols when resolving URLs,</li>
+        <li>PDF/A-1a, PDF/A-2a PDF/A-3a, PDF/A-4e and PDF/A-4f are now supported and tested,</li>
+        <li>CSS layers are now supported,</li>
+        <li>SVG drawing avoids useless and invalid drawing operations,</li>
+        <li>sizes and ratios are correctly handled for SVGs,</li>
+        <li>textareas with multi-line text are correctly rendered in PDF forms…</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+      <p>
+        We hope you’ll have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v67.0">new version</a>
+        and that all these new features will be useful for you!
+      </p>
+      <p>
+        After adding all these features, it’s time for us to work on specifications.
+        <strong>We are currently working on new properties that bring layouts currently
+        impossible to obtain with pure CSS.</strong> Which ones? You’ll have to wait a
+        little bit to know!
+      </p>
+      <p>
+        We’ll also work hard to stabilize, clean, and test the current code. Maintaining
+        the code base requires a lot of work behind the curtains, and it is important to
+        continuously improve the quality of the implementation. <strong>We regularly
+        rewrite some parts of the layout engine to simplify the code and make it closer
+        to the specifications.</strong> And, as we want really hard not to break the
+        compatibility between older and newer versions, we’ll of course add many new
+        unit and rendering tests… just in case!
+      </p>
+      <p>
+        You use WeasyPrint in your company? You’d like to get personalized support?
+        <strong>It’s time to <a href="https://weasyprint.org/#support">subscribe to our consulting packages</a>!</strong>
+        You can also <a href="https://weasyprint.org/#sponsors">become an amazing WeasyPrint sponsor</a>
+        to give us <strong>more time to help you generate wonderful documents</strong>
+        and turn coffee ☕ into code and tests.
+      </p>
+      <p>
+        If you’re interested in contributing to WeasyPrint, a list of
+        <a href="https://github.com/Kozea/WeasyPrint/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good first issues</a>
+        is waiting for you. It’s the best way to contribute, and we’re there to help you
+        if you want. Don’t hesitate to add a comment to tell that you’re interested, and
+        we’ll get in touch soon!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
