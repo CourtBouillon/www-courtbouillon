@@ -10,7 +10,7 @@
         has been released! It is one of the most important versions of WeasyPrint with
         many, many major features: CMYK, PDF/X, <code>calc()</code>, <code>::first-line</code>,
         breaks in grid rows, new length units, improved fonts management… Let’s discover
-        what’s new in v67!
+        what’s new in v67 ✨
       </p>
     </header>
 
@@ -28,13 +28,13 @@
         Before version 67, CMYK was only supported for images. Thanks to new CSS
         features, you can now define your colors with the <code>device-cmyk()</code>
         function, giving the values you want to the cyan, magenta, yellow and black
-        channels!
+        channels 🌈!
       </p>
       <p>
         The values given with this function will be stored directly in the PDF file, and
         not translated into another color space. This way, <strong>you can fully control
         the colors you want to store in your document,</strong> and these values will be
-        used by the printer when the document is actually printed.
+        used by the printer when the document is actually printed 🖨️.
       </p>
       <p>
         New other ways exist to handle colors in your generated PDF. You can, for
@@ -64,7 +64,7 @@
       </ul>
       <p>
         WeasyPrint now gives you the possibility to embed color profiles for these two
-        different uses, thanks to the <code>@color-profile</code> at-rule.
+        different uses, thanks to the <code>@color-profile</code> at-rule 💐.
       </p>
       <p>
         <code>@color-profile</code> is usually used to let users define their own color
@@ -82,14 +82,14 @@
         used for printed output. The <code>device-cmyk</code> profile is defined by CSS
         to allow users to map device-independent colors into CMYK channels.
         <strong>By adding an <code>.icc</code> file in the corresponding at-rule, you
-        can actually define the profile that will be used to transform any
-        device-independent colors into the right amount of ink for your specific
-        printer.</strong>
+          can actually define the profile that will be used to transform any
+          device-independent colors into the right amount of ink for your specific
+          printer 🫟.</strong>
       </p>
 
       <h4>PDF/X</h4>
       <p>
-        Now that we have a proper CMYK support, why not supporting the PDF/X standard?
+        Now that we have a proper CMYK support, why not supporting the PDF/X standard? 🤯
         This subset of PDF adds extra checks to ensure that a PDF includes all the
         required data to be correctly printed.
       </p>
@@ -113,7 +113,7 @@
         This feature is now available in WeasyPrint. We don’t know how this could be
         useful to generate PDFs, but we also know that users always find incredible use
         cases when new features are added. So… If you ever use <code>ligth-dark()</code>
-        please let us know why!
+        please let us know why 🤔!
       </p>
     </section>
 
@@ -129,7 +129,7 @@
       <h4>The <code>calc()</code> Function</h4>
       <p>
         <strong><code>calc()</code> allows users to define values using additions,
-        multiplications, and other simple mathematical operations.</strong>
+          multiplications, and other simple mathematical operations 🤓.</strong>
       </p>
       <p>
         The feature can be really useful in a large number of use cases, including:
@@ -149,7 +149,7 @@
       <p>
         If <code>calc()</code> is the biggest star of this module, <strong>other
         mathematical functions</strong> come with it to fulfill all your mathematical
-        dreams (or nightmares):
+        dreams 🦄 (or nightmares 😱):
       </p>
       <ul>
         <li>comparisons with <code>min()</code>, <code>max()</code> and <code>clamp()</code>,</li>
@@ -160,7 +160,7 @@
       </ul>
       <p>
         Constants are also available for your pleasure: <code>e</code>, <code>pi</code>,
-        <code>infinity</code>, <code>-infinity</code> and <code>NaN</code>.
+        <code>infinity</code>, <code>-infinity</code> and <code>NaN</code> 🤷.
       </p>
 
       <h4>More Units</h4>
@@ -182,7 +182,7 @@
         <li>
           Talking about units, WeasyPrint now handles units in a case-insensitive way.
           That’s good news for the fans of the <code>Q</code> (quarter-millimeter) unit!
-          (And please contact us if you’re a member of the club!).
+          (And please contact us if you’re a member of the Qlub! 🥸).
         </li>
         <li>
           The <code>x</code> alias for the <code>dppx</code> unit is now supported.
@@ -210,7 +210,7 @@
         One of the last, unsupported features of CSS2 is now live:
         <strong>you can now use the <code>::first-line</code> pseudo-element!</strong>
         For your next book, don’t hesitate to set a specific style to the first line of
-        your chapters!
+        your chapters 📖!
       </p>
 
       <h4>Better Fonts Management</h4>
@@ -252,13 +252,13 @@
       <p>
         We hope you’ll have fun with this
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v67.0">new version</a>
-        and that all these new features will be useful for you!
+        and that all these new features will be useful for you 💜!
       </p>
       <p>
         After adding all these features, it’s time for us to work on specifications.
         <strong>We are currently working on new properties that bring layouts currently
-        impossible to obtain with pure CSS.</strong> Which ones? You’ll have to wait a
-        little bit to know!
+          impossible to obtain with pure CSS.</strong> Which ones? You’ll have to wait a
+        little bit to know ☺️!
       </p>
       <p>
         We’ll also work hard to stabilize, clean, and test the current code. Maintaining
@@ -267,7 +267,7 @@
         rewrite some parts of the layout engine to simplify the code and make it closer
         to the specifications.</strong> And, as we want really hard not to break the
         compatibility between older and newer versions, we’ll of course add many new
-        unit and rendering tests… just in case!
+        unit tests and rendering tests… just in case!
       </p>
       <p>
         You use WeasyPrint in your company? You’d like to get personalized support?
