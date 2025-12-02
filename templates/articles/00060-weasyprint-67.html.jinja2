@@ -26,7 +26,8 @@
       <h4>CMYK</h4>
       <p>
         Before version 67, CMYK was only supported for images. Thanks to new CSS
-        features, you can now define your colors with the <code>device-cmyk()</code>
+        features and the <a href="{{ url_for('blog', article='00056-weasyprint-and-nlnet') }}">NLnet grant</a>,
+        you can now define your colors with the <code>device-cmyk()</code>
         function, giving the values you want to the cyan, magenta, yellow and black
         channels 🌈!
       </p>
@@ -200,15 +201,17 @@
         rows, which can be a problem when your whole page is a grid for example.
       </p>
       <p>
-        <strong>Page breaks in grid rows are now supported.</strong> Even if the exact
-        algorithm is not specified yet, the result is much better for common cases and
+        <strong>Page breaks in grid rows are now supported</strong>, thanks to <a href="https://oceanrecap.com/">Ocean Recap</a>.
+        Even if the exact algorithm is not specified yet,
+        the result is much better for common cases and
         should give good renderings for your documents too!
       </p>
 
       <h4><code>::first-line</code></h4>
       <p>
         One of the last, unsupported features of CSS2 is now live:
-        <strong>you can now use the <code>::first-line</code> pseudo-element!</strong>
+        <strong>you can now use the <code>::first-line</code> pseudo-element</strong>,
+        thanks to the support of Karte Technology.
         For your next book, don’t hesitate to set a specific style to the first line of
         your chapters 📖!
       </p>
@@ -240,7 +243,7 @@
       <ul>
         <li>you can disable a list of unwanted network protocols when resolving URLs,</li>
         <li>PDF/A-1a, PDF/A-2a PDF/A-3a, PDF/A-4e and PDF/A-4f are now supported and tested,</li>
-        <li>CSS layers are now supported,</li>
+        <li>CSS layers are now supported, thanks to <a href="https://www.codeandco.com/">Code & Co.</a>,</li>
         <li>SVG drawing avoids useless and invalid drawing operations,</li>
         <li>sizes and ratios are correctly handled for SVGs,</li>
         <li>textareas with multi-line text are correctly rendered in PDF forms…</li>
@@ -253,6 +256,9 @@
         We hope you’ll have fun with this
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v67.0">new version</a>
         and that all these new features will be useful for you 💜!
+      </p>
+      <p>
+        <strong>Thanks a lot to all the contributors (and welcome to the newcomers!) and sponsors 💖.</strong>
       </p>
       <p>
         After adding all these features, it’s time for us to work on specifications.
