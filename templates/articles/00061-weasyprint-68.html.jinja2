@@ -4,15 +4,15 @@
   <article>
     <header>
       <h2>WeasyPrint v68 Has Been Released</h2>
-      <aside><time datetime="2026-01-18">January 18, 2026</time>, by liZe</aside>
+      <aside><time datetime="2026-01-19">January 19, 2026</time>, by liZe</aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v68.0">WeasyPrint v68</a>
         has been released! Among the new features and bug fixes, the changelog contains
         important API changes and <strong>security information</strong> about URL fetchers.
       </p>
       <p>
-        <strong>If you use custom URL fetchers or restrict allowed protocols, you have
-        to upgrade WeasyPrint to avoid possible server-side request forgery (SSRF).</strong>
+        ⚠️ <strong>If you use custom URL fetchers or restrict allowed protocols, you have
+        to upgrade WeasyPrint to avoid possible server-side request forgery (SSRF).</strong> ⚠️
       </p>
     </header>
 
@@ -66,7 +66,7 @@
       <p>
         In Europe, electronic invoices will soon be mandatory. These are PDF documents
         that include metadata, so that tax declaration and other accountability tasks
-        can be done automatically.
+        can be done automatically. 📃
       </p>
       <p>
         WeasyPrint provided a Python interface to generate these documents. But the
@@ -90,13 +90,13 @@
     <section>
       <h3>And More…</h3>
       <p>
-        As usual, this new version of WeasyPrint comes with various improvements and bug
+        As usual, this new version of WeasyPrint comes with various improvements and 🐛 bug
         fixes, including:
       </p>
       <ul>
         <li>
           Support of emoji fonts based on SVG has been improved, with with better
-          position and size of emojis, faster SVG parsing, and various crashes fixed.
+          position and size of emojis, faster SVG parsing, and various crashes fixed. 😁
         </li>
         <li>
           <code>@font-face</code> fonts can now be used in SVG CSS.
@@ -142,7 +142,7 @@
         <li>page breaks in tables, grid layouts, flex layouts;</li>
         <li>notes displayed on different parts of the page;</li>
       </ul>
-      <p>you may be interested in our future articles. Get in touch if you want to know more!</p>
+      <p>you may be interested in our future articles. <a href="{{ url_for('page', _anchor='support') }}">Get in touch</a> if you want to know more!</p>
       <p>
         You know great designers who can create incredible design samples, but you’d
         like to turn them into carefully structured dynamic documents?
