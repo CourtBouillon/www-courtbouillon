@@ -1,0 +1,159 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v68 Has Been Released</h2>
+      <aside><time datetime="2026-01-18">January 18, 2026</time>, by liZe</aside>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v68.0">WeasyPrint v68</a>
+        has been released! Among the new features and bug fixes, the changelog contains
+        important API changes and <strong>security information</strong> about URL fetchers.
+      </p>
+      <p>
+        <strong>If you use custom URL fetchers or restrict allowed protocols, you have
+        to upgrade WeasyPrint to avoid possible server-side request forgery (SSRF).</strong>
+      </p>
+    </header>
+
+    <section>
+      <h3>New URL Fetchers</h3>
+      <p>
+        <strong>
+          Version 68 introduces a new way to define URL fetchers.
+        </strong>
+      </p>
+      <p>
+        For a very long time, WeasyPrint has offered a way to define a
+        <code>url_fetcher</code> function that is called to retrieve external
+        resources. This mechanism has been very useful to define a custom way to fetch
+        data, to add extra security check for example.
+      </p>
+      <p>
+        A default function, called <code>default_url_fetcher()</code>, was available.
+        This function was often called as a fallback solution in custom URL fetchers.
+        Unfortunately, this API had a limitation: the default URL fetcher doesn’t know
+        what the custom URL fetcher is, for example for redirections. It means that
+        <strong>HTTP redirections did not go through the custom URL fetcher, which may
+        lead to possible security problems.</strong>
+      </p>
+      <p>
+        The solution proposed to solve this problem is a new
+        <code>URLFetcher</code> class. This class provides a <code>fetch()</code> method
+        that can be overridden. This way, users can create custom URL fetchers that
+        inherit from the default one, and all the fetchers of the class hierarchy are
+        able to call the custom URL fetcher if needed.
+      </p>
+      <p>
+        This new API comes with two features: the <code>allow_redirects</code> and
+        <code>fail_on_errors</code> parameters can be set, to reject redirects and to
+        abort the whole rendering when HTTP errors occur.
+      </p>
+      <p>
+        <strong>The <code>default_url_fetcher()</code> function is now deprecated.</strong>
+        By default, for security reasons, redirects are forbidden when using it. Using
+        the <code>URLFetcher</code> class instead is safe, even for HTTP redirects.
+      </p>
+    </section>
+
+    <section>
+      <h3>Improve Generation of E-Invoices</h3>
+      <p>
+        <strong>
+          A new, simpler interface has been added to generate European e-invoices.
+        </strong>
+      </p>
+      <p>
+        In Europe, electronic invoices will soon be mandatory. These are PDF documents
+        that include metadata, so that tax declaration and other accountability tasks
+        can be done automatically.
+      </p>
+      <p>
+        WeasyPrint provided a Python interface to generate these documents. But the
+        feature required to write custom Python scripts, which can be complicated for
+        some users.
+      </p>
+      <p>
+        <strong>
+          The new API provided by WeasyPrint is now available from the command-line
+          interface.
+        </strong>
+        Users can provide metadata that will be included into the PDF, and
+        more easily generate invoices that respect the Factur-X / ZUGFeRD standard.
+      </p>
+      <p>
+        Interested in this feature? An example is provided in
+        <a href="https://doc.courtbouillon.org/weasyprint/stable/common_use_cases.html#factur-x-zugferd-electronic-invoices">the documentation</a>.
+      </p>
+    </section>
+
+    <section>
+      <h3>And More…</h3>
+      <p>
+        As usual, this new version of WeasyPrint comes with various improvements and bug
+        fixes, including:
+      </p>
+      <ul>
+        <li>
+          Support of emoji fonts based on SVG has been improved, with with better
+          position and size of emojis, faster SVG parsing, and various crashes fixed.
+        </li>
+        <li>
+          <code>@font-face</code> fonts can now be used in SVG CSS.
+        </li>
+        <li>
+          Fix various parsing errors of colors, text decoration thickness and font
+          feature settings.
+        </li>
+        <li>
+          Honor language-specific rules for uppercase, lowercase and capitalize text
+          transformations.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+      <p>
+        We hope you’ll have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v68.0">new version</a>!
+      </p>
+      <p>
+        <strong>
+          We’re really glad to have 6 people contributing to the repository for this
+          version! 💜
+        </strong>
+        We just reached 150 contributors from all around the world, and we’re really
+        grateful to all the people writing code, reporting issues, and improving
+        documentation.
+      </p>
+      <p>
+        <strong>
+          Thanks to all the regular sponsors that really help us finding, solving and
+          testing all the small issues we regularly fix in new releases 💖.
+        </strong>
+      </p>
+      <p>
+        As explained in the previous article, we also work on new CSS specifications. If
+        you’re interested in:
+      </p>
+      <ul>
+        <li>layouts that cover facing pages;</li>
+        <li>page breaks in tables, grid layouts, flex layouts;</li>
+        <li>notes displayed on different parts of the page;</li>
+      </ul>
+      <p>you may be interested in our future articles. Get in touch if you want to know more!</p>
+      <p>
+        You know great designers who can create incredible design samples, but you’d
+        like to turn them into carefully structured dynamic documents?
+        <strong>
+          With more than 15 years of experience creating documents in CSS, we can
+          probably help you.
+        </strong>
+        We propose <a href="https://weasyprint.org/#support">professional support</a> for
+        all kinds of companies. Send us a mail, we’ll be happy to talk to you and learn
+        more about your needs!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
