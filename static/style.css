@@ -274,9 +274,10 @@ main > * {
 
 main > *:nth-child(even)::before {
   background: var(--grey);
+  box-shadow: 10vw 0 0 var(--grey);
   content: "";
   height: 100%;
-  left: calc((100% - 100vw) / 2);
+  left: calc((100% - 110vw) / 2);
   position: absolute;
   top: 0;
   width: 100vw;
