@@ -592,6 +592,7 @@ footer ul {
 .sponsors {
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
   padding: 2em 0 1em;
 }
@@ -600,23 +601,23 @@ footer ul {
   align-items: center;
   display: flex;
   font-size: 0;
-  padding: 1rem;
 }
 
 .sponsors.gold img {
   max-height: 150px;
-  max-width: min(450px, 100%);
+  max-width: min(450px, 80vw);
 }
 
 .sponsors.silver img {
   max-height: 100px;
-  max-width: min(300px, 100%);
+  max-width: min(300px, 80vw);
 }
 
 .sponsors.bronze img {
   max-height: 50px;
-  max-width: min(150px, 100%);
+  max-width: min(150px, 80vw);
 }
+
 
 /* Testimonials */
 
