@@ -1,0 +1,210 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Why Don’t You Add Type Annotations?</h2>
+      <aside><time datetime="2026-03-23">March 23, 2026</time>, by liZe</aside>
+      <p>
+        That’s a recurring question on our bug trackers: why don’t you add type
+        annotations to your Python projects? That’s a good question, and it needs an
+        article to really explain why.
+      </p>
+    </header>
+
+    <section>
+      <p>
+        There are a lot of different questions and remarks behind this topic, so we
+        built a short list to ask and answer some of them.
+      </p>
+
+      <h3>Type annotations are used everywhere, aren’t they standard?</h3>
+      <p>
+        There’s a hype, for sure: Python types are really everywhere, all the new
+        projects use them, everybody agrees. That’s a standard now!
+      </p>
+      <p>
+        Well… That’s not 100% true. Actually, <strong>they’re not everywhere.</strong>
+      </p>
+      <p>
+        The code sample on <a href="https://www.python.org/">Python’s front page</a> doesn’t
+        have type annotations. Most of the samples in the documentation don’t have
+        annotations. And most of the standard library doesn’t have annotations.
+      </p>
+      <p>
+        So, annotations may be very popular among Python developers who talk about it,
+        with a lot of arguments about how they’re cool. But they may not be popular for
+        people who don’t talk about them. As a consequence: most of the content we read
+        about annotations is about the good parts, by people who use them, or want to
+        share the popular opinion that they love them. It’s easy to think that everybody
+        loves annotations, use them, or should at least use them.
+      </p>
+      <p>
+        But we have a different feeling when talking with people in conferences.
+      </p>
+      <p>
+        It’s hard to have real metrics about how many projects have annotations, that
+        would be interesting to know!
+      </p>
+
+      <h3>Having type hints is better than not having them! Samples in documentation are just useful to learn Python!</h3>
+      <p>
+        <strong>If they’re "just" omitted for Python newcomers, there’s a reason.</strong>
+      </p>
+      <p>
+        Thinking about types adds some unnecessary work. We may argue that it’s useful,
+        and we will in this article, but we can’t forget this point: <strong>type hints don’t
+        change anything during code execution,</strong> you get exactly the same result
+        with or without. They’re not necessary.
+      </p>
+      <p>
+        <strong>Annotations add a layer of complexity.</strong> That’s one more thing to
+        think about when coding. That’s hard for newcomers, because they already have to
+        take care of topics that are necessary when coding: syntax, logic, algorithms,
+        architecture, etc.
+      </p>
+      <p>
+        This level of complexity also exists when reading code. Adding type hints
+        obviously adds words to read, to understand, to process. Of course, these words
+        can be interested to understand what a variable is. So there’s a balance to
+        find, and this balance is not the same for everybody.
+      </p>
+      <p>
+        What we prefer to do is to find good variable names, that explains what the
+        variable is, when possible.
+      </p>
+      <p>
+        <strong>We also like to add typing information in docstrings.</strong> These
+        types can be a bit simpler, but technically less correct than real type hints
+        that would actually be checked. We think that they’re a good way to advertise
+        about the safe way to use the API, without 100% preventing users from using
+        other types when they know what they do.
+      </p>
+      <p>
+        Because, let’s admit it: <strong>we love Python’s dynamic typing system.</strong>
+        And we love to use it, even if it looks messy or wrong for some people.
+      </p>
+
+      <h3>Don’t Type Annotations Prevent Bugs? Quality Matters!</h3>
+      <p>
+        During many months, I did work on Python projects with type hints.
+        <strong>And I found type hints amazing.</strong>
+      </p>
+      <p>
+        This project had 100% coverage for types and tests. Everything was documented,
+        commented, with a great architecture. That was impressive.
+      </p>
+      <p>
+        What I adored with type hints was <strong>the feeling of creating code that was "right".</strong>
+        Thinking really hard about types, creating dedicated classes for everything,
+        removing ambiguity with subtle abstraction layers, adding smart architecture
+        tricks, and finally getting my 100% coverage reward when launching MyPy… What a
+        great feeling! And I was really proud of what I did, because my code was
+        "right". <strong>I was really proud, because I was solving complex typing
+        problems and finding very brilliant solutions.</strong>
+      </p>
+      <p>
+        But… After a few weeks, one question came: <strong>why?</strong> 🤔
+      </p>
+      <p>
+        That was a hard question. Solving complex problems, finding brilliant solutions,
+        adding smart architecture tricks… What a rewarding job for me! I’m an engineer,
+        I can talk with my friends how complex my code is, and get social reward from
+        this situation.
+      </p>
+      <p>
+        I was happy. The people I worked for were happy. Did it really help the project?
+        I don’t think so.
+      </p>
+      <p>
+        At the end of my mission, I had to admit that a large part of my work had been
+        spent solving complex problems about code architecture, types, abstractions. But
+        the code could have been way shorter, way simpler, with the same features, with
+        the same tests passing.
+      </p>
+      <p>
+        <strong>Complexity is socially rewarded, simplicity is not.</strong> My engineer
+        friends are not impressed by simplicity. My family is not impressed by
+        simplicity. My clients are not impressed by simplicity.
+      </p>
+      <p>
+        At the end, my true, real feelings were:
+      </p>
+      <ul>
+        <li>I could have implemented the same features with less code, and the same level of quality.</li>
+        <li>I solved a lot of "problems" that were theoretical, not real bugs.</li>
+        <li>There’s no typing problem that can’t be caught by a test, but tests cover way more things that type hints.</li>
+        <li>The client was happy because I was smart. It would have been smarter to avoid that useless work.</li>
+      </ul>
+
+      <h3>Static typing comes with great advantages</h3>
+      <p>
+        Yes, that’s true. But <strong>Python is a dynamically typed language, even with type
+        hints 🦆.</strong>
+      </p>
+      <p>
+        <strong>When a language is statically typed, users can often get powerful features.</strong>
+        Rust 🦀, for example, provides a very smart typing system: it brings type checks,
+        avoids inconsistencies, and optimizes speed, just as most statically typed
+        languages. It can even manage memory in a really efficient way, handle
+        concurrency, and give unprecedented security thanks to the way the language is
+        designed.
+      </p>
+      <p>
+        Writing Rust is hard, but you know what you get: impressive runtime benefits.
+      </p>
+      <p>
+        But type hints in Python bring no runtime benefits. At all. Then… Why should we
+        solve all the problems static typing forces us to solve, without getting
+        anything at runtime?
+      </p>
+      <p>
+        If we ever decide to add type hints, we should probably use a language that
+        brings full power out of it, not just a small part of it.
+      </p>
+
+      <h3>Much less people will contribute without type hints!</h3>
+      <p>
+        Maybe much less people would contribute with type hints. And we’re already two
+        of them ☺️.
+      </p>
+
+      <h3>IDEs and AI are powerful for users, they need annotations!</h3>
+      <p>
+        We know that a lot of people love type hints. And we don’t want to convince them
+        that annotations are wrong. We understand that they really would prefer to have
+        them.
+      </p>
+      <p>
+        <strong>
+          We’d really like to have annotations for the people who use our libraries. But
+          not in our repositories.
+        </strong>
+      </p>
+      <p>
+        A solution would be to contribute to <a href="https://github.com/python/typeshed">Typeshed</a>.
+        This way, <strong>users could have type checks with their favorite tools,</strong>
+        and we wouldn’t have to maintain them. We know that it may not be a perfect
+        solution for some users, but that would be at least a start, and cover many use
+        cases already.
+      </p>
+
+      <h3>Come on, type hints wouldn’t be hard to maintain!</h3>
+      <p>
+        Then, please, contribute to Typeshed!
+      </p>
+
+      <h3>Sorry, but I don’t have enough time or skills to maintain a module…</h3>
+      <p>
+        We know, <strong>it’s hard to maintain a module with quite a lot of activity,</strong>
+        it takes time and is a long-term commitment. Don’t believe those who say that
+        "it’s not hard to maintain" ☺️.
+      </p>
+      <p>
+        <strong>But that’s a good way to become a contributor.</strong> And you’re not
+        alone, you’ll find other great contributors to help you on the way.
+        🫶 <strong>Don’t be shy, just try!</strong> 🫶
+      </p>
+    </section>
+  </article>
+{% endblock content %}
