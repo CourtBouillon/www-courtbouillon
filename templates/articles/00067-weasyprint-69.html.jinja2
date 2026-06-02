@@ -1,0 +1,171 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v69 Has Been Released</h2>
+      <aside><time datetime="2026-06-02">June 2, 2026</time>, by liZe</aside>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v69.0">WeasyPrint v69</a>
+        has been released! Among the new features and bug fixes, the changelog contains
+        important API changes and <strong>security information</strong>.
+      </p>
+      <p>
+        ⚠️ <strong>If you use presentational hints and restrict CSS rules, you have
+        to upgrade WeasyPrint to avoid possible CSS injection.</strong> ⚠️
+      </p>
+    </header>
+
+    <section>
+      <h3>Logical CSS properties</h3>
+      <p>
+        <strong>
+          Version 69 supports logical properties.
+        </strong>
+      </p>
+      <p>
+        Many CSS properties like borders or padding allow users to define top, bottom,
+        left and right values. This way to define the layout seems to be obvious, but
+        they may not be adapted to more complex cases 🤔.
+      </p>
+      <p>
+        Text is written from left to right in languages that use the latin alphabet, but
+        it can also be written from right to left, in Arabic or Hebrew for example. This
+        text direction changes the way text is horizontally aligned, but can also change
+        the whole layout: most important elements are supposed to be seen first, they
+        have to be displayed on the side where the text starts.
+      </p>
+      <p>
+        <strong>
+          That’s why we can now define the position of some properties by using the axis
+          (inline or block) and the side (start or end).
+        </strong>
+        This way, users can for example add a border on the left in English but on the
+        right in Arabic, using the same <code>border-inline-start</code> property:
+      </p>
+      <img src="https://www.w3.org/TR/css-logical-1/images/example01.png">
+      <p>
+        These properties are more and more used in stylesheets, especially by CSS
+        frameworks that love to include bleeding edge features as soon as possible.
+        They are part of our effort to <strong>support Taiwind 4</strong> ✨, so don’t
+        hesitate to upgrade if you’re still using older versions of these libraries!
+      </p>
+    </section>
+
+    <section>
+      <h3>Viewport units</h3>
+      <p>
+        <strong>
+          The famous <code>vw</code> and <code>vh</code> units are now available in
+          WeasyPrint. And they’re not alone!
+        </strong>
+      </p>
+      <p>
+        The <code>vw</code> and <code>vh</code> units define lengths as percentages of
+        the viewport’s width and height 🏞️.
+      </p>
+      <p>
+        In browsers, the viewport is defined as the rectangle where the page is drawn.
+        Depending on how the window decorations and buttons are displayed, we’ll then
+        need to rely on different viewport definitions: large, small and dynamic
+        viewports, with their related <code>lv*</code>, <code>sv*</code> and
+        <code>dv*</code> units.
+      </p>
+      <p>
+        All these units are equivalent for printed media, as there’s no interface
+        decoration. Percentages are relative to the page area, which is the rectangle
+        inside the page margin, border and padding. This is useful to define sizes that
+        depend on the rectangle where the content is placed.
+      </p>
+      <p>
+        But what about elements that are supposed to cover the whole page, including
+        margins? These elements can use the <code>pv*</code> unit, especially designed
+        for this case 📃!
+      </p>
+      <p>
+        Other variants are available:
+      </p>
+      <ul>
+        <li>
+          the <code>*vi</code> and <code>*vb</code> units, relative to the logical inline
+          and block axes, as explained in the chapter above;
+        </li>
+        <li>
+          the <code>*vmin</code> and <code>*vmax</code> units, relative to the minimum
+          and maximum values of their <code>*vw</code> and <code>*vh</code> equivalents.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>And More…</h3>
+      <p>
+        As usual, this new version of WeasyPrint comes with various improvements and 🐛 bug
+        fixes, including:
+      </p>
+      <ul>
+        <li>
+          The output intent of PDF documents can be set using the
+          <code>--output-intent</code>, replacing the <code>--srgb</code> option. It
+          also supports ICC color profiles, for printed documents 🌈.
+        </li>
+        <li>
+          Angle units are now supported in SVG transforms, and the <code>+</code> sign
+          can be used as SVG path separator.
+        </li>
+        <li>
+          Validity of PDF/A, PDF/UA and PDF 2 documents has been improved ☑️.
+        </li>
+        <li>
+          The detected mimetype of attachments is more consistent across platforms.
+        </li>
+        <li>
+          Honor language-specific rules for uppercase, lowercase and capitalize text
+          transformations.
+        </li>
+        <li>
+          More corner cases are supported in table, grid and flex layouts!
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+      <p>
+        We hope you’ll have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v69.0">new version</a>!
+      </p>
+      <p>
+        <strong>
+          WeasyPrint is now regularly downloaded more than 1 million times per day on
+          PyPI 🤯.
+        </strong>
+        The library is in the top 1000 of all Python packages, and some of its
+        dependencies are even higher. These amazing numbers show the increasing
+        popularity of WeasyPrint, and we would like to thank you for your support ❤️‍🔥!
+      </p>
+      <p>
+        If you use WeasyPrint professionally, there are many ways we can help you. One
+        of them is to subscribe to one of our
+        <a href="https://weasyprint.org/#packages">the consulting packages</a>.
+        <strong>
+          These packages are the best way to get quick answers to the questions you may
+          have about WeasyPrint, paged media, layouts and design.
+        </strong>
+        Instead of spending days to solve these problems by yourself, instead of
+        suffering from your unsolved questions day after day, it’s time to send us
+        <a href="mailto:contact&#64;courtbouillon.org">one short mail</a> and share your
+        pain points with us!
+      </p>
+      <p>
+        Some of our work on CSS specifications will be implemented soon.
+        <strong>
+          You may be interested in the new CSS module we’re writing: CSS notes.
+        </strong>
+        If you’d love to use side notes, as in many books of the famous
+        <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Thufte</a>,
+        stay tuned 😎!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
