@@ -1,0 +1,65 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Journey Book: May 2026</h2>
+      <aside><time datetime="2026-06-03">June 3, 2026</time>, by grewn0uille</aside>
+      <p>
+        What happened during May? Let’s see!
+      </p>
+    </header>
+
+    <section>
+      <h3>About Code</h3>
+
+      <p>
+        On the code part, our month was quite dedicated to prepare the release of <a href="{{ url_for('blog', article='00067-weasyprint-69') }}">WeasyPrint v69</a>,
+        which has been released just yesterday.
+      </p>
+      <p>
+        This release may have been one of the most complicated to prepare, dealing with security reports,
+        a lot of pull requests and vicious bugs like <code>var()</code> in <code>calc()</code> in <code>var()</code> 🤯.
+      </p>
+      <p>
+        But it’s finally here 🎉!
+      </p>
+      <p>
+        For the next main version, we will work on adding support of <a href="https://css-print-lab.github.io/specs/notes-in-css-print/">Notes</a>.
+      </p>
+    </section>
+
+    <section>
+      <h3>Not About Code</h3>
+
+      <p>
+        WeasyPrint is now on the <a href="https://hugovk.dev/top-pypi-packages/">top 1000 of PyPI packages</a>. That’s kind of cool 😎.
+      </p>
+      <p>
+        Early this year, Guillaume has been invited to talk about PDF on the show Underscore_ by Micode, a French YouTuber.
+        The video is now <a href="https://www.youtube.com/watch?v=Xxg_8mge50U">available on YouTube</a>.
+        As you may have guessed, it’s in French, but you can activate English subtitles!
+      </p>
+      <p>
+        We also went to several events this month:
+      </p>
+      <ul>
+        <li>
+          <a href="https://www.typolyon.fr/">Typo Lyon meetup</a>: a French meetup about typography, organised by <a href="https://www.rmfrt.com/">Rémi Forte</a>.
+          The talk was about the <a href="https://typotheque.genderfluid.space/">Bye Bye Binary collective</a> that creates post-binary fonts ✨.
+        </li>
+        <li>
+          <a href="https://jdll.org/">JDLL</a>: a yearly 2-day conference in Lyon about Free Software. This year we went to only meet people and see friends.
+          We also spent time at the keyboards booth and now have a fantanstic new <a href="https://onedeadkey.github.io/qmx2040/">QMx keyboard</a> 🔥.
+        </li>
+        <li>
+          Python Lyon meetup: as usual, we organised and went to the Python Lyon monthly meetup 🐍.
+          This time, Emmanuel talked about MicroPython and how to start building our own connected devices.
+        </li>
+      </ul>
+      <p>
+        See you next month for another Journey Book entry 💜
+      </p>
+    </section>
+  </article>
+{% endblock content %}
