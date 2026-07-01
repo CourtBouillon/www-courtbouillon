@@ -1,0 +1,69 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Journey Book: June 2026</h2>
+      <aside><time datetime="2026-07-01">July 1, 2026</time>, by grewn0uille</aside>
+      <p>
+        Fortunately, we didn’t melt (yet) 🥵
+      </p>
+    </header>
+
+    <section>
+      <h3>About Code</h3>
+
+      <p>
+        <a href="{{ url_for('blog', article='00068-journey-book-may-2026') }}">Last month</a>, we talked about the preparation of
+        <a href="{{ url_for('blog', article='00067-weasyprint-69') }}">WeasyPrint v69</a>. It has been released 🎉!
+      </p>
+
+      <p>
+        Beside the release, we activated the creation of draft releases to allow <a href="https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases">immutable releases</a>.
+      </p>
+
+      <p>
+        We worked on the support of <a href="https://learn.microsoft.com/en-us/typography/opentype/spec/colr">COLR emoji fonts</a>. We got something working…
+        but it’s quite slow, PDF readers aren’t all happy and the code relies on a subpackage of Harfbuzz that isn’t packaged everywhere.
+        So we still have to work on that!
+      </p>
+
+      <p>
+        And we also worked on performances for large documents, to improve speed and memory usage.
+      </p>
+    </section>
+
+    <section>
+      <h3>Not About Code</h3>
+
+      <p>
+        We have made progress in creating a CSS specification for breaks inside table, flex and grid layouts 👀.
+        You can find about it on the <a href="https://github.com/css-print-lab/.github/issues/14#issuecomment-4793062655">related GitHub repository</a>,
+        where we track and share our progress with Julie and Julien from <a href="https://pagedjs.org/">paged.js</a>.
+      </p>
+
+      <p>
+        As usual, we went to the monthly Python Lyon meetup. This month, the topic was Doctest.
+        We knew about this module and already used it, but we still have learned things, like that you can use Doctest with pytest.
+      </p>
+
+      <p>
+        Still on the Python-related events, Guillaume participated to an episode of Road to PyCon Togo 🇹🇬. The video is <a href="https://www.youtube.com/watch?v=tkgS0T7FhX4">available on YouTube</a> and he talked about living from Free Software.
+        It’s in French, but you can activate the subtitles in English 😄.
+      </p>
+
+      <p>
+        Road to Pycon Togo is a series of interviews, created by the organisers of <a href="https://pycontg.pytogo.org/">PyCon Togo</a>,
+        aiming to get sponsors for the conference and funding financial aid for students to participate.
+      </p>
+
+      <p>
+        And, like last year, we became a sponsor of <a href="https://www.pycon.fr/2026/">PyConFR</a> 🇫🇷.
+      </p>
+
+      <p>
+        See you next month for another Journey Book entry 💜
+      </p>
+    </section>
+  </article>
+{% endblock content %}
