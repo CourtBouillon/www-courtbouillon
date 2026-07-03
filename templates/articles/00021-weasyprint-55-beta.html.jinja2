@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v55: Beta Time</h2>
+      <h1>WeasyPrint v55: Beta Time</h1>
       <aside><time datetime="2022-04-15">April 15, 2022</time>, by grewn0uille</aside>
       <p>
         WeasyPrint v55 is the next major version of WeasyPrint.
@@ -15,7 +16,7 @@
     </header>
 
     <section>
-      <h3>Better performance</h3>
+      <h2>Better performance</h2>
 
       <p>
         The main goal of this version is to improve WeasyPrint’s performance 🌱.
@@ -25,7 +26,7 @@
         column layout and in cssselect2.
       </p>
 
-      <h4>Fonts</h4>
+      <h3>Fonts</h3>
       <p>
         When a font is included into the PDF, only the needed information of
         the font is now kept, which means font objects are now smaller.
@@ -43,7 +44,7 @@
         units a lot is now really faster.
       </p>
 
-      <h4>Column layout</h4>
+      <h3>Column layout</h3>
       <p>
         The column layout algorithm has been changed 🤓.
       </p>
@@ -58,7 +59,7 @@
         version a try!
       </p>
 
-      <h4>cssselect2</h4>
+      <h3>cssselect2</h3>
       <p>
         The main change in cssselect2
         <a href="https://github.com/Kozea/cssselect2/releases/tag/0.6.0">new version</a>
@@ -77,7 +78,7 @@
       </p>
 
 
-      <h4>Performance graphs</h4>
+      <h3>Performance graphs</h3>
       <p>
         To illustrate these performance improvement, let’s have a look at the
         following graphs (everybody likes graphs 📊, don’t you?)
@@ -130,7 +131,7 @@
     </section>
 
     <section>
-      <h3>And More…</h3>
+      <h2>And More…</h2>
 
       <p>
         Besides performance improvements, new features and bug fixes come in
@@ -175,7 +176,7 @@
     </section>
 
     <section>
-      <h3>What Are the Next Steps?</h3>
+      <h2>What Are the Next Steps?</h2>
 
       <p>
         The next step is yours! Don’t hesitate to try this beta and report bugs you
@@ -200,4 +201,5 @@
       }
     }
   </style>
+  </main>
 {% endblock content %}

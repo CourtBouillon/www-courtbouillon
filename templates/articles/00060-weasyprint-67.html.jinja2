@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v67 Has Been Released</h2>
+      <h1>WeasyPrint v67 Has Been Released</h1>
       <aside><time datetime="2025-12-02">December 2, 2025</time>, by liZe</aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v67.0">WeasyPrint v67</a>
@@ -15,7 +16,7 @@
     </header>
 
     <section>
-      <h3>Colors</h3>
+      <h2>Colors</h2>
       <p>
         Version 67 includes the support of many features introduced by the
         <a href="https://drafts.csswg.org/css-color-5/">CSS Color Module Level 5</a>,
@@ -23,7 +24,7 @@
         <strong>correctly handle colors for printed documents.</strong>
       </p>
 
-      <h4>CMYK</h4>
+      <h3>CMYK</h3>
       <p>
         Before version 67, CMYK was only supported for images. Thanks to new CSS
         features and the <a href="{{ url_for('blog', article='00056-weasyprint-and-nlnet') }}">NLnet grant</a>,
@@ -47,7 +48,7 @@
         stylesheet.
       </p>
 
-      <h4>Color Profiles</h4>
+      <h3>Color Profiles</h3>
       <p>
         In PDFs, color profiles can be embedded for two different uses:
       </p>
@@ -88,7 +89,7 @@
           printer 🫟.</strong>
       </p>
 
-      <h4>PDF/X</h4>
+      <h3>PDF/X</h3>
       <p>
         Now that we have a proper CMYK support, why not supporting the PDF/X standard? 🤯
         This subset of PDF adds extra checks to ensure that a PDF includes all the
@@ -101,7 +102,7 @@
         select the one adapted to your needs!
       </p>
 
-      <h4>And More…</h4>
+      <h3>And More…</h3>
       <p>
         Color Level 5 comes with more than CMYK colors.
       </p>
@@ -119,7 +120,7 @@
     </section>
 
     <section>
-      <h3>Math Functions and New Units</h3>
+      <h2>Math Functions and New Units</h2>
       <p>
         Version 67 also comes with many features introduced by the
         <a href="https://drafts.csswg.org/css-values-4/">CSS Values and Units Level 4</a>.
@@ -127,7 +128,7 @@
         bug tracker: the <code>calc()</code> function.
       </p>
 
-      <h4>The <code>calc()</code> Function</h4>
+      <h3>The <code>calc()</code> Function</h3>
       <p>
         <strong><code>calc()</code> allows users to define values using additions,
           multiplications, and other simple mathematical operations 🤓.</strong>
@@ -146,7 +147,7 @@
         of them to generate your paged documents.
       </p>
 
-      <h4>More Math</h4>
+      <h3>More Math</h3>
       <p>
         If <code>calc()</code> is the biggest star of this module, <strong>other
         mathematical functions</strong> come with it to fulfill all your mathematical
@@ -164,7 +165,7 @@
         <code>infinity</code>, <code>-infinity</code> and <code>NaN</code> 🤷.
       </p>
 
-      <h4>More Units</h4>
+      <h3>More Units</h3>
       <p>
         New units have been added to <strong>define lengths relatively to your font metrics:</strong>
       </p>
@@ -178,7 +179,7 @@
         fonts!
       </p>
 
-      <h4>And Even More!</h4>
+      <h3>And Even More!</h3>
       <ul>
         <li>
           Talking about units, WeasyPrint now handles units in a case-insensitive way.
@@ -192,9 +193,9 @@
     </section>
 
     <section>
-      <h3>What’s More?</h3>
+      <h2>What’s More?</h2>
 
-      <h4>Breaks in Grid Rows</h4>
+      <h3>Breaks in Grid Rows</h3>
       <p>
         The grid layout is supported by WeasyPrint since version 62, with some
         limitations. One of them is fragmentation: page breaks were not allowed in grid
@@ -207,7 +208,7 @@
         should give good renderings for your documents too!
       </p>
 
-      <h4><code>::first-line</code></h4>
+      <h3><code>::first-line</code></h3>
       <p>
         One of the last, unsupported features of CSS2 is now live:
         <strong>you can now use the <code>::first-line</code> pseudo-element</strong>,
@@ -216,7 +217,7 @@
         your chapters 📖!
       </p>
 
-      <h4>Better Fonts Management</h4>
+      <h3>Better Fonts Management</h3>
       <p>
         Fonts management is always complex in CSS, and WeasyPrint can sometimes give
         unpredictable results depending on <code>@font-face</code> rules, fonts
@@ -235,7 +236,7 @@
         also known as "tofu", when a glyph is not available in any font.</strong>
       </p>
 
-      <h4>And a Lot of Smaller Fixes…</h4>
+      <h3>And a Lot of Smaller Fixes…</h3>
       <p>
         We can’t list here all the changes brought to you by version 67, but here are
         some features 🚀 and bug fixes 🐛 that could be useful for you:
@@ -251,7 +252,7 @@
     </section>
 
     <section>
-      <h3>What’s Next?</h3>
+      <h2>What’s Next?</h2>
       <p>
         We hope you’ll have fun with this
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v67.0">new version</a>
@@ -291,4 +292,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>New Feature: line-clamp</h2>
+      <h1>New Feature: line-clamp</h1>
       <aside><time datetime="2021-03-02">March 02, 2021</time>, by liZe</aside>
       <p>
         A new feature, <code>line-clamp</code>, has been added in WeasyPrint.
@@ -31,7 +32,7 @@
     </section>
 
     <section>
-      <h3>Why <code>line-clamp</code>?</h3>
+      <h2>Why <code>line-clamp</code>?</h2>
       <p>
         <code>line-clamp</code> is a shorthand property that is very useful to
         limit the height of blocks, and avoid strange layouts when the content
@@ -66,7 +67,7 @@
     </section>
 
     <section>
-      <h3>How to use <code>line-clamp</code>?</h3>
+      <h2>How to use <code>line-clamp</code>?</h2>
       <p>
         <code>line-clamp</code> is actually a shortand property for 3 different properties:
         <code>max-lines</code>, <code>block-ellipsis</code>, <code>continue</code>.
@@ -113,7 +114,7 @@
     </section>
 
     <section>
-      <h3>Shorthand, limitations, testing</h3>
+      <h2>Shorthand, limitations, testing</h2>
       <p>
         <code>line-clamp</code> gives a short way to set a maximum number of
         lines and optionally give a string used as ellipsis. It also unconditionally sets
@@ -145,4 +146,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

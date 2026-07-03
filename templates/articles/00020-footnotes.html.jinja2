@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>New Feature: Footnotes</h2>
+      <h1>New Feature: Footnotes</h1>
       <aside><time datetime="2022-01-08">January 8, 2022</time>, by grewn0uille</aside>
       <p>
         A new feature, <code>footnote</code>, has been added into WeasyPrint 🎉.
@@ -32,7 +33,7 @@
     </section>
 
     <section>
-      <h3>What Is <code>footnote</code> and How to Use It?</h3>
+      <h2>What Is <code>footnote</code> and How to Use It?</h2>
       <p>
       Footnotes allow you to put some notes at the bottom of a page, which lets you
       provide comments, citations…
@@ -51,7 +52,7 @@
       are displayed.
       </p>
 
-      <h4>The <code>footnote-display</code> Property</h4>
+      <h3>The <code>footnote-display</code> Property</h3>
       <p>
       The <code>footnote-display</code> property allows you to indicate if a
       footnote element is displayed as a block element or as an inline element.
@@ -70,7 +71,7 @@
         </figcaption>
       </figure>
 
-      <h4>The <code>footnote-policy</code> Property</h4>
+      <h3>The <code>footnote-policy</code> Property</h3>
       <p>
       The <code>footnote-policy</code> property helps you to influence how to
       render difficult pages, like when a footnote falls near the bottom of a
@@ -91,7 +92,7 @@
       paragraph that contains the footnote with the <code>block</code> value.
       </p>
 
-      <h4>The <code>::footnote-call</code> and the <code>::footnote-marker</code> Pseudo-Elements</h4>
+      <h3>The <code>::footnote-call</code> and the <code>::footnote-marker</code> Pseudo-Elements</h3>
       <p>
       The <code>::footnote-call</code> pseudo-element is the element inserted
       in the text to reference the footnote.
@@ -117,7 +118,7 @@
     </section>
 
     <section>
-      <h3>Limitations and Undefined Cases</h3>
+      <h2>Limitations and Undefined Cases</h2>
       <p>
       There are currently some limitations and undefined cases.
       </p>
@@ -149,4 +150,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

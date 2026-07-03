@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v56 Has Been Released</h2>
+      <h1>WeasyPrint v56 Has Been Released</h1>
       <aside><time datetime="2022-07-07">July 7, 2022</time>, by liZe</aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v56.0">Version 56</a>
@@ -14,9 +15,9 @@
     </header>
 
     <section>
-      <h3>What’s New?</h3>
+      <h2>What’s New?</h2>
 
-      <h4>Visible Features</h4>
+      <h3>Visible Features</h3>
       <p>
         The
         <a href="{{ url_for('blog', article='00026-weasyprint-56-beta') }}">previous article</a>
@@ -36,7 +37,7 @@
         gorgeous HTML templates or CSS magic tricks 🪄, we’ll be happy to help!
       </p>
 
-      <h4>Invisible Work</h4>
+      <h3>Invisible Work</h3>
       <p>
         As always, our work on WeasyPrint includes a lot of less visible but
         critical tasks.
@@ -97,9 +98,9 @@
     </section>
 
     <section>
-      <h3>What’s Coming Next?</h3>
+      <h2>What’s Coming Next?</h2>
 
-      <h4>Layout</h4>
+      <h3>Layout</h3>
       <p>
         Grid support has been delayed many times 🕓, flex boxes need some love ❤️,
         but don’t worry: their time has come! We explained in a
@@ -115,7 +116,7 @@
         you’ll benefit from the ones they’ll develop for you 🥰.
       </p>
 
-      <h4>Your Turn!</h4>
+      <h3>Your Turn!</h3>
       <p>
         Now that <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v56.0">version 56</a>
         has been released, it’s time for you to update WeasyPrint and give some
@@ -124,4 +125,5 @@
         you, we’ll be happy to share good vibes with you!
       </p>
     </section>
+  </main>
 {% endblock content %}

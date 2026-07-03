@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>WeasyPrint v54: Beta Time</h2>
+      <h1>WeasyPrint v54: Beta Time</h1>
       <aside><time datetime="2021-12-13">December 13, 2021</time>, by grewn0uille</aside>
       <p>
       v54 is the next main version of WeasyPrint. A <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v54.0b1">beta has been released</a> so you can
@@ -15,7 +16,7 @@
     </header>
 
     <section>
-      <h3>Footnote Support</h3>
+      <h2>Footnote Support</h2>
       <p>
       Thanks to <a href="https://www.codeandco.com/">Code & Co.</a> who
       sponsored it, WeasyPrint now supports footnotes 🎉.
@@ -26,7 +27,7 @@
       provide comments, citations…
       </p>
 
-      <h4>A Footnote Example</h4>
+      <h3>A Footnote Example</h3>
       <p>
       To create a footnote element, <code>float: footnote</code> is used.
       For example, a footnote statement that looks like this:
@@ -39,7 +40,7 @@
     </section>
 
     <section>
-      <h3>Parallel Flows</h3>
+      <h2>Parallel Flows</h2>
 
       <p>
       For a long time, elements that aren’t in the normal flow, like floats or
@@ -51,7 +52,7 @@
       the rest of the float on the next page.
       </p>
 
-      <h4>A Parallel Flow Example</h4>
+      <h3>A Parallel Flow Example</h3>
       <p>
       As an example is better than a lot of words, let’s see what happens with
       WeasyPrint v53.4 and WeasyPrint v54.0b1 on this sample:
@@ -69,7 +70,7 @@
     </section>
 
     <section>
-      <h3>And More…</h3>
+      <h2>And More…</h2>
 
       <p>
       Other features have been added in this version:
@@ -108,7 +109,7 @@
     </section>
 
     <section>
-      <h3>What Are the Next Steps?</h3>
+      <h2>What Are the Next Steps?</h2>
 
       <p>
       The next main step is, of course, to make a real release of this version
@@ -128,4 +129,5 @@
 
   </article>
 
+  </main>
 {% endblock content %}

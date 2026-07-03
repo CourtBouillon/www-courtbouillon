@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>Journey Book: March 2026</h2>
+      <h1>Journey Book: March 2026</h1>
       <aside><time datetime="2026-03-31">March 31, 2026</time>, by grewn0uille</aside>
       <p>
         "Releases and improvements" should be the name of this month!
@@ -11,7 +12,7 @@
     </header>
 
     <section>
-      <h3>About Code</h3>
+      <h2>About Code</h2>
 
       <p>
         We released new versions of different libraries:
@@ -44,7 +45,7 @@
     </section>
 
     <section>
-      <h3>Not About Code</h3>
+      <h2>Not About Code</h2>
 
       <p>
         The video of Guillaume’s talk at PyConFR 2025 is <a href="https://pyvideo.org/pycon-fr-2025/est-on-juste-paye-a-ecrire-du-code.html">available on PyVideo</a>.
@@ -72,4 +73,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

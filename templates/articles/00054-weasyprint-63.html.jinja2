@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v63 Has Been Released</h2>
+      <h1>WeasyPrint v63 Has Been Released</h1>
       <aside><time datetime="2024-10-29">October, 2024</time>, by grewn0uille</aside>
       <p>
         WeasyPrint v63 is finally here and comes with several new features and a lot of bug fixes 🎃!
@@ -11,7 +12,7 @@
     </header>
 
     <section>
-      <h3>CSS Color Level 4</h3>
+      <h2>CSS Color Level 4</h2>
 
       <p>
         <strong>CSS Color Level 4 is now supported</strong> in WeasyPrint, with <a href="https://github.com/Kozea/tinycss2/releases/tag/v1.4.0">tinycss2 v1.4.0</a>.
@@ -20,7 +21,7 @@
         So, what changes with Color Level 4?
       </p>
 
-      <h4>A New Syntax for Existing Functions</h4>
+      <h3>A New Syntax for Existing Functions</h3>
       <p>
         Now you can use the new syntax for <code>rgb()</code>, <code>rgba()</code>, <code>hsl()</code> and <code>hsla()</code>,
         which means that <strong>arguments are space-separated</strong>.
@@ -34,7 +35,7 @@
         It works the same way for <code>hsl()</code> being an alias of <code>hsla()</code>.
       </p>
 
-      <h4>A New Way of Defining Colors</h4>
+      <h3>A New Way of Defining Colors</h3>
       <p>
         <strong>New functions to define (more) colors in different color spaces</strong> are available 🌈! Let’s welcome:
       </p>
@@ -60,7 +61,7 @@
     </section>
 
     <section>
-      <h3>Page Groups</h3>
+      <h2>Page Groups</h2>
 
       <p>
         Until then, you had the possibility to select the nth page of a document using <code>@page :nth(5)</code>.
@@ -80,7 +81,7 @@
     </section>
 
     <section>
-      <h3>PDF Forms Improvements</h3>
+      <h2>PDF Forms Improvements</h2>
 
       <p>
         For PDF Forms, WeasyPrint was already supporting checkboxes,
@@ -98,7 +99,7 @@
     </section>
 
     <section>
-      <h3>Flex Improvements</h3>
+      <h2>Flex Improvements</h2>
 
       <p>
         Bad news, flex support hasn’t been entirely rewrite yet. But
@@ -118,7 +119,7 @@
     </section>
 
     <section>
-      <h3>Dependencies Update</h3>
+      <h2>Dependencies Update</h2>
 
       <p>
         Other than requiring tinycss2 v1.4.0 to handle CSS Color Level
@@ -135,7 +136,7 @@
     </section>
 
     <section>
-      <h3>Other Things</h3>
+      <h2>Other Things</h2>
 
       <p>
         Among all the new things in this release, WeasyPrint now supports <strong>the <code>mask-border-*</code> properties</strong>,
@@ -177,7 +178,7 @@
     </section>
 
     <section>
-      <h3>What’s Next?</h3>
+      <h2>What’s Next?</h2>
 
       <p>
         <strong>This version with CSS Color Level 4 support is an important
@@ -221,4 +222,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

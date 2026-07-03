@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint and the NLnet Foundation</h2>
+      <h1>WeasyPrint and the NLnet Foundation</h1>
       <aside><time datetime="2025-03-11">March 11, 2025</time>, by grewn0uille</aside>
       <p>
         At the beginning of this year, WeasyPrint <a href="https://nlnet.nl/project/Weasyprint/">has been selected</a> by NLnet to receive a NGI Zero grant.
@@ -12,7 +13,7 @@
     </header>
 
     <section>
-      <h3>What is the NLnet Foundation?</h3>
+      <h2>What is the NLnet Foundation?</h2>
       
       <p>
         Created in the 80’s, the <a href="https://nlnet.nl/">NLnet Foundation</a> is a non-profit organization
@@ -32,7 +33,7 @@
     </section>
 
     <section>
-      <h3>What is a NGI Zero Grant?</h3>
+      <h2>What is a NGI Zero Grant?</h2>
 
       <p>
         To receive financial support from the Foundation, you have to apply to one
@@ -52,7 +53,7 @@
     </section>
 
     <section>
-      <h3>How is this Helping WeasyPrint?</h3>
+      <h2>How is this Helping WeasyPrint?</h2>
 
       <p>
         With this grant, we’re able focus on different topics that are quite huge and for which we need a long period of time to work on.
@@ -66,7 +67,7 @@
         <li>supporting CMYK.</li>
       </ul>
 
-      <h4>Improving Flex Layout</h4>
+      <h3>Improving Flex Layout</h3>
       <p>
         A lot of issues have been opened during the last years about flex. Some have been closed with more or less clean work-arounds, bringing other issues.
       </p>
@@ -78,7 +79,7 @@
         <a href="https://github.com/Kozea/WeasyPrint/issues/2362">#2362</a>.
       </p>
 
-      <h4>Improving PDF/UA Support</h4>
+      <h3>Improving PDF/UA Support</h3>
       <p>
         Since v57, WeasyPrint is able to generate <a href="https://en.wikipedia.org/wiki/PDF/UA">PDF/UA</a> documents.
       </p>
@@ -94,7 +95,7 @@
         <a href="https://github.com/Kozea/WeasyPrint/issues/2363">#2363</a>.
       </p>
 
-      <h4>Supporting CMYK</h4>
+      <h3>Supporting CMYK</h3>
       <p>
         Adding support of CMYK in WeasyPrint is a long-standing request, the
         <a href="https://github.com/Kozea/WeasyPrint/issues/1091">related GitHub issue</a> has been opened in 2020.
@@ -106,11 +107,12 @@
         Fortunately, WeasyPrint already supports Level 4, so we "just" have to support Level 5 🌈
       </p>
 
-      <h3>What’s Coming Next?</h3>
+      <h2>What’s Coming Next?</h2>
       <p>
         For roadmap lovers, each topic will have its own WeasyPrint major version, starting this month with
         WeasyPrint v65.0 and flex layout improvements!
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

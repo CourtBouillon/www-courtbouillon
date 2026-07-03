@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v55 Has Been Released</h2>
+      <h1>WeasyPrint v55 Has Been Released</h1>
       <aside><time datetime="2022-05-12">May 12, 2022</time>, by liZe</aside>
       <p>
         Version 55 of WeasyPrint has been released. The last bugs of the beta
@@ -13,9 +14,9 @@
     </header>
 
     <section>
-      <h3>What’s New?</h3>
+      <h2>What’s New?</h2>
 
-      <h4>Visible Features</h4>
+      <h3>Visible Features</h3>
       <p>
         As explained in the
         <a href="{{ url_for('blog', article='00021-weasyprint-55-beta') }}">previous article</a>,
@@ -34,7 +35,7 @@
         ✨ That’s nice, isn’t it? ✨
       </p>
 
-      <h4>Invisible Work</h4>
+      <h3>Invisible Work</h3>
       <p>
         A lot of work has been done for these features, for sure, but that’s
         only the tip of the iceberg: apart from these visible improvements, we
@@ -66,9 +67,9 @@
     </section>
 
     <section>
-      <h3>What’s Coming Next?</h3>
+      <h2>What’s Coming Next?</h2>
 
-      <h4>Layout</h4>
+      <h3>Layout</h3>
       <p>
         Footnotes, rendering speed and smaller PDFs were among
         <a href="{{ url_for('blog', article='00010-weasyprint-survey-2021') }}">the most important topics for our users</a>.
@@ -100,7 +101,7 @@
         want to provide.
       </p>
 
-      <h4>Surprises</h4>
+      <h3>Surprises</h3>
       <p>
         Last but not least: <strong>the next version will also include features
         sponsored by some of our clients.</strong> Which features? That’s a
@@ -129,7 +130,7 @@
         contribution is important for us and for the future of the library.
       </p>
 
-      <h4>Your Turn!</h4>
+      <h3>Your Turn!</h3>
       <p>
         Now that version 55 has been released, it’s time for you to update
         WeasyPrint! <strong>We really hope that you’ll enjoy the new features
@@ -138,4 +139,5 @@
         happy to answer, as usual!
       </p>
     </section>
+  </main>
 {% endblock content %}

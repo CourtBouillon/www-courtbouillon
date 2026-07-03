@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v66 Has Been Released</h2>
+      <h1>WeasyPrint v66 Has Been Released</h1>
       <aside><time datetime="2025-07-24">July 24, 2025</time>, by liZe</aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v66.0">WeasyPrint v66</a> has been released, and thanks to
@@ -13,9 +14,9 @@
     </header>
 
     <section>
-      <h3>Solid PDF/UA Generation</h3>
+      <h2>Solid PDF/UA Generation</h2>
 
-      <h4>Accessibility, Both for Legal Reasons and Real People</h4>
+      <h3>Accessibility, Both for Legal Reasons and Real People</h3>
       <p>
         Accessibility in technology is a large topic. Even with good will, it’s really
         hard to get perfect results, because <strong>specifications and validation tools
@@ -40,7 +41,7 @@
         learn from our mistakes, and provide better accessibility results for humans.
       </strong></p>
 
-      <h4>Technical Challenges</h4>
+      <h3>Technical Challenges</h3>
       <p>
         The corner stone of PDF accessibility is tagging: <strong>we must store whether
         a text is a title, a paragraph, a table column header… or just a list bullet.</strong> For
@@ -69,7 +70,7 @@
         drawing elements to this tree.</strong>
       </p>
 
-      <h4>Separating the Content from the Layout</h4>
+      <h3>Separating the Content from the Layout</h3>
       <p>
         This way is harder to code, but it leads to much better results, as we keep the
         original tag nesting order independently from the way the content is drawn. It
@@ -93,9 +94,9 @@
     </section>
 
     <section>
-      <h3>What’s More?</h3>
+      <h2>What’s More?</h2>
 
-      <h4>Flex Layout</h4>
+      <h3>Flex Layout</h3>
       <p>
         Following
         <a href="{{ url_for('blog', article='00057-weasyprint-65') }}">our work on the flex layout for the previous version</a>,
@@ -110,7 +111,7 @@
         a lot of positive feedback from our users! 😄
       </p>
 
-      <h4>Better Footnotes</h4>
+      <h3>Better Footnotes</h3>
       <p>
         In this new version, <strong>we fixed many details related to footnotes:</strong>
       </p>
@@ -121,7 +122,7 @@
         <li>bottom margins on footnotes don’t break the layout anymore.</li>
       </ul>
 
-      <h4>Fine-tuned Page Breaks for Tables</h4>
+      <h3>Fine-tuned Page Breaks for Tables</h3>
       <p>
         Handling page breaks in long, large, complex tables can be hard. We fixed a
         couple of bugs that were allowing unwanted page breaks after headers and page
@@ -129,7 +130,7 @@
         complex tables.</strong>
       </p>
 
-      <h4>And More…</h4>
+      <h3>And More…</h3>
       <p>
         We can’t list here all the changes brought to you by version 66, but here are
         some features and bug fixes 🐛 that could be useful for you:
@@ -144,7 +145,7 @@
     </section>
 
     <section>
-      <h3>What’s Next?</h3>
+      <h2>What’s Next?</h2>
       <p>
         We hope you’ll have fun with this
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v66.0">new version</a>
@@ -174,4 +175,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

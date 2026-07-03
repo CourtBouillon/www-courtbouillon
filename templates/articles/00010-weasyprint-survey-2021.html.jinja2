@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint Survey 2021</h2>
+      <h1>WeasyPrint Survey 2021</h1>
       <aside><time datetime="2021-07-12">July 12, 2021</time>, by CourtBouillon</aside>
       <p>
         Our first survey about WeasyPrint’s users needs is over! Now is the
@@ -13,7 +14,7 @@
     </header>
 
     <section>
-      <h3>Why a survey?</h3>
+      <h2>Why a survey?</h2>
 
       <p>
         As for many open-source tools, knowing the needs of our users has
@@ -34,9 +35,9 @@
     </section>
 
     <section>
-      <h3>Results</h3>
+      <h2>Results</h2>
 
-      <h4>How long have you been using WeasyPrint?</h4>
+      <h3>How long have you been using WeasyPrint?</h3>
       <embed src="{{ url_for('static', filename='graphs/q1.svg') }}" />
       <p>
         WeasyPrint has got a lot of new followers since CourtBouillon’s birth,
@@ -44,7 +45,7 @@
         WeasyPrint for less than 2 years.
       </p>
 
-      <h4>In which context do you use WeasyPrint?</h4>
+      <h3>In which context do you use WeasyPrint?</h3>
       <embed src="{{ url_for('static', filename='graphs/q2.svg') }}" />
       <p>
         Even if WeasyPrint has been created to solve problems in a professional
@@ -52,7 +53,7 @@
         projects.
       </p>
 
-      <h4>Where do you use WeasyPrint?</h4>
+      <h3>Where do you use WeasyPrint?</h3>
       <embed src="{{ url_for('static', filename='graphs/q3.svg') }}" />
       <p>
         European countries are well represented in this map, with Germany (17),
@@ -60,14 +61,14 @@
         of the 5 first places. The United States (7) is at the 3<sup>rd</sup> place.
       </p>
 
-      <h4>What kind of documents do you generate?</h4>
+      <h3>What kind of documents do you generate?</h3>
       <embed src="{{ url_for('static', filename='graphs/q4.svg') }}" />
       <p>
         Among the other results, we got resumes, legal and technical documents,
         educational material, books, and much more.
       </p>
 
-      <h4>On which platform do you use WeasyPrint?</h4>
+      <h3>On which platform do you use WeasyPrint?</h3>
       <embed src="{{ url_for('static', filename='graphs/q5.svg') }}" />
       <p>
         If Linux is the main platform, we can see that more than 25% use
@@ -79,7 +80,7 @@
         largely used.
       </p>
 
-      <h4>What are the main difficulties you have with WeasyPrint?</h4>
+      <h3>What are the main difficulties you have with WeasyPrint?</h3>
       <p>
         Reported difficulties are very diversified, but some problems have been
         mentioned more than once:
@@ -93,7 +94,7 @@
         <li>right-to-left and vertical text…</li>
       </ul>
 
-      <h4>Which features would you like to have in WeasyPrint?</h4>
+      <h3>Which features would you like to have in WeasyPrint?</h3>
       <embed src="{{ url_for('static', filename='graphs/q7.svg') }}" />
       <p>
         The first two places are taken by two long-awaited features: grid
@@ -109,7 +110,7 @@
         just behind right-to-left support (with a surprising low mark).
       </p>
 
-      <h4>Do you know our OpenCollective campaign?</h4>
+      <h3>Do you know our OpenCollective campaign?</h3>
       <embed src="{{ url_for('static', filename='graphs/q8.svg') }}" />
       <p>
         Almost 75% of our users are already supporting us, or are willing to.
@@ -126,7 +127,7 @@
         <a href="https://opencollective.com/courtbouillon">OpenCollective</a> 😉.
       </p>
 
-      <h4>How do you follow WeasyPrint news?</h4>
+      <h3>How do you follow WeasyPrint news?</h3>
       <embed src="{{ url_for('static', filename='graphs/q9.svg') }}" />
       <p>
         A lot of our users follow us, mainly on GitHub. Don’t hesitate to
@@ -137,7 +138,7 @@
         projects!
       </p>
 
-      <h4>Do you have any comments?</h4>
+      <h3>Do you have any comments?</h3>
       <p>
         A lot of comments are very supportive, we are really grateful for all
         your nice words…
@@ -160,7 +161,7 @@
     </section>
 
     <section>
-      <h3>What’s Next</h3>
+      <h2>What’s Next</h2>
 
       <p>
         As you can imagine, the next features will be the support of Grid and
@@ -199,7 +200,7 @@
     embed + p {
       margin-top: 2em;
     }
-    h4 {
+    h3 {
       clear: left;
     }
     @media (max-width: 920px) {
@@ -211,4 +212,5 @@
     }
   </style>
 
+  </main>
 {% endblock content %}

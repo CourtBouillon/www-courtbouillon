@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>Four Years of CourtBouillon</h2>
+      <h1>Four Years of CourtBouillon</h1>
       <aside><time datetime="2024-10-12">October 12, 2024</time>, by grewn0uille</aside>
       <p>
         Do you know what day it is today? It’s October 12, which means that
@@ -14,7 +15,7 @@
     </header>
 
     <section>
-      <h3>A New Anniversary</h3>
+      <h2>A New Anniversary</h2>
 
       <p>
         When we started CourtBouillon in 2020 to take care of
@@ -29,7 +30,7 @@
     </section>
 
     <section>
-      <h3>What Happened This Year?</h3>
+      <h2>What Happened This Year?</h2>
 
       <p>
         Many things occured during this year. First, let’s start with
@@ -38,7 +39,7 @@
         many releases have been out?
       </p>
 
-      <h4>Closed Issues</h4>
+      <h3>Closed Issues</h3>
       <embed src="{{ url_for('static', filename='graphs/4_year_issues.svg') }}" />
 
       <p>
@@ -46,7 +47,7 @@
         of 35% compared to the previous year</strong>.
       </p>
 
-      <h4>Merged Pull Requests</h4>
+      <h3>Merged Pull Requests</h3>
       <embed src="{{ url_for('static', filename='graphs/4_year_pr.svg') }}" />
 
       <p>
@@ -54,7 +55,7 @@
         compared to last year of… 53%</strong>.
       </p>
 
-      <h4>Releases</h4>
+      <h3>Releases</h3>
       <embed src="{{ url_for('static', filename='graphs/4_year_releases.svg') }}" />
 
       <p>
@@ -71,7 +72,7 @@
         newcomers</strong> 💖.
       </p>
 
-      <h4>New Features</h4>
+      <h3>New Features</h3>
 
       <p>
         Among all of these releases, indeed there are some
@@ -90,7 +91,7 @@
     </section>
 
     <section>
-      <h3>Meeting the community</h3>
+      <h2>Meeting the community</h2>
 
       <p>
         During the year, we had the opportunity to go to several
@@ -120,7 +121,7 @@
     </section>
 
     <section>
-      <h3>Sources of Income</h3>
+      <h2>Sources of Income</h2>
 
       <p>
         And here is the part where we talk about money. Like every
@@ -150,7 +151,7 @@
         miscellaneous. Surprisingly, bugs & features is the smallest.
       </p>
 
-      <h4>Templating and Styling with HTML/CSS</h4>
+      <h3>Templating and Styling with HTML/CSS</h3>
       <p>
         <strong>Creating HTML and CSS for print is one of the services we provide.</strong>
         It’s very useful when you have a nice mock-up for your
@@ -165,7 +166,7 @@
         roadmaps…
       </p>
 
-      <h4>Bug Fixes and Additional Features</h4>
+      <h3>Bug Fixes and Additional Features</h3>
       <p>
         Another service we provide is <strong>fixing bugs you encounter and adding new
         features to make your life easier</strong>.
@@ -187,7 +188,7 @@
         Anyway, <strong>thanks a lot to everyone who sponsored features 💜.</strong>
       </p>
 
-      <h4>Sponsoring and Donations on OpenCollective</h4>
+      <h3>Sponsoring and Donations on OpenCollective</h3>
       <p>
         <strong>When <a href="https://opencollective.com/courtbouillon">you become a
         backer or a sponsor on OpenCollective</a>, you greatly help
@@ -202,7 +203,7 @@
         <strong>Thanks to all the OpenCollective backers and sponsors 💜.</strong>
       </p>
 
-      <h4>Consulting</h4>
+      <h3>Consulting</h3>
       <p>
         This year we decide to get out from the "Miscellaneous"
         category a part of the work that is actually consulting about
@@ -221,7 +222,7 @@
         themselves</strong>.
       </p>
 
-      <h4>Miscellaneous</h4>
+      <h3>Miscellaneous</h3>
       <p>
         As you can guess, this category contains everything that doesn’t fit in
         the other categories.
@@ -236,13 +237,13 @@
     </section>
 
     <section>
-      <h3>What for Next Year?</h3>
+      <h2>What for Next Year?</h2>
 
       <p>
         After this year, what can you expect for the next one?
       </p>
 
-      <h4>Consulting Packages</h4>
+      <h3>Consulting Packages</h3>
       <p>
         After some (a lot?) of "why don’t you provide consulting
         packages? It’s just one line to add on your website.", "we’d
@@ -262,7 +263,7 @@
         can’t use OpenCollective.</strong>
       </p>
 
-      <h4>New Features</h4>
+      <h3>New Features</h3>
       <p>
         Now <strong>we have a basic solid CSS grid layout support</strong> in WeasyPrint, we’d
         like to <strong>improve it</strong> and add the missing features.
@@ -279,7 +280,7 @@
         WeasyPrint</strong>.
       </p>
 
-      <h4>And More!</h4>
+      <h3>And More!</h3>
       <p>
         Of course, we’ll continue to answer all the GitHub issues you
         open, all the mails you send us, all the messages you write on
@@ -317,7 +318,7 @@
     embed + p {
       margin-top: 2em;
     }
-    h2, h3, h4,
+    h1, h2, h3,
     p + p {
       clear: left;
     }
@@ -330,4 +331,5 @@
     }
   </style>
 
+  </main>
 {% endblock content %}

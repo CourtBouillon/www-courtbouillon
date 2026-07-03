@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>On the Road</h2>
+      <h1>On the Road</h1>
       <aside><time datetime="2020-11-05">November 5, 2020</time>, by grewn0uille</aside>
       <p>
       You may have noticed some releases last week. It’s time to share with you what
@@ -13,7 +14,7 @@
     </header>
 
     <section>
-      <h3>Releases Last Week</h3>
+      <h2>Releases Last Week</h2>
       <p>
       Last week, we made releases for many projects. If you didn’t know, you can
       have a look at the different changelogs:
@@ -50,7 +51,7 @@
     </section>
 
     <section>
-      <h3>What’s Coming After That?</h3>
+      <h2>What’s Coming After That?</h2>
       <p>
       For the next releases, our main goal is to get rid of Cairo for
       WeasyPrint 🎉.
@@ -90,7 +91,7 @@
     </section>
 
     <section>
-      <h3>And After That?</h3>
+      <h2>And After That?</h2>
       <p>
       After Cairo removal, there are a lot of features and improvements we want
       to work on, like:
@@ -164,4 +165,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}
