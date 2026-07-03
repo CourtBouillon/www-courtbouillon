@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>Journey Book: May 2026</h2>
+      <h1>Journey Book: May 2026</h1>
       <aside><time datetime="2026-06-03">June 3, 2026</time>, by grewn0uille</aside>
       <p>
         What happened during May? Let’s see!
@@ -11,7 +12,7 @@
     </header>
 
     <section>
-      <h3>About Code</h3>
+      <h2>About Code</h2>
 
       <p>
         On the code part, our month was quite dedicated to prepare the release of <a href="{{ url_for('blog', article='00067-weasyprint-69') }}">WeasyPrint v69</a>,
@@ -30,7 +31,7 @@
     </section>
 
     <section>
-      <h3>Not About Code</h3>
+      <h2>Not About Code</h2>
 
       <p>
         WeasyPrint is now on the <a href="https://hugovk.dev/top-pypi-packages/">top 1000 of PyPI packages</a>. That’s kind of cool 😎.
@@ -62,4 +63,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>Five Years of CourtBouillon</h2>
+      <h1>Five Years of CourtBouillon</h1>
       <aside><time datetime="2025-10-12">October 12, 2025</time>, by grewn0uille</aside>
       <p>
         Do you know what day it is today? It’s October 12, which means that
@@ -14,7 +15,7 @@
     </header>
 
     <section>
-      <h3>A New Anniversary</h3>
+      <h2>A New Anniversary</h2>
 
       <p>
         As each year, on October 12, it’s CourtBouillon’s anniversary.
@@ -30,7 +31,7 @@
     </section>
 
     <section>
-      <h3>What Happened This Year?</h3>
+      <h2>What Happened This Year?</h2>
 
       <p>
         Many things occured during this year. First, let’s start with
@@ -39,7 +40,7 @@
         many releases have been out?
       </p>
 
-      <h4>Closed Issues</h4>
+      <h3>Closed Issues</h3>
       <embed src="{{ url_for('static', filename='graphs/5_year_issues.svg') }}" />
 
       <p>
@@ -48,7 +49,7 @@
         and <strong>most of the issues are on WeasyPrint</strong>.
       </p>
 
-      <h4>Merged Pull Requests</h4>
+      <h3>Merged Pull Requests</h3>
       <embed src="{{ url_for('static', filename='graphs/5_year_pr.svg') }}" />
 
       <p>
@@ -56,7 +57,7 @@
         compared to last year of… 39%</strong>.
       </p>
 
-      <h4>Releases</h4>
+      <h3>Releases</h3>
       <embed src="{{ url_for('static', filename='graphs/5_year_releases.svg') }}" />
 
       <p>
@@ -73,7 +74,7 @@
         newcomers</strong> 💗.
       </p>
 
-      <h4>New Features</h4>
+      <h3>New Features</h3>
 
       <p>
         During this year, some nice features and cool improvements have been released:
@@ -91,7 +92,7 @@
     </section>
 
     <section>
-      <h3>Meeting the community</h3>
+      <h2>Meeting the community</h2>
 
       <p>
         This year, we went to several conferences to meet people
@@ -116,7 +117,7 @@
     </section>
 
     <section>
-      <h3>Sources of Income</h3>
+      <h2>Sources of Income</h2>
 
       <p>
         Like each year, this rewind includes a part about our incomes.
@@ -141,7 +142,7 @@
         This year, templating and grants are clearly the most important.
       </p>
 
-      <h4>Templating and Styling with HTML/CSS</h4>
+      <h3>Templating and Styling with HTML/CSS</h3>
       <p>
         <strong>Creating HTML and CSS for print is one of the services we provide.</strong>
         It’s very useful when you have a nice mock-up for your
@@ -159,7 +160,7 @@
         everyone agrees on a visual and avoiding frustration 😁.
       </p>
 
-      <h4>Bug Fixes and Additional Features</h4>
+      <h3>Bug Fixes and Additional Features</h3>
       <p>
         Another service we provide is <strong>fixing bugs you encounter and adding new
         features to make your life easier</strong>.
@@ -183,7 +184,7 @@
         <strong>Thanks a lot to everyone who sponsored features 💖.</strong>
       </p>
 
-      <h4>Sponsoring and Donations</h4>
+      <h3>Sponsoring and Donations</h3>
       <p>
         <strong>When <a href="https://opencollective.com/courtbouillon">you become a
         backer or a sponsor on OpenCollective</a>, you greatly help
@@ -202,7 +203,7 @@
         you can contact us for direct invoicing.
       </p>
 
-      <h4>Consulting</h4>
+      <h3>Consulting</h3>
       <p>
         <strong>Helping people to have a better experience with WeasyPrint</strong> is
         something we love to do.
@@ -221,7 +222,7 @@
         that someone is always going to answer quickly to their questions.
       </p>
 
-      <h4>Grants</h4>
+      <h3>Grants</h3>
       <p>
         This is a <strong>brand new source of income</strong>. Previously we tried to get some
         grants and funding for WeasyPrint, but <strong>this is the first time we succeeded</strong>!
@@ -237,7 +238,7 @@
         <li>supporting CMYK (that may be a spoiler of the next version 🤫).</li>
       </ul>
 
-      <h4>Miscellaneous</h4>
+      <h3>Miscellaneous</h3>
       <p>
         Unsurprisingly, this category contains everything that doesn’t fit in
         the other categories.
@@ -252,13 +253,13 @@
     </section>
 
     <section>
-      <h3>What for Next Year?</h3>
+      <h2>What for Next Year?</h2>
 
       <p>
         After this year, what can you expect for the next one?
       </p>
 
-      <h4>New Features</h4>
+      <h3>New Features</h3>
       <p>
         There was a spoiler earlier in this article, but <strong>CMYK support is coming to WeasyPrint</strong>,
         with support of color profiles. In fact, you can already try it by using the
@@ -275,7 +276,7 @@
         a better RTL support, new line break algorithms…
       </p>
 
-      <h4>New Specifications</h4>
+      <h3>New Specifications</h3>
       <p>
         Because reading, understanding and implementing specifications
         wasn’t hard enough, we decided to start <strong>writing CSS specifications</strong> 🤯.
@@ -289,7 +290,7 @@
         Feel free to have a look, discuss and upvote <a href="https://github.com/w3c/csswg-drafts/issues/12472">the proposal</a>.
       </p>
       
-      <h4>And More!</h4>
+      <h3>And More!</h3>
       <p>
         Of course, we’ll continue to answer all the GitHub issues you
         open, all the mails you send us, all the messages you write on
@@ -326,7 +327,7 @@
     embed + p {
       margin-top: 2em;
     }
-    h2, h3, h4,
+    h1, h2, h3,
     p + p {
       clear: left;
     }
@@ -339,4 +340,5 @@
     }
   </style>
 
+  </main>
 {% endblock content %}

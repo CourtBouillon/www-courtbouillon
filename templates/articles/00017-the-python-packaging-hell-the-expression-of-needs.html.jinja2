@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>The Python Packaging Hell: The Expression of Needs (6 / 7)</h2>
+      <h1>The Python Packaging Hell: The Expression of Needs (6 / 7)</h1>
       <aside><time datetime="2021-12-02">December 02, 2021</time>, by CourtBouillon</aside>
       <p>
         Python packaging can sometimes be a nightmare. It’s all the more hellish
@@ -16,7 +17,7 @@
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>Daddy, Mommy: How Do We Make Packages?</h3>
+      <h2>Daddy, Mommy: How Do We Make Packages?</h2>
       <p>
         It’s all well and good to talk about a package in up, but we
         often talk about it in down. Actually, we talk a lot about what’s in it,
@@ -47,7 +48,7 @@
     </section>
 
     <section>
-      <h3>The Scene of Operations</h3>
+      <h2>The Scene of Operations</h2>
       <p>
         Here we are. You’ve finished your code, you want to share it, and for
         that you want to create a package. You’ve read countless tutorials
@@ -70,7 +71,7 @@
         So, what happens in our packages?
       </p>
 
-      <h4>Code</h4>
+      <h3>Code</h3>
       <p>
         Obviously, if you want to share a Python package, there is good chance
         that you have Python code to include in your package. And when we talk
@@ -100,7 +101,7 @@
         that later, during creation and installation steps.
       </p>
 
-      <h4>Metadata</h4>
+      <h3>Metadata</h3>
       <p>
         With you packages, maybe even without noticing, you want to lug a swarm
         of metadata. Hardly nothing, indeed. A package name, a version number,
@@ -147,7 +148,7 @@
         wart from the Jurassic period, nothing to report.
       </p>
 
-      <h4>Annex Files</h4>
+      <h3>Annex Files</h3>
       <p>
         You develop a spell checker and you want to integrate dictionaries. You
         develop a game and you want to integrate images. You develop a
@@ -194,7 +195,7 @@
         solution that works for all the required cases.
       </p>
 
-      <h4>Executable files</h4>
+      <h3>Executable files</h3>
       <p>
         This part is simple: don’t integrate executable files.
       </p>
@@ -231,7 +232,7 @@
         We wish you a lot of fun with pdb. It’s a gift. A gift package.
       </p>
 
-      <h4>Operations During Creation</h4>
+      <h3>Operations During Creation</h3>
       <p>
         Until this precise moment, we see in your eyes the innocent glimmers of
         hope, those which animate human beings with a still immaculate reason
@@ -293,7 +294,7 @@
         on a particular solution, without no silver bullet.
       </p>
 
-      <h4>Operations During Installation</h4>
+      <h3>Operations During Installation</h3>
       <p>
         There we are, the final step.
       </p>
@@ -347,7 +348,7 @@
     </section>
 
     <section>
-      <h3>Where Do We Go Now?</h3>
+      <h2>Where Do We Go Now?</h2>
       <p>
         Now that we have an overview of what can be done with a Python package,
         we’re well on our way. But, where do we go now?
@@ -371,4 +372,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

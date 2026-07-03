@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v59: Beta Time</h2>
+      <h1>WeasyPrint v59: Beta Time</h1>
       <aside><time datetime="2023-04-14">April 14, 2023</time>, by liZe</aside>
       <p>
         WeasyPrint v59 is the next major version of WeasyPrint.
@@ -40,7 +41,7 @@
     </section>
 
     <section>
-      <h3>Smaller PDFs?</h3>
+      <h2>Smaller PDFs?</h2>
 
       <p>
         Reducing the size of PDFs is an important feature for WeasyPrint’s users, according to
@@ -61,7 +62,7 @@
         Which one? Let’s go through the whole process to find out!
       </p>
 
-      <h4>Images</h4>
+      <h3>Images</h3>
       <p>
         Optimizing images is maybe the most obvious solution when we want to
         save space. In some documents, images are by far the biggest content,
@@ -91,7 +92,7 @@
         reach a maximum given resolution.
       </p>
 
-      <h4>Useless Data</h4>
+      <h3>Useless Data</h3>
       <p>
         The second step of our journey was to try removing useless data.
         Because, let’s be honest, we do store useless data in our PDFs.
@@ -126,7 +127,7 @@
         hexadecimal codes…) tries, but you get the idea!
       </p>
 
-      <h4>Let’s Change the PDF Structure</h4>
+      <h3>Let’s Change the PDF Structure</h3>
       <p>
         Optimizing images can give impressive results, but it often alters the
         quality of generated documents. Removing useless data doesn’t change
@@ -155,7 +156,7 @@
         tables of contents, hyperlinks, headers, footers…
       </p>
 
-      <h4>Results</h4>
+      <h3>Results</h3>
       <p>
         Obviously, the results are very different for different documents. But
         in the end, was it worth the effort?
@@ -178,7 +179,7 @@
     </section>
 
     <section>
-      <h3>What Are the Next Steps?</h3>
+      <h2>What Are the Next Steps?</h2>
 
       <p>
         The next step is yours! Don’t hesitate to try this beta and report bugs you
@@ -194,4 +195,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

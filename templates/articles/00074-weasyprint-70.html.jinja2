@@ -1,9 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
+
   <article>
     <header>
-      <h2>WeasyPrint v70 Has Been Released</h2>
+      <h1>WeasyPrint v70 Has Been Released</h1>
       <aside><time datetime="2026-09-08">September 8, 2026</time>, by grewn0uille</aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">WeasyPrint v70</a>
@@ -21,7 +23,7 @@
     </header>
 
     <section>
-      <h3>CSS Notes</h3>
+      <h2>CSS Notes</h2>
 
       <p>
         Thanks to the amazing <a href="https://nlnet.nl/">NLnet Foundation</a>,
@@ -68,7 +70,7 @@
     </section>
 
     <section>
-      <h3>COLR Fonts</h3>
+      <h2>COLR Fonts</h2>
 
       <p>
         A <code>COLR</code> table had been added to OpenType fonts to embed emojis, as
@@ -96,7 +98,7 @@
     </section>
 
     <section>
-      <h3>And More…</h3>
+      <h2>And More…</h2>
       <p>
         As usual, this new version of WeasyPrint comes with various improvements and 🐞 bug
         fixes, including:
@@ -117,7 +119,7 @@
     </section>
 
     <section>
-      <h3>What’s Next?</h3>
+      <h2>What’s Next?</h2>
       <p>
         We hope you’ll have fun with this
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">new version</a>!
@@ -155,4 +157,6 @@
       </p>
     </section>
   </article>
+
+  </main>
 {% endblock content %}

@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v61 Has Been Released</h2>
+      <h1>WeasyPrint v61 Has Been Released</h1>
       <aside><time datetime="2024-02-12">February 12, 2024</time>, by liZe</aside>
       <p>
         Version 61 of WeasyPrint has been released. It comes with nice new
@@ -13,14 +14,14 @@
     </header>
 
     <section>
-      <h3>Better CSS Support</h3>
+      <h2>Better CSS Support</h2>
 
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v61.0">WeasyPrint v61</a>
         brings better CSS support for various properties.
       </p>
 
-      <h4>Allowing <code>var()</code> Everywhere</h4>
+      <h3>Allowing <code>var()</code> Everywhere</h3>
       <p>
         <code>var()</code> is widely used. WeasyPrint supports it since 2019,
         but only in the simplest use case: as a single value. There was no way
@@ -39,7 +40,7 @@
         rgb(var(--rgb))</code>? Now you can 🌈!
       </p>
 
-      <h4>Drawing Full Page Backgrounds with <code>background-attachment: fixed</code></h4>
+      <h3>Drawing Full Page Backgrounds with <code>background-attachment: fixed</code></h3>
       <p>
         <strong>Positioning a background image on a page can sometimes be confusing,</strong>
         because the default page surface doesn’t include page margins.
@@ -52,7 +53,7 @@
         complicated image sizes anymore!
       </p>
 
-      <h4>Using Percentages for <code>opacity</code></h4>
+      <h3>Using Percentages for <code>opacity</code></h3>
       <p>
         In the CSS Color Level 3 specification, the well-known
         <code>opacity</code> property was designed to allow a number between 0
@@ -66,7 +67,7 @@
     </section>
 
     <section>
-      <h3>Let’s Introduce… <code>weasyprint.exe</code></h3>
+      <h2>Let’s Introduce… <code>weasyprint.exe</code></h2>
 
       <p>
         <strong>Installing WeasyPrint on Windows is known to be a bit
@@ -107,7 +108,7 @@
     </section>
 
     <section>
-      <h3>Less Bugs, More Tests</h3>
+      <h2>Less Bugs, More Tests</h2>
       <p>
         <strong>Nobody likes bugs, and fixing them is a big part of our
           work.</strong> But the best way to reduce this part is… to avoid
@@ -145,7 +146,7 @@
     </section>
 
     <section>
-      <h3>What’s Next?</h3>
+      <h2>What’s Next?</h2>
 
       <p>
         What’s next? That depends on you! If you are interested in better
@@ -173,4 +174,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

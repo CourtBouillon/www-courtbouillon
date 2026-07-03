@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v65 Has Been Released</h2>
+      <h1>WeasyPrint v65 Has Been Released</h1>
       <aside><time datetime="2025-03-20">March 20, 2025</time>, by liZe</aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v65.0">WeasyPrint v65</a> has been released, and thanks to
@@ -13,9 +14,9 @@
     </header>
 
     <section>
-      <h3>A Fresh New Flex Layout</h3>
+      <h2>A Fresh New Flex Layout</h2>
 
-      <h4>That’s a Long Story</h4>
+      <h3>That’s a Long Story</h3>
       <p>
         <strong>The Flex layout has a long history in WeasyPrint.</strong>
       </p>
@@ -65,7 +66,7 @@
         on 3 different features: <strong>Flex layout, PDF/UA, CMYK.</strong>
       </p>
 
-      <h4>So… What’s New?</h4>
+      <h3>So… What’s New?</h3>
       <p>
         After many days reading the specification (<em>almost</em> as interesting as a
         novel), reading the specification, writing some code, reading the specification,
@@ -103,9 +104,9 @@
     </section>
 
     <section>
-      <h3>What’s More?</h3>
+      <h2>What’s More?</h2>
 
-      <h4>Improved Right-to-Left Text Support</h4>
+      <h3>Improved Right-to-Left Text Support</h3>
       <p>
         <strong>Version 65 brings big changes to the support of right-to-left text.</strong>
         WeasyPrint now follows the <code>dir</code> HTML attribute instead of
@@ -120,7 +121,7 @@
         <strong>Don’t hesitate to report bugs if you have problems with right-to-left text!</strong>
       </p>
 
-      <h4>Modernized User Agent Stylesheet</h4>
+      <h3>Modernized User Agent Stylesheet</h3>
       <p>
         Just like any browser, WeasyPrint comes with a standard stylesheet that defines
         common rules: <code>&lt;div></code> tags are blocks, <code>&lt;table></code> tags
@@ -144,7 +145,7 @@
         best to be part of this evolution!
       </p>
 
-      <h4>And More…</h4>
+      <h3>And More…</h3>
       <p>
         We can’t list here all the changes brought to you by version 65, but here are
         some features and bug fixes that could be useful for you:
@@ -158,7 +159,7 @@
     </section>
 
     <section>
-      <h3>What’s Next?</h3>
+      <h2>What’s Next?</h2>
       <p>
         We hope you’ll have fun with this
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v65.0">new version</a>
@@ -194,4 +195,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

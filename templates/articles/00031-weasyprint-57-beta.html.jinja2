@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v57: Beta Time</h2>
+      <h1>WeasyPrint v57: Beta Time</h1>
       <aside><time datetime="2022-09-22">September 22, 2022</time>, by grewn0uille</aside>
       <p>
         WeasyPrint v57 is the next major version of WeasyPrint.
@@ -14,7 +15,7 @@
     </header>
 
     <section>
-      <h3>PDF/UA Support</h3>
+      <h2>PDF/UA Support</h2>
 
       <p>
         Thanks to <a href="http://novareto.de/">Novareto</a> who sponsored this feature, WeasyPrint
@@ -27,7 +28,7 @@
         screen readers.
       </p>
 
-      <h4>How to Generate PDF/UA Documents?</h4>
+      <h3>How to Generate PDF/UA Documents?</h3>
 
       <p>
         Previously, we added a new option in WeasyPrint, <code>--pdf-variant</code>, to let you
@@ -35,7 +36,7 @@
         To generate PDF/UA documents, you just need to use this option and use the variant <code>pdf/ua-1</code>.
       </p>
 
-      <h4>Is the Structure of the Document Important?</h4>
+      <h3>Is the Structure of the Document Important?</h3>
 
       <p>
         To generate a PDF/UA document, the HTML structure of the document is put in the PDF,
@@ -55,7 +56,7 @@
     </section>
 
     <section>
-      <h3>Font Variant Support</h3>
+      <h2>Font Variant Support</h2>
 
       <p>
         Thanks to <a href="https://opencollective.com/courtbouillon">our OpenCollective backers and sponsors</a>,
@@ -87,7 +88,7 @@
     </section>
 
     <section>
-      <h3>Better Support of Footnotes With Multicolumn Layout</h3>
+      <h2>Better Support of Footnotes With Multicolumn Layout</h2>
 
       <p>
         With the financial support of <a href="https://www.codeandco.com/">Code & Co.</a>, we’ve
@@ -108,7 +109,7 @@
     </section>
 
     <section>
-      <h3>Better List Management on Page Breaks</h3>
+      <h2>Better List Management on Page Breaks</h2>
 
       <p>
         Thanks to the financial sponsoring of <a href="https://www.openzeppelin.com/">OpenZeppelin</a>,
@@ -127,7 +128,7 @@
     </section>
 
     <section>
-      <h3>What Are the Next Steps?</h3>
+      <h2>What Are the Next Steps?</h2>
 
       <p>
         The next step is yours! Don’t hesitate to try this beta and report bugs you
@@ -158,4 +159,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

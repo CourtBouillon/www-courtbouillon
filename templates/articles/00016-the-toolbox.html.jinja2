@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>The Python Packaging Hell: The Toolbox (5 / 7)</h2>
+      <h1>The Python Packaging Hell: The Toolbox (5 / 7)</h1>
       <aside><time datetime="2021-11-19">November 19, 2021</time>, by CourtBouillon</aside>
       <p>
         Python packaging can sometimes be a nightmare. To create, share and
@@ -16,7 +17,7 @@
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>Tools To Do Everything</h3>
+      <h2>Tools To Do Everything</h2>
       <p>
         Libraries, scripts, executable scripts… Even as a simple user, we have
         to know and try a lot of tools before using a Python program. You’ll
@@ -160,7 +161,7 @@
         tools that can manage them. No need to sulk, it’ll be easier, we promise.
       </p>
 
-      <h4>Installing packages</h4>
+      <h3>Installing packages</h3>
       <p>
         In the beginning, when the concept of packages has been introduced in
         Python in 2000, <code>distutils</code> has been in charge to create
@@ -243,7 +244,7 @@
         packages in order to install them. Why? You’ll have to read more…
       </p>
 
-      <h4>Creating packages</h4>
+      <h3>Creating packages</h3>
       <figure>
         <img src="{{ url_for('static', filename='images/00016-gift.jpg')}}" alt="Picture of packages" title="You’ll never guess what is inside…" />
         <figcaption>
@@ -305,7 +306,7 @@
         to psychiatry than IT.
       </p>
 
-      <h4>Publishing packages</h4>
+      <h3>Publishing packages</h3>
       <p>
         In the same way, <code>Poetry</code> and <code>Flit</code> offer the
         possibility to send packages to PyPI or to compatible servers.
@@ -334,7 +335,7 @@
     </section>
 
     <section>
-      <h3>To Sum Up (Well, We Try)</h3>
+      <h2>To Sum Up (Well, We Try)</h2>
       <p>
         We’ve gone through a long period of dependency to <code>setuptools</code>,
         its unintelligible configuration files, its authoritative
@@ -377,4 +378,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

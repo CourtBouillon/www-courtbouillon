@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>The Future of CairoSVG</h2>
+      <h1>The Future of CairoSVG</h1>
       <aside><time datetime="2022-05-19">May 19, 2022</time>, by grewn0uille</aside>
       <p>
         After some times of doubts and questioning about the future of CairoSVG, we made
@@ -13,7 +14,7 @@
     </header>
 
     <section>
-      <h3>Why a Survey?</h3>
+      <h2>Why a Survey?</h2>
 
       <p>
         For a long time, CairoSVG has been used by WeasyPrint when it was relying
@@ -42,9 +43,9 @@
     </section>
 
     <section>
-      <h3>Results</h3>
+      <h2>Results</h2>
 
-      <h4>How long have you been using CairoSVG?</h4>
+      <h3>How long have you been using CairoSVG?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q1.svg') }}" />
       <p>
         CairoSVG was a dependency of WeasyPrint, so it’s not very surprising to
@@ -53,20 +54,20 @@
         features since quite a time.
       </p>
 
-      <h4>In which context do you use CairoSVG?</h4>
+      <h3>In which context do you use CairoSVG?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q2.svg') }}" />
       <p>
         Most people use CairoSVG in a professional context, but it’s
         interesting to see that some are using it in a personal context too.
       </p>
 
-      <h4>Why did you choose to use CairoSVG, compared to other SVG conversion libraries?</h4>
+      <h3>Why did you choose to use CairoSVG, compared to other SVG conversion libraries?</h3>
       <p>
         Users like to use CairoSVG because it’s fast, open source and easy to
         use. You can have a good control on what you’re doing.
       </p>
 
-      <h4>In which format do you convert your SVG images with CairoSVG?</h4>
+      <h3>In which format do you convert your SVG images with CairoSVG?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q3.svg') }}" />
       <p>
         It’s funny to see that a large part of the users are using CairoSVG to
@@ -74,14 +75,14 @@
         original goal of CairoSVG is to convert SVG into other formats 😄.
       </p>
 
-      <h4>On which OS do you use CairoSVG?</h4>
+      <h3>On which OS do you use CairoSVG?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q4.svg') }}" />
       <p>
         Linux is the main OS on which CairoSVG is used, but there is a
         significant part on Windows too.
       </p>
 
-      <h4>What would you expect from CairoSVG in the future?</h4>
+      <h3>What would you expect from CairoSVG in the future?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q5.svg') }}" />
       <p>
         The majority of the users expects bug fixes for CairoSVG. It’s also
@@ -92,21 +93,21 @@
         maintained with recent Python versions and have a long life.
       </p>
 
-      <h4>Would you like to use another library?</h4>
+      <h3>Would you like to use another library?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q6.svg') }}" />
       <p>
         Most people aren’t really into using something else than CairoSVG, but
         some are willing to try something else.
       </p>
 
-      <h4>Would WeasyPrint + GhostScript be a solution for you?</h4>
+      <h3>Would WeasyPrint + GhostScript be a solution for you?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q7.svg') }}" />
       <p>
         The answer is kind of clear, WeasyPrint + Ghostscript wouldn’t be
         a solution to replace the usage of CairoSVG.
       </p>
 
-      <h4>Would you be ready to pay for new features or bug fixes?</h4>
+      <h3>Would you be ready to pay for new features or bug fixes?</h3>
       <embed src="{{ url_for('static', filename='graphs/cairosvg_q8.svg') }}" />
       <p>
         Only 12.5% would be ready to pay for new features or bug fixes.
@@ -115,7 +116,7 @@
     </section>
 
     <section>
-      <h3>What’s Next</h3>
+      <h2>What’s Next</h2>
 
       <p>
         First, we’d like to thank all the people who took some time to answer
@@ -180,7 +181,7 @@
     section {
       clear: left;
     }
-    h4 {
+    h3 {
       clear: left;
     }
     @media (max-width: 920px) {
@@ -192,4 +193,5 @@
     }
   </style>
 
+  </main>
 {% endblock content %}

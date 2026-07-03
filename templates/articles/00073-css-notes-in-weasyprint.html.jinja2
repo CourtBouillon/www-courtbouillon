@@ -1,9 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
+
   <article>
     <header>
-      <h2>CSS Notes Are Coming in WeasyPrint</h2>
+      <h1>CSS Notes Are Coming in WeasyPrint</h1>
       <aside><time datetime="2026-09-07">September 7, 2026</time>, by grewn0uille</aside>
       <p>
         What are CSS Notes and how to use them with WeasyPrint?
@@ -11,7 +13,7 @@
     </header>
 
     <section>
-      <h3>Where Does it Come From?</h3>
+      <h2>Where Does it Come From?</h2>
 
       <p>
         Several times, we said we were working with Julien Taquet and
@@ -57,7 +59,7 @@
     </section>
 
     <section>
-      <h3>What are CSS Notes?</h3>
+      <h2>What are CSS Notes?</h2>
 
       <p>
         In CSS, the only type of notes specified are <a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">footnotes</a>.
@@ -109,7 +111,7 @@
     </section>
 
     <section>
-      <h3>How to Use Them with WeasyPrint?</h3>
+      <h2>How to Use Them with WeasyPrint?</h2>
 
       <p>
         Okay, that’s cool, but how to use that with WeasyPrint 🤔?
@@ -155,7 +157,7 @@
     </section>
 
     <section>
-      <h3>What Isn’t Supported in WeasyPrint?</h3>
+      <h2>What Isn’t Supported in WeasyPrint?</h2>
 
       <p>
         If you read the specification, you’ll notice that not
@@ -190,7 +192,7 @@
     </section>
 
     <section>
-      <h3>What Did we Learn?</h3>
+      <h2>What Did we Learn?</h2>
 
       <p>
         Writing a specification is hard. A big shout-out to Julie
@@ -220,4 +222,6 @@
       </p>
     </section>
   </article>
+
+  </main>
 {% endblock content %}

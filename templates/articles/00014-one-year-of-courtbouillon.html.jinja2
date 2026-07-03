@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>One Year of CourtBouillon</h2>
+      <h1>One Year of CourtBouillon</h1>
       <aside><time datetime="2021-10-12">October 12, 2021</time>, by CourtBouillon</aside>
       <p>
         Do you know what is the day today? We’re October 12, which means that
@@ -14,7 +15,7 @@
     </header>
 
     <section>
-      <h3>CourtBouillon’s Birth</h3>
+      <h2>CourtBouillon’s Birth</h2>
 
       <p>
         Last year, on the same day as today, <a href="https://twitter.com/BouillonCourt/status/1315588318042693632">we announced the creation of
@@ -52,7 +53,7 @@
     </section>
 
     <section>
-      <h3>Software Progress</h3>
+      <h2>Software Progress</h2>
 
       <p>
         So, what did happen on the different projects during the past year?
@@ -60,19 +61,19 @@
         at all? Let’s have a look 🧐!
       </p>
 
-      <h4>Closed Issues</h4>
+      <h3>Closed Issues</h3>
       <embed src="{{ url_for('static', filename='graphs/one_year_issues.svg') }}" />
       <p>
         301 issues were closed, of which 243 were on WeasyPrint.
       </p>
 
-      <h4>Merged Pull Requests</h4>
+      <h3>Merged Pull Requests</h3>
       <embed src="{{ url_for('static', filename='graphs/one_year_pr.svg') }}" />
       <p>
         37 pull requests have been merged, of which 15 were on WeasyPrint.
       </p>
 
-      <h4>Releases</h4>
+      <h3>Releases</h3>
       <embed src="{{ url_for('static', filename='graphs/one_year_releases.svg') }}" />
       <p>
         26 releases have been made, of which 12 for WeasyPrint.
@@ -83,7 +84,7 @@
         💜.
       </p>
 
-      <h4>Features</h4>
+      <h3>Features</h3>
       <p>
         During the year, WeasyPrint had a big change: we stopped using Cairo to
         generate PDF, and replaced it by our own PDF generator: <a href="https://github.com/CourtBouillon/pydyf">
@@ -110,7 +111,7 @@
     </section>
 
     <section>
-      <h3>Sponsoring Campaign and Sponsors</h3>
+      <h2>Sponsoring Campaign and Sponsors</h2>
 
       <p>
         All this work wouldn’t have been possible without the people who have
@@ -144,7 +145,7 @@
     </section>
 
     <section>
-      <h3>And For the Next Year?</h3>
+      <h2>And For the Next Year?</h2>
 
       <p>
         We hope that you’re as happy as we are about the progress this year,
@@ -193,4 +194,5 @@
     }
   </style>
 
+  </main>
 {% endblock content %}

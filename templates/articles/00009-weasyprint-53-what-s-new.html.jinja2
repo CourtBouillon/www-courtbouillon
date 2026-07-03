@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>WeasyPrint 53: What’s New</h2>
+      <h1>WeasyPrint 53: What’s New</h1>
       <aside><time datetime="2021-05-30">May 30, 2021</time>, by liZe</aside>
       <p>
         The second (and probably last) beta version of WeasyPrint 53 is now
@@ -13,7 +14,7 @@
     </header>
 
     <section>
-      <h3>Big Changes</h3>
+      <h2>Big Changes</h2>
 
       <p>
         As explained in the
@@ -47,7 +48,7 @@
     </section>
 
     <section>
-      <h3 id="no-png">PNG Export</h3>
+      <h2 id="no-png">PNG Export</h2>
 
       <p>
         PNG export was one of the "free" features included in Cairo. Now that
@@ -79,7 +80,7 @@
     </section>
 
     <section>
-      <h3 id="svg-rendering">SVG Rendering</h3>
+      <h2 id="svg-rendering">SVG Rendering</h2>
 
       <p>
         SVG rendering is another collateral victim of Cairo’s removal.
@@ -112,7 +113,7 @@
     </section>
 
     <section>
-      <h3 id="text-rendering">Text Rendering</h3>
+      <h2 id="text-rendering">Text Rendering</h2>
 
       <p>
         Text layout and rendering is one of the major features of WeasyPrint,
@@ -169,7 +170,7 @@
     </section>
 
     <section>
-      <h3 id="performance">Performance</h3>
+      <h2 id="performance">Performance</h2>
 
       <p>
         Now that we generate our own PDF files, we have good news:
@@ -222,7 +223,7 @@
     </section>
 
     <section>
-      <h3>It’s Time to Test</h3>
+      <h2>It’s Time to Test</h2>
 
       <p>
         All in all, here is our advice: <strong>you should test 53.0b2</strong>.
@@ -246,4 +247,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

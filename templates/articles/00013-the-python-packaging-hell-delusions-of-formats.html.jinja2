@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>The Python Packaging Hell: Delusions of Formats (3 / 7)</h2>
+      <h1>The Python Packaging Hell: Delusions of Formats (3 / 7)</h1>
       <aside><time datetime="2021-10-04">October 4, 2021</time>, by CourtBouillon</aside>
       <p>
         Python packaging can sometimes be a nightmare. But, by the way, what is
@@ -16,7 +17,7 @@
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>A Package?</h3>
+      <h2>A Package?</h2>
       <p>
         If you’re here, you may have already installed a Python package in your
         life. You may have used a virtual environment, used <code>pip</code> or
@@ -44,7 +45,7 @@
         article to be a minimum readable and easily digestible.)
       </p>
 
-      <h4>Sources</h4>
+      <h3>Sources</h3>
       <p>
         The easiest way to distribute Python code is to transform it into an
         archive, and to send this archive as is. That’s more or less what happens when
@@ -96,7 +97,7 @@
         complex mechanisms, for very long years.
       </p>
 
-      <h4>Eggs</h4>
+      <h3>Eggs</h3>
       <p>
         To make up for these failures, a package format has been created in
         2004: eggs.
@@ -145,7 +146,7 @@
         other abominations that we’ll wisely leave in their Pandora’s box.
       </p>
 
-      <h4>Wheels</h4>
+      <h3>Wheels</h3>
       <p>
         After this little youthful error, that can actually break the mind of
         any person equipped with a normal brain, a PEP appeared to make
@@ -198,4 +199,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

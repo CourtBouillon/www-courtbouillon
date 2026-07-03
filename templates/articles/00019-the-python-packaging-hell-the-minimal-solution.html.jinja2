@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>The Python Packaging Hell: The Minimal Solution (7 / 7)</h2>
+      <h1>The Python Packaging Hell: The Minimal Solution (7 / 7)</h1>
       <aside><time datetime="2021-12-16">December 16, 2021</time>, by CourtBouillon</aside>
       <p>
         Here we are. We untied knots, dug down to the roots, dissected formats,
@@ -16,7 +17,7 @@
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>Where Do We Put What?</h3>
+      <h2>Where Do We Put What?</h2>
       <p>
         We saw in
         <a href="{{ url_for('blog', article='00017-the-python-packaging-hell-the-expression-of-needs')}}">the previous article</a>
@@ -31,7 +32,7 @@
         reading something else.
       </p>
 
-      <h4>The Wheel Package</h4>
+      <h3>The Wheel Package</h3>
       <figure>
         <img src="{{ url_for('static', filename='images/00019-xkcd.png')}}" alt="Mandatory Related XKCD™" title="Right now it's a bicycle wheel, so we've had to move to lighter vehicles, but the reduced overhead is worth it. There was one week when a wheel of cheese got dangerously close to the first page, though." />
         <figcaption>
@@ -82,7 +83,7 @@
         documentation, goodbye configuration files.
       </p>
 
-      <h4>The Source Package</h4>
+      <h3>The Source Package</h3>
       <p>
         Sources are the basis, the alternative, the last resort, the ultimate
         comprehensiveness, and that’s why wheels will never send into oblivion
@@ -123,7 +124,7 @@
         configuration.
       </p>
 
-      <h4>Let’s Go</h4>
+      <h3>Let’s Go</h3>
       <p>
         With all these details, we’re now able to venture into package
         creation. We won’t explain each line of configuration or code to write,
@@ -133,7 +134,7 @@
     </section>
 
     <section>
-      <h3>Simple Package, Simple Solution</h3>
+      <h2>Simple Package, Simple Solution</h2>
       <figure>
         <img src="{{ url_for('static', filename='images/00019-hammer.jpg')}}" alt="A hammer" title="If I had a hammer…" />
         <figcaption>
@@ -154,7 +155,7 @@
         you.
       </p>
 
-      <h4>The Tool</h4>
+      <h3>The Tool</h3>
       <p>
         Without further suspense, the tool we’ll use is
         <a href="https://flit.readthedocs.io/">Flit</a>.
@@ -177,7 +178,7 @@
         module, it’s the choice of reason.
       </p>
 
-      <h4>The Architecture</h4>
+      <h3>The Architecture</h3>
       <p>
         Forget the tons of files and endless configurations. Here, we aim
         simplicity, we’ll have to eradicate the obesity of root folders. We’re
@@ -222,7 +223,7 @@
         Let’s see what we can put in these little boxes…
       </p>
 
-      <h4>The Folders</h4>
+      <h3>The Folders</h3>
       <p>
         In the folder containing the code of your project, you’ll first put…
         the code of your project. This seems to be obvious, but if we follow
@@ -271,7 +272,7 @@
         the root folder.
       </p>
 
-      <h4>The Files</h4>
+      <h3>The Files</h3>
       <p>
         The <code>README</code> file is the basis of your project. In pure text
         format or with a light markup, it’s the entry point of the majority of
@@ -331,7 +332,7 @@
         plunge.
       </p>
 
-      <h4>From Creation To Deployment</h4>
+      <h3>From Creation To Deployment</h3>
       <p>
         Don’t expect a tutorial where we hold your hand, write your
         configuration files, and give you all the tricks to use Flit. The title
@@ -363,7 +364,7 @@
     </section>
 
     <section>
-      <h3>Finally…</h3>
+      <h2>Finally…</h2>
       <p>
         Don’t lie to ourselves: Flit doesn’t solve everything. We already saw
         its limitations and its small wicknesses, but unfortunately there’s
@@ -404,4 +405,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

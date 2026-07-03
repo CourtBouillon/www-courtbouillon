@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v62 Has Been Released</h2>
+      <h1>WeasyPrint v62 Has Been Released</h1>
       <aside><time datetime="2024-04-30">April 30, 2024</time>, by grewn0uille</aside>
       <p>
         WeasyPrint v62 is here and comes with a most-wanted feature… 👀
@@ -11,7 +12,7 @@
     </header>
 
     <section>
-      <h3>Grid Layout</h3>
+      <h2>Grid Layout</h2>
 
       <p>
         After being a most-wanted feature for quite a time, always on top positions
@@ -27,7 +28,7 @@
         </em>
       </p>
 
-      <h4>What Can I Use?</h4>
+      <h3>What Can I Use?</h3>
       <p>
         <strong>All the Grid properties are supported by WeasyPrint</strong> and can
         be used to style your documents 🎉.
@@ -38,7 +39,7 @@
         handled.
       </p>
 
-      <h4>Limitations</h4>
+      <h3>Limitations</h3>
       <p>
         <strong>This implementation of Grid in WeasyPrint is a (big) first step
           for Grid support</strong>, and some values and use cases aren’t fully
@@ -52,7 +53,7 @@
     </section>
 
     <section>
-      <h3>CSS Nesting</h3>
+      <h2>CSS Nesting</h2>
 
       <p>
         Another nice feature has been added to WeasyPrint: <strong>CSS nesting!</strong>
@@ -102,7 +103,7 @@
     </section>
 
     <section>
-      <h3>More Features and Bug Fixes</h3>
+      <h2>More Features and Bug Fixes</h2>
 
       <p>
         This version comes with other nice features:
@@ -132,7 +133,7 @@
     </section>
 
     <section>
-      <h3>What’s Next?</h3>
+      <h2>What’s Next?</h2>
 
       <p>
         This version with Grid support is an important step for
@@ -164,4 +165,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

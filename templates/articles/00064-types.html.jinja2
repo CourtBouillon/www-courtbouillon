@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>Why Don’t You Add Type Annotations?</h2>
+      <h1>Why Don’t You Add Type Annotations?</h1>
       <aside><time datetime="2026-03-23">March 23, 2026</time>, by liZe</aside>
       <p>
         That’s a recurring question on our bug trackers: why don’t you add type
@@ -18,7 +19,7 @@
         built a short list to ask and answer some of them.
       </p>
 
-      <h3>Type annotations are used everywhere, aren’t they standard?</h3>
+      <h2>Type annotations are used everywhere, aren’t they standard?</h2>
       <p>
         There’s a hype, for sure: Python types are really everywhere, all the new
         projects use them, everybody agrees. That’s a standard now!
@@ -47,7 +48,7 @@
         would be interesting to know!
       </p>
 
-      <h3>Having type hints is better than not having them! Samples in documentation are just useful to learn Python!</h3>
+      <h2>Having type hints is better than not having them! Samples in documentation are just useful to learn Python!</h2>
       <p>
         <strong>If they’re "just" omitted for Python newcomers, there’s a reason.</strong>
       </p>
@@ -85,7 +86,7 @@
         And we love to use it, even if it looks messy or wrong for some people.
       </p>
 
-      <h3>Don’t Type Annotations Prevent Bugs? Quality Matters!</h3>
+      <h2>Don’t Type Annotations Prevent Bugs? Quality Matters!</h2>
       <p>
         During many months, I did work on Python projects with type hints.
         <strong>And I found type hints amazing.</strong>
@@ -137,7 +138,7 @@
         <li>The client was happy because I was smart. It would have been smarter to avoid that useless work.</li>
       </ul>
 
-      <h3>Static typing comes with great advantages</h3>
+      <h2>Static typing comes with great advantages</h2>
       <p>
         Yes, that’s true. But <strong>Python is a dynamically typed language, even with type
         hints 🦆.</strong>
@@ -163,13 +164,13 @@
         brings full power out of it, not just a small part of it.
       </p>
 
-      <h3>Much less people will contribute without type hints!</h3>
+      <h2>Much less people will contribute without type hints!</h2>
       <p>
         Maybe much less people would contribute with type hints. And we’re already two
         of them ☺️.
       </p>
 
-      <h3>IDEs and AI are powerful for users, they need annotations!</h3>
+      <h2>IDEs and AI are powerful for users, they need annotations!</h2>
       <p>
         We know that a lot of people love type hints. And we don’t want to convince them
         that annotations are wrong. We understand that they really would prefer to have
@@ -189,12 +190,12 @@
         cases already.
       </p>
 
-      <h3>Come on, type hints wouldn’t be hard to maintain!</h3>
+      <h2>Come on, type hints wouldn’t be hard to maintain!</h2>
       <p>
         Then, please, contribute to Typeshed!
       </p>
 
-      <h3>Sorry, but I don’t have enough time or skills to maintain a module…</h3>
+      <h2>Sorry, but I don’t have enough time or skills to maintain a module…</h2>
       <p>
         We know, <strong>it’s hard to maintain a module with quite a lot of activity,</strong>
         it takes time and is a long-term commitment. Don’t believe those who say that
@@ -207,4 +208,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

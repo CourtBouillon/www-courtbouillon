@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>WeasyPrint Without Cairo, What’s Different?</h2>
+      <h1>WeasyPrint Without Cairo, What’s Different?</h1>
       <aside><time datetime="2020-12-06">December 6, 2020</time>, by liZe</aside>
       <p>
         The next major version of WeasyPrint will work without Cairo. What does
@@ -13,7 +14,7 @@
     </header>
 
     <section>
-      <h3>Why?</h3>
+      <h2>Why?</h2>
       <p>
         During these years, Cairo has been very helpful to draw things in
         output files. But, let’s face it: (1) Cairo isn’t in good shape
@@ -44,7 +45,7 @@
     </section>
 
     <section>
-      <h3>What We’ll Lose</h3>
+      <h2>What We’ll Lose</h2>
       <p>
         The main (and only real) thing we’ll lose in WeasyPrint is the PNG
         output.
@@ -99,7 +100,7 @@
     </section>
 
     <section>
-      <h3>What We’ll Get Back</h3>
+      <h2>What We’ll Get Back</h2>
       <p>
         The current <code>pydyf</code> branch has 5 failing tests.
       </p>
@@ -125,7 +126,7 @@
     </section>
 
     <section>
-      <h3>What We’ll Find</h3>
+      <h2>What We’ll Find</h2>
       <p>
         The pydyf branch has become the master branch.
       </p>
@@ -153,4 +154,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

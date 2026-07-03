@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>The Python Packaging Hell: Files Everywhere (4 / 7)</h2>
+      <h1>The Python Packaging Hell: Files Everywhere (4 / 7)</h1>
       <aside><time datetime="2021-10-28">October 28, 2021</time>, by CourtBouillon</aside>
       <p>
         Python packaging can sometimes be a nightmare. To convince yourself about
@@ -16,7 +17,7 @@
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>But Why?</h3>
+      <h2>But Why?</h2>
       <p>
         We can’t say that there is no manual to create Python packages. The
         issue isn’t the lack, but the abundance. You’ll find manuals everywhere,
@@ -96,7 +97,7 @@
     </section>
 
     <section>
-      <h3>A Rather Short List</h3>
+      <h2>A Rather Short List</h2>
 
       <p>
         There is no need to grumble: as usual, we won’t talk about everything
@@ -105,7 +106,7 @@
         where we come from.
       </p>
 
-      <h4><code>setup.py</code></h4>
+      <h3><code>setup.py</code></h3>
       <p>
         This file is the first one introduced to handle package creation, it’s
         also the most famous and the most used today, despite its advanced age
@@ -200,7 +201,7 @@
         infected the <code>setup.py</code> of a significant majority of projects.
       </p>
 
-      <h4><code>setup.cfg</code></h4>
+      <h3><code>setup.cfg</code></h3>
       <p>
         Obviously, the idea to set up a declarative format for packages creation
         has finally arrived, and a solution has been integrated into setuptools:
@@ -240,7 +241,7 @@
         a real issue.
       </p>
 
-      <h4><code>requirements.txt</code></h4>
+      <h3><code>requirements.txt</code></h3>
       <p>
         Here is a file you certainly have already met and used. Praised without
         finesse by second zone tutorials, acclaimed for its simplicity and
@@ -282,7 +283,7 @@
         on the altar of the sacrosanct features.
       </p>
 
-      <h4><code>MANIFEST.in</code></h4>
+      <h3><code>MANIFEST.in</code></h3>
       <p>
         Do you want a very special feature? Including assets in a source package
         is a good example of what a painful puzzle is.
@@ -321,7 +322,7 @@
         </figcaption>
       </figure>
 
-      <h4><code>pyproject.toml</code></h4>
+      <h3><code>pyproject.toml</code></h3>
       <p>
         Here we are.
       </p>
@@ -391,4 +392,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

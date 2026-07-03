@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v56: Beta Time</h2>
+      <h1>WeasyPrint v56: Beta Time</h1>
       <aside><time datetime="2022-06-17">June 17, 2022</time>, by grewn0uille</aside>
       <p>
         WeasyPrint v56 is the next major version of WeasyPrint.
@@ -15,14 +16,14 @@
     </header>
 
     <section>
-      <h3>Bitmap Fonts and Better <code>line-clamp</code> Support</h3>
+      <h2>Bitmap Fonts and Better <code>line-clamp</code> Support</h2>
 
       <p>
         Thanks to the financial support of <a href="https://www.expert.de/">Expert Germany</a>,
         WeasyPrint has now a better support of <code>line-clamp</code> and supports bitmap fonts 🎉.
       </p>
 
-      <h4>Bitmap Fonts</h4>
+      <h3>Bitmap Fonts</h3>
 
       <p>
         You can now use your favorite OpenType bitmap (otb) fonts in your documents.
@@ -32,7 +33,7 @@
         rendering ✨!
       </p>
 
-      <h4><code>line-clamp</code> improvements</h4>
+      <h3><code>line-clamp</code> improvements</h3>
 
       <p>
         <code>line-clamp</code> is a shorthand property for three different properties: <code>max-lines</code>,
@@ -57,7 +58,7 @@
     </section>
 
     <section>
-      <h3>PDF/A Support</h3>
+      <h2>PDF/A Support</h2>
 
       <p>
         Thanks to the financial support of <a href="https://www.blueshoe.de/">Blueshoe</a>,
@@ -83,7 +84,7 @@
         to be store in the document itself and which PDF version is needed.
       </p>
 
-      <h4>How to generate PDF/A document?</h4>
+      <h3>How to generate PDF/A document?</h3>
 
       <p>
         To generate PDF/A document with WeasyPrint, a new option has been added:
@@ -96,14 +97,14 @@
         with the <code>--pdf-identifier</code> option.
       </p>
 
-      <h4>How to set PDF version?</h4>
+      <h3>How to set PDF version?</h3>
 
       <p>
         As PDF/A conformance levels require different PDF version, a new option has been added
         to set it: <code>--pdf-version</code>. The default version is 1.7.
       </p>
 
-      <h4>How to set custom metadata?</h4>
+      <h3>How to set custom metadata?</h3>
 
       <p>
         For archiving purpose, you may need to have custom metadata in your documents.
@@ -122,7 +123,7 @@
     </section>
 
     <section>
-      <h3>What Are the Next Steps?</h3>
+      <h2>What Are the Next Steps?</h2>
 
       <p>
         The next step is yours! Don’t hesitate to try this beta and report bugs you
@@ -144,4 +145,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

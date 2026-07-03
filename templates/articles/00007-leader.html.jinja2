@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>New Feature: leader()</h2>
+      <h1>New Feature: leader()</h1>
       <aside><time datetime="2021-03-11">March 11, 2021</time>, by grewn0uille</aside>
       <p>
         A new feature, <code>leader()</code>, has been added in WeasyPrint 🎉.
@@ -31,7 +32,7 @@
     </section>
 
     <section>
-      <h3>What is <code>leader()</code> and how to use it?</h3>
+      <h2>What is <code>leader()</code> and how to use it?</h2>
       <p>
       A leader is a repeating pattern used to visually connect content across
       horizontal spaces, like in tables of contents for example.
@@ -50,7 +51,7 @@
     </section>
 
     <section>
-      <h3>Limitations and testing</h3>
+      <h2>Limitations and testing</h2>
       <p>
       There are currently some limitations. Indeed, the behaviour of
       <code>leader()</code> may be undefined when the width
@@ -76,4 +77,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

@@ -1,9 +1,10 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>WeasyPrint v58: Beta Time</h2>
+      <h1>WeasyPrint v58: Beta Time</h1>
       <aside><time datetime="2023-02-03">February 3, 2023</time>, by grewn0uille</aside>
       <p>
         WeasyPrint v58 is the next major version of WeasyPrint.
@@ -33,7 +34,7 @@
     </section>
 
     <section>
-      <h3>How to Use PDF Form Feature?</h3>
+      <h2>How to Use PDF Form Feature?</h2>
 
       <p>
         For a long time, it’s been possible to include forms in your HTML documents and gather information.
@@ -45,7 +46,7 @@
         This issue is now closed!
       </p>
 
-      <h4>Which Inputs Are Supported?</h4>
+      <h3>Which Inputs Are Supported?</h3>
       <p>
         WeasyPrint supports text-based <code>input</code> tags, check-boxes and <code>textarea</code> tags. Your inputs
         have default value? No problem, they’ll be in your PDF!
@@ -62,7 +63,7 @@
         And now that WeasyPrint supports form fields, a default style for form elements has also been added!
       </p>
 
-      <h4>How to Activate the Feature?</h4>
+      <h3>How to Activate the Feature?</h3>
       <p>
         To enable this feature, you can use the <code>--pdf-forms</code> option or use the
         <code>appearance</code> CSS property. The <code>--pdf-forms</code> option will enable all of the form fields of your documents,
@@ -78,7 +79,7 @@
     </section>
 
     <section>
-      <h3>What Are the Next Steps?</h3>
+      <h2>What Are the Next Steps?</h2>
 
       <p>
         The next step is yours! Don’t hesitate to try this beta and report bugs you
@@ -103,4 +104,5 @@
       }
     }
   </style>
+  </main>
 {% endblock content %}

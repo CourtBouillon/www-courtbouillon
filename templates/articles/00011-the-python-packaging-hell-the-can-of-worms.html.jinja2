@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>The Python Packaging Hell: The Can of Worms (1 / 7)</h2>
+      <h1>The Python Packaging Hell: The Can of Worms (1 / 7)</h1>
       <aside><time datetime="2021-09-16">September 16, 2021</time>, by CourtBouillon</aside>
       <p>
         Python packaging can sometimes be a nightmare. You don’t know what
@@ -16,7 +17,7 @@
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>What’s the Problem?</h3>
+      <h2>What’s the Problem?</h2>
       <p>
         If you are here, we can assume that you’ve already written some lines of
         Python. You’ve already installed a Python project, with dependencies.
@@ -49,7 +50,7 @@
     </section>
 
     <section>
-      <h3>The Horror of the Beginnings</h3>
+      <h2>The Horror of the Beginnings</h2>
       <p>
         You may not remember, but at some point you didn’t know about Python.
         Yes, it’s true.
@@ -82,7 +83,7 @@
         Yeah: 🤦. We agree.
       </p>
 
-      <h4>Wow, Such Tutorial</h4>
+      <h3>Wow, Such Tutorial</h3>
       <p>
         Speaking about tutorials, one of the best sources is, indubitably,
         <a href="https://python-guide-fr.readthedocs.io/fr/latest/starting/installation.html">The Hitchhiker’s Guide to Python</a>.
@@ -129,7 +130,7 @@
         that’s very bad.
       </p>
 
-      <h4>Wow, Such Installer</h4>
+      <h3>Wow, Such Installer</h3>
       <p>
         OK, the first point was kind of a disaster. But… Maybe we can do better
         for the second one? Installing a package after installing Python should
@@ -173,7 +174,7 @@
     </section>
 
     <section>
-      <h3>The Loneliness of Package Creation</h3>
+      <h2>The Loneliness of Package Creation</h2>
       <p>
         And we’ve just <em>installed</em> a package. If you want to create and
         share a package, summon up your patience, expect other surprises.
@@ -259,7 +260,7 @@
     </section>
 
     <section>
-      <h3>And After That?</h3>
+      <h2>And After That?</h2>
       <p>
         With Python, you’re going to learrn things randomly from your online
         reading, on doubtful blogs like this one. You’re going to find
@@ -285,4 +286,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}

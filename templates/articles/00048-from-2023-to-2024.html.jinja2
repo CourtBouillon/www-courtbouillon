@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>From 2023 to 2024</h2>
+      <h1>From 2023 to 2024</h1>
       <aside><time datetime="2023-12-21">December 21, 2023</time>, by grewn0uille</aside>
       <p>
         For CourtBouillon’s three-year anniversary, we conducted a short survey to find out what
@@ -20,7 +21,7 @@
     </section>
 
     <section>
-      <h3>Which Projects Are Used and for What?</h3>
+      <h2>Which Projects Are Used and for What?</h2>
 
       <p>
         All of the respondants use <a href="https://weasyprint.org/">WeasyPrint</a>!
@@ -47,7 +48,7 @@
     </section>
 
     <section>
-      <h3>Most Enjoyed New Features from 2023</h3>
+      <h2>Most Enjoyed New Features from 2023</h2>
 
       <embed src="{{ url_for('static', filename='graphs/3_year_enjoyed_features.svg') }}" />
 
@@ -63,9 +64,9 @@
     </section>
 
     <section>
-      <h3>Most Wanted for 2024</h3>
+      <h2>Most Wanted for 2024</h2>
 
-      <h4>Most Wanted features</h4>
+      <h3>Most Wanted features</h3>
 
       <embed src="{{ url_for('static', filename='graphs/3_year_wanted_features.svg') }}" />
 
@@ -82,7 +83,7 @@
         properties. Once this work is done, it will be easier to add support for <code>calc()</code>.
       </p>
 
-      <h4>Most Wanted Content</h4>
+      <h3>Most Wanted Content</h3>
 
       <embed src="{{ url_for('static', filename='graphs/3_year_interested_content.svg') }}" />
 
@@ -99,7 +100,7 @@
     </section>
 
     <section>
-      <h3>Sponsoring and Donations</h3>
+      <h2>Sponsoring and Donations</h2>
 
       <embed src="{{ url_for('static', filename='graphs/3_year_sponsors.svg') }}" />
 
@@ -118,7 +119,7 @@
     </section>
 
     <section>
-      <h3>Never Miss News</h3>
+      <h2>Never Miss News</h2>
 
       <embed src="{{ url_for('static', filename='graphs/3_year_social_accounts.svg') }}" />
 
@@ -161,7 +162,7 @@
     embed + p {
       margin-top: 2em;
     }
-    h2, h3, h4,
+    h1, h2, h3,
     @media (max-width: 920px) {
       embed {
         float: none;
@@ -170,4 +171,5 @@
       }
     }
   </style>
+  </main>
 {% endblock content %}

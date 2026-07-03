@@ -1,9 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
+
   <article>
     <header>
-      <h2>Journey Book: July 2026</h2>
+      <h1>Journey Book: July 2026</h1>
       <aside><time datetime="2026-08-03">August 3, 2026</time>, by grewn0uille</aside>
       <p>
         It’s summer time! And it doesn’t rhyme with holidays 🍹
@@ -11,7 +13,7 @@
     </header>
 
     <section>
-      <h3>About Code</h3>
+      <h2>About Code</h2>
 
       <p>
         Earlier this year, <a href="url_for('blog', article='00063-journey-book-february-2026') }}">in March</a>,
@@ -45,7 +47,7 @@
     </section>
 
     <section>
-      <h3>Not About Code</h3>
+      <h2>Not About Code</h2>
 
       <p>
         This month, we got our 95<sup>th</sup> pull request opened on
@@ -82,4 +84,6 @@
       </p>
     </section>
   </article>
+
+  </main>
 {% endblock content %}

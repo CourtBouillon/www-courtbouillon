@@ -1,10 +1,11 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
 
   <article>
     <header>
-      <h2>The Python Packaging Hell: the Roots of Evil (2 / 7)</h2>
+      <h1>The Python Packaging Hell: the Roots of Evil (2 / 7)</h1>
       <aside><time datetime="2021-09-23">September 23, 2021</time>, by CourtBouillon</aside>
       <p>
         Python packaging can sometimes be a nightmare. Because of the stupidity
@@ -15,7 +16,7 @@
     {% include 'articles/_python_contents.jinja2' %}
 
     <section>
-      <h3>It’s Not the Right Technology</h3>
+      <h2>It’s Not the Right Technology</h2>
       <p>
         <a href="{{ url_for('blog', article='00011-the-python-packaging-hell-the-can-of-worms') }}">Last time</a>,
         we saw that it’s possible to manage package creation and distribution
@@ -43,7 +44,7 @@
     </section>
 
     <section>
-      <h3>It’s Not the Right Moment</h3>
+      <h2>It’s Not the Right Moment</h2>
       <p>
         It’s hard to remember or to imagine how IT was when Python started to
         germinate in the end of the 80s, but we can easily understand why
@@ -126,7 +127,7 @@
     </section>
 
     <section>
-      <h3>It’s Not the Right Standard</h3>
+      <h2>It’s Not the Right Standard</h2>
       <p>
         In a way, unfortunately, yes, it’s too late.
       </p>
@@ -171,7 +172,7 @@
     </section>
 
     <section>
-      <h3>It’s Not the Right Solution</h3>
+      <h2>It’s Not the Right Solution</h2>
       <p>
         If you think that dependency management has been solved for
         a long time, and that the people behind <code>pip</code> seriously lack
@@ -222,4 +223,5 @@
     </section>
   </article>
 
+  </main>
 {% endblock content %}
