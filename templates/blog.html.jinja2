@@ -3,16 +3,39 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
-  <article>
-    <h2>Blog</h2>
+  <header>
+    <h1>Blog</h1>
 
+    <p>Writing is a kind of code</p>
+    <p>
+      CourtBouillon conceives high-quality apps and tools to help you
+      give life to elegant documents, wonderful images, lovely texts, and more.
+    </p>
+
+    <ul>
+      {% for class, tag in tags.items() %}
+        <li><a href="">{{ tag }}</a></li>
+      {% endfor %}
+    </ul>
+  </header>
+
+  <main>
     {% for article in articles.values() %}
-      <section>
-        {{ article.introduction }}
-        <nav>
-          <p><a href="{{ url_for('blog', article=article.filename) }}">Read more…</a></p>
-        </nav>
-      </section>
+      <article>
+        <img src="">
+        <h2>
+          <a href="{{ url_for('blog', article=article.filename) }}">
+            {{ article.title }}
+          </a>
+        </h2>
+        {{ article.description }}
+        <aside>
+          {{ article.date }}
+          <ul>
+            <li>tag</li>
+          </ul>
+        </aside>
+      </article>
     {% endfor %}
-  </article>
+  </main>
 {% endblock content %}
