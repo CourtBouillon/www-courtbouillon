@@ -11,31 +11,43 @@
     <script>/* Stupid hack for iOS :hover */ document.addEventListener("touchstart", function(){}, true);</script>
   </head>
   <body id="page-{{ page or request.endpoint }}">
-    <header>
-      <h1><a href="{{ url_for('page', page='index') }}">CourtBouillon</a></h1>
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('page', page='index') }}">Home</a></li>
-          <li><a href="{{ url_for('page', page='projects') }}">Projects</a></li>
-          <li><a href="{{ url_for('page', page='team') }}">Team</a></li>
-          <li><a href="{{ url_for('blog') }}">Blog</a></li>
-          <li><a href="{{ url_for('page', page='index', _anchor='support') }}">Contact Us</a></li>
-          <li><a href="https://opencollective.com/courtbouillon">Become a Sponsor</a></li>
-        </ul>
-      </nav>
-      <p>Authentic people growing open source code with taste</p>
-    </header>
+    <nav>
+      <ul>
+        <li id="home"><a href="{{ url_for('page', page='index') }}">Home</a></li>
+        <li id="products">
+          Products
+          <dl>
+            <dt><a href="">WeasyPrint</a></dt>
+            <dd>The awesome document factory</dd>
+            <dt><a href="">tinycss2</a></dt>
+            <dd>A tiny CSS parser</dd>
+            <dt><a href="">pydyf</a></dt>
+            <dd>A low-level PDF creator</dd>
+            <dt><a href="">Pyphen</a></dt>
+            <dd>Hy-phen-ation made easy</dd>
+            <dt><a href="">Flask-WeasyPrint</a></dt>
+            <dd>Generate PDF files out of your Flask website thanks to WeasyPrint</dd>
+            <dt><a href="">Frozen-Flask</a></dt>
+            <dd>Freezes a Flask application into a set of static files</dd>
+          </dl>
+        </li>
+        <li id="blog"><a href="{{ url_for('blog') }}">Blog</a></li>
+        <li id="about"><a href="{{ url_for('page', page='team') }}">About</a></li>
+        <li id="github"><a href="">GitHub</a></li>
+        <li><button popovertarget="contact">Get in touch</button></li>
+      </ul>
+    </nav>
 
-    <main>
-      {% block content %}{% endblock content %}
-    </main>
+    {% block content %}{% endblock content %}
 
     <footer>
       <section>
-        <h2>Contact</h2>
+        <h2>Products</h2>
         <ul>
-          <li><a title="contact&#64;courtbouillon.org" href="mailto:contact&#64;courtbouillon.org">Mail</a></li>
-          <li><a title="CourtBouillon" href="https://matrix.to/#/#CourtBouillon_community:gitter.im">Chat</a></li>
+          <li><a href="">WeasyPrint</a></li>
+          <li><a href="">tinycss2</a></li>
+          <li><a href="">pydyf</a></li>
+          <li><a href="">Pyphen</a></li>
         </ul>
       </section>
 
@@ -45,20 +57,42 @@
           <li><a title="@courtbouillon" href="https://fosstodon.org/@courtbouillon">Mastodon</a></li>
           <li><a title="CourtBouillon on GitHub" href="https://github.com/CourtBouillon">GitHub</a></li>
           <li><a title="CourtBouillon on LinkedIn" href="https://linkedin.com/company/courtbouillon">LinkedIn</a></li>
+          <li><a title="CourtBouillon" href="https://matrix.to/#/#CourtBouillon_community:gitter.im">Chat</a></li>
           <li><a href="{{ url_for('rss') }}">RSS</a></li>
         </ul>
       </section>
 
       <section>
-        <h2>About Us</h2>
+        <h2>Colophon</h2>
         <ul>
-          <li><a href="{{ url_for('page', page='team') }}">Team</a></li>
-          <li><a href="{{ url_for('page', page='legal') }}">Legal Notice</a></li>
           <li><a href="{{ url_for('page', page='code-of-conduct') }}">Code of Conduct</a></li>
+          <li><a href="{{ url_for('page', page='legal') }}">Legal Notice</a></li>
           <li><a href="{{ url_for('page', page='links') }}">Linktree</a></li>
-          <li><a href="https://opencollective.com/courtbouillon">Become a Sponsor</a></li>
         </ul>
       </section>
     </footer>
+
+
+    <dialog id="contact" popover>
+      <h2>Get in touch</h2>
+
+      <form action="/contact" method="post">
+        <label>
+          Your email address:
+          <input type="email" placeholder="contact@mycompany.com" required>
+        </label>
+
+        <label>
+          Tell us about your project:
+          <textarea placeholder="Hello, I’d like to work with you on…" required></textarea>
+        </label>
+
+        <button type="submit">Send</button>
+      </form>
+      <p>
+        Or send an email to <a href="mailto:contact&#64;courtbouillon.org">contact&#64;courtbouillon.org</a>.
+      </p>
+      <button popovertarget="contact" popovertargetaction="hide">Close</button>
+    </dialog>
   </body>
 </html>

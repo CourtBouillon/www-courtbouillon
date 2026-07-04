@@ -3,177 +3,165 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
-  <article id="projects">
-    <h2>Projects</h2>
+  <header>
+    <h1>Home</h1>
+
+    <p>
+      Building tools that shape your documents
+    </p>
     <p class="presentation">
       CourtBouillon conceives high-quality apps and tools to help you give life
       to elegant documents, wonderful images, lovely texts, and more.
     </p>
-    <dl>
-      <dt data-project="weasyprint"><a href="{{ url_for('page', page='weasyprint') }}">WeasyPrint</a></dt>
-      <dd>the awesome document factory</dd>
-      <dt data-project="cairosvg"><a href="{{ url_for('page', page='cairosvg') }}">CairoSVG</a></dt>
-      <dd>convert your vector images</dd>
-      <dt data-project="tinycss2"><a href="{{ url_for('page', page='tinycss2') }}">tinycss2</a></dt>
-      <dd>a tiny CSS parser</dd>
-      <dt data-project="pydyf"><a href="{{ url_for('page', page='pydyf') }}">pydyf</a></dt>
-      <dd>a low-level PDF creator</dd>
-      <dt data-project="pyphen"><a href="{{ url_for('page', page='pyphen') }}">Pyphen</a></dt>
-      <dd>hy-phen-ation made easy</dd>
-      <dt data-project="others"><a href="{{ url_for('page', page='projects') }}">and many more…</a></dt>
-      <dd>discover all the projects we take care of</dd>
-    </dl>
-  </article>
+  </header>
 
-  <article id="sponsors">
-    <h2>Sponsorship</h2>
-    <p>
-      With donations and sponsorship, you help the projects to be better.
-      Donations allow the CourtBouillon team to have more time dedicated to add
-      new features, fix bugs, and improve documentation.
-    </p>
-    <p class="button">
-      <a href="https://opencollective.com/courtbouillon">Become a Sponsor</a>
-    </p>
-
+  <main>
     <section>
-      <h3>Gold Sponsors</h3>
-      <ul class="sponsors gold">
-        <li><a href="https://www.spacinov.com" title="Spacinov">
-          Spacinov
-          <img alt="Spacinov logo" src="{{ url_for('static', filename='images/sponsor-spacinov.svg') }}" />
-        </a></li>
-        <li><a href="https://www.syslifters.com/" title="Syslifters">
-          Syslifters
-          <img alt="Syslifters logo" src="{{ url_for('static', filename='images/sponsor-syslifters.svg') }}" />
-        </a></li>
-      </ul>
-      <h3>Silver Sponsors</h3>
-      <ul class="sponsors silver">
-        <li><a href="https://www.kobalt.fr/" title="Kobalt">
-          Kobalt
-          <img alt="Kobalt logo" src="{{ url_for('static', filename='images/sponsor-kobalt.webp') }}" />
-        </a></li>
-      </ul>
-      <h3>Bronze Sponsors</h3>
-      <ul class="sponsors bronze">
-        <li><a href="https://getgrip.de/" title="Grip Angebotssoftware">
-          Grip Angebotssoftware
-          <img alt="Grip logo" src="{{ url_for('static', filename='images/sponsor-grip.png') }}" />
-        </a></li>
-        <li><a href="https://www.simonsoft.se/" title="Simonsoft">
-          Simonsoft
-          <img alt="SimonSoft logo" src="{{ url_for('static', filename='images/sponsor-simonsoft.webp') }}" />
-        </a></li>
-        <li><a href="https://menutech.com/" title="Menutech">
-          Menutech
-          <img alt="Menutech logo" src="{{ url_for('static', filename='images/sponsor-menutech.svg') }}" />
-        </a></li>
-        <li><a href="https://kontextwork.de" title="KontextWork">
-          KontextWork
-          <img alt="KontextWork logo" src="{{ url_for('static', filename='images/sponsor-kontextwork.webp') }}" />
-        </a></li>
-        <li><a href="https://healthchecks.io/" title="Healthchecks.io">
-          Healthchecks.io
-          <img alt="Healthchecks.io logo" src="{{ url_for('static', filename='images/sponsor-healthchecks.webp') }}" />
-        </a></li>
-        <li><a href="https://www.trainingsparkle.com/" title="Training Sparkle">
-          TrainingSparkle
-          <img alt="TrainingSparkle logo" src="{{ url_for('static', filename='images/sponsor-trainingsparkle.svg') }}" />
-        </a></li>
-        <li><a href="https://hammerbacher.com/" title="Hammerbacher GmbH">
-            Hammerbacher GmbH
-            <img alt="Hammerbacher GmbH logo" src="{{ url_for('static', filename='images/sponsor-hammerbacher.svg') }}" />
-        </a></li>
-        <li><a href="https://www.method-b.uk/" title="Method B">
-          Method B
-          <img alt="Method B logo" src="{{ url_for('static', filename='images/sponsor-method-b.svg') }}" />
-        </a></li>
-        <li><a href="https://fieldhub.com/" title="Fieldhub">
-          Fieldhub
-          <img alt="Fieldhub logo" src="{{ url_for('static', filename='images/sponsor-fieldhub.svg') }}" />
-        </a></li>
-        <li><a href="https://www.prothesis.fr/" title="Prothesis Dental Solutions">
-          Prothesis Dental Solutions
-          <img alt="Prothesis Dental Solutions logo" src="{{ url_for('static', filename='images/sponsor-prothesis.svg') }}" />
-        </a></li>
-        <li><a href="https://pdfbolt.com/" title="PDFBolt">
-          PDFBolt
-          <img alt="PDFBolt logo" src="{{ url_for('static', filename='images/sponsor-pdfbolt.svg') }}" />
-        </a></li>
-      </ul>
-      <h3>Grants</h3>
-      <ul class="sponsors gold">
-        <li><a href="https://nlnet.nl/" title="NLnet">
-          NLnet
-          <img alt="NLnet logo" src="{{ url_for('static', filename='images/sponsor-nlnet.svg') }}" />
-        </a></li>
+      <h2>Trusted by</h2>
+
+      <ul>
+        <li><img src=""></li>
+        <li><img src=""></li>
+        <li><img src=""></li>
       </ul>
     </section>
-  </article>
+
+    <section>
+      <h2>You already use them</h2>
+      <p>
+        Tools that shape documents effortlessly
+      </p>
+
+      <div>
+        <article>
+          <h3>WeasyPrint</h3>
+
+          <img src="">
+          <p>
+            TODO
+          </p>
+          <ul>
+            <li>9.3k</li>
+            <li><a href="">Repository</a></li>
+            <li><a href="">Website</a></li>
+            <li><a href="">Documentation</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>pydyf</h3>
+
+          <img src="">
+          <p>
+            TODO
+          </p>
+          <ul>
+            <li>151</li>
+            <li><a href="">Repository</a></li>
+            <li><a href="">Website</a></li>
+            <li><a href="">Documentation</a></li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Pyphen</h3>
+
+          <img src="">
+          <p>
+            TODO
+          </p>
+          <ul>
+            <li>229</li>
+            <li><a href="">Repository</a></li>
+            <li><a href="">Website</a></li>
+            <li><a href="">Documentation</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="">WeasyPrint</a></li>
+          <li><a href="">pydyf</a></li>
+          <li><a href="">Pyphen</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section>
+      <h2>Open source at the core</h2>
+      <p>
+        Dedicated to build a better web
+      </p>
+      <p>
+        TODO
+      </p>
+
+      <dl>
+        <dt>Free and Open Source</dt>
+        <dd>We deeply believe that everyone should be able to access, modify and share software</dd>
+        <dt>Authentic</dt>
+        <dd>We write code with our hearts, and we truly want to make it reach high levels of quality</dd>
+        <dt>Essential</dt>
+        <dd>We love simplicity</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Proven by experience</h2>
+      <p>
+        Our open source commitment has been recognised for years
+      </p>
+
+      <div>
+        <figure>
+          <blockquote>
+            We couldn’t recommend CourtBouillon highly enough and look
+            forward to collaborating on many more projects in the
+            future. They implemented the design of a complex PDF
+            template for us and made it look easy, with every pixel
+            laid out to perfection.
+          </blockquote>
+          <figcaption>Dan B. <a href="https://codeandco.com">Code & Co.</a></figcaption>
+        </figure>
+        <figure>
+          <blockquote>
+            CourtBouillon is highly recommended. They are talented
+            experts in this area and they invest time improving the
+            open-source package WeasyPrint that makes this all
+            possible.
+          </blockquote>
+          <figcaption>Castedo E. <a href="https://popgen.es/">popgen.es</a></figcaption>
+        </figure>
+        <figure>
+          <blockquote>
+            CourtBouillon have been very professional and transparent.
+            It has been a real pleasure to work with them!
+          </blockquote>
+          <figcaption>Andreas P. <a href="https://personalkollen.se">Personalkollen</a></figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
 
   <article id="support">
-    <h2>Professional Support</h2>
+    <h2>Streamline your product</h2>
     <p>
-      You can improve your experience with CourtBouillon’s tools thanks to our
-      professional support.
+      Ask us tailor made functionality
     </p>
     <ul>
       <li>
-        A bug is driving you crazy and you want it to be fixed as soon as possible?
+        Your document is nice, but a new feature would make it awesome?
       </li>
       <li>
-        Your documents are nice, but a new feature would make them awesome?
+        You need to automate your document workflow with HTML/CSS templates?
       </li>
       <li>
-        You have a sweet design, but need help to convert it in HTML/CSS template?
+        You’re already using our products, but a key feature is missing?
       </li>
     </ul>
-    <p>
-      Please contact us by
-      <a title="contact&#64;courtbouillon.org" href="mailto:contact&#64;courtbouillon.org">mail</a>,
-      by <a title="CourtBouillon" href="https://matrix.to/#/#CourtBouillon_community:gitter.im">chat</a> or
-      by <a title="@courtbouillon" href="https://fosstodon.org/@courtbouillon">toot</a>
-      to get in touch, we’ll be happy to find the best way to help you!
-    </p>
-    <p class="button">
-      <a href="mailto:contact&#64;courtbouillon.org">Contact Us!</a>
-    </p>
-  </article>
 
-  <article id="testimonials">
-    <h2>Why Us?</h2>
-    <figure>
-      <blockquote>
-        Professional, kind and exceedingly talented, CourtBouillon have been a pleasure to work with from day one.
-        They implemented the design of a complex PDF template for us and made it look easy, with every pixel laid out to perfection.
-        We're also grateful for the massive and generous contribution they make to the open source community, and rely heavily on their amazing PDF library – WeasyPrint.
-        We couldn’t recommend CourtBouillon highly enough and look forward to collaborating on many more projects in the future.
-        </blockquote>
-      <figcaption><a href="https://codeandco.com">Code & Co.</a></figcaption>
-    </figure>
-    <figure>
-      <blockquote>
-        Hiring CourtBouillon enabled the upgrade of an antiquated PDF production workflow to a new modern
-        process taking advantage of the new possibilities of modern HTML and CSS for print media using the
-        open-source tool WeasyPrint. Not only did their expertise and talents result in beautiful PDFs, the
-        well organized and commented CSS code they delivered helped upgrade my own knowledge to these new
-        possibilities and best practices of CSS. CourtBouillon is highly recommended. They are talented
-        experts in this area and they invest time improving the open-source package WeasyPrint that
-        makes this all possible.
-      </blockquote>
-      <figcaption><a href="https://popgen.es/">Castedo Ellerman</a></figcaption>
-    </figure>
-    <figure>
-      <blockquote>
-        After happily using WeasyPrint for quite a time, we needed a new feature. CourtBouillon have been
-        very professional and transparent. It has been a real pleasure to work with them! We’re also
-        thankful for all their work on WeasyPrint and in the open source community in general.
-      </blockquote>
-      <figcaption><a href="https://personalkollen.se">Personalkollen</a></figcaption>
-    </figure>
-    <p class="button">
-      <a href="mailto:contact&#64;courtbouillon.org">Contact Us!</a>
-    </p>
+    <button popovertarget="contact">Let’s build it now</button>
   </article>
 {% endblock content %}

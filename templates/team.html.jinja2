@@ -3,51 +3,168 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
-  <article>
-    <h2>Values</h2>
+  <header>
+    <h1>Our team</h1>
+
+    <p>
+      Authentic people growing open source code with taste
+    </p>
+    <p>
+      CourtBouillon conceives high-quality apps and tools to help you give life
+      to elegant documents, wonderful images, lovely texts, and more.
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Our sponsors</h2>
+
+      <ul class="sponsors gold">
+        <li><a href="https://nlnet.nl/" title="NLnet">
+          NLnet
+          <img alt="NLnet logo" src="{{ url_for('static', filename='images/sponsor-nlnet.svg') }}" />
+        </a></li>
+        <li><a href="https://www.spacinov.com" title="Spacinov">
+          Spacinov
+          <img alt="Spacinov logo" src="{{ url_for('static', filename='images/sponsor-spacinov.svg') }}" />
+        </a></li>
+        <li><a href="https://www.syslifters.com/" title="Syslifters">
+          Syslifters
+          <img alt="Syslifters logo" src="{{ url_for('static', filename='images/sponsor-syslifters.svg') }}" />
+        </a></li>
+      </ul>
+
+      <ul class="sponsors silver">
+        <li><a href="https://www.kobalt.fr/" title="Kobalt">
+          Kobalt
+          <img alt="Kobalt logo" src="{{ url_for('static', filename='images/sponsor-kobalt.webp') }}" />
+        </a></li>
+      </ul>
+
+      <ul class="sponsors bronze">
+        <li><a href="https://getgrip.de/" title="Grip Angebotssoftware">
+          Grip Angebotssoftware
+          <img alt="Grip logo" src="{{ url_for('static', filename='images/sponsor-grip.png') }}" />
+        </a></li>
+        <li><a href="https://www.simonsoft.se/" title="Simonsoft">
+          Simonsoft
+          <img alt="SimonSoft logo" src="{{ url_for('static', filename='images/sponsor-simonsoft.webp') }}" />
+        </a></li>
+        <li><a href="https://menutech.com/" title="Menutech">
+          Menutech
+          <img alt="Menutech logo" src="{{ url_for('static', filename='images/sponsor-menutech.svg') }}" />
+        </a></li>
+        <li><a href="https://kontextwork.de" title="KontextWork">
+          KontextWork
+          <img alt="KontextWork logo" src="{{ url_for('static', filename='images/sponsor-kontextwork.webp') }}" />
+        </a></li>
+        <li><a href="https://healthchecks.io/" title="Healthchecks.io">
+          Healthchecks.io
+          <img alt="Healthchecks.io logo" src="{{ url_for('static', filename='images/sponsor-healthchecks.webp') }}" />
+        </a></li>
+        <li><a href="https://www.trainingsparkle.com/" title="Training Sparkle">
+          TrainingSparkle
+          <img alt="TrainingSparkle logo" src="{{ url_for('static', filename='images/sponsor-trainingsparkle.svg') }}" />
+        </a></li>
+        <li><a href="https://hammerbacher.com/" title="Hammerbacher GmbH">
+          Hammerbacher GmbH
+          <img alt="Hammerbacher GmbH logo" src="{{ url_for('static', filename='images/sponsor-hammerbacher.svg') }}" />
+        </a></li>
+        <li><a href="https://www.method-b.uk/" title="Method B">
+          Method B
+          <img alt="Method B logo" src="{{ url_for('static', filename='images/sponsor-method-b.svg') }}" />
+        </a></li>
+        <li><a href="https://fieldhub.com/" title="Fieldhub">
+          Fieldhub
+          <img alt="Fieldhub logo" src="{{ url_for('static', filename='images/sponsor-fieldhub.svg') }}" />
+        </a></li>
+        <li><a href="https://www.prothesis.fr/" title="Prothesis Dental Solutions">
+          Prothesis Dental Solutions
+          <img alt="Prothesis Dental Solutions logo" src="{{ url_for('static', filename='images/sponsor-prothesis.svg') }}" />
+        </a></li>
+        <li><a href="https://pdfbolt.com/" title="PDFBolt">
+          PDFBolt
+          <img alt="PDFBolt logo" src="{{ url_for('static', filename='images/sponsor-pdfbolt.svg') }}" />
+        </a></li>
+      </ul>
+    </section>
 
     <section>
-      <h3>Free and Open Source</h3>
+      <aside>
+        <img src="">
+
+        <dl>
+          <dt>Contact</dt>
+          <dd><a href="mailto:contact&#64;courtbouillon.org">contact&#64;courtbouillon.org</a></dd>
+          <dd><a title="CourtBouillon" href="https://matrix.to/#/#CourtBouillon_community:gitter.im">Chat</a></dd>
+
+          <dt>Social</dt>
+          <dd><a title="@courtbouillon" href="https://fosstodon.org/@courtbouillon">Mastodon</a></dd>
+          <dd><a title="CourtBouillon on GitHub" href="https://github.com/CourtBouillon">GitHub</a></dd>
+          <dd><a title="CourtBouillon on LinkedIn" href="https://linkedin.com/company/courtbouillon">LinkedIn</a></dd>
+        </dl>
+
+        <a href="https://opencollective.com/courtbouillon">Become a sponsor</a>
+      </aside>
+
+      <h2>Why</h2>
+
       <p>
         We deeply believe that everyone should able to access, modify and share
         software. That’s why the code we write is open, and always will be.
       </p>
-    </section>
 
-    <section>
-      <h3>Authentic</h3>
       <p>
         We write code with our hearts, and we truly want to make it reach high
         levels of quality. Our projects are passionately dedicated to people
         who have problems to solve and things to learn.
       </p>
-    </section>
 
-    <section>
-      <h3>Essential</h3>
       <p>
         We love simplicity.
       </p>
-    </section>
-  </article>
 
-  <article>
-    <h2>People</h2>
-
-    <section>
-      <h3>Lucie, aka <code>@grewn0uille</code></h3>
       <p>
-        Software engineer, 🐍 Python and 🐚 Bash coder, 🍲 Food lover. Always
-        ready to chat over a drink 🍻 !
+        Lucie &amp; Guillaume, Founders
       </p>
     </section>
 
     <section>
-      <h3>Guillaume, aka <code>@liZe</code></h3>
+      <h2>20 year in the open</h2>
+
       <p>
-        Software engineer, 🐍 Python lover, 🐧 Free software creator and 📑
-        specifications reader. I’m nice 😀, you can talk to me.
+        We are privileged to look back on the past
       </p>
+      <p>TODO</p>
+
+      <article>
+        <h3><a href="">Radicale</a></h3>
+        <p>
+          A simple CalDAV (calendar) and CardDAV (contact) server
+        </p>
+        <span>4.8k</span>
+      </article>
+      <article>
+        <h3><a href="">CairoSVG</a></h3>
+        <p>
+          Convert your vector images
+        </p>
+        <span>940</span>
+      </article>
+      <article>
+        <h3><a href="">Multicorn</a></h3>
+        <p>
+          Data Access Library
+        </p>
+        <span>705</span>
+      </article>
+      <article>
+        <h3><a href="">PyConFR 2025</a></h3>
+        <p>
+          The French Python Conference, in Lyon
+        </p>
+        <span>500</span>
+      </article>
     </section>
-  </article>
+  </main>
 {% endblock content %}
