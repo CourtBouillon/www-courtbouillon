@@ -8,7 +8,9 @@ from pygments import formatters, highlight, lexers
 
 app = Flask(__name__)
 TEMPLATES = Path(app.root_path) / app.template_folder
-
+TAGS = {
+    'release': 'Release', 'loc': 'Life of Courtbouillon',
+    'opinion': 'Opinion', 'technique': 'Technique'}
 
 def list_articles():
     articles_path = TEMPLATES / 'articles'
@@ -21,14 +23,13 @@ def list_articles():
             continue
         content = (articles_path / article.name).read_text()
         introduction = content.split('<header>')[1].split('</header>')[0]
-        title = introduction.split('<h2>')[1].split('</h2>')[0]
+        title = introduction.split('<h1>')[1].split('</h1>')[0]
         description = introduction.split('</aside>')[1]
         date_string = introduction.split('datetime="')[1].split('"')[0]
         date = format_datetime(datetime.strptime(date_string, '%Y-%m-%d'))
         article_id = article.name.split('-')[0]
         articles[article_id] = {
             'filename': article.name.split('.html')[0],
-            'introduction': introduction.replace('h2>', 'h3>'),
             'title': title,
             'description': description,
             'date': date,
@@ -43,8 +44,8 @@ def blog(article=None):
     if article is not None:
         article_object = list_articles()[article.split('-')[0]]
         template = f'articles/{article}.html.jinja2'
-        return render_template(template, page='article', **article_object)
-    return render_template('blog.html.jinja2', articles=list_articles())
+        return render_template(template, page='article', tags=TAGS, **article_object)
+    return render_template('blog.html.jinja2', articles=list_articles(), tags=TAGS)
 
 
 @app.route('/')
@@ -55,7 +56,7 @@ def page(page='index'):
 
 @app.route('/blog.rss')
 def rss():
-    rss = render_template('blog.rss.jinja2', articles=list_articles())
+    rss = render_template('blog.rss.jinja2', articles=list_articles(), tags=TAGS)
     return Response(rss, mimetype='application/rss+xml')
 
 
