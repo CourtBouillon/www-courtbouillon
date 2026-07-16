@@ -1,0 +1,335 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>How New Contributors Devour Open Source</h2>
+      <aside><time datetime="2026-08-01">August 1, 2026</time>, by liZe</aside>
+      <p>
+        In about a year, we’ve got an increasing number of pull requests and security
+        reports. A lot of contributions, that’s good news! Well… No. They look like
+        contributions, but they’re not. They’re a new kind of poison that kills free
+        software projects all around the world.
+      </p>
+    </header>
+
+    <section>
+      <h3>Why We Create and Maintain Open Source Software</h3>
+
+      <p>
+        <strong>The world of free software has always been more than writing
+        code.</strong> Even if the root of open source is code, there’s always been a
+        lot of topics that gather people: licenses, freedom, ethics, languages,
+        community rules, quality, tests, architecture questions, ideas, drinks, friends…
+      </p>
+      <p>
+        Different communities have been built around different projects, and
+        contributors usually like the values shared by the community. If they don’t like
+        it, they can join a different community, or even fork the project to build a new
+        community around it.
+      </p>
+      <p>
+        My first contribution to open source was the French translation of Coccinella,
+        an instant messaging application. That was more than 20 years ago, I didn’t know
+        how to code, even if I already was a Linux user for quite a long time.
+      </p>
+      <p>
+        Why did I contribute? Because I wanted a French translation of Coccinella. That
+        was obvious. I remember
+        how <a href="https://thecoccinella.org/node/312.html">Mats Bengtsson</a>, the
+        maintainer, was really happy when I first sent the translation. I remember all
+        his messages starting by "Gentlemen", and all his kind words. And I remember me
+        thinking: <strong>if developing free software is spending my time to discuss
+        with people like Mats, then I want to contribute to free software during my
+        whole life.</strong>
+      </p>
+      <p>
+        And I did.
+      </p>
+      <p>
+        Contributing was cool. I could spend a few minutes correcting typos in
+        documentation I was reading. I could spend hours fixing a small logic problem in
+        an app I used. I did spend days debugging my BIOS and adding a few random lines
+        in the Linux Kernel to get hibernation working on my laptop.
+      </p>
+      <p>
+        And then I created software, and I built communities. I was lucky enough to talk
+        with many people of the open source community, from newcomers to rock stars.
+        Sometimes we agreed, sometimes we disagreed. <strong>I learned so much from
+        their code, from their messages, from their thoughts and ideas.</strong> I hope
+        they did a little bit too. And I’m so grateful.
+      </p>
+      <p>
+        I am so happy to live from this job. Or… At least I was.
+      </p>
+    </section>
+
+    <section>
+      <h3>A Lot of Uninteresting Work, Done for Free</h3>
+      <p>
+        Things changed fast.
+      </p>
+      <p>
+        At FOSDEM 2026, I attended
+        <a href="https://fosdem.org/2026/schedule/event/B7YKQ7-oss-in-spite-of-ai/">the
+        keynote of Daniel Steinberg</a>. He was talking about how bad he feels each time
+        there is a security report, and how bad he felt when he woke up on the first
+        Monday of January with 7 security reports.
+      </p>
+      <p>
+        A lot of people laughed during the keynote, because Daniel made jokes. But Lucie
+        and I were feeling bad for him. I am sure that these jokes were no real jokes.
+        They were a way not to cry. I feel this.
+      </p>
+      <p>
+        Reading long and complex security reports is exhausting. It takes a lot of time
+        and energy, it must be done fast and well. This is not fun.
+      </p>
+      <p>
+        What’s worse than that? <strong>Most of the security reports are not real
+        reports.</strong> The problem doesn’t exist for real. The code the report quotes
+        doesn’t exist. The script that is supposed to reproduce the problem actually
+        doesn’t.
+      </p>
+      <p>
+        What’s even worse? <strong>The person behind the report doesn’t exist.</strong>
+      </p>
+      <p>
+        curl maintainers
+        took <a href="https://daniel.haxx.se/blog/2026/01/26/the-end-of-the-curl-bug-bounty/">extraordinary
+        measures</a>. Why? Because this situation is not possible anymore. A lot of free
+        software maintainers spend a lot of time to work for free, because they love the
+        code, the community, the craft. And it’s OK, sometimes, somehow. But what
+        happens when maintainers spend days reading soulless code, soulless reports?
+      </p>
+      <p>
+        <strong>This work takes more time, more energy, and is awfully uninteresting.</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>Nobody Learns Anything</h3>
+      <p>
+        Bad code, bad reports, bad issues, bad comments. In open source communities,
+        there has been complaints about these topics since forever. There are good
+        contributors, there are bad contributors, and everybody should at least RTFM.
+      </p>
+      <p>
+        Some maintainers are known to have a particularly harsh relationship with "bad"
+        contributors. Linus Torvalds is one of them, he has strong ideas, and he can use
+        strong words in his messages. Code is law, and bad code deserves angry feedback,
+        so that users can learn how to write quality code the hard way. Technical merit
+        is the only scale used to value contributions.
+      </p>
+      <p>
+        I don’t like this way of thinking, but I admit that it has a major advantage:
+        the rules are clear, only the code matters, tools and people behind this code
+        are not relevant to accept a contribution. If the contributors are not happy
+        with these rules, they can find a new project to contribute to. If maintainers
+        are not happy with new contributions and new tools,
+        <a href="https://lore.kernel.org/all/CAHk-%3Dwi4zC%2BZe8e%2Bp3tMv8TtG_80KzsZ1syL9anBtmEh5Z40vg@mail.gmail.com/">it’s
+        their responsibility to make them help, instead of causing pain</a>.
+      </p>
+      <p>
+        This is where I strongly disagree.
+      </p>
+      <p>
+        <strong>Even if you don’t care about people, even when you really don’t, this
+          technical-merit-only way doesn’t work for some contributions anymore.</strong>
+      </p>
+      <p>
+        There was a security report for one of our projects. The name of a variable was
+        misleading, and could give a false impression of security. The report was long,
+        listing lines in code, including a proof-of-concept script and bullshit possible
+        impact bullet points.
+      </p>
+      <p>
+        I spent days, I mean real days, trying to understand what was wrong. I wrote
+        long messages, explaining that there was nothing wrong. I proposed the
+        contributor to open a security fork repository, to show me what they have in
+        mind. I reviewed all their commits, even if some of them were extremely stupid.
+        The answers I got were contradictory and meaningless.
+      </p>
+      <p>
+        At the end, nothing changed. I got the famous "OK, you’re right, I was wrong,
+        I’m terribly sorry." All of that was 100% useless.
+      </p>
+      <p>
+        <strong>The contributor is nobody.</strong> This is a machine with no brain
+        behind. None of the code or the messages had a meaning. <strong>Nobody learned
+        anything.</strong>
+      </p>
+      <p>
+        I repeat: even if you don’t care about people, the technical-merit-only way of
+        doing doesn’t work for some contributions anymore. Humiliating people, like
+        Linus Torvalds did (does?) is not a solution anymore, because nobody gets
+        humiliated. New contributors will never fear your insults on the public mailing
+        list, because they will never read them. Machines don’t care, they have no
+        purpose. They will randomly propose stupid code, with long and complex walls of
+        bullshit that make them look deep and smart. <strong>And after some time spent
+        to read this statistically meaningful piece of crap, for nothing, my hate answer
+        will reach the only place it can reach: the void.</strong>
+      </p>
+      <p>
+        Nobody learns anything. This is truly meaningless. I do care about people, I
+        love them, I really do, they’re the main reason why I create open source
+        software. But many contributors are not people anymore.
+      </p>
+      <p>
+        This example is one among many. The vast majority of my work is now triaging
+        issues written by nobody, arguing with nobody, reviewing the code of nobody,
+        reading comments written by nobody, rewriting pull requests of nobody.
+      </p>
+      <p>
+        <strong>One day, we got 21 pull requests,</strong> and at least as many comments
+        on issues. Yes, in one day, by one contributor, who never contacted us before.
+        It took me countless days to try to understand all these pull requests, reject
+        most of them, rewrite some, and merge a few. And before you ask, they "were not
+        random noise […], they were derived from real engineering work." Let me
+        translate this for you: <strong>You didn’t write this code, but you reviewed it
+        personally and seriously.</strong> Guess what? I don’t believe you. You may
+        really believe this, but you lie to yourself.
+      </p>
+    </section>
+
+    <section>
+      <h3>Talking to Machines to Build Phony Resumes</h3>
+      <p>
+        Some cynical people may say: "But all contributions are good for the project!
+        <strong>Even if machines write code, it improves the project, there is no reason to
+        complain."</strong>
+      </p>
+      <p>
+        No, they’re not all good, for many different reasons.
+      </p>
+      <p>
+        First of all, <strong>killing the will of maintainers is bad for the
+        projects</strong>. From the number of maintainers writing blog entries or
+        contribution rules on the web, I can say that I am not alone hurt by the
+        flooding.
+      </p>
+      <p>
+        And there are deeper reasons. The quality of the code proposed by new
+        contributors is bad. Not because machines can’t write good code. Not because
+        people always write good code. <strong>Because contributors don’t care.</strong>
+      </p>
+      <p>
+        Some new contributors don’t know how to code. They have a problem with
+        WeasyPrint, and instead of opening an issue, they open a pull request with code
+        that they don’t even understand, and a 1000-word wall of text that explains the
+        problem that fits in 3 sentences in their heads.
+      </p>
+      <p>
+        <strong>These people really want to help, but they don’t.</strong> Their code is
+        bad, and that’s normal, they have no idea of what they’re doing. But I have to
+        read it. Their comments are long and useless, but I have to read them to find in
+        them the original 3 sentences the user had in mind. And I admit that I hate
+        reading someone or something trying to explain to me how the software I’ve been
+        designing for 15 years works, listing versions of libraries that ceased to be
+        dependencies of my project in 2020, with code that never existed, and diffs that
+        both remove and add the same line of code at the same place (and I swear, all
+        these details really happened, in just a few months).
+      </p>
+      <p>
+        Hi doctor, you’ve been studying medicine for more than 10 years, but let me
+        explain you the disease I have and the pills you will give me. I read that on
+        the Internet. The PDF of the prescription is already generated, with your
+        signature, just print it, we’ll both save our time.
+      </p>
+      <p>
+        And…
+      </p>
+      <p>
+        Here is one last reason why this is bad.
+      </p>
+      <p>
+        A new type of contributors arrived. They never used the project, never read the
+        documentation. <strong>They open a pull request with code they didn’t read, that
+        solves a problem nobody has ever had.</strong>
+      </p>
+      <p>
+        Why do they do that? <strong>To improve their resume.</strong> Having a
+        contribution to a project with a lot of stars is useful to show their future
+        companies how good they are. Is the contribution useful? Nobody cares. The
+        contributor doesn’t care. The company doesn’t care. The machine doesn’t care.
+      </p>
+      <p>
+        But, look at this impressive list of contributions I have on my automatically
+        generated user page on GitHub! So many cool emojis, huh?
+      </p>
+      <p>
+        These new contributors may have good reasons. Getting a CVE in an open source
+        project was their homework. Getting a job anywhere soon was needed to pay their
+        bills. Whatever.
+      </p>
+      <p>
+        But, <strong>at this moment, these new contributors only care about
+        themselves.</strong> They use machines to add artificial lines to their phony
+        resumes. They use maintainers, their time, their will, their projects, for
+        themselves only.
+      </p>
+      <p>
+        Free software maintainers have been complaining for long against big companies
+        that use their code without any contribution. But this is worse, because copying
+        a maintainer’s code is easy, whereas copying a maintainer’s time is not
+        possible. These new actors suck the life out of free software developers, and
+        that’s no exaggeration. <strong>They feed on us, like vampires. They don’t
+        really want to kill us, but they have good reasons to do so, as a side
+        effect.</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>There Is No Fatality</h3>
+      <p>
+        Hopefully, there are solutions.
+      </p>
+      <p>
+        First of all: <strong>no, I won’t be using machines to automatically handle the
+        issues written by machines.</strong> Think about that, with your brain, just
+        2 minutes, for real. Configuring machines. To answer comments and code written
+        by other machines. Instead of talking to humans. No. I have a higher
+        consideration for humanity.
+      </p>
+      <p>
+        A lot of open source projects now refuse contributions that are not written by
+        humans, with various details in rules.
+        <a href="https://discourse.gnome.org/t/loupe-no-longer-allows-generative-ai-contributions/27327/11">Loupe</a>
+        is a good example, with interesting discussions, and other projects following
+        its lead among the GNOME ecosystem.
+      </p>
+      <p>
+        Another example is holidays, for curl maintainers for example:
+        <a href="https://daniel.haxx.se/blog/2026/06/15/curl-summer-of-bliss/">the
+        summer of bliss.</a> No vulnerability report accepted during one month. This is
+        a drastic solution, but this is possible: they did it. Who will complain?
+      </p>
+      <p>
+        Other ideas can be investigated. Leaving GitHub, that acts as a no-brainer
+        platform, could help. What if contributors had to create an account on another
+        website, with a lot less visibility? What if their tools were just configured to
+        work with Microsoft’s platform?
+      </p>
+      <p>
+        Reading <a href="https://sqlite.org/copyright.html">how SQLite is managed</a> is
+        also refreshing. "Open-Source, not Open-Contribution. All of the code in SQLite
+        is original, having been written specifically for use by SQLite. No code has
+        been copied from unknown sources on the internet." That’s a strange idea, but it
+        works, at least for them.
+      </p>
+      <p>
+        To be honest, we don’t know yet what we will do. But one thing is sure: we won’t
+        let this problem break our motivation for long.
+      </p>
+      <p>
+        <strong>Our first step is to write a few guidelines for contributors, in our
+        code of conduct.</strong> These are simple rules that will make our life better
+        for issues that follow them, and will give us a great link to share when closing
+        issues that don’t follow them.
+      </p>
+      <p>
+        At least that’s a start, and for sure, this is not the end.
+      </p>
+    </section>
+  </article>
+{% endblock content %}
