@@ -1,0 +1,85 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Journey Book: July 2026</h2>
+      <aside><time datetime="2026-08-01">August 1, 2026</time>, by grewn0uille</aside>
+      <p>
+        It’s summer time! And it doesn’t rhyme with holidays 🍹
+      </p>
+    </header>
+
+    <section>
+      <h3>About Code</h3>
+
+      <p>
+        Earlier this year, <a href="url_for('blog', article='00063-journey-book-february-2026') }}">in March</a>,
+        we said we started to work on new version of our website with
+        <a href="https://bnjm.eu/">Benjamin</a> who created really nice
+        mock-ups. We finally had time for bringing these mock-ups to
+        life! It’s not quite finish yet, but we’re happy to be able to
+        work on it 👀.
+      </p>
+
+      <p>
+        On a Python-side, we worked on a quite old WeasyPrint issue.
+        Please welcome GitHub issue #13: box-shadow!
+      </p>
+      <p>
+        A <a href="https://github.com/Kozea/WeasyPrint/pull/2863">pull request has been opened</a>
+        with support of sharp and blur shadows 🥷. Blur shadows aren’t
+        perfect as it relies on gradients and isn’t a Gaussian blur.
+        Feel free to try the box-shadow branch if you want and don’t
+        hesitate to give us some feedback!
+      </p>
+
+      <p>
+        Besides that, most of our time has been dedicated to tackle pull requests.
+        This month we closed 45 pull requests on WeasyPrint, some had been merged.
+      </p>
+      <p>
+        And this is a perfect transition to the "Not About Code" part,
+        the boundary is quite thin here 😄.
+      </p>
+    </section>
+
+    <section>
+      <h3>Not About Code</h3>
+
+      <p>
+        This month, we got our 95<sup>th</sup> pull request opened on
+        WeasyPrint for this year. 95 is the total number of pull
+        requests opened on WeasyPrint in the whole last year 🤯.
+      </p>
+      <p>
+        As you can imagine, it takes time to process a pull request,
+        to understand it, to review it, to update it and to define if
+        it can be merged or not. So in order to protect our time and
+        to avoid being drowned in more and more pull requests, we
+        decided to <strong>limit the number of pull request</strong> to one per user.
+      </p>
+      <p>
+        We also <strong>added guidelines</strong> for people who wishes to contribute in our
+        <a href="{{ url_for('page', page='code-of-conduct', _anchor='guidelines-for-contributors') }}">Code of Conduct</a>.
+      </p>
+
+      <p>
+        This increase of contributions is kind of a concern for us, and we talk a lot about that between us.
+        We <a href="{{ url_for('blog', article='00070-how-new-contributors-devour-open-source') }}">published an article</a>
+        to talk about these new contributions and contributors and how they affect us 📰.
+      </p>
+
+      <p>
+        To finish this entry on a more light and happy thing, we
+        organised (and of course went to) the monthly Python meetup in
+        Lyon. For the summer, there is no talk, only an excuse to see
+        friends, chat, laught and meet new people 🫶.
+      </p>
+
+      <p>
+        See you next month for another Journey Book entry 💜
+      </p>
+    </section>
+  </article>
+{% endblock content %}
