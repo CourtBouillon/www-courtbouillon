@@ -14,8 +14,8 @@ jobs:
       TAKOYAKI: ${{ secrets.TAKOYAKI }}
       USER: ${{ secrets.USER }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
       - name: Install dependencies
         run: sudo apt-get update -y && sudo apt-get install openssh-client make rsync -y
       - name: Make
