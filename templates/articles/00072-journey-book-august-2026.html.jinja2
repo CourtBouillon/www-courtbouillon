@@ -1,0 +1,102 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Journey Book: August 2026</h2>
+      <aside><time datetime="2026-09-01">September 1, 2026</time>, by grewn0uille</aside>
+      <p>
+        What happened during August 🤔? Let’s see! 
+      </p>
+    </header>
+
+    <section>
+      <h3>About Code</h3>
+
+      <p>
+        This month, we released new versions of <a href="https://github.com/Kozea/Pyphen/releases/tag/0.18.0">Pyphen</a>
+        and <a href="https://github.com/Kozea/cssselect2/releases/tag/0.10.0">cssselect2</a> 🎉.
+      </p>
+
+      <p>
+        For Pyphen, it’s an update of several dictionaries: Spanish, Hungarian, Lithuanian and Danish;
+        and an update of supported Python versions.
+      </p>
+      <p>
+        For cssselect2, this version adds support for CSS Notes selectors:
+        <code>note-call</code>, <code>note-marker</code> and <code>note-callback</code>.
+      </p>
+      <p>
+        These are new pseudo-elements required to have support of <a href="https://css-print-lab.github.io/specs/notes-in-css-print/">CSS Notes</a>
+        in WeasyPrint, on which we worked during the month. For the
+        next version, WeasyPrint will be able to render things like:
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00072-note.png') }}"
+             alt="Lorem ipsum text with notes floating top left"
+             title="Notes floating left" />
+        <figcaption>Notes floating left</figcaption>
+      </figure>
+      <p>
+        We’re fixing some crashing cases with page overflow. But WeasyPrint v70 is coming soon! 👀
+      </p>
+
+      <p>
+        We also released a new version of <a href="https://github.com/CourtBouillon/webencodings/releases/tag/v0.6.0">webencodings</a>.
+      </p>
+      <p>
+        This was the first release since 2017. Before this new release, we weren’t maintainers of this library.
+        But webencodings is a dependency of WeasyPrint and wasn’t actively maintained,
+        so we discussed with original maintainers and created a friendly fork 😄.
+      </p>
+
+      <p>
+        To finish this code part, we’re continuing to work on our new website.
+      </p>
+    </section>
+
+    <section>
+      <h3>Not About Code</h3>
+
+      <p>
+        On the not-code side, Lucie gave a talk about the impact of AI on open source software to the PyCon Togo 🇹🇬.
+        The talk has been recorded, we’ll tell when the video is out.
+      </p>
+      <p>
+        To prepare the talk, we did some statistics on the WeasyPrint repository.
+        Maybe we’ll write an article about all of that. In the meantime, you can have a look at
+        <a href="https://github.com/CourtBouillon/presentations/releases/tag/pycontogo-2026">the slides</a> (in French).
+      </p>
+      <p>
+        The talk has also been accepted for the <a href="https://www.pycon.fr/2026/">PyConFR</a> (on the end of October in Biarritz, south-west of France)
+        and for the <a href="https://capitoledulibre.org/">Capitole du Libre</a> (mid-November in Toulouse, also south-west of France).
+        So, if you’re around there, don’t hesitate to ping us!
+      </p>
+
+      <p>
+        We also organised and went to the Python meetup in Lyon, always nice 😊.
+      </p>
+    </section>
+
+    <section>
+      <h3>Interesting Reading and Watching</h3>
+
+      <p>
+        Welcome to this new section of the Journey Book entries!
+      </p>
+      <p>
+        When we thought of this format, we said that we wanted to share
+        some articles, talks or videos we find interesting… but we never did since.
+      </p>
+      <p>
+        This month, one of our readings we like to share is the article
+        <a href=""https://mikemcquaid.com/open-source-must-be-fun-or-it-will-die/">"Open Source Must Be Fun (Or It Will Die)"</a> of Mike McQuaid.
+        It resonates with how we’re feeling at the moment.
+      </p>
+
+      <p>
+        See you next month for another Journey Book entry 💜
+      </p>
+    </section>
+  </article>
+{% endblock content %}
