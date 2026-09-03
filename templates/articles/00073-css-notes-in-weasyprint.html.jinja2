@@ -1,0 +1,223 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>CSS Notes are coming in WeasyPrint</h2>
+      <aside><time datetime="2026-09-07">September 7, 2026</time>, by grewn0uille</aside>
+      <p>
+        What are CSS Notes and how to use them with WeasyPrint?
+      </p>
+    </header>
+
+    <section>
+      <h3>Where does it Come From?</h3>
+
+      <p>
+        Several times, we said we were working with Julien Taquet and
+        Julie Blanc from <a href="https://pagedjs.org/fr/">Paged.js</a>
+        to create new CSS specifications related to print.
+      </p>
+      <p>
+        This work is possible thanks to the amazing
+        <a href="https://nlnet.nl/">NLnet Foundation</a> which
+        <a href="https://nlnet.nl/project/CSS-Print/">gave us a grant</a>
+        to do so ♥️.
+      </p>
+      <p>
+        The grant is for several things around CSS for print. It includes:
+      </p>
+      <ul>
+        <li>publishing the CSS Notes specification,</li>
+        <li>implementing the Notes specification into WeasyPrint and Paged.js,</li>
+        <li>publishing a specification about uncovered page breaks,</li>
+        <li>publishing a specification for facing pages layout,</li>
+        <li>several communication related tasks.</li>
+      </ul>
+
+      <p>
+        We decided to work on these topics because CSS specifications
+        are mainly for continuous media. Sometimes we’re stuck with
+        cases undefined by the specifications for paged media, and
+        implementing something that isn’t specified is usually a bad
+        idea 😄.
+      </p>
+      <p>
+        With new specifications, with a focus on paged media, we’re
+        aiming to define and specify these cases to avoid inventing
+        weird specific-tooling stuff when coding and have
+        interoperability among renderers.
+      </p>
+
+      <p>
+        In this article, the focus is on <a href="https://css-print-lab.github.io/specs/notes-in-css-print/">CSS Notes</a>.
+        If you’re interested in the other specifications,
+        you can <a href="https://css-print-lab.github.io/">find them online</a> 👀.
+      </p>
+    </section>
+
+    <section>
+      <h3>What are CSS Notes?</h3>
+
+      <p>
+        In CSS, the only type of notes specified are <a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">footnotes</a>.
+        Footnotes are really useful (and already supported by
+        WeasyPrint!), but are limited to be displayed at the bottom of
+        a page. That means having side notes isn’t possible.
+      </p>
+      <p>
+        The goal of this <a href="https://css-print-lab.github.io/specs/notes-in-css-print/">CSS Notes specification</a>
+        is to define a way to create side notes with CSS and have things like:
+      </p>
+      <figure>
+        <img src="https://css-print-lab.github.io/images/81831585-d1957c80-953d-11ea-938d-9f6ce8ca6bd4.png">
+        <figcaption>Notes wrapped in the content of a page</figcaption>
+      </figure>
+      <p>Or like:</p>
+      <figure>
+        <img src="https://css-print-lab.github.io/images/81831445-a579fb80-953d-11ea-9a59-d9f00271cd9d.png">
+        <figcaption>Notes in the margin on the left side of a page</figcaption>
+      </figure>
+
+      <p>
+        The specification creates a new at-rule:
+        <code>@note-area</code>. This at-rule defines the area where
+        the notes will be and is to be used in a <code>@page</code>
+        block.
+      </p>
+      <p>
+        Like a footnote, a note has a <code>note-call</code> and a
+        <code>note-marker</code>. The note has also a
+        <code>note-callback</code>. The note-call and the
+        note-callback permits navigation between a note and the place
+        where it has been call.
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00073-note.png') }}"
+             alt="Notes example with detailed about note-call, note-marker and note-callback"
+             title="Description of note-call, note-marker and note-callback" />
+        <figcaption>Description of note-call, note-marker and note-callback</figcaption>
+      </figure>
+
+      <p>
+        The specification defines a new function: <code>note()</code>.
+        This function works like the <code>running()</code> function
+        by removing the content from the flow. The notes are then placed in
+        the note-area with the function <code>element()</code>, and a
+        new keyword <code>all-once</code>.
+      </p>
+    </section>
+    
+    <section>
+      <h3>How to Use Them with WeasyPrint?</h3>
+
+      <p>
+        Okay, that’s cool, but how to use that with WeasyPrint 🤔?
+      </p>
+
+      <p>
+        Behind this document:
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00072-note.png') }}"
+             alt="Lorem ipsum text with notes floating top left"
+             title="Notes floating left" />
+        <figcaption>Notes floating left</figcaption>
+      </figure>
+      <p>
+        there is:
+      </p>
+
+      {{ '00073-note.html' | pygmentize }}
+
+      <p>
+        <code>span</code> elements are positionned with the
+        <code>note()</code> function, removing them from the flow.
+        Like running-elements, you can named notes; here is
+        "sidenote".
+      </p>
+      <p>
+        The notes are placed in the note-area with the
+        <code>element()</code> function. <code>element(sidenote,
+        all-once)</code> indicates that we place the elements named
+        "sidenote" and <code>all-once</code> says that all the notes
+        from the page are displayed.
+      </p>
+      <p>
+        Style related to the note-area goes into the
+        <code>@note-area</code> block. Style related to the notes
+        themselves goes into the <code>span</code> block.
+      </p>
+      <p>
+        You can use more complex layout into the note-area, like grid
+        or flex for example 🤯.
+      </p>
+    </section>
+
+    <section>
+      <h3>What isn’t Supported in WeasyPrint?</h3>
+
+      <p>
+        If you read the specification, you’ll notice that not
+        everything is supported in WeasyPrint:
+      </p>
+      <ul>
+        <li>float-reference property,</li>
+        <li>named note-areas,</li>
+        <li>notes policies <code>line</code> and <code>block</code>.</li>
+      </ul>
+
+      <p>
+        <code>float-reference</code> is a property that already exists
+        in CSS and it’s defined by the
+        <a href="https://www.w3.org/TR/css-page-floats-3/">CSS Page Floats specification</a>.
+        That’s a specification that we don’t
+        support at all in WeasyPrint. So if we want to use the
+        property, we have to also implement this Page Float
+        specification. That’s imply a lot of changes in the page
+        management, we’re not ready for this yet 😅.
+      </p>
+      <p>
+        Notes policies are like the footnotes policies. It allows to
+        define how notes are manage when a page break occurs. As the
+        support of CSS Notes is quite recent, we prefer to implement
+        that part when we’ll have a more solid support with real cases
+        usages!
+      </p>
+      <p>
+        For named note-areas, honestly, we’re not sure it’s even possible now 😆.
+      </p>
+    </section>
+
+    <section>
+      <h3>What did we Learn?</h3>
+
+      <p>
+        Writing a specification is hard. A big shout-out to Julie
+        Blanc who did the very first draft of the specification.
+      </p>
+      <p>
+        We discussed a lot about the specification before doing the
+        implementation, to clarify things, reformulate others…
+      </p>
+      <p>
+        Even with these discussions before, implementing was hard too.
+      </p>
+      <p>
+        We had to think on how to render page content, containing
+        notes that take space and thus change the page content
+        rendering.
+      </p>
+      <p>
+        We noticed several things that wasn’t finally that clear when
+        developing, leading to new questions. The development into
+        Paged.js is probably going to raise other questions too. So
+        the CSS Notes specifications will evolve, of course. That’s
+        what specification does, no?
+      </p>
+      <p>
+        But mainly, it was fun.
+      </p>
+    </section>
+  </article>
+{% endblock content %}
