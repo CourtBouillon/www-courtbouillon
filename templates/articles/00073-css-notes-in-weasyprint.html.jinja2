@@ -3,7 +3,7 @@
 {% block content %}
   <article>
     <header>
-      <h2>CSS Notes are coming in WeasyPrint</h2>
+      <h2>CSS Notes Are Coming in WeasyPrint</h2>
       <aside><time datetime="2026-09-07">September 7, 2026</time>, by grewn0uille</aside>
       <p>
         What are CSS Notes and how to use them with WeasyPrint?
@@ -11,7 +11,7 @@
     </header>
 
     <section>
-      <h3>Where does it Come From?</h3>
+      <h3>Where Does it Come From?</h3>
 
       <p>
         Several times, we said we were working with Julien Taquet and
@@ -89,8 +89,8 @@
         Like a footnote, a note has a <code>note-call</code> and a
         <code>note-marker</code>. The note has also a
         <code>note-callback</code>. The note-call and the
-        note-callback permits navigation between a note and the place
-        where it has been call.
+        note-callback allow navigation between a note and the place
+        where it has been called.
       </p>
       <figure>
         <img src="{{ url_for('static', filename='images/00073-note.png') }}"
@@ -107,7 +107,7 @@
         new keyword <code>all-once</code>.
       </p>
     </section>
-    
+
     <section>
       <h3>How to Use Them with WeasyPrint?</h3>
 
@@ -133,7 +133,7 @@
       <p>
         <code>span</code> elements are positionned with the
         <code>note()</code> function, removing them from the flow.
-        Like running-elements, you can named notes; here is
+        Like running-elements, you can name notes; here is
         "sidenote".
       </p>
       <p>
@@ -149,20 +149,20 @@
         themselves goes into the <code>span</code> block.
       </p>
       <p>
-        You can use more complex layout into the note-area, like grid
+        You can use more complex layouts in the note-area, like grid
         or flex for example 🤯.
       </p>
     </section>
 
     <section>
-      <h3>What isn’t Supported in WeasyPrint?</h3>
+      <h3>What Isn’t Supported in WeasyPrint?</h3>
 
       <p>
         If you read the specification, you’ll notice that not
         everything is supported in WeasyPrint:
       </p>
       <ul>
-        <li>float-reference property,</li>
+        <li>the float-reference property,</li>
         <li>named note-areas,</li>
         <li>notes policies <code>line</code> and <code>block</code>.</li>
       </ul>
@@ -174,12 +174,12 @@
         That’s a specification that we don’t
         support at all in WeasyPrint. So if we want to use the
         property, we have to also implement this Page Float
-        specification. That’s imply a lot of changes in the page
+        specification. That implies a lot of changes in the page
         management, we’re not ready for this yet 😅.
       </p>
       <p>
-        Notes policies are like the footnotes policies. It allows to
-        define how notes are manage when a page break occurs. As the
+        Notes policies are like the footnotes policies: they allow to
+        define how notes are managed when a page break occurs. As the
         support of CSS Notes is quite recent, we prefer to implement
         that part when we’ll have a more solid support with real cases
         usages!
@@ -190,11 +190,11 @@
     </section>
 
     <section>
-      <h3>What did we Learn?</h3>
+      <h3>What Did we Learn?</h3>
 
       <p>
         Writing a specification is hard. A big shout-out to Julie
-        Blanc who did the very first draft of the specification.
+        Blanc who did the very first draft of the specification 👏.
       </p>
       <p>
         We discussed a lot about the specification before doing the
@@ -209,14 +209,14 @@
         rendering.
       </p>
       <p>
-        We noticed several things that wasn’t finally that clear when
+        We noticed several things that weren’t finally that clear when
         developing, leading to new questions. The development into
         Paged.js is probably going to raise other questions too. So
         the CSS Notes specifications will evolve, of course. That’s
-        what specification does, no?
+        what specifications do, don’t they?
       </p>
       <p>
-        But mainly, it was fun.
+        But mainly… it was fun 😄.
       </p>
     </section>
   </article>
