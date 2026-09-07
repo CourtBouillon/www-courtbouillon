@@ -1,0 +1,28 @@
+<style>
+  @page {
+    margin-left: 3cm;
+
+    @note-area {
+      content: element(sidenote, all-once);
+      float: left;
+      width: 10em;
+      padding: 0.5em;
+      margin: 1rem 5mm 5mm -15mm;
+      background: #eee;
+    }
+  }
+
+  span {
+    display: block;
+    position: note(sidenote);
+    margin: 1em;
+    text-align: left;
+    font-size: 0.8em;
+  }
+</style>
+<p>
+  Lorem ipsum dolor sit amet, consectetur<span>Vestibulum condimentum
+  orci quis felis vulputate, a sagittis velit pretium.</span>
+  adipiscing elit.
+</p>
+<!-- and more lorem ipsum paragraphs with span notes -->
