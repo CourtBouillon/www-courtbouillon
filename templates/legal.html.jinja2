@@ -3,11 +3,14 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
-  <article>
-    <h2>Legal Notice</h2>
+  <header>
+    <h1>Legal Notice</h1>
+  </header>
 
+  <main>
+  <article>
     <section>
-      <h3>Editor</h3>
+      <h2>Editor</h2>
       <p>CourtBouillon</p>
       <dl>
         <dt>Email</dt>
@@ -29,7 +32,7 @@
         <dd><a href="https://www.courtbouillon.org/">https://www.courtbouillon.org</a></dd>
       </dl>
 
-      <h3>Hosting</h3>
+      <h2>Hosting</h2>
       <p>
         This website is hosted by Scaleway on a dedicated Dedibox server.
       </p>
@@ -48,12 +51,12 @@
         <dd><a href="https://www.scaleway.com/fr/dedibox/">https://www.scaleway.com</a></dd>
       </dl>
 
-      <h3>Cookies and Visitors Tracking</h3>
+      <h2>Cookies and Visitors Tracking</h2>
       <p>
         No cookie or tracking tool is used :).
       </p>
 
-      <h3>Personal Data</h3>
+      <h2>Personal Data</h2>
       <p>
         While you are visiting this website, some data that may be indirectly
         linked to you (your browser user agent) are collected in logs. They
@@ -67,4 +70,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}

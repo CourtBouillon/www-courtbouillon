@@ -20,13 +20,13 @@
       <h2>Our sponsors</h2>
 
       <ul class="sponsors gold">
-        <li><a href="https://nlnet.nl/" title="NLnet">
-          NLnet
-          <img alt="NLnet logo" src="{{ url_for('static', filename='images/sponsor-nlnet.svg') }}" />
-        </a></li>
         <li><a href="https://www.spacinov.com" title="Spacinov">
           Spacinov
           <img alt="Spacinov logo" src="{{ url_for('static', filename='images/sponsor-spacinov.svg') }}" />
+        </a></li>
+        <li><a href="https://nlnet.nl/" title="NLnet">
+          NLnet
+          <img alt="NLnet logo" src="{{ url_for('static', filename='images/sponsor-nlnet.svg') }}" />
         </a></li>
         <li><a href="https://www.syslifters.com/" title="Syslifters">
           Syslifters
@@ -89,24 +89,7 @@
       </ul>
     </section>
 
-    <section>
-      <aside>
-        <img src="">
-
-        <dl>
-          <dt>Contact</dt>
-          <dd><a href="mailto:contact&#64;courtbouillon.org">contact&#64;courtbouillon.org</a></dd>
-          <dd><a title="CourtBouillon" href="https://matrix.to/#/#CourtBouillon_community:gitter.im">Chat</a></dd>
-
-          <dt>Social</dt>
-          <dd><a title="@courtbouillon" href="https://fosstodon.org/@courtbouillon">Mastodon</a></dd>
-          <dd><a title="CourtBouillon on GitHub" href="https://github.com/CourtBouillon">GitHub</a></dd>
-          <dd><a title="CourtBouillon on LinkedIn" href="https://linkedin.com/company/courtbouillon">LinkedIn</a></dd>
-        </dl>
-
-        <a href="https://opencollective.com/courtbouillon">Become a sponsor</a>
-      </aside>
-
+    <section id="why">
       <h2>Why</h2>
 
       <p>
@@ -125,46 +108,76 @@
       </p>
 
       <p>
-        Lucie &amp; Guillaume, Founders
+        <strong>Lucie &amp; Guillaume</strong><br>
+        Founders
       </p>
+
+      <img src="">
+
+      <dl>
+        <dt>Contact</dt>
+        <dd><a href="mailto:contact&#64;courtbouillon.org">contact&#64;courtbouillon.org</a></dd>
+        <dd><a title="CourtBouillon" href="https://matrix.to/#/#CourtBouillon_community:gitter.im">Chat</a></dd>
+
+        <dt>Social</dt>
+        <dd><a title="@courtbouillon" href="https://fosstodon.org/@courtbouillon">Mastodon</a></dd>
+        <dd><a title="CourtBouillon on GitHub" href="https://github.com/CourtBouillon">GitHub</a></dd>
+        <dd><a title="CourtBouillon on LinkedIn" href="https://linkedin.com/company/courtbouillon">LinkedIn</a></dd>
+      </dl>
+
+      <a href="https://opencollective.com/courtbouillon">Become a sponsor</a>
     </section>
 
-    <section>
-      <h2>20 year in the open</h2>
+    <section id="open">
+      <h2>20+ years in the open</h2>
 
       <p>
         We are privileged to look back on the past
       </p>
-      <p>TODO</p>
+      <p>
+        We’ve been creating free and open source projects for a lot of time. Some of our
+        past projects are now maintained by independant teams and continue to be used
+        all around the world.
+      </p>
 
-      <article>
-        <h3><a href="">Radicale</a></h3>
-        <p>
-          A simple CalDAV (calendar) and CardDAV (contact) server
-        </p>
-        <span>4.8k</span>
-      </article>
-      <article>
-        <h3><a href="">CairoSVG</a></h3>
-        <p>
-          Convert your vector images
-        </p>
-        <span>940</span>
-      </article>
-      <article>
-        <h3><a href="">Multicorn</a></h3>
-        <p>
-          Data Access Library
-        </p>
-        <span>705</span>
-      </article>
-      <article>
-        <h3><a href="">PyConFR 2025</a></h3>
-        <p>
-          The French Python Conference, in Lyon
-        </p>
-        <span>500</span>
-      </article>
+      <div>
+        <a href="">
+          <article>
+            <h3>Radicale</h3>
+            <p>
+              A simple CalDAV (calendar) and CardDAV (contact) server
+            </p>
+            <span class="icon star">4.8k</span>
+          </article>
+        </a>
+        <a href="">
+          <article>
+            <h3>CairoSVG</h3>
+            <p>
+              Convert your vector images
+            </p>
+            <span class="icon star">940</span>
+          </article>
+        </a>
+        <a href="">
+          <article>
+            <h3>Multicorn</h3>
+            <p>
+              Data Access Library
+            </p>
+            <span class="icon star">705</span>
+          </article>
+        </a>
+        <a href="">
+          <article>
+            <h3>PyConFR 2025</h3>
+            <p>
+              The French Python Conference, in Lyon
+            </p>
+            <span class="icon people">500</span>
+          </article>
+        </a>
+      </div>
     </section>
   </main>
 {% endblock content %}
