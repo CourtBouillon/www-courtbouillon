@@ -25,7 +25,7 @@
         To keep it short, in CSS, the only type of notes that is
         specified is <a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">footnotes</a>
         (and WeasyPrint already supports them 😁).
-        That’s mean there is nothing to have other types of notes,
+        That means there is nothing to have other types of notes,
         like sidenotes for example.
         <strong>The goal of this specification is to define that.</strong>
       </p>
@@ -52,7 +52,7 @@
         evolve 🚶‍➡️.
       </p>
       <p>
-        But we’d really like to <strong>have real usecases</strong>
+        But we’d really like to <strong>have real use cases</strong>
         so don’t hesitate to give a try to this feature and send us
         feedback!
       </p>
@@ -62,10 +62,10 @@
       <h3>COLR Fonts</h3>
 
       <p>
-        A <code>COLR</code> table had been added to OpenType fonts as
-        an alternative to SVG fonts (the ones that bring emojis). Now,
-        most of systems uses them but it wasn’t yet supported in
-        WeasyPrint, thus causing weird renderings with emojis 😵‍💫.
+        A <code>COLR</code> table had been added to OpenType fonts to embed emojis, as
+        an alternative to SVG (vector but complex) and CBDT (simple but raster) tables.
+        Now, many fonts use it but it wasn’t yet supported in WeasyPrint, thus causing
+        bad renderings with emojis 😵‍💫.
       </p>
       <p>
         But that’s ancient story!
@@ -78,11 +78,11 @@
       <p>
         If you use the WeasyPrint version that is packaged with your
         distribution, you have nothing special to verify.
-        Else, you need Harfbuzz 13+ and Harfbuzz-Vector.
+        Else, you need HarfBuzz 13+ and HarfBuzz-Vector.
       </p>
       <p>
         If your distribution doesn’t provide these packages, don’t
-        worry, you still can use classic SVG fonts.
+        worry, you still can use classic SVG or CBDT emoji fonts.
       </p>
     </section>
 
@@ -114,7 +114,7 @@
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">new version</a>!
       </p>
       <p>
-        17 persons participated to this release. Thanks a lot to
+        18 people participated to this release. Thanks a lot to
         everyone for their contribution 🫶.
       </p>
       <p>
@@ -128,16 +128,16 @@
         on our projects and added
         <a href="{{ url_for('page', page='code-of-conduct', _anchor='guidelines-for-contributors') }}">contribution guidelines</a>.
         We hope it’ll help us to not drown under sloppy contributions
-        and to <strong>still having fun</strong> in developping WeasyPrint.
+        and to <strong>still having fun</strong> in developing WeasyPrint.
       </p>
       <p>
-        If you use WeasyPrint professionally, <strong>we offer several services to assist you</strong> with WeasyPrint:
+        If you use WeasyPrint professionally, <strong>we offer several services to assist you</strong>:
       </p>
       <ul>
-        <li><a href="https://weasyprint.org/#packages">the consulting packages</a>: if you want to have a quick answer guarantee,</li>
-        <li>templating: to give life to your documents,</li>
-        <li>workflow integration: to include WeasyPrint at its best into your application,</li>
-        <li>bug fix and new feature support: if you need something quite fast.</li>
+        <li><a href="https://weasyprint.org/#packages">the consulting packages</a>: if you want to have a <strong>quick answer guarantee,</strong></li>
+        <li>templating: to <strong>give life to your documents,</strong></li>
+        <li>workflow integration: to <strong>include WeasyPrint</strong> at its best into your application,</li>
+        <li>bug fix and new feature support: if <strong>you need something quite fast.</strong></li>
       </ul>
       <p>
         Don’t hesitate to drop us
