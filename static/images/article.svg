@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <style>
+    @keyframes pulse {
+      from { transform: scale(random(0.5, 1.5)) }
+      to { transform: scale(random(0.6, 1.4)) }
+    }
+    circle {
+      animation: random(8s, 20s) pulse random(-20s, 0s) infinite alternate ease-in-out;
+      --rcx: var(--cx);
+      --rcy: var(--cy);
+      cx: var(--rcx);
+      cy: var(--rcy);
+      transform-origin: var(--rcx) var(--rcy);
+    }
+    @supports (cx: random(0%, 1%)) {
+      circle {
+        --rcx: calc(var(--cx) + random(-20%, 100%));
+        --rcy: calc(var(--cy) + random(-100%, 20%));
+      }
+    }
+  </style>
+  <rect width="100%" height="100%" fill="#e8403a2b" />
+  <circle r="80%" fill="none" stroke="white" style="--cx: 10%; --cy: 85%; stroke-width: 25%; stroke-width: random(20%, 30%)" />
+</svg>

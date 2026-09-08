@@ -4,7 +4,7 @@
     <title>CourtBouillon</title>
     <description>Free Software</description>
     <link>https://www.courtbouillon.org/</link>
-    {% if articles %}<lastBuildDate>{{ (articles.values()| list)[0].date }}</lastBuildDate>{% endif %}
+    {% if articles %}<lastBuildDate>{{ (articles.values()| list)[0].rss_date }}</lastBuildDate>{% endif %}
     <ttl>86400</ttl>
 
     {% for article in articles.values() %}

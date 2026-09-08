@@ -58,6 +58,7 @@
 
 :root {
   --black: #210908;
+  --darkgrey: #7f7f7f;
   --grey: #c5c5c5;
   --red: #e8403a;
   --white: #fff;
@@ -84,6 +85,39 @@ a {
 
 h1, h2, h3 {
   text-wrap: balance;
+}
+
+blockquote {
+  border-bottom: 1px solid var(--grey);
+  border-top: 1px solid var(--grey);
+  color: var(--red);
+  font-size: 2em;
+  font-weight: 600;
+  margin: 1em;
+  padding: 1em;
+  position: relative;
+  text-align: center;
+  text-wrap: balance;
+
+  &::before,
+  &::after {
+    background: white;
+    height: 0.5em;
+    left: calc(50% - 1em);
+    line-height: 1;
+    position: absolute;
+    width: 2em;
+  }
+
+  &::before {
+    content: "”";
+    top: -0.25em;
+  }
+
+  &::after {
+    bottom: -0.25em;
+    content: "“";
+  }
 }
 
 
@@ -409,7 +443,7 @@ dialog {
   background: color(from var(--red) srgb r g b / 0.1);
   border-radius: 2em;
   display: flex;
-  font-size: 0.8em;
+  font-size: 0.75em;
   gap: 1em;
   justify-content: center;
   margin: 3em auto 0;
@@ -647,6 +681,76 @@ dialog {
 #page-blog {
   header {
     background: none;
+  }
+
+  main {
+    article {
+      border-bottom: 1px solid var(--grey);
+      font-size: 0.85em;
+      overflow: auto;
+      padding: 2em 0 2em 10em;
+
+      img {
+        border-radius: 0.5em;
+        float: left;
+        height: 9em;
+        margin-left: -10em;
+        width: 9em;
+      }
+
+      aside {
+        color: var(--darkgrey);
+
+        .tags {
+          background: none;
+          display: inline-flex;
+          vertical-align: 20%;
+          margin: 0;
+        }
+      }
+
+      h2 {
+        font-size: 2.2em;
+        font-weight: 600;
+        line-height: 1;
+        margin: 0.25em 0;
+
+        a {
+          text-decoration: inherit;
+        }
+      }
+    }
+  }
+}
+
+#page-article {
+  img {
+    max-width: 80%;
+    margin: auto;
+  }
+
+  figure {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 3em auto;
+
+    img {
+      margin: 0;
+    }
+
+    figcaption {
+      color: var(--darkgrey);
+      font: Inconsolata;
+      width: 35%;
+    }
+  }
+
+  .highlight {
+    background: color(from var(--red) srgb r g b / 0.1);
+    border-radius: 0.5em;
+    font-family: Inconsolata;
+    padding: 1em 2em;
   }
 }
 

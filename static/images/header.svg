@@ -13,8 +13,10 @@
       transform-origin: var(--rcx) var(--rcy);
     }
     @supports (cx: random(0%, 1%)) {
-      --rcx: calc(var(--cx) + random(-10%, 10%));
-      --rcy: calc(var(--cy) + random(-10%, 10%));
+      circle {
+        --rcx: calc(var(--cx) + random(-10%, 10%));
+        --rcy: calc(var(--cy) + random(-10%, 10%));
+      }
     }
   </style>
   <rect width="100%" height="100%" fill="#e8403a2b" />

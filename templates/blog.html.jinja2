@@ -24,19 +24,19 @@
   <main>
     {% for article in articles.values() %}
       <article>
-        <img src="">
+        <img src="{{ url_for('static', filename='images/article.svg', q=loop.index) }}" loading="lazy">
+        <aside>
+          {{ article.article_date }}
+          <ul class="tags">
+            <li><a href="">tag</a></li>
+          </ul>
+        </aside>
         <h2>
           <a href="{{ url_for('blog', article=article.filename) }}">
             {{ article.title }}
           </a>
         </h2>
         {{ article.description }}
-        <aside>
-          {{ article.date }}
-          <ul>
-            <li>tag</li>
-          </ul>
-        </aside>
       </article>
     {% endfor %}
   </main>

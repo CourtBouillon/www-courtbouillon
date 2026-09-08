@@ -26,13 +26,16 @@ def list_articles():
         title = introduction.split('<h1>')[1].split('</h1>')[0]
         description = introduction.split('</aside>')[1]
         date_string = introduction.split('datetime="')[1].split('"')[0]
-        date = format_datetime(datetime.strptime(date_string, '%Y-%m-%d'))
+        date = datetime.strptime(date_string, '%Y-%m-%d')
+        rss_date = format_datetime(date)
+        article_date = date.strftime('%B %d, %Y')
         article_id = article.name.split('-')[0]
         articles[article_id] = {
             'filename': article.name.split('.html')[0],
             'title': title,
             'description': description,
-            'date': date,
+            'rss_date': rss_date,
+            'article_date': article_date,
         }
 
     return dict(sorted(articles.items(), reverse=True))
