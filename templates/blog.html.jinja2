@@ -24,7 +24,15 @@
   <main>
     {% for article in articles.values() %}
       <article>
-        <img src="{{ url_for('static', filename='images/article.svg', q=loop.index) }}" loading="lazy">
+        {% if article.image %}
+          {% if article.image.startswith('/static/') or article.image.startswith('https://') %}
+            <img src="{{ article.image }}" loading="lazy">
+          {% else %}
+            <img src="{{ url_for('static', filename=article.image) }}" loading="lazy">
+          {% endif %}
+        {% else %}
+          <img src="{{ url_for('static', filename='images/article.svg', q=loop.index) }}" loading="lazy">
+        {% endif %}
         <aside>
           {{ article.article_date }}
           <ul class="tags">

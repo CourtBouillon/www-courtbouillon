@@ -25,7 +25,12 @@ def list_articles():
         introduction = content.split('<header>')[1].split('</header>')[0]
         title = introduction.split('<h1>')[1].split('</h1>')[0]
         description = introduction.split('</aside>')[1]
-        date_string = introduction.split('datetime="')[1].split('"')[0]
+        date_string = introduction.split('datetime="', 1)[1].split('"')[0]
+        image = None
+        if '<img' in content:
+            image = content.split('<img ', 1)[1].split('src="', 1)[1].split('"')[0]
+            if image[0] == '{':
+                image = image.split("filename='", 1)[1].split("'")[0]
         date = datetime.strptime(date_string, '%Y-%m-%d')
         rss_date = format_datetime(date)
         article_date = date.strftime('%B %d, %Y')
@@ -36,6 +41,7 @@ def list_articles():
             'description': description,
             'rss_date': rss_date,
             'article_date': article_date,
+            'image': image,
         }
 
     return dict(sorted(articles.items(), reverse=True))

@@ -695,6 +695,7 @@ dialog {
         float: left;
         height: 9em;
         margin-left: -10em;
+        object-fit: contain;
         width: 9em;
       }
 
