@@ -1,0 +1,158 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>WeasyPrint v70 Has Been Released</h2>
+      <aside><time datetime="2026-09-08">September 8, 2026</time>, by grewn0uille</aside>
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">WeasyPrint v70</a>
+        has been released! It comes with CSS Notes and COLR fonts support, and more 😊
+        The changelog also contains <strong>security information</strong>.
+      </p>
+      <p>
+        <strong>
+          ⚠️ We strongly recommend to upgrade WeasyPrint to the latest
+          version if you embed untrusted images, or rely on the URL
+          fetcher to filter metadata or stylesheets passed as Python
+          parameters. ⚠️
+        </strong>
+      </p>
+    </header>
+
+    <section>
+      <h3>CSS Notes</h3>
+
+      <p>
+        Thanks to the amazing <a href="https://nlnet.nl/">NLnet Foundation</a>,
+        we had a <a href="https://nlnet.nl/project/CSS-Print/">grant to work on new CSS specifications</a>
+        with Julie Blanc and Julien Taquet from <a href="https://pagedjs.org/">Paged.js</a>.
+        The grant is allocated for several specifications, and one of
+        them is CSS Notes.
+      </p>
+      <p>
+        To keep it short, in CSS, the only type of notes that is
+        specified is <a href="https://www.w3.org/TR/css-gcpm-3/#footnotes">footnotes</a>
+        (and WeasyPrint already supports them 😁).
+        That means there is nothing to have other types of notes,
+        like sidenotes for example.
+        <strong>The goal of this specification is to define that.</strong>
+      </p>
+      <p>
+        Now you can create things like this with WeasyPrint:
+      </p>
+      <figure>
+        <img src="{{ url_for('static', filename='images/00072-note.png') }}"
+             alt="Lorem ipsum text with notes floating top left"
+             title="Notes floating left" />
+        <figcaption>Notes floating left</figcaption>
+      </figure>
+      <p>
+        If you want more details about CSS Notes and how to use them
+        with WeasyPrint, you can read our
+        <a href="{{ url_for('blog', article='00073-css-notes-in-weasyprint') }}">dedicated article</a>.
+        If you want more more details, you can read our
+        <a href="https://css-print-lab.github.io/specs/notes-in-css-print/">specification proposal</a>.
+      </p>
+      <p>
+        Please note that <strong>CSS Notes isn’t ready for production</strong>.
+        It’s the first draft of the specification, the first
+        implementation of this same specification and it’ll surely
+        evolve 🚶‍➡️.
+      </p>
+      <p>
+        But we’d really like to <strong>have real use cases</strong>
+        so don’t hesitate to give a try to this feature and send us
+        feedback!
+      </p>
+    </section>
+
+    <section>
+      <h3>COLR Fonts</h3>
+
+      <p>
+        A <code>COLR</code> table had been added to OpenType fonts to embed emojis, as
+        an alternative to SVG (vector but complex) and CBDT (simple but raster) tables.
+        Now, many fonts use it but it wasn’t yet supported in WeasyPrint, thus causing
+        bad renderings with emojis 😵‍💫.
+      </p>
+      <p>
+        But that’s ancient story!
+      </p>
+      <p>
+        <strong>We added COLR fonts support</strong> in this version. Your emojis
+        should now render as nice and sweet as they used to before
+        COLR fonts 🥳!
+      </p>
+      <p>
+        If you use the WeasyPrint version that is packaged with your
+        distribution, you have nothing special to verify.
+        Else, you need HarfBuzz 13+ and HarfBuzz-Vector.
+      </p>
+      <p>
+        If your distribution doesn’t provide these packages, don’t
+        worry, you still can use classic SVG or CBDT emoji fonts.
+      </p>
+    </section>
+
+    <section>
+      <h3>And More…</h3>
+      <p>
+        As usual, this new version of WeasyPrint comes with various improvements and 🐞 bug
+        fixes, including:
+      </p>
+      <ul>
+        <li>support of <code>box-shadow</code> property,</li>
+        <li>PDF/UA improvements for forms and nested lists,</li>
+        <li>support of RTL SVG text anchoring,</li>
+        <li>handling of spaces and newlines in URLs,</li>
+        <li>better filename detection for attachments,</li>
+        <li>raster emojis position,</li>
+        <li><code>calc()</code> inside <code>line-height</code>.</li>
+      </ul>
+      <p>
+        Feel free to have a look at the <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">changelog</a>
+        if you want to see the full list!
+      </p>
+    </section>
+
+    <section>
+      <h3>What’s Next?</h3>
+      <p>
+        We hope you’ll have fun with this
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">new version</a>!
+      </p>
+      <p>
+        18 people participated to this release. Thanks a lot to
+        everyone for their contribution 🫶.
+      </p>
+      <p>
+        <strong>This release has been quite hard for us because of the
+          increasing noise in issues and pull requests.</strong> It took us a lot
+        of time to manage. For example, <a href="{{ url_for('blog', article='00071-journey-book-july-2026') }}">in July</a>,
+        we closed 45 pull requests.
+      </p>
+      <p>
+        Now, we have a limitation of 1 opened pull request per account
+        on our projects and added
+        <a href="{{ url_for('page', page='code-of-conduct', _anchor='guidelines-for-contributors') }}">contribution guidelines</a>.
+        We hope it’ll help us to not drown under sloppy contributions
+        and to <strong>still having fun</strong> in developing WeasyPrint.
+      </p>
+      <p>
+        If you use WeasyPrint professionally, <strong>we offer several services to assist you</strong>:
+      </p>
+      <ul>
+        <li><a href="https://weasyprint.org/#packages">the consulting packages</a>: if you want to have a <strong>quick answer guarantee,</strong></li>
+        <li>templating: to <strong>give life to your documents,</strong></li>
+        <li>workflow integration: to <strong>include WeasyPrint</strong> at its best into your application,</li>
+        <li>bug fix and new feature support: if <strong>you need something quite fast.</strong></li>
+      </ul>
+      <p>
+        Don’t hesitate to drop us
+        <a href="mailto:contact&#64;courtbouillon.org">one short mail</a>
+        and share your needs so we can help you!
+      </p>
+    </section>
+  </article>
+{% endblock content %}
