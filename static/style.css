@@ -87,7 +87,7 @@ h1, h2, h3 {
 }
 
 
-/* Header and footer */
+/* Header, main and footer */
 
 body > nav ul {
   display: flex;
@@ -219,6 +219,73 @@ body > nav ul {
     position: relative;
     text-align: center;
     width: 7rem;
+  }
+}
+
+header {
+  background: url(images/header.svg);
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3em 0 1em 0;
+  min-height: 30em;
+  padding: 0.5em 20%;
+  position: relative;
+  text-align: center;
+
+  h1 {
+    color: var(--red);
+    font-size: 3.2em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.85;
+    margin-top: 1.2em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0.5rem auto;
+    max-width: 35em;
+  }
+
+  &:has(.catchphrase) {
+    h1 {
+      font-size: 1rem;
+      font-weight: 100;
+      left: 0;
+      position: absolute;
+      text-transform: uppercase;
+      top: 0.5em;
+      width: 100%;
+    }
+
+    .catchphrase {
+      color: var(--red);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+  }
+}
+
+main {
+  max-width: 70em;
+  margin: 0 auto;
+
+  section {
+    h2 {
+      font-size: inherit;
+      font-weight: 100;
+      text-transform: uppercase;
+      margin: 4em 0 2em 0;
+    }
+
+    h3 {
+      font-size: inherit;
+      font-weight: 100;
+      margin: 2em 0 1em;
+    }
   }
 }
 
@@ -365,6 +432,14 @@ dialog {
   }
 }
 
+.catchphrase {
+  font-size: 3.2em;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
+  margin-top: 1.2em;
+  text-wrap: balance;
+}
+
 .sponsors {
   display: flex;
   flex-wrap: wrap;
@@ -454,85 +529,13 @@ dialog {
 }
 
 
-header {
-  background: url(images/header.svg);
-  border-radius: 0.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 3em 0 1em 0;
-  min-height: 30em;
-  padding: 0.5em 20%;
-  position: relative;
-  text-align: center;
-
-  h1 {
-    color: var(--red);
-    font-size: 3.2em;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 0.85;
-    margin-top: 1.2em;
-    text-transform: uppercase;
-    text-wrap: balance;
-  }
-}
-
-section {
-  h2 {
-    font-size: 1rem;
-    font-weight: 100;
-    text-transform: uppercase;
-    margin: 4em 0 2em 0;
-  }
-}
-
-
-/* Header */
-
-#page-index,
-#page-team,
-#page-blog {
-  header {
-    h1 {
-      font-size: 1rem;
-      font-weight: 100;
-      left: 0;
-      position: absolute;
-      text-transform: uppercase;
-      top: 0.5em;
-      width: 100%;
-    }
-
-    p {
-      margin: 0.5rem auto;
-      max-width: 35em;
-
-      &:first-of-type {
-        color: var(--red);
-        font-size: 3.2em;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        line-height: 0.85;
-        margin-top: 1.2em;
-        text-transform: uppercase;
-        text-wrap: balance;
-      }
-    }
-  }
-
-  section {
-    h2 {
-      margin: 2em 0;
-      text-align: center;
-    }
-  }
-}
-
-
 /* Team page */
 
 #page-team {
+  h2 {
+    text-align: center;
+  }
+
   #why {
     border-bottom: 1px solid var(--grey);
     border-top: 1px solid var(--grey);
@@ -596,16 +599,12 @@ section {
     text-align: center;
 
     > p {
-      font-size: 1.5em;
       margin: 1.2rem auto;
       max-width: 50rem;
       text-wrap: balance;
 
-      &:first-of-type {
-        font-size: 3em;
-        letter-spacing: -0.02em;
-        line-height: 1;
-        margin-top: -0.5em;
+      &:not(.catchphrase) {
+        font-size: 1.5em;
       }
     }
 
