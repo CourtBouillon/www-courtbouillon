@@ -6,91 +6,94 @@
   <header>
     <h1>Home</h1>
 
-    <p>
+    <p class="catchphrase">
       Building tools that shape your documents
     </p>
-    <p class="presentation">
+    <p>
       CourtBouillon conceives high-quality apps and tools to help you give life
       to elegant documents, wonderful images, lovely texts, and more.
     </p>
   </header>
 
   <main>
-    <section>
+    <section id="trusted">
       <h2>Trusted by</h2>
 
       <ul>
-        <li><img src=""></li>
-        <li><img src=""></li>
-        <li><img src=""></li>
+        <li><img src="{{ url_for('static', filename='images/ietf.svg') }}">IETF</li>
+        <li><img src="{{ url_for('static', filename='images/unicode.svg') }}">Unicode</li>
+        <li><img src="{{ url_for('static', filename='images/republique-francaise.svg') }}">French beta.gouv.fr</li>
+        <li><img src="{{ url_for('static', filename='images/gov-uk.svg') }}">UK Government Digital Service</li>
       </ul>
     </section>
 
-    <section>
+    <section id="use">
       <h2>You already use them</h2>
-      <p>
+      <p class="catchphrase">
         Tools that shape documents effortlessly
       </p>
 
-      <div>
-        <article>
-          <h3>WeasyPrint</h3>
+      <div class="carrousel">
+        <div>
+          <article id="weasyprint">
+            <h3>WeasyPrint</h3>
 
-          <img src="">
-          <p>
-            TODO
-          </p>
-          <ul>
-            <li>9.3k</li>
-            <li><a href="">Repository</a></li>
-            <li><a href="">Website</a></li>
-            <li><a href="">Documentation</a></li>
+            <img src="">
+            <p>
+              TODO
+            </p>
+            <ul>
+              <li>9.3k</li>
+              <li><a href="">Repository</a></li>
+              <li><a href="">Website</a></li>
+              <li><a href="">Documentation</a></li>
+            </ul>
+          </article>
+
+          <article id="pydyf">
+            <h3>pydyf</h3>
+
+            <img src="">
+            <p>
+              TODO
+            </p>
+            <ul>
+              <li>151</li>
+              <li><a href="">Repository</a></li>
+              <li><a href="">Website</a></li>
+              <li><a href="">Documentation</a></li>
+            </ul>
+          </article>
+
+          <article id="pyphen">
+            <h3>Pyphen</h3>
+
+            <img src="">
+            <p>
+              TODO
+            </p>
+            <ul>
+              <li>229</li>
+              <li><a href="">Repository</a></li>
+              <li><a href="">Website</a></li>
+              <li><a href="">Documentation</a></li>
+            </ul>
+          </article>
+        </div>
+
+        <nav>
+          <ul class="tags">
+            <li><a href="#weasyprint">WeasyPrint</a></li>
+            <li><a href="#pydyf">pydyf</a></li>
+            <li><a href="#pyphen">Pyphen</a></li>
           </ul>
-        </article>
-
-        <article>
-          <h3>pydyf</h3>
-
-          <img src="">
-          <p>
-            TODO
-          </p>
-          <ul>
-            <li>151</li>
-            <li><a href="">Repository</a></li>
-            <li><a href="">Website</a></li>
-            <li><a href="">Documentation</a></li>
-          </ul>
-        </article>
-
-        <article>
-          <h3>Pyphen</h3>
-
-          <img src="">
-          <p>
-            TODO
-          </p>
-          <ul>
-            <li>229</li>
-            <li><a href="">Repository</a></li>
-            <li><a href="">Website</a></li>
-            <li><a href="">Documentation</a></li>
-          </ul>
-        </article>
+        </nav>
       </div>
-
-      <nav>
-        <ul>
-          <li><a href="">WeasyPrint</a></li>
-          <li><a href="">pydyf</a></li>
-          <li><a href="">Pyphen</a></li>
-        </ul>
-      </nav>
     </section>
 
-    <section>
+    <section id="opensource">
       <h2>Open source at the core</h2>
-      <p>
+      <p class="catchphrase">
         Dedicated to build a better web
       </p>
       <p>
@@ -98,70 +101,71 @@
       </p>
 
       <dl>
-        <dt>Free and Open Source</dt>
+        <dt class="icon gnu">Free and Open Source</dt>
         <dd>We deeply believe that everyone should be able to access, modify and share software</dd>
-        <dt>Authentic</dt>
+        <dt class="icon user">Authentic</dt>
         <dd>We write code with our hearts, and we truly want to make it reach high levels of quality</dd>
-        <dt>Essential</dt>
+        <dt class="icon heartbeat">Essential</dt>
         <dd>We love simplicity</dd>
       </dl>
     </section>
 
-    <section>
+    <section id="experience">
       <h2>Proven by experience</h2>
-      <p>
-        Our open source commitment has been recognised for years
+      <p class="catchphrase">
+        Our open source commitment has been recognized for years
       </p>
 
-      <div>
-        <figure>
-          <blockquote>
-            We couldn’t recommend CourtBouillon highly enough and look
-            forward to collaborating on many more projects in the
-            future. They implemented the design of a complex PDF
-            template for us and made it look easy, with every pixel
-            laid out to perfection.
-          </blockquote>
-          <figcaption>Dan B. <a href="https://codeandco.com">Code & Co.</a></figcaption>
-        </figure>
-        <figure>
-          <blockquote>
-            CourtBouillon is highly recommended. They are talented
-            experts in this area and they invest time improving the
-            open-source package WeasyPrint that makes this all
-            possible.
-          </blockquote>
-          <figcaption>Castedo E. <a href="https://popgen.es/">popgen.es</a></figcaption>
-        </figure>
-        <figure>
-          <blockquote>
-            CourtBouillon have been very professional and transparent.
-            It has been a real pleasure to work with them!
-          </blockquote>
-          <figcaption>Andreas P. <a href="https://personalkollen.se">Personalkollen</a></figcaption>
-        </figure>
+      <div class="carrousel">
+        <div>
+          <figure>
+            <blockquote>
+              We couldn’t recommend CourtBouillon highly enough and look
+              forward to collaborating on many more projects in the
+              future. They implemented the design of a complex PDF
+              template for us and made it look easy, with every pixel
+              laid out to perfection.
+            </blockquote>
+            <figcaption>Dan B. <a href="https://codeandco.com">Code & Co.</a></figcaption>
+          </figure>
+          <figure>
+            <blockquote>
+              CourtBouillon is highly recommended. They are talented
+              experts in this area and they invest time improving the
+              open-source package WeasyPrint that makes this all
+              possible.
+            </blockquote>
+            <figcaption>Castedo E. <a href="https://popgen.es/">popgen.es</a></figcaption>
+          </figure>
+          <figure>
+            <blockquote>
+              CourtBouillon have been very professional and transparent.
+              It has been a real pleasure to work with them!
+            </blockquote>
+            <figcaption>Andreas P. <a href="https://personalkollen.se">Personalkollen</a></figcaption>
+          </figure>
+        </div>
       </div>
     </section>
+
+    <section id="support">
+      <h2>Streamline your product</h2>
+      <p class="catchphrase">
+        Ask us tailor-made features
+      </p>
+      <ul>
+        <li>
+          Your document is nice, but a new feature would make it awesome?
+        </li>
+        <li>
+          You need to automate your document workflow with HTML/CSS templates?
+        </li>
+        <li>
+          You’re already using our products, but a key feature is missing?
+        </li>
+      </ul>
+
+      <button popovertarget="contact">Let’s build it now</button>
+    </section>
   </main>
-
-
-  <article id="support">
-    <h2>Streamline your product</h2>
-    <p>
-      Ask us tailor made functionality
-    </p>
-    <ul>
-      <li>
-        Your document is nice, but a new feature would make it awesome?
-      </li>
-      <li>
-        You need to automate your document workflow with HTML/CSS templates?
-      </li>
-      <li>
-        You’re already using our products, but a key feature is missing?
-      </li>
-    </ul>
-
-    <button popovertarget="contact">Let’s build it now</button>
-  </article>
 {% endblock content %}
