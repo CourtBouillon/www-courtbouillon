@@ -1,16 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
   <style>
     @keyframes pulse {
-      from { transform: scale(random(0.8, 1.2)) }
+      from { transform: scale(random(0.7, 1.3)) }
       to { transform: scale(random(0.9, 1.1)) }
     }
     circle {
-      animation: random(8s, 20s) pulse random(-20s, 0s) infinite alternate ease-in-out;
+      animation: random(8s, 14s) pulse random(-14s, 0s) infinite alternate ease-in-out;
       --rcx: var(--cx);
       --rcy: var(--cy);
       cx: var(--rcx);
       cy: var(--rcy);
-      mix-blend-mode: overlay;
       transform-origin: var(--rcx) var(--rcy);
     }
     @supports (cx: random(0%, 1%)) {
@@ -20,7 +19,7 @@
       }
     }
   </style>
-  <circle r="50%" fill="#0005" style="--cx: -5%; --cy: -45%" />
+  <circle r="50%" fill="#4001" style="--cx: -5%; --cy: -45%" />
   <circle r="25%" fill="none" stroke="#fffb" style="--cx: 0%; --cy: 105%; stroke-width: 6%; stroke-width: random(4%, 7%)" />
   <circle r="20%" fill="none" stroke="#fffb" style="--cx: 100%; --cy: -5%; stroke-width: 6%; stroke-width: random(4%, 7%)" />
 </svg>

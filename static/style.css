@@ -53,6 +53,37 @@
   src: local("ForkAwesome"), url(/static/fonts/forkawesome-webfont.woff2);
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+/*
+@keyframes slide-out {
+  100% {
+    opacity: 0%;
+    transform: translateX(-0.7rem);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0%;
+    transform: translateX(0.7rem);
+  }
+}
+
+header {
+  view-transition-name: content;
+}
+
+::view-transition-old(content) {
+  animation: slide-out 0.25s ease-in-out forwards;
+}
+
+::view-transition-new(content) {
+  animation: slide-in 0.25s ease-in-out forwards;
+}
+*/
 
 /* Variables */
 
@@ -74,6 +105,7 @@ html {
   font-family: ClarityCity, sans-serif;
   font-size: 14pt;
   line-height: 1.4;
+  scroll-behavior: smooth;
   scrollbar-width: thin;
 }
 
@@ -183,7 +215,9 @@ body > nav ul {
 
     &:hover {
       dl {
-        display: block;
+        opacity: 100%;
+        transition: 0.5s opacity;
+        visibility: visible;
       }
     }
 
@@ -194,21 +228,27 @@ body > nav ul {
       border: 2px solid transparent;
       border-radius: 5px;
       box-shadow: 0 2px 0 color(from var(--red) srgb r g b / 0.2);
-      display: none;
       line-height: 1.4;
-      padding: 1em;
+      opacity: 0;
+      padding: 0.5em 0;
       position: absolute;
       text-align: left;
       transform: translateX(-25%);
+      transition: 0.5s opacity, 0s visibility 0.5s;
+      visibility: hidden;
       width: 200%;
       z-index: 1;
+
+      dt {
+        padding: 0.5em 0 0;
+      }
 
       dd {
         border-bottom: 1px solid color(from var(--red) srgb r g b / 0.2);
         color: var(--grey);
         font-size: 0.8em;
         font-weight: 400;
-        margin: 0 0 0.5em 0;
+        margin: 0;
         padding: 0 2em 0.5em 0;
         position: relative;
 
@@ -222,10 +262,22 @@ body > nav ul {
           right: 0;
           transform: rotate(-45deg);
         }
+      }
 
-        &:last-of-type {
+      a {
+        display: block;
+        margin-top: -1px;
+        padding: 0 1em;
+        transition: 1s background-color;
+
+        &:hover,
+        &:focus {
+          background-color: color(from var(--red) srgb r g b / 0.1);
+          text-decoration: inherit;
+        }
+
+        &:last-of-type dd {
           border: none;
-          padding-bottom: 0;
         }
       }
     }
@@ -260,7 +312,8 @@ body > nav ul {
 }
 
 header {
-  background: url(images/header.svg) color(from var(--red) srgb r g b / 0.2);
+  background: url(images/header.svg), color(from var(--red) srgb r g b / 0.2);
+  background-blend-mode: overlay;
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
@@ -513,47 +566,47 @@ dialog {
   margin-right: 1ch;
 }
 
-.github a::before {
+.github::before {
   content: "\f09b";
 }
 
-.web a::before {
+.web::before {
   content: "\f0ac";
 }
 
-.doc a::before {
+.doc::before {
   content: "\f02d";
 }
 
-.gitter a::before {
+.gitter::before {
   content: "\f086";
 }
 
-.report a::before {
+.report::before {
   content: "\f15c";
 }
 
-.twitter a::before {
+.twitter::before {
   content: "\f099";
 }
 
-.mastodon a::before {
+.mastodon::before {
   content: "\f2e1";
 }
 
-.linkedin a::before {
+.linkedin::before {
   content: "\f0e1";
 }
 
-.opencollective a::before {
+.opencollective::before {
   content: "\f336";
 }
 
-.talks a::before {
+.talks::before {
   content: "\f130";
 }
 
-.link a::before {
+.link::before {
   content: "\f0c1";
 }
 
@@ -619,7 +672,9 @@ dialog {
         margin: 2em 0;
         overflow-x: scroll;
         position: relative;
+        scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
+        scrollbar-width: none;
         width: 100%;
 
         div {
@@ -629,6 +684,7 @@ dialog {
           article {
             box-sizing: border-box;
             padding: 2em;
+            scroll-margin-top: 20rem;
             scroll-snap-align: start;
             width: 100%;
 
@@ -657,6 +713,12 @@ dialog {
             a {
               color: var(--darkgrey);
               margin: 1em 0;
+
+              &:active,
+              &:focus {
+                background: var(--darkgrey);
+                color: white;
+              }
             }
           }
         }
@@ -689,7 +751,8 @@ dialog {
       }
 
       &#use {
-        background: url(images/header.svg) color(from var(--red) srgb r g b / 0.2);
+        background: url(images/header.svg), color(from var(--red) srgb r g b / 0.2);
+        background-blend-mode: overlay;
         border-radius: 0.5em;
         margin: 4em 0;
         padding: 2em 4em;
@@ -732,7 +795,8 @@ dialog {
       }
 
       &#experience {
-        background: url(images/header.svg) color(from var(--blue) srgb r g b / 0.2);
+        background: url(images/header.svg), color(from var(--blue) srgb r g b / 0.2);
+        background-blend-mode: overlay;
         border-radius: 0.5em;
         margin: 4em 0;
         padding: 2em 4em;
@@ -740,14 +804,15 @@ dialog {
         .carrousel {
           background: none;
           box-shadow: none;
-          font-size: 0.75em;
           margin-top: 4em;
 
           div {
+            font-size: 0.75em;
             width: fit-content;
 
             figure {
               margin: 0.5em;
+              scroll-margin-top: 22rem;
               width: 30em;
 
               blockquote {
@@ -1003,6 +1068,41 @@ dialog {
     border-radius: 0.5em;
     font-family: Inconsolata;
     padding: 1em 2em;
+  }
+}
+
+#page-links {
+  main {
+    max-width: 30em;
+    text-align: center;
+
+    h1 {
+      background: url(images/logo-white.svg) center / 80% no-repeat var(--red);
+      border-radius: 100%;
+      font-size: 0;
+      height: 7rem;
+      margin: 3rem auto;
+      width: 7rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      a {
+        border: 1px solid var(--red);
+        display: block;
+        margin: 1em 0;
+        padding: 1em;
+        text-decoration: inherit;
+        transition: 1s background-color;
+
+        &:hover,
+        &:focus {
+          background-color: color(from var(--red) srgb r g b / 0.1);
+        }
+      }
+    }
   }
 }
 
