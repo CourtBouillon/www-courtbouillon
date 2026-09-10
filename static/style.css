@@ -57,7 +57,6 @@
   navigation: auto;
 }
 
-/*
 @keyframes slide-out {
   100% {
     opacity: 0%;
@@ -83,7 +82,6 @@ header {
 ::view-transition-new(content) {
   animation: slide-in 0.25s ease-in-out forwards;
 }
-*/
 
 /* Variables */
 
