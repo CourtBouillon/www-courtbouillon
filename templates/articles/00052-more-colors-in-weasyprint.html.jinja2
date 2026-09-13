@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>More Colors in WeasyPrint</h1>
-      <aside><time datetime="2024-08-20">August 20, 2024</time>, by liZe</aside>
+      <aside>
+        <time datetime="2024-08-20">August 20, 2024</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         In the next major version of WeasyPrint, you’ll be able to use many new
         ways to define colors! New color notations 🎨 will be available, that’s

@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint Survey 2021</h1>
-      <aside><time datetime="2021-07-12">July 12, 2021</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2021-07-12">July 12, 2021</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='life-of-courtbouillon') }}">{{ tags['life-of-courtbouillon'] }}</a></li>
+        </ul>
+      </aside>
       <p>
         Our first survey about WeasyPrint’s users needs is over! Now is the
         time to discover the answers that will influence the future of the

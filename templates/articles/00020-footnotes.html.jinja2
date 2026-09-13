@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>New Feature: Footnotes</h1>
-      <aside><time datetime="2022-01-08">January 8, 2022</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2022-01-08">January 8, 2022</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='life-of-courtbouillon') }}">{{ tags['life-of-courtbouillon'] }}</a></li>
+        </ul>
+      </aside>
       <p>
         A new feature, <code>footnote</code>, has been added into WeasyPrint 🎉.
         This feature is available in the latest version of WeasyPrint: <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v54.0">v54</a>.

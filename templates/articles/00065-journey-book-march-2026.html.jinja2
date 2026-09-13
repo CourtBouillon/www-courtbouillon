@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>Journey Book: March 2026</h1>
-      <aside><time datetime="2026-03-31">March 31, 2026</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2026-03-31">March 31, 2026</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='life-of-courtbouillon') }}">{{ tags['life-of-courtbouillon'] }}</a></li>
+        </ul>
+      </aside>
       <p>
         "Releases and improvements" should be the name of this month!
       </p>

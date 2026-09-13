@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>WeasyPrint Without Cairo, What’s Different?</h1>
-      <aside><time datetime="2020-12-06">December 6, 2020</time>, by liZe</aside>
+      <aside>
+        <time datetime="2020-12-06">December 6, 2020</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         The next major version of WeasyPrint will work without Cairo. What does
         it change for you?

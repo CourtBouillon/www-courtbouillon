@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>One Year of CourtBouillon</h1>
-      <aside><time datetime="2021-10-12">October 12, 2021</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2021-10-12">October 12, 2021</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='life-of-courtbouillon') }}">{{ tags['life-of-courtbouillon'] }}</a></li>
+        </ul>
+      </aside>
       <p>
         Do you know what is the day today? We’re October 12, which means that
         it’s CourtBouillon’s one-year anniversary 🎂! So it’s time to rewind

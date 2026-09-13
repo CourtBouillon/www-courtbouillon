@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>New Feature: leader()</h1>
-      <aside><time datetime="2021-03-11">March 11, 2021</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2021-03-11">March 11, 2021</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         A new feature, <code>leader()</code>, has been added in WeasyPrint 🎉.
       </p>

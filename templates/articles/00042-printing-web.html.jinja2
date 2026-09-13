@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>Printing the Web</h1>
-      <aside><time datetime="2023-04-06">April 6, 2023</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2023-04-06">April 6, 2023</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         Everyday we work with web technologies, but our work is a bit different from a
         lot of people: we don’t create websites. Our HTML and CSS aren’t displayed on

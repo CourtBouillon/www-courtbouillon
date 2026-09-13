@@ -557,17 +557,18 @@ dialog {
 /* Classes */
 
 .tags {
-  background: color(from var(--red) srgb r g b / 0.1);
   border-radius: 2em;
   display: flex;
+  flex-wrap: wrap;
   font-size: 0.75em;
   gap: 1em;
   justify-content: center;
   margin: 3em auto 0;
-  padding: 0.75em;
+  padding: 1em;
 
   li {
     display: block;
+    line-height: 1;
     padding: 0;
     text-transform: uppercase;
 
@@ -575,10 +576,14 @@ dialog {
       border: 0.1em solid;
       border-radius: 2em;
       color: var(--red);
-      display: block;
-      line-height: 1;
       text-decoration: inherit;
-      padding: 0.4em 2em 0.25em;
+      padding: 0.4em 1.5em 0.25em;
+      white-space: pre;
+
+      &:not([href]) {
+        background-color: var(--red);
+        color: var(--white);
+      }
     }
   }
 }
@@ -769,7 +774,6 @@ dialog {
           width: 100%;
 
           .tags {
-            background: none;
             border-radius: 0;
             border-top: 1px solid var(--gray);
             margin: 0 2em;
@@ -1121,6 +1125,10 @@ dialog {
 #page-blog {
   header {
     background: none;
+
+    .tags {
+      background: color(from var(--red) srgb r g b / 0.1);
+    }
   }
 
   main {
@@ -1143,10 +1151,10 @@ dialog {
         color: var(--darkgray);
 
         .tags {
-          background: none;
           display: inline-flex;
-          vertical-align: 20%;
+          padding: 0 1em;
           margin: 0;
+          vertical-align: 0.05rem;
         }
       }
 
@@ -1190,7 +1198,7 @@ dialog {
 
       figcaption {
         color: var(--darkgray);
-        font: Inconsolata;
+        font-family: Inconsolata;
         width: 35%;
       }
     }

@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint v68 Has Been Released</h1>
-      <aside><time datetime="2026-01-19">January 19, 2026</time>, by liZe</aside>
+      <aside>
+        <time datetime="2026-01-19">January 19, 2026</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v68.0">WeasyPrint v68</a>
         has been released! Among the new features and bug fixes, the changelog contains

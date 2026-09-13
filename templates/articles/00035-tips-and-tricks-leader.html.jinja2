@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>CSS Tricks: <code>leader()</code></h1>
-      <aside><time datetime="2022-10-27">October 27, 2022</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2022-10-27">October 27, 2022</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         If you ever tried to create a beautiful table of contents, you may have tried
         to include leaders. Leaders? Yes, these small dots you put between a chapter’s

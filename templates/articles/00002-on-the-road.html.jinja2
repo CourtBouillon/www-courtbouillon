@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>On the Road</h1>
-      <aside><time datetime="2020-11-05">November 5, 2020</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2020-11-05">November 5, 2020</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='life-of-courtbouillon') }}">{{ tags['life-of-courtbouillon'] }}</a></li>
+        </ul>
+      </aside>
       <p>
       You may have noticed some releases last week. It’s time to share with you what
       is coming next!

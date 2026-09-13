@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>CSS Tricks: page’s <code>margin</code></h1>
-      <aside><time datetime="2022-11-30">November 30, 2022</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2022-11-30">November 30, 2022</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         You probably already noticed that books are made of pages. And you probably already
         noticed that there are two kinds of pages: rectos and versos. But, did you notice

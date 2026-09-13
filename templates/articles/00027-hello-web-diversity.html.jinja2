@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>Hello, Web Diversity</h1>
-      <aside><time datetime="2022-06-29">June 29, 2022</time>, by liZe</aside>
+      <aside>
+        <time datetime="2022-06-29">June 29, 2022</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='opinion') }}">{{ tags.opinion }}</a></li>
+        </ul>
+      </aside>
       <p>
         Do you read this post on Google Chrome? Probably, as almost everybody
         does, but… Do you read it on your good old personal computer, in the

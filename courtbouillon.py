@@ -1,3 +1,4 @@
+import re
 import textwrap
 from datetime import datetime
 from email.utils import format_datetime
@@ -10,8 +11,11 @@ from pygments import formatters, highlight, lexers
 app = Flask(__name__)
 TEMPLATES = Path(app.root_path) / app.template_folder
 TAGS = {
-    'release': 'Release', 'loc': 'Life of Courtbouillon',
-    'opinion': 'Opinion', 'technique': 'Technique'}
+    'release': 'Release',
+    'life-of-courtbouillon': 'Life of Courtbouillon',
+    'opinion': 'Opinion',
+    'technique': 'Technique',
+}
 
 def list_articles():
     articles_path = TEMPLATES / 'articles'
@@ -23,15 +27,16 @@ def list_articles():
         if not article.is_file() or article.name.startswith('_'):
             continue
         content = (articles_path / article.name).read_text()
-        introduction = content.split('<header>')[1].split('</header>')[0]
-        title = introduction.split('<h1>')[1].split('</h1>')[0]
-        description = introduction.split('</aside>')[1]
-        date_string = introduction.split('datetime="', 1)[1].split('"')[0]
+        header = re.search('<header>(.*)</header>', content, re.S)[1]
+        title = re.search('<h1>(.*)</h1>', header, re.S)[1]
+        description = re.search('</aside>(.*)', header, re.S)[1]
+        date_string = re.search('datetime="(.*?)"', header)[1]
+        tags = re.findall("tag='(.*?)'", header)
         image = None
-        if '<img' in content:
-            image = content.split('<img ', 1)[1].split('src="', 1)[1].split('"')[0]
-            if image[0] == '{':
-                image = image.split("filename='", 1)[1].split("'")[0]
+        if match := re.search('<img .*src="(.*?)"', content):
+            image = match[1]
+            if image.startswith('{'):
+                image = re.search("filename='(.*?)'", image)[1]
         date = datetime.strptime(date_string, '%Y-%m-%d')
         rss_date = format_datetime(date)
         article_date = date.strftime('%B %d, %Y')
@@ -42,20 +47,40 @@ def list_articles():
             'description': description,
             'rss_date': rss_date,
             'article_date': article_date,
+            'date': date,
             'image': image,
+            'article_tags': tags,
         }
 
     return dict(sorted(articles.items(), reverse=True))
 
 
 @app.route('/blog-articles/')
+@app.route('/blog-articles/<int:year>')
+@app.route('/blog-articles/<tag>')
 @app.route('/blog/<article>/')
-def blog(article=None):
+def blog(article=None, year=None, tag=None):
     if article is not None:
         article_object = list_articles()[article.split('-')[0]]
         template = f'articles/{article}.html.jinja2'
         return render_template(template, page='article', tags=TAGS, **article_object)
-    return render_template('blog.html.jinja2', articles=list_articles(), tags=TAGS)
+    articles = list_articles()
+    all_years = {article['date'].year for article in articles.values()}
+    if tag:
+        articles = {
+            key: article for key, article in articles.items()
+            if tag in article['article_tags']}
+    else:
+        if year:
+            years = {year}
+        else:
+            now = datetime.now()
+            years = {now.year, now.year - 1} if now.month <= 6 else {now.year}
+        articles = {
+            key: article for key, article in articles.items()
+            if article['date'].year in years}
+    return render_template(
+        'blog.html.jinja2', articles=articles, tags=TAGS, years=all_years)
 
 
 @app.route('/')

@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint v67 Has Been Released</h1>
-      <aside><time datetime="2025-12-02">December 2, 2025</time>, by liZe</aside>
+      <aside>
+        <time datetime="2025-12-02">December 2, 2025</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v67.0">WeasyPrint v67</a>
         has been released! It is one of the most important versions of WeasyPrint with

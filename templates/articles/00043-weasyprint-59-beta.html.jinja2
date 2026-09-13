@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint v59: Beta Time</h1>
-      <aside><time datetime="2023-04-14">April 14, 2023</time>, by liZe</aside>
+      <aside>
+        <time datetime="2023-04-14">April 14, 2023</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         WeasyPrint v59 is the next major version of WeasyPrint.
         We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v59.0b1">beta</a>

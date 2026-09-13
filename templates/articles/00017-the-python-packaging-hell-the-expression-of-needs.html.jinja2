@@ -6,7 +6,13 @@
   <article>
     <header>
       <h1>The Python Packaging Hell: The Expression of Needs (6 / 7)</h1>
-      <aside><time datetime="2021-12-02">December 02, 2021</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2021-12-02">December 02, 2021</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='opinion') }}">{{ tags.opinion }}</a></li>
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         Python packaging can sometimes be a nightmare. It’s all the more hellish
         because when we talk about package creation and installation, we should

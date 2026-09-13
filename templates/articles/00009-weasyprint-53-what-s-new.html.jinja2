@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>WeasyPrint 53: What’s New</h1>
-      <aside><time datetime="2021-05-30">May 30, 2021</time>, by liZe</aside>
+      <aside>
+        <time datetime="2021-05-30">May 30, 2021</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         The second (and probably last) beta version of WeasyPrint 53 is now
         out. What’s new in the next version? Here is a technical changelog.

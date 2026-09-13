@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>CSS Tricks: <code>@page</code></h1>
-      <aside><time datetime="2022-07-26">July 26, 2022</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2022-07-26">July 26, 2022</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         Ever wanted to use a landscape orientation for your tables, because they’re too
         large and overflow the page? It’s possible with CSS named pages!

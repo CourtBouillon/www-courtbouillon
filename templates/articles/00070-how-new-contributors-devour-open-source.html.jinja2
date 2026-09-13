@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>How New Contributors Devour Open Source</h1>
-      <aside><time datetime="2026-07-28">July 28, 2026</time>, by liZe</aside>
+      <aside>
+        <time datetime="2026-07-28">July 28, 2026</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='opinion') }}">{{ tags.opinion }}</a></li>
+        </ul>
+      </aside>
       <p>
         In about a year, we’ve got an increasing number of pull requests and security
         reports. A lot of contributions, that’s good news! Well… No. They look like

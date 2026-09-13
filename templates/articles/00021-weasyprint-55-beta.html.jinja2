@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint v55: Beta Time</h1>
-      <aside><time datetime="2022-04-15">April 15, 2022</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2022-04-15">April 15, 2022</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         WeasyPrint v55 is the next major version of WeasyPrint.
         We released a <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v55.0b1">beta</a>,

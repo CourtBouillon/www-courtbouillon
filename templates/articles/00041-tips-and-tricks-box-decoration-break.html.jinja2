@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>CSS Tricks: <code>box-decoration-break</code></h1>
-      <aside><time datetime="2023-03-21">March 21, 2023</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2023-03-21">March 21, 2023</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         When a box is split between multiple pages, do you want do display its top and bottom
         borders? Sometimes you do… but sometimes you don’t.

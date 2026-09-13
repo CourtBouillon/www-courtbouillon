@@ -5,7 +5,13 @@
   <article>
     <header>
       <h1>Why Don’t You Add Type Annotations?</h1>
-      <aside><time datetime="2026-03-23">March 23, 2026</time>, by liZe</aside>
+      <aside>
+        <time datetime="2026-03-23">March 23, 2026</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='opinion') }}">{{ tags.opinion }}</a></li>
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         That’s a recurring question on our bug trackers: why don’t you add type
         annotations to your Python projects? That’s a good question, and it needs an

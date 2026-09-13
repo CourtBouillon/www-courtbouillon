@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>CSS Tricks: running elements</h1>
-      <aside><time datetime="2022-12-20">December 20, 2022</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2022-12-20">December 20, 2022</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         Having the current chapter name and number displayed in each page margin is useful
         in many situations: quickly turning the pages and checking the current chapter,

@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>WeasyPrint v70 Has Been Released</h1>
-      <aside><time datetime="2026-09-08">September 8, 2026</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2026-09-08">September 8, 2026</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">WeasyPrint v70</a>
         has been released! It comes with CSS Notes and COLR fonts support, and more 😊

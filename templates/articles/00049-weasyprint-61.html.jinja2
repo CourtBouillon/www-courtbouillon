@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint v61 Has Been Released</h1>
-      <aside><time datetime="2024-02-12">February 12, 2024</time>, by liZe</aside>
+      <aside>
+        <time datetime="2024-02-12">February 12, 2024</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         Version 61 of WeasyPrint has been released. It comes with nice new
         features 🚀, a Windows executable 🪟, a lot of bug fixes 🐛, and code

@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>New Feature: line-clamp</h1>
-      <aside><time datetime="2021-03-02">March 02, 2021</time>, by liZe</aside>
+      <aside>
+        <time datetime="2021-03-02">March 02, 2021</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         A new feature, <code>line-clamp</code>, has been added in WeasyPrint.
       </p>

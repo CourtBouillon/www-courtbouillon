@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint v65 Has Been Released</h1>
-      <aside><time datetime="2025-03-20">March 20, 2025</time>, by liZe</aside>
+      <aside>
+        <time datetime="2025-03-20">March 20, 2025</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v65.0">WeasyPrint v65</a> has been released, and thanks to
         <a href="{{ url_for('blog', article='00056-weasyprint-and-nlnet') }}">the amazing NLnet foundation</a>,

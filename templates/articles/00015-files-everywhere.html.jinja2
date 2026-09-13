@@ -6,7 +6,13 @@
   <article>
     <header>
       <h1>The Python Packaging Hell: Files Everywhere (4 / 7)</h1>
-      <aside><time datetime="2021-10-28">October 28, 2021</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2021-10-28">October 28, 2021</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='opinion') }}">{{ tags.opinion }}</a></li>
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         Python packaging can sometimes be a nightmare. To convince yourself about
         that, you just need a few minutes of drowning into the myriad of usable

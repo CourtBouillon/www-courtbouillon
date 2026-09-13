@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>WeasyPrint v54: Beta Time</h1>
-      <aside><time datetime="2021-12-13">December 13, 2021</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2021-12-13">December 13, 2021</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
       v54 is the next main version of WeasyPrint. A <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v54.0b1">beta has been released</a> so you can
       try it and help us to have a nice stable release!

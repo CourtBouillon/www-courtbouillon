@@ -6,7 +6,12 @@
   <article>
     <header>
       <h1>WeasyPrint Without Cairo: Beta Time</h1>
-      <aside><time datetime="2021-04-22">April 22, 2021</time>, by grewn0uille</aside>
+      <aside>
+        <time datetime="2021-04-22">April 22, 2021</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         After many months of hard work, we have never been so close to a WeasyPrint
         release without Cairo and now it is the moment for you to try a beta 🎉!

@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>WeasyPrint v64 Has Been Released</h1>
-      <aside><time datetime="2025-01-30">January 30, 2025</time>, by liZe</aside>
+      <aside>
+        <time datetime="2025-01-30">January 30, 2025</time>, by liZe
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='release') }}">{{ tags.release }}</a></li>
+        </ul>
+      </aside>
       <p>
         WeasyPrint v64 has been released, it comes with eInvoices
         support, new text features, speed improvements and a lot of bug

@@ -5,7 +5,12 @@
   <article>
     <header>
       <h1>CSS Tricks: <code>@media</code></h1>
-      <aside><time datetime="2022-08-31">August 31, 2022</time>, by CourtBouillon</aside>
+      <aside>
+        <time datetime="2022-08-31">August 31, 2022</time>, by CourtBouillon
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='technique') }}">{{ tags.technique }}</a></li>
+        </ul>
+      </aside>
       <p>
         Using the same content on a website and on a printed document is a very common
         requirement. Even when the two versions share most of the style, it’s often
