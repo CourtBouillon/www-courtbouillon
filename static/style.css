@@ -467,7 +467,7 @@ dialog {
   border-radius: 0.5em;
   box-shadow:
     0 0 1em black,
-    0 0 0 calc(max(100vh, 100vw)) #0003;
+    0 0 0 calc(max(100vh, 100vw)) #0008;
   padding: 1em;
 
   h2 {
@@ -523,7 +523,7 @@ dialog {
 
       textarea {
         height: 10em;
-        width: 30em;
+        width: 35em;
       }
     }
 
@@ -879,9 +879,15 @@ dialog {
 
       &#opensource {
         p {
-          max-width: 30rem;
+          margin-left: auto;
+          margin-right: auto;
           text-align: center;
           text-wrap: balance;
+
+          &:not(.catchphrase) {
+            font-size: 1.25em;
+            max-width: 45rem;
+          }
         }
 
         dl {
