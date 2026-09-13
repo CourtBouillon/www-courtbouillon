@@ -1,3 +1,6 @@
+{%- macro pygments(extension) -%}
+  {{ caller() | dedent | pygmentize_string(extension) }}
+{%- endmacro -%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +16,7 @@
   <body id="page-{{ page or request.endpoint }}">
     <nav>
       <ul>
-        <li id="home"><a href="{{ url_for('page', page='index') }}">Home</a></li>
+        <li id="home"><a href="{{ url_for('page') }}">Home</a></li>
         <li id="products">
           Products
           <dl>

@@ -30,20 +30,39 @@
     <section id="use">
       <h2>You already use them</h2>
       <p class="catchphrase">
-        Tools that shape documents effortlessly
+        Tools that shape documents delicately
       </p>
 
       <div class="carrousel">
         <div>
           <article id="weasyprint">
             <h3>WeasyPrint</h3>
-
-            <img src="">
+            {%- call pygments('html') %}
+              <!DOCTYPE html>
+              <html>
+                <head>
+                  <title>My document</title>
+                  <style>
+                    @page { size: A4 landscape }
+                  </style>
+                </head>
+                <body>
+                  <h1>Main title</h1>
+                </body>
+              </html>
+            {% endcall -%}
             <p>
-              TODO
+              The Awesome Document Factory
+            </p>
+            <p>
+              WeasyPrint is a smart solution helping web developers to create PDF
+              documents. It’s free and open source software that can be easily plugged
+              to your applications and websites and turns simple HTML pages into
+              gorgeous reports, invoices, tickets…
             </p>
             <ul>
-              <li>9.3k</li>
+              <li class="icon star">9.6k</li>
+              <li class="icon download">30M / month</li>
               <li><a href="">Repository</a></li>
               <li><a href="">Website</a></li>
               <li><a href="">Documentation</a></li>
@@ -52,13 +71,24 @@
 
           <article id="pydyf">
             <h3>pydyf</h3>
+            {%- call pygments('python') %}
+              import pydyf
 
-            <img src="">
+              document = pydyf.PDF()
+              document.add_page(pydyf.Dictionary({
+                  'Type': '/Page',
+                  'Parent': document.pages.reference,
+                  'MediaBox': pydyf.Array([0, 0, 200, 200]),
+              }))
+
+              with open('document.pdf', 'wb') as fd:
+                  document.write(fd)
+            {% endcall -%}
             <p>
-              TODO
+              pydyf is a low-level PDF generator.
             </p>
             <ul>
-              <li>151</li>
+              <li class="icon download">30M / month</li>
               <li><a href="">Repository</a></li>
               <li><a href="">Website</a></li>
               <li><a href="">Documentation</a></li>
@@ -67,13 +97,25 @@
 
           <article id="pyphen">
             <h3>Pyphen</h3>
-
-            <img src="">
+            {%- call pygments('python') %}
+              >>> import pyphen
+              >>> 'fr' in pyphen.LANGUAGES
+              True
+              >>> dictionary = pyphen.Pyphen(lang='fr')
+              >>> dictionary.inserted('macaron')
+              'ma-ca-ron'
+              >>> for pair in dictionary.iterate('communard'):
+              ...     print(pair)
+              ...
+              ('commu', 'nard')
+              ('com', 'munard')
+            {% endcall -%}
             <p>
-              TODO
+              Pyphen hyphenates words using included or external hyphenation
+              dictionaries.
             </p>
             <ul>
-              <li>229</li>
+              <li class="icon download">35M / month</li>
               <li><a href="">Repository</a></li>
               <li><a href="">Website</a></li>
               <li><a href="">Documentation</a></li>
@@ -94,7 +136,7 @@
     <section id="opensource">
       <h2>Open source at the core</h2>
       <p class="catchphrase">
-        Dedicated to build a better web
+        Dedicated to build a web for all humans
       </p>
       <p>
         TODO
@@ -113,7 +155,7 @@
     <section id="experience">
       <h2>Proven by experience</h2>
       <p class="catchphrase">
-        Our open source commitment has been recognized for years
+        Our expertize has been recognized for years
       </p>
 
       <div class="carrousel">
@@ -159,7 +201,7 @@
     <section id="support">
       <h2>Streamline your product</h2>
       <p class="catchphrase">
-        Ask us tailor-made features
+        Ask us tailor-made documents
       </p>
       <ul>
         <li>

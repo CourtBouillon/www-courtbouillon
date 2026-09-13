@@ -1,3 +1,4 @@
+import textwrap
 from datetime import datetime
 from email.utils import format_datetime
 from pathlib import Path
@@ -78,7 +79,18 @@ def robots():
 def pygmentize(filename):
     content = (TEMPLATES / 'snippets' / filename).read_text()
     lexer = lexers.get_lexer_for_filename(filename)
-    return highlight(content, lexer, formatters.HtmlFormatter())
+    return highlight(content, lexer, formatters.HtmlFormatter(linenos=True))
+
+
+@app.template_filter()
+def pygmentize_string(string, extension):
+    lexer = lexers.get_lexer_by_name(extension)
+    return highlight(string, lexer, formatters.HtmlFormatter(linenos=True))
+
+
+@app.template_filter()
+def dedent(string):
+    return textwrap.dedent(string)
 
 
 @app.cli.command('freeze')
