@@ -752,6 +752,7 @@ dialog {
 
       .carrousel {
         background: rgba(from var(--white) r g b / 0.7);
+        backdrop-filter: blur(0.2em);
         border-radius: 0.5em;
         box-shadow: 0.25em 0.25em 1em rgba(from var(--red) r g b / 0.3);
         margin: 2em 0;
@@ -931,6 +932,7 @@ dialog {
 
         .carrousel {
           background: none;
+          backdrop-filter: none;
           box-shadow: none;
           margin-top: 4em;
 
@@ -945,6 +947,7 @@ dialog {
 
               blockquote {
                 background: rgba(from var(--white) r g b / 0.7);
+                backdrop-filter: blur(0.2em);
                 border: none;
                 color: inherit;
                 font-weight: inherit;
@@ -959,6 +962,7 @@ dialog {
 
               figcaption {
                 background: rgba(from var(--white) r g b/ 0.7);
+                backdrop-filter: blur(0.2em);
                 margin-top: 1em;
                 padding: 1em;
                 width: 50%;

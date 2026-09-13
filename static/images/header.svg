@@ -19,7 +19,7 @@
       }
     }
   </style>
-  <circle r="50%" fill="#4001" style="--cx: -5%; --cy: -45%" />
+  <circle r="50%" fill="#8881" style="--cx: -5%; --cy: -25%" />
   <circle r="25%" fill="none" stroke="#fffb" style="--cx: 0%; --cy: 105%; stroke-width: 6%; stroke-width: random(4%, 7%)" />
   <circle r="20%" fill="none" stroke="#fffb" style="--cx: 100%; --cy: -5%; stroke-width: 6%; stroke-width: random(4%, 7%)" />
 </svg>
