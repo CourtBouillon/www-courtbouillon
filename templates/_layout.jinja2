@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
     <link rel="alternate" type="application/rss+xml" title="CourtBouillon Blog" href="{{ url_for('rss') }}" />
-    <script>/* Stupid hack for iOS :hover */ document.addEventListener("touchstart", function(){}, true);</script>
   </head>
   <body id="page-{{ page or request.endpoint }}">
     <nav>
@@ -49,7 +48,7 @@
         <li id="blog"><a href="{{ url_for('blog') }}">Blog</a></li>
         <li id="about"><a href="{{ url_for('page', page='team') }}">About</a></li>
         <li id="github"><a href="">GitHub</a></li>
-        <li><button popovertarget="contact">Get in touch</button></li>
+        <li id="touch"><button popovertarget="contact">Get in touch</button></li>
       </ul>
     </nav>
 
