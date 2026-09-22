@@ -713,7 +713,7 @@ dialog {
         }
 
         .highlight {
-          background-color: color-mix(in srgb, alpha(from var(--red) / 0.4) 50%, var(--white) 50%);
+          background-color: color-mix(in srgb, alpha(from var(--red) / 0.5) 30%, var(--white) 70%);
           backdrop-filter: blur(1em);
           background-blend-mode: difference;
           box-shadow: 0.25em 0.25em 2em alpha(from var(--black) / 0.1);
@@ -726,7 +726,7 @@ dialog {
           transform: translatex(25em) scale(85%) rotate(0.01turn);
           transition: 0.5s transform ease-in-out, 0.5s filter ease-in-out;
           width: 35em;
-          z-index: 2;
+          z-index: 1;
 
           &:hover {
             filter: none;
@@ -1148,6 +1148,7 @@ dialog {
         transition: 0.5s opacity, 0s visibility 0.5s;
         visibility: hidden;
         width: 200%;
+        z-index: 1;
 
         dt {
           padding: 0.5em 0 0;
