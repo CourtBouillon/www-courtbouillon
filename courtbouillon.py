@@ -56,8 +56,8 @@ def list_articles():
 
 
 @app.route('/blog-articles/')
-@app.route('/blog-articles/<int:year>')
-@app.route('/blog-articles/<tag>')
+@app.route('/blog-articles/<int:year>/')
+@app.route('/blog-articles/<tag>/')
 @app.route('/blog/<article>/')
 def blog(article=None, year=None, tag=None):
     if article is not None:
