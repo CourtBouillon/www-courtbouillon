@@ -873,11 +873,13 @@ dialog {
 
           div {
             font-size: 0.75em;
+            max-width: 300%;
             width: fit-content;
 
             figure {
               margin: 0.5em;
               scroll-margin-top: 22rem;
+              max-width: calc(100% / 3);
               width: 30em;
 
               blockquote {
@@ -1359,12 +1361,13 @@ dialog {
     &:has(footer:active) {
       > nav,
       > nav #home,
+      > nav #products::before,
       footer::before {
         transition: none;
       }
     }
 
-    &:has(> nav:active):not(:has(#home:active)) {
+    &:has(> nav:active):not(:has(nav *:active)) {
       footer::before {
         height: calc(1.5rem + 2px);
         transition-delay: 0s;
@@ -1381,13 +1384,18 @@ dialog {
       width: 100vw;
       z-index: 2;
 
-      &:active:not(:has(#home:active)) {
+      &:active:not(:has(:active)) {
         transition-delay: 0s;
         left: 0;
 
         #home {
           transition-delay: 0s;
           translate: 0;
+        }
+
+        #products::before {
+          scale: 100%;
+          transition-duration: 0s;
         }
 
         &::after {
@@ -1445,15 +1453,33 @@ dialog {
           padding-top: 8rem;
 
           &::before {
-            background: url(images/bubbles-white.svg) center 1rem / 1.75rem no-repeat var(--red);
+            background:
+              radial-gradient(
+                circle at bottom right,
+                var(--red) 20%,
+                alpha(from var(--red) / 0.5) 20%,
+                alpha(from var(--red) / 0.5) 22%,
+                transparent 22%);
             content: "";
             left: 0;
             height: 100vh;
             position: absolute;
+            scale: 500%;
             top: 0;
-            transition: left 0s calc(infinity * 1s);
+            transform-origin: bottom right;
+            transition: scale 0.5s;
             width: 100vw;
             z-index: -1;
+          }
+
+          &::after {
+            background: url(images/bubbles-white.svg) center 1rem / 1.75rem no-repeat;
+            content: "";
+            height: 5rem;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100vw;
           }
 
           dl {
