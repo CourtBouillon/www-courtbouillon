@@ -118,6 +118,13 @@ def dedent(string):
     return textwrap.dedent(string)
 
 
+freezer = Freezer(app)
+
 @app.cli.command('freeze')
 def freeze():
-    Freezer(app).freeze()
+    freezer.freeze()
+
+
+@freezer.register_generator
+def page():
+    yield {'page': 'message'}
