@@ -1,0 +1,131 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Journey Book: September 2026</h2>
+      <aside><time datetime="2026-10-02">October 2, 2026</time>, by grewn0uille</aside>
+      <p>
+        September is the end of the summer holidays. Let’s see what we’re up to! 
+      </p>
+    </header>
+
+    <section>
+      <h3>About Code</h3>
+
+      <p>
+        <a href="https://github.com/Kozea/WeasyPrint/releases/tag/v70.0">WeasyPrint v70.0</a>
+        and <a href="https://github.com/Kozea/CairoSVG/releases/tag/2.9.1">CairoSVG 2.9.1</a>
+        have been released this month 🎉.
+      </p>
+
+      <p>
+        This new version of WeasyPrint adds support for CSS Notes, the
+        specification we worked on with Julie and Julien from
+        <a href="https://pagedjs.org/">paged.js</a>, COLR fonts, and many other things.
+        The release also contains security information related to
+        untrusted images and URL fetcher to filter elements passed as
+        Python parameters.
+      </p>
+      <p>
+        We wrote an <a href="{{ url_for('blog', article='00074-weasyprint-70') }}">article about this new release</a>,
+        where you can find more details about it.
+      </p>
+      <p>
+        If you’re curious about our work on the
+        <a href="https://css-print-lab.github.io/specs/notes-in-css-print/">CSS Notes specification</a>
+        and how to use it, there is also
+        <a href="{{ url_for('blog', article='00073-css-notes-in-weasyprint') }}">a dedicated article</a> 🤓.
+      </p>
+
+      <p>
+        The new version of CairoSVG contains a fix for Windows paths
+        and adds support of path-like objects for URLs.
+      </p>
+
+      <p>
+        Among these releases, we started to rewrite the repagination
+        process of WeasyPrint. It’s quite an old part that has become
+        longer and longer along the years, and also less and less
+        clear. So rewriting it we’ll make it simpler to understand and
+        to maintain!
+      </p>
+
+      <p>
+        We also fixed several issues related to gradients. It’s quite
+        impressive the number of tests there are in WeasyPrint related
+        to gradient and the number of issues we still find 🙃.
+      </p>
+
+      <p>
+        And to finish this code part, we’re continuing to work on the
+        new website. Here is a preview of the future homepage!
+      </p>
+      
+      <figure>
+        <img src="{{ url_for('static', filename='images/00075-courtbouillon-new-website.png') }}" />
+        <figcaption>Preview of the future new homepage</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h3>Not About Code</h3>
+
+      <p>
+        As said in the code part, we wrote to articles this month: the
+        <a href="{{ url_for('blog', article='00074-weasyprint-70') }}">release article of WeasyPrint v70</a>
+        and the <a href="{{ url_for('blog', article='00073-css-notes-in-weasyprint') }}">article about CSS Notes</a>.
+      </p>
+
+      <p>
+        We also organised, and went to, the monthly local Python
+        meetup 🐍. After the summer, we’re back with talks! This month
+        was about self-hosting. We learn a lot about hardware and
+        tools used to deploy / monitor services.
+      </p>
+
+      <p>
+        Related to Python events, in the end of October, from October
+        29 to November 1, we’ll be in Biarritz (south-west of France)
+        for the <a href="https://www.pycon.fr/2026/en/">PyConFR</a>.
+        Lucie will give a talk about the impact of AI in our lives of
+        open source maintainers. If you’re around there, don’t
+        hesitate to come and say hi 👋!
+      </p>
+    </section>
+
+    <section>
+      <h3>Interesting Reading and Watching</h3>
+
+      <p>
+        The interesting reading and watching of this month, we got two items:
+      </p>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=V7AfAcQwLW0">Are we really going to use the same Desktop UX forever? — Scott Jenson</a> at the KDE conference,</li>
+        <li>The <a href="https://2026.stateofdevs.com/en-US/">state of the Devs survey results</a>.</li>
+      </ul>
+
+      <p>
+        In his talk, Scott Jenson talk about the evolution of desktop
+        interfaces, and how there isn’t really new evolution these
+        days. It’s a very interesting talk, and among of talking of
+        desktop UX/UI, we feel that the tech field in general isn’t
+        about new evolution and more about keep using things as there
+        are without real new functionalities or ideas (and AI isn’t a
+        new idea 😊).
+      </p>
+
+      <p>
+        The state of the Devs survey is an annual survey related to
+        the physical/mental health of developers. It’s the second
+        edition of this survey. We think it’s important to have data
+        on this topic and also interesting to know the general mood in
+        the development field, outside our usual circles.
+      </p>
+
+      <p>
+        See you next month for another Journey Book entry 💜
+      </p>
+    </section>
+  </article>
+{% endblock content %}
