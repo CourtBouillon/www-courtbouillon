@@ -1,0 +1,332 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+
+  <article>
+    <header>
+      <h2>Six Years of CourtBouillon</h2>
+      <aside><time datetime="2026-10-12">October 12, 2026</time>, by grewn0uille</aside>
+      <p>
+        Do you know what day it is today? It’s October 12, which means that
+        CourtBouillon is 6 years old 🎂! So it’s time to rewind
+        and see what happened during this year.
+      </p>
+    </header>
+
+    <section>
+      <h3>A New Anniversary</h3>
+
+      <p>
+        As each year, on October 12, it’s CourtBouillon’s anniversary.
+        It’s always a good moment to take some time to see how far
+        we’ve come during the year.
+      </p>
+
+      <p>
+        So, here is our annual rewind, what happened during this year,
+        which cool features had been released, how much money did we
+        earn…? And what’s coming next?
+      </p>
+    </section>
+
+    <section>
+      <h3>What Happened This Year?</h3>
+
+      <p>
+        First, let’s start with some metrics about WeasyPrint and its
+        dependencies. How many issues were closed? How many pull
+        requests were merged? How many releases have been out?
+      </p>
+      <p>
+        This year, a new project appears in the metrics:
+        <a href="https://github.com/CourtBouillon/webencodings">webencodings</a>.
+        That’s a friendly fork of the original python-webencodings module.
+      </p>
+
+      <h4>Closed Issues</h4>
+      <embed src="{{ url_for('static', filename='graphs/6_year_issues.svg') }}" />
+
+      <p>
+        During the year, <strong>244 issues have been closed</strong>.
+        It’s slightly more than last year (237).
+      </p>
+
+      <h4>Merged Pull Requests</h4>
+      <embed src="{{ url_for('static', filename='graphs/6_year_pr.svg') }}" />
+
+      <p>
+        105 pull requests have been merged. It’s also an
+        <strong>increase of 19%</strong> compared to last year.
+        <strong>40% of these pull requests comes from external persons.</strong>
+      </p>
+
+      <h4>Releases</h4>
+      <embed src="{{ url_for('static', filename='graphs/6_year_releases.svg') }}" />
+
+      <p>
+        <strong>19 versions have been released!</strong>
+        The number of releases slightly increases but still overall
+        stable among the years.
+      </p>
+
+      <p>
+        Each year we said that we’re happy to have new contributors
+        participating, but <strong>this year is kind of hard to say that</strong>.
+      </p>
+      <p>
+        There is indeed an increase of merged pull requests, but also
+        an increase of pull requests that have just been closed.
+      </p>
+      <p>
+        Accounts "fixing" issues that nobody in real life has,
+        accounts that can’t say what’s their use cases or give a real
+        example of the issue, accounts that just copy-paste walls of
+        text… The quality of interactions has just drop, it makes us
+        sad and questionning if we want to keep pull requests opened.
+      </p>
+      <p>
+        We published an <a href="{{ url_for('blog', article='00070-how-new-contributors-devour-open-source') }}">article to explain that in more details</a>,
+        feel free to read it if you’re interested in the topic.
+      </p>
+      <p>
+        We also added <a href="{{ url_for('page', page='code-of-conduct', _anchor='guidelines-for-contributors') }}">guidelines for contributors</a>
+        and limited the number of pull requests an account can open.
+      </p>
+      <p>
+        So this year, it’s a <strong>thank you to all the contributors who
+        actually respects us (and the guidelines), reports issues they
+        have for real and thinks before opening pull requests.</strong> 💖.
+      </p>
+
+      <h4>New Features</h4>
+
+      <p>
+        Despite all of this, some nice features have been released:
+      </p>
+      <ul>
+        <li>CMYK and color profiles support,</li>
+        <li><code>calc()</code> support,</li>
+        <li>PDF/X, and other PDF/A subversions, support,</li>
+        <li>CLI for FacturX / ZUGFeRD e-Invoices,</li>
+        <li>COLR emoji fonts support,</li>
+        <li>CSS Layers support,</li>
+        <li>CSS Notes support,</li>
+        <li>and more! 😄</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Meeting the community</h3>
+
+      <p>
+        We went to several conferences to meet people and give talks.
+      </p>
+      <ul>
+        <li><a href="https://pyvideo.org/pycon-fr-2025/est-on-juste-paye-a-ecrire-du-code.html">"Are we (only) paid to write code?"</a> (fr), by Guillaume at PyConFR in Lyon,</li>
+        <li><a href="https://fosdem.org/2026/schedule/event/FXLB7M-outside_the_beaten_path_of_css/">"Outside the beaten path of CSS"</a> (en), by both of us at FOSDEM in Bruxelles,</li>
+        <li>"Impact of generative AI on free and open source software", by Lucie at PyCon Togo (online)</li>
+      </ul>
+      <p>
+        Guillaume has also been interviewed by
+        <a href="https://www.youtube.com/watch?v=Xxg_8mge50U">Micode to talk about PDF and its story</a> (fr),
+        and by <a href="https://www.youtube.com/watch?v=tkgS0T7FhX4">Road to PyCon to talk about free software development</a> (fr).
+      </p>
+      <p>
+        We’re always happy to meet people in real life, so don’t hesitate to come and say hi if you see us ☺️!
+      </p>
+      <p>
+        And you can always find us at the Python meetups in Lyon, as we organise them 🐍.
+      </p>
+    </section>
+
+    <section>
+      <h3>Sources of Income</h3>
+
+      <p>
+        Like each year, this rewind includes a part about our incomes.
+        So here we go!
+      </p>
+      <p>
+        We have five main sources of income this year:
+      </p>
+      <ul>
+        <li>templating and styling with HTML/CSS,</li>
+        <li>bug fixes and additional features,</li>
+        <li>consulting,</li>
+        <li>sponsoring and donations,</li>
+        <li>grants.</li>
+      </ul>
+
+      <embed src="{{ url_for('static', filename='graphs/6_year_incomes.svg') }}" />
+
+      <p>
+        As last year, templating is a big part of our income. On another hand, consulting has increased.
+        <strong>Our global income stays stable</strong>: 76k€ this year / 79k€ last year.
+      </p>
+
+      <h4>Templating and Styling with HTML/CSS</h4>
+      <p>
+        <strong>Creating HTML and CSS for print is one of the services we provide.</strong>
+        It’s very useful when you have a nice mock-up for your
+        documents coming from your designer but have some difficulties
+        to transform them into HTML/CSS template (or don’t have time to
+        do it).
+      </p>
+      <p>
+        This year, we created several <strong>HTML/CSS templates for differents
+        type of documents</strong> like invoices, construction reports, bid documents…
+      </p>
+      <p>
+        We also worked with a designer when there were no mock-up, so
+        everyone agrees on a visual and frustration is avoided 😁.
+      </p>
+
+      <h4>Bug Fixes and Additional Features</h4>
+      <p>
+        Another service we provide is <strong>fixing bugs you encounter and adding new
+        features to make your life easier</strong>.
+      </p>
+      <p>
+        A nice thing about this part is that <strong>the bug fixes and the new features you
+        sponsor benefit the whole community.</strong> Another nice thing is that <strong>the bug
+        fixes and the new features funded by other companies will be useful for you
+        😉!</strong>
+      </p>
+      <p>
+        This year, this source of income is the smallest, meaning that
+        most of the new features and bug fixes have been done unpaid.
+      </p>
+      <p>
+        <strong>Thanks a lot to everyone who sponsored new features 🫶.</strong>
+      </p>
+
+      <h4>Sponsoring and Donations</h4>
+      <p>
+        <strong>When <a href="https://opencollective.com/courtbouillon">you become a
+        backer or a sponsor on OpenCollective</a>, you greatly help
+        CourtBouillon to maintain its projects in a sustainable way.</strong>
+      </p>
+      <p>
+        The OpenCollective part helps us to do the invisible
+        maintenance work, like answering and sorting GitHub issues,
+        writing articles, improving performance…
+      </p>
+      <p>
+        <strong>Thanks to all the OpenCollective backers and sponsors 💜.</strong>
+      </p>
+      <p>
+        If you want to be a sponsor, but can’t use OpenCollective,
+        you can contact us for direct invoicing.
+      </p>
+
+      <h4>Consulting</h4>
+      <p>
+        <strong>Helping people to have a better experience with WeasyPrint</strong> is
+        something we love to do.
+      </p>
+      <p>
+        During the year, we provided <strong>consulting and advice</strong>
+        mainly about automatisation of reports generation.
+      </p>
+      <p>
+        Last year, we’ve launched <a href="https://weasyprint.org/#support"><strong>WeasyPrint Consulting Packages</strong></a>.
+        These packages are designed for people who wants to be insured
+        that someone is always going to answer quickly to their questions.
+      </p>
+      <p>
+        These packages picked the interest some companies that wants
+        to <strong>be sure WeasyPrint keeps existing</strong>.
+      </p>
+
+      <h4>Grants</h4>
+      <p>
+        For the second year, we got funding from the <a href="https://nlnet.nl/">NLnet Foundation</a>!
+      </p>
+      <p>
+        This time was to <strong>work on new CSS specifications</strong> for print with Julie and
+        Julien from <a href="https://pagedjs.org/">paged.js</a>.
+      </p>
+      <p>
+        The grant covers:
+      </p>
+      <ul>
+        <li>publishing the CSS Notes specification,</li>
+        <li>implementing the Notes specification into WeasyPrint and paged.js,</li>
+        <li>publishing a specification about uncovered page breaks,</li>
+        <li>publishing a specification for facing pages layout.</li>
+      </ul>
+      <p>
+        If you’re interested to know more about this work and how CSS Notes work in WeasyPrint,
+        we <a href="{{ url_for('blog', article='00073-css-notes-in-weasyprint') }}">wrote a dedicated article</a> 😁.
+      </p>
+    </section>
+
+    <section>
+      <h3>What for Next Year?</h3>
+
+      <p>
+        After this year, what can you expect for the next one?
+      </p>
+
+      <p>
+        We’d like to <strong>rewrite the text layout</strong> to rely less on Pango,
+        improve RTL supports and be able support other line break
+        algorithms.
+      </p>
+      <p>
+        We’d also like to <strong>support new selectors</strong> from
+        <a href="https://drafts.csswg.org/selectors-5/">Selectors Level 5</a>,
+        like <code>:nth-col()</code> and <code>:nth-last-col()</code> for example.
+      </p>
+
+      <p>
+        Of course, we’ll continue to answer all the GitHub issues you
+        open, all the mails you send us, all the messages you write on
+        our Matrix channel ✉️.
+      </p>
+      <p>
+        <strong>We’ll do our best to get WeasyPrint and its dependencies for a shiny future.</strong>
+      </p>
+      <p>
+        Thanks again to all the people who sponsored features and bug fixes, to
+        our nice backers and sponsors, to our lovely clients, to our
+        sweet contributors, to everyone who uses our software, opens
+        issues and
+        <a href="{{ url_for('page', page='code-of-conduct', _anchor='guidelines-for-contributors') }}">follows the contributing guidelines</a> 💜.
+      </p>
+
+      <p>
+        Don’t hesitate to follow us on
+        <a href="https://fosstodon.org/@courtbouillon">Mastodon</a> or
+        <a href="https://linkedin.com/company/courtbouillon">LinkedIn</a>
+        to never miss news, to <a href="mailto:contact@courtbouillon.org">contact us</a> if
+        you’d like from some help or some advice on WeasyPrint, and to
+        <a href="https://opencollective.com/courtbouillon">support us</a> on OpenCollective!
+      </p>
+    </section>
+  </article>
+
+  <style>
+    embed {
+      display: block;
+      float: left;
+      margin: 0 1em 2em 0;
+      width: 70%;
+    }
+    embed + p {
+      margin-top: 2em;
+    }
+    h2, h3, h4,
+    p + p {
+      clear: left;
+    }
+    @media (max-width: 920px) {
+      embed {
+        float: none;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  </style>
+
+{% endblock content %}
