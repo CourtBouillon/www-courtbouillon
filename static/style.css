@@ -89,7 +89,13 @@ body > header {
 @media (prefers-color-scheme: dark) {
   :root {
     --black: white;
+    --darkgray: #c5c5c5;
+    --gray: #7f7f7f;
     --white: #210908;
+  }
+
+  .sponsors {
+    filter: grayscale(1) invert(1);
   }
 }
 
@@ -146,7 +152,7 @@ blockquote {
   color: var(--red);
   font-size: 2em;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
   margin: 1em;
   padding: 1em;
   position: relative;
@@ -434,8 +440,9 @@ dialog {
         color: var(--black);
         display: block;
         font: inherit;
+        outline: 1px solid transparent;
         padding: 0.5em;
-        transition: 0.5s background-color;
+        transition: 0.5s background-color, 0.5s outline-color;
 
         &::placeholder {
           color: alpha(from var(--black) / 0.5);
@@ -443,6 +450,7 @@ dialog {
 
         &:focus {
           background-color: alpha(from var(--white) / 0.2);
+          outline-color: alpha(from var(--black) / 0.5);
         }
       }
 
@@ -488,7 +496,7 @@ dialog {
   gap: 1em;
   justify-content: center;
   margin: 3em auto 0;
-  padding: 1em;
+  padding: 2em;
 
   li {
     display: block;
@@ -1002,6 +1010,7 @@ dialog {
 
     .tags {
       background: alpha(from var(--red) / 0.1);
+      padding: 1em;
     }
   }
 
@@ -1051,33 +1060,37 @@ dialog {
 /* Blog article page */
 
 #page-article {
-  article {
-    header {
-      aside {
-        margin: 0 0 1.5em;
-        opacity: 0.6;
+  main {
+    max-width: 75ch;
+
+    article {
+      header {
+        aside {
+          margin: 0 0 1.5em;
+          opacity: 0.6;
+        }
       }
-    }
-
-    img {
-      max-width: 80%;
-      margin: auto;
-    }
-
-    figure {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      margin: 3em auto;
 
       img {
-        margin: 0;
+        max-width: 80%;
+        margin: auto;
       }
 
-      figcaption {
-        color: var(--darkgray);
-        font-family: Inconsolata;
-        width: 35%;
+      figure {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        margin: 3em auto;
+
+        img {
+          margin: 0;
+        }
+
+        figcaption {
+          color: var(--darkgray);
+          font-family: Inconsolata;
+          width: 35%;
+        }
       }
     }
   }
@@ -1217,6 +1230,12 @@ dialog {
       > a {
         width: 25%;
       }
+    }
+  }
+
+  #page-article {
+    header {
+      margin: 0 -10ch;
     }
   }
 }
@@ -1387,13 +1406,13 @@ dialog {
     }
   }
 
-  .catchphrase, h1 {
+  .catchphrase, header h1 {
     font-size: 2.2rem;
     hyphens: auto;
   }
 
   header {
-    padding: 0.5em 2em;
+    padding: 0.5em 1em;
   }
 
   footer {
