@@ -1,0 +1,98 @@
+{% extends '_layout.jinja2' %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>Journey Book: October 2026</h2>
+      <aside><time datetime="2026-11-05">November 5, 2026</time>, by grewn0uille</aside>
+      <p>
+        Trick or Treat 🎃
+      </p>
+    </header>
+
+    <section>
+      <h3>About Code</h3>
+
+      <p>
+        This month, <a href="https://github.com/CourtBouillon/pydyf/releases/tag/v0.13.0">pydyf v0.13.0</a> has been released.
+        Among updating supported Python versions, a new function has been added to get safe name for PDF objects.
+      </p>
+      <p>
+        We finished to work on rewriting the repagination process in WeasyPrint.
+        If you’re interested in this, you can have a look at the <a href="https://github.com/Kozea/WeasyPrint/pull/2996">merged pull request</a>
+        and give a try to the main branch!
+      </p>
+      <p>
+        In July, we limited the number of opened pull requests per account to 1 and added
+        <a href="{{ url_for('page', page='code-of-conduct', _anchor='guidelines-for-contributors') }}">contribution guidelines</a>.
+        It kind of helped us in August, or maybe it was just the holidays, who knows. But since September, the doubtful "contributions" got back.
+      </p>
+      <p>
+        So we took the decision to <strong>close pull requests on WeasyPrint, tinycss2, pydyf and Pyphen</strong>.
+      </p>
+      <p>
+        We can’t say how long it’ll be like this. <strong>We need time for us, for the projects and for thinking to a better process.</strong>
+      </p>
+    </section>
+
+    <section>
+      <h3>Not About Code</h3>
+
+      <p>
+        On October 12, it was CourtBouillon 6-year anniversary 🎂.
+        As each year, we <a href="{{ url_for('blog', article='00076-six-years-of-courtbouillon') }}">published an article</a>
+        to talk about our financial incomes, show some statistics on the different projects…
+      </p>
+      
+      <p>
+        This month, there was no local Python meetup as there was the PyConFR in Biarritz 🌊.
+      </p>
+      <p>
+        We went to the conference for the whole 4 days and listen to several talks.
+        We really enjoyed the talk of <a href="https://www.amelie.tools/en/">Amélie Dumont</a> about code, typography and knitting,
+        and the talk of <a href="https://georgiker.com/">Georgi Ker</a> about the sustainability of open source in the future.
+      </p>
+      <p>
+        But what we enjoyed the most was people. Each year, the PyConFR is the moment where we see people we only see there.
+        This year in particular, talking, laughing, even drawing, with real people in real life was so much refreshing.
+      </p>
+
+      <p>
+        Lucie gave a talk abut the impact of AI in our lives of open source maintainers.
+        Support of the talk are available <a href="https://github.com/CourtBouillon/presentations/releases/tag/pycontogo-2026">on GitHub</a>, in French.
+        We’ll keep you up-to-date when the video is available.
+      </p>
+
+      <p>
+        We’ll be at <a href="https://capitoledulibre.org/">Capitole du Libre</a> in Toulouse (France) on November 14 and 15.
+        If you’re around, don’t hesitate to ping us!
+      </p>
+    </section>
+
+    <section>
+      <h3>Interesting Reading and Watching</h3>
+
+      <p>
+        The interesting reading and watching of this month, we got two items:
+      </p>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=KsEpW03gxKg">Software developers are not okay — Baldur Bjarnason</a>,</li>
+        <li>Is it true that everything goes faster? — ARTE</a>,
+          available <a href="https://www.youtube.com/watch?v=9cO5bDqQKMM">in French</a> and <a href="https://www.youtube.com/watch?v=FLM2Y8yunko">in German</a>.</li>
+      </ul>
+
+      <p>
+        In his video, Baldur Bjarnason talks about the transformation of the IT industry, how it becomes not for people and workers.
+        It helps to put words on feelings we have.
+      </p>
+      <p>
+        The ARTE documentary talks about how technology helps us doing things, but also the counter part where we have less time for us.
+        Several examples are used, but we can see the same patterns with other technologies.
+      </p>
+
+      <p>
+        See you next month for another Journey Book entry 💜
+      </p>
+    </section>
+  </article>
+{% endblock content %}
