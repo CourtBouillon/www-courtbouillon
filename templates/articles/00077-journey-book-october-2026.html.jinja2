@@ -1,17 +1,23 @@
 {% extends '_layout.jinja2' %}
 
 {% block content %}
+  <main>
   <article>
     <header>
-      <h2>Journey Book: October 2026</h2>
-      <aside><time datetime="2026-11-04">November 4, 2026</time>, by grewn0uille</aside>
+      <h1>Journey Book: October 2026</h1>
+      <aside>
+        <time datetime="2026-11-04">November 4, 2026</time>, by grewn0uille
+        <ul class="tags">
+          <li><a href="{{ url_for('blog', tag='life-of-courtbouillon') }}">{{ tags['life-of-courtbouillon'] }}</a></li>
+        </ul>
+      </aside>
       <p>
         Trick or Treat 🎃
       </p>
     </header>
 
     <section>
-      <h3>About Code</h3>
+      <h2>About Code</h2>
 
       <p>
         This month, <a href="https://github.com/CourtBouillon/pydyf/releases/tag/v0.13.0">pydyf v0.13.0</a> has been released.
@@ -36,7 +42,7 @@
     </section>
 
     <section>
-      <h3>Not About Code</h3>
+      <h2>Not About Code</h2>
 
       <p>
         On October 12, it was CourtBouillon 6-year anniversary 🎂.
@@ -70,7 +76,7 @@
     </section>
 
     <section>
-      <h3>Interesting Reading and Watching</h3>
+      <h2>Interesting Reading and Watching</h2>
 
       <p>
         The interesting reading and watching of this month, we got two items:
@@ -95,4 +101,5 @@
       </p>
     </section>
   </article>
+  </main>
 {% endblock content %}
